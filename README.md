@@ -1,4 +1,4 @@
 # Programacion
-Repositorio de Jonay Contreras para el modulo de Programación
+Repositorio de Jonay Contreras para el módulo de Programación
 ## Unidades
-- [Unidad 1] (Unidad 1)
+- [Unidad 1](unidad-1)
