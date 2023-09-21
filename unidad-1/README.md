@@ -33,18 +33,18 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 <img src="images/Diagrama-flujo-2.png"/>
 
 ### Pseudocódigo
-- Inicio
-- Inicializar las variables A, B y C
-- Leer los tres valores
-- Almacenar en las variables A, B y C
-- Si A > B y A > C Entonces
-- Escribir A “Es el mayor”
+- __Inicio__
+- __Inicializar__ las variables __A, B y C__
+- __Leer__ los __tres valores__
+- __Almacenar__ en las variables __A, B y C__
+- Si __A > B y A > C__ Entonces
+- Escribir __A “Es el mayor”__
+- __Sino__
+- Si __B > A y B > C__ Entonces
+- Escribir __B “Es el mayor”__
 - Sino
-- Si B > A y B > C Entonces
-- Escribir B “Es el mayor”
-- Sino
-- Escribir C “Es el mayor”
-- Fin_Si
-- Fin_Si
-- Fin
+- Escribir __C “Es el mayor”__
+- __Fin_Si__
+- __Fin_Si__
+- __Fin__
 </div>
