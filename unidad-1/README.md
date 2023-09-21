@@ -3,7 +3,7 @@
 # Ejercicios
 
 - [Ejercicio 1](#ejercicio1)
-- [Ejercicio 2](#ejercicio-2)
+- [Ejercicio 2](#ejercicio2)
 
 ## Ejercicio 1 <a name="ejercicio1"></a>
 Desarrolle un algoritmo que permita leer dos valores distintos, determinar cual de los dos valores es el mayor y escribirlo.
