@@ -4,6 +4,7 @@
 
 - [Ejercicio 1](#ejercicio1)
 - [Ejercicio 2](#ejercicio2)
+- [Ejercicio 3](#ejercicio3)
 
 ## Ejercicio 1 <a name="ejercicio1"></a>
 Desarrolle un algoritmo que permita leer dos valores distintos, determinar cual de los dos valores es el mayor y escribirlo.
@@ -47,4 +48,13 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 - __Fin_Si__
 - __Fin_Si__
 - __Fin__
+
+## Ejercicio 3 <a name="ejercicio3"></a>
+Desarrolle un algoritmo que realice la sumatoria de los números enteros comprendidos entre el 1 y el 10, es decir, 1 + 2 + 3 + …. + 10.
+
+### Diagrama de Flujo
+<img src="images/Diagrama-flujo-3.png"/>
+
+### Pseudocódigo
+
 </div>
