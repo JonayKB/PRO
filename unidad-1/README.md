@@ -56,5 +56,14 @@ Desarrolle un algoritmo que realice la sumatoria de los números enteros compren
 <img src="images/Diagrama-flujo-3.png"/>
 
 ### Pseudocódigo
+- __Inicio__
+- __Declaración de variables__: N= 0, Suma = 0
+- __Asignación Contador__ : N = N + 1
+- __Asignación Acumulador__: Suma = Suma + N
+- __Si__ N = 10 __Entonces__
+- __Escribir Suma__
+- __De lo contrario__, __Repetir__ desde el paso 3
+- __Fin_Si__
+- __Fin__
 
 </div>
