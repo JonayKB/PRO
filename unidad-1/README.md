@@ -17,14 +17,14 @@ Desarrolle un algoritmo que permita leer dos valores distintos, determinar cual 
 Pasos:
 
 - __Inicio__
-- __Inicializar__ variables: __A = 0, B = 0__
-- Solicitar la __introducción__ de __dos valores__ distintos
-- __Leer__ los __dos__ valores
-- Asignarlos a las __variables A y B__
-- Si __A = B__ Entonces __vuelve a 3__ porque los valores __deben ser distintos__
-- Si __A>B__ Entonces Escribir __A, “Es el mayor”__
-- De lo __contrario__: Escribir __B, “Es el mayor”__
-- Fin_Si
+- __Inicializar__ variables: A = 0, B = 0
+- __Solicitar la introducción__ de dos valores distintos
+- __Leer__ los dos valores
+- __Asignarlos__ a las variables A y B
+- __Si__ A = B __Entonces__ vuelve a 3 porque los valores deben ser distintos
+- __Si__ A>B __Entonces__ __Escribir__ A, “Es el mayor”
+- __De lo contrario__: __Escribir__ B, “Es el mayor”
+- __Fin_Si__
 - __Fin__
 
 ## Ejercicio 2 <a name="ejercicio2"></a>
@@ -35,16 +35,16 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 
 ### Pseudocódigo
 - __Inicio__
-- __Inicializar__ las variables __A, B y C__
-- __Leer__ los __tres valores__
-- __Almacenar__ en las variables __A, B y C__
-- Si __A > B y A > C__ Entonces
-- Escribir __A “Es el mayor”__
+- __Inicializar__ las variables A, B y C
+- __Leer__ los tres valores
+- __Almacenar__ en las variables A, B y C
+- __Si__ A > B y A > C __Entonces__
+- __Escribir__ A “Es el mayor”
 - __Sino__
-- Si __B > A y B > C__ Entonces
-- Escribir __B “Es el mayor”__
-- Sino
-- Escribir __C “Es el mayor”__
+- __Si__ B > A y B > C __Entonces__
+- __Escribir__ B “Es el mayor”
+- __Sino__
+- __Escribir__ C “Es el mayor”
 - __Fin_Si__
 - __Fin_Si__
 - __Fin__
