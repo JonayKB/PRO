@@ -30,7 +30,7 @@ public class Ejercicio2 {
                 System.out.println("Escriba numeros distintos");
             }
             else {
-                if(valorA == valorB || valorB == valorC){               //Si los primeros son iguales
+                if(valorA == valorB || valorB == valorC){               //Si los alguno de ellos son iguales
                     System.out.println("Todos los valores han de ser distintos");
                 }
                 else {                                                  //Si todos son distintos
