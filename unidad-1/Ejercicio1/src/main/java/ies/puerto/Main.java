@@ -38,11 +38,5 @@ public class Main {
         else{
             System.out.println("El valor de B es mayor");
         }
-
-
-
-
-
-
     }
 }
