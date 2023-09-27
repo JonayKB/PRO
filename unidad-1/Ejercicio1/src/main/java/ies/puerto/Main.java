@@ -28,7 +28,8 @@ public class Main {
                 continue;
             }
         }while(valorA == valorB);
-
+        //Cerramos el escaner
+        input.close();
         //Bloque 3: Verifica si A > B
          if (valorA > valorB) {
             System.out.println("El valor de A es mayor");

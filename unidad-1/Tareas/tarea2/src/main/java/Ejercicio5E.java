@@ -19,7 +19,7 @@ public class Ejercicio5E {
     static List<Integer> valores= new ArrayList<Integer>();
 
     //Funcion que pide un valor por pantalla y lo añade a una lista (version Expansible)
-    static public void PedirYGuardar(List lista){
+    static public void PedirYGuardar(List<Integer> lista){
         System.out.println("Inserte el valor: ");
         int valor=input.nextInt();
         lista.add(valor);

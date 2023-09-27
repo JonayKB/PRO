@@ -27,6 +27,9 @@ public class Ejercicio2 {
             valorA = PedirValor();
             valorB = PedirValor();
             valorC = PedirValor();
+
+            //Cerramos el escaner
+            input.close();
             if (valorA == valorB && valorA == valorC){                  //Si todos son iguales
                 System.out.println("Escriba numeros distintos");
             }
