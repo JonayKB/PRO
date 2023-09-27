@@ -1,8 +1,9 @@
+//Librerias de las listas
 import java.util.ArrayList;
 import java.util.List;
 /**
  * @author JonayKB
- * Ejercio numero dos
+ * Examen ETS
 
  * Descripcion del algoritmo
  * @param args
