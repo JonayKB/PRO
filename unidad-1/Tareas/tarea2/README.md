@@ -29,6 +29,9 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 - __Fin_Si__
 - __Fin__
 
+### Código en JAVA
+- [Click Aquí](/src/main/java/Ejercicio2.java)
+
 ## Ejercicio 3
 
 ### Descripción del ejercicio
