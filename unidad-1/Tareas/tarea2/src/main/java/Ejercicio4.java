@@ -1,7 +1,7 @@
 import java.util.Scanner;
 /**
  * @author JonayKB
- * Ejercio numero cuatro
+ * Ejercicio numero cuatro
  */
 public class Ejercicio4 {
     //Creamos el escaner para pedir las variables por la pantalla

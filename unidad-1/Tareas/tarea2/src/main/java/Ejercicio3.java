@@ -1,7 +1,7 @@
 
 /**
  * @author JonayKB
- * Ejercio numero tres
+ * Ejercicio numero tres
  */
 public class Ejercicio3 {
 
