@@ -47,6 +47,10 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 
 - __Fin__
 
+### Código en JAVA
+
+- [Click Aquí](src/main/java/Ejercicio3.java)
+
 ## Ejercicio 4
 
 ### Descripción del ejercicio
@@ -61,5 +65,8 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 - __Inicio__
 
 - __Fin__
+
+### Código en JAVA
+- [Click Aquí](src/main/java/Ejercicio4.java)
 
 </div>
