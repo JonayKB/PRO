@@ -70,3 +70,119 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 - [Click Aquí](src/main/java/Ejercicio4.java)
 
 </div>
+
+
+
+
+## Ejercicio 5
+
+### Descripción del ejercicio
+
+### Diagrama de flujos
+
+<div align="center">
+<img src=""/>
+</div>
+
+### Pseudocódigo
+- __Inicio__
+
+- __Fin__
+
+### Código en JAVA
+- [Click Aquí](src/main/java/Ejercicio5.java)
+
+</div>
+
+
+
+
+
+## Ejercicio 6
+
+### Descripción del ejercicio
+
+### Diagrama de flujos
+
+<div align="center">
+<img src=""/>
+</div>
+
+### Pseudocódigo
+- __Inicio__
+
+- __Fin__
+
+### Código en JAVA
+- [Click Aquí](src/main/java/Ejercicio6.java)
+
+</div>
+
+
+
+
+
+## Ejercicio 7
+
+### Descripción del ejercicio
+
+### Diagrama de flujos
+
+<div align="center">
+<img src=""/>
+</div>
+
+### Pseudocódigo
+- __Inicio__
+
+- __Fin__
+
+### Código en JAVA
+- [Click Aquí](src/main/java/Ejercicio7.java)
+
+</div>
+
+
+
+## Ejercicio 8
+
+### Descripción del ejercicio
+
+### Diagrama de flujos
+
+<div align="center">
+<img src=""/>
+</div>
+
+### Pseudocódigo
+- __Inicio__
+
+- __Fin__
+
+### Código en JAVA
+- [Click Aquí](src/main/java/Ejercicio8.java)
+
+</div>
+
+
+
+
+## Ejercicio 9
+
+### Descripción del ejercicio
+
+### Diagrama de flujos
+
+<div align="center">
+<img src=""/>
+</div>
+
+### Pseudocódigo
+- __Inicio__
+
+- __Fin__
+
+### Código en JAVA
+- [Click Aquí](src/main/java/Ejercicio9.java)
+
+</div>

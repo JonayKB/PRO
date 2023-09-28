@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Clase que realiza el ejercicio-1 de la tarea.
  */
-public class Main {
+public class Ejercicio1 {
     public static void main(String[] args) {
 
         int valorA,valorB;
