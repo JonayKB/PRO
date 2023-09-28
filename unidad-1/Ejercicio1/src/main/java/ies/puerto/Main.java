@@ -20,7 +20,7 @@ public class Main {
 
             System.out.println("Ingrese el valor de la variable B: ");
             valorB=input.nextInt();
-            System.out.println("Valor de la variable A: "+valorB);
+            System.out.println("Valor de la variable B: "+valorB);
             if (valorA == valorB){
                 System.out.println("Los valores son iguales");
             }
