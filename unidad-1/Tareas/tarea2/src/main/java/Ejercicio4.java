@@ -4,14 +4,15 @@ import java.util.Scanner;
  * Ejercicio numero cuatro
  */
 public class Ejercicio4 {
-    //Creamos el escaner para pedir las variables por la pantalla
-    static Scanner input = new Scanner(System.in);
+
     /**
-     * Descripcion del algoritmo
      * Desarrolle un algoritmo que permita leer un valor cualquiera N y escriba si dicho número es par o impar
      * @param args
      */
-    //valor es el numero que se comprobara si es par o impar
+
+    //Creamos el escaner para pedir las variables por la pantalla
+    static Scanner input = new Scanner(System.in);
+    
     static int valor;
     public static void main(String[] args) {
         System.out.println("Introduzca el numero: ");

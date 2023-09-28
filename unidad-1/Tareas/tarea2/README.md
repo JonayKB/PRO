@@ -10,7 +10,7 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ### Diagrama de flujos
 
 <div align="center">
-<img src="images/Diagrama-flujo.png"/>
+<img src="images/Diagrama-flujo2.png"/>
 </div>
 
 ### Pseudocódigo
@@ -39,7 +39,7 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ### Diagrama de flujos
 
 <div align="center">
-<img src=""/>
+<img src="images/Diagrama-flujo3.png"/>
 </div>
 
 ### Pseudocódigo
@@ -58,7 +58,7 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ### Diagrama de flujos
 
 <div align="center">
-<img src=""/>
+<img src="images/Diagrama-flujo4.png"/>
 </div>
 
 ### Pseudocódigo
@@ -81,7 +81,7 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ### Diagrama de flujos
 
 <div align="center">
-<img src=""/>
+<img src="images/Diagrama-flujo5.png"/>
 </div>
 
 ### Pseudocódigo
@@ -105,7 +105,7 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ### Diagrama de flujos
 
 <div align="center">
-<img src=""/>
+<img src="images/Diagrama-flujo6.png"/>
 </div>
 
 ### Pseudocódigo
@@ -129,7 +129,7 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ### Diagrama de flujos
 
 <div align="center">
-<img src=""/>
+<img src="images/Diagrama-flujo7.png"/>
 </div>
 
 ### Pseudocódigo
@@ -151,7 +151,7 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ### Diagrama de flujos
 
 <div align="center">
-<img src=""/>
+<img src="images/Diagrama-flujo8.png"/>
 </div>
 
 ### Pseudocódigo
@@ -174,7 +174,7 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ### Diagrama de flujos
 
 <div align="center">
-<img src=""/>
+<img src="images/Diagrama-flujo9.png"/>
 </div>
 
 ### Pseudocódigo

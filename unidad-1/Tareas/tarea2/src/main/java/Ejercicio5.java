@@ -4,9 +4,7 @@ import java.util.Scanner;
  * Ejercicio numero cinco
  */
 public class Ejercicio5 {
-
-    /**%
-     * Descripcion del algoritmo
+    /**
      * Desarrolle un algoritmo que permita leer dos números y ordenarlos de menor a mayor, si es el caso
      * @param args
      */
@@ -24,10 +22,10 @@ public class Ejercicio5 {
         valorB=input.nextInt();
 
         if(valorA>valorB){ //Si el valorA es mayor que el valorB
-            System.out.println("El valor "+valorA+" es mayor que el valor "+valorB); //Decimos que valorA es mayor que valorB
+            System.out.println("El valor "+valorA+" es mayor que el valor "+valorB); 
         }
         else if(valorB>valorA){//Si el valorB es mayor que el valorA
-            System.out.println("El valor "+valorB+" es mayor que el valor "+valorA); //Decimos que valorB es mayor que valorA
+            System.out.println("El valor "+valorB+" es mayor que el valor "+valorA); 
         }
         else{//Si no los valores son iguales
             System.out.println("Los valores son iguales");
