@@ -26,7 +26,7 @@ public class Ejercicio5Array {
 
         //Repetible para una cantidad indefinidad de valores (en este caso dos)
         PedirYGuardar(valores);
-        PedirYGuardar(valores);
+
         valores.sort(null);
         for ( int i = 0 ; i<valores.size() ; i++){ //For dependiendo de la longitud de la lista
             
