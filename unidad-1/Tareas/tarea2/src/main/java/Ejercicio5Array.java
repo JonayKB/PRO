@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 /**
  * @author JonayKB
@@ -14,10 +13,10 @@ public class Ejercicio5Array {
     static Scanner input = new Scanner(System.in);
 
     //Declaramos variables
-    static List<Integer> valores= new ArrayList<Integer>();
+    static ArrayList<Integer> valores= new ArrayList<Integer>();
 
     //Funcion que pide un valor por pantalla y lo añade a una lista
-    static public void PedirYGuardar(List<Integer> lista){
+    static public void PedirYGuardar(ArrayList<Integer> lista){
         System.out.println("Inserte el valor: ");
         int valor=input.nextInt();
         lista.add(valor);
@@ -26,7 +25,8 @@ public class Ejercicio5Array {
 
         //Repetible para una cantidad indefinidad de valores (en este caso dos)
         PedirYGuardar(valores);
-
+        PedirYGuardar(valores);
+        
         valores.sort(null);
         for ( int i = 0 ; i<valores.size() ; i++){ //For dependiendo de la longitud de la lista
             
