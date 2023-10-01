@@ -23,7 +23,7 @@ public class Ejercicio8 {
         numero = input.nextInt();
 
         //For hasta que N sea 0
-        for(int N = numero; N>=0; N--){
+        for(int N = numero-1; N>=0; N--){
             System.out.println("Introduzca la nota "+(numero-N));
             suma+=input.nextFloat();
             
