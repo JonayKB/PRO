@@ -22,11 +22,14 @@ public class Ejercicio8 {
         System.out.println("¿Cuantas notas va a introducir?: ");
         numero = input.nextInt();
 
-        //For hasta que N se
+        //For hasta que N sea 0
         for(int N = numero; N>=0; N--){
-            System.out.println("Introduzca la nota "+N);
+            System.out.println("Introduzca la nota "+(numero-N));
             suma+=input.nextFloat();
+            
         }
+
+        //Enseñamos resultado
         System.out.println("La media es: "+suma/numero);
     }
 }
