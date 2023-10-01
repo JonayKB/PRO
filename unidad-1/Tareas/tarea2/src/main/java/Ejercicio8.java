@@ -22,7 +22,8 @@ public class Ejercicio8 {
         System.out.println("¿Cuantas notas va a introducir?: ");
         numero = input.nextInt();
 
-        for(int N = 1; N<=numero; N++){
+        //For hasta que N se
+        for(int N = numero; N>=0; N--){
             System.out.println("Introduzca la nota "+N);
             suma+=input.nextFloat();
         }
