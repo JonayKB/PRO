@@ -4,7 +4,7 @@ import java.util.Scanner;
  * @author JonayKB
  * Ejercicio numero ocho
  */
-public class ejercicio8 {
+public class Ejercicio {
     /**
      * Descripcion del algoritmo
      * Desarrolle un algoritmo que permita calcular Promedio de Notas; finaliza cuando N = 0

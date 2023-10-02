@@ -28,5 +28,5 @@ Desarrolle un algoritmo que permita calcular Promedio de Notas; finaliza cuando 
 - __Fin__
 
 ### Código en JAVA
-- [Click Aquí](src/main/java/Ejercicio8.java)
+- [Click Aquí](src/main/java/Ejercicio.java)
 </div>
