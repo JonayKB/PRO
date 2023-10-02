@@ -35,7 +35,8 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ## Ejercicio 3
 
 ### Descripción del ejercicio
-
+Desarrolle un algoritmo que realice la sumatoria de los números enteros comprendidos entre el 1 y el 10, es decir, 1 + 2 + 3 + …. + 10. 
+Utilia un buble __for__ y un bucle __while__
 ### Diagrama de flujos
 
 <div align="center">
@@ -58,7 +59,8 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 - [Click Aquí](src/main/java/Ejercicio3.java)
 
 ## Ejercicio 4
-
+Desarrolle un algoritmo que permita leer un valor cualquiera N y escriba si dicho número es par o impar
+     
 ### Descripción del ejercicio
 
 ### Diagrama de flujos
@@ -89,7 +91,8 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ## Ejercicio 5
 
 ### Descripción del ejercicio
-
+Desarrolle un algoritmo que permita leer dos números y ordenarlos de menor a mayor, si es el caso
+    
 ### Diagrama de flujos
 
 <div align="center">
@@ -124,7 +127,8 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ## Ejercicio 6
 
 ### Descripción del ejercicio
-
+Desarrolle un algoritmo que permita leer un valor entero positivo N y determinar si es primo o no
+     
 ### Diagrama de flujos
 
 <div align="center">
@@ -148,7 +152,8 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ## Ejercicio 7
 
 ### Descripción del ejercicio
-
+Realice un algoritmo que a partir de proporcionarle la velocidad de un automóvil, expresada en kilómetros por hora, proporcione la velocidad en metros por segundo
+    
 ### Diagrama de flujos
 
 <div align="center">
@@ -170,7 +175,8 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ## Ejercicio 8
 
 ### Descripción del ejercicio
-
+Desarrolle un algoritmo que permita calcular Promedio de Notas; finaliza cuando N = 0
+     
 ### Diagrama de flujos
 
 <div align="center">
@@ -193,7 +199,8 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 ## Ejercicio 9
 
 ### Descripción del ejercicio
-
+Muestra los números del 1 al 100 (ambos incluidos). Usa un bucle while
+    
 ### Diagrama de flujos
 
 <div align="center">

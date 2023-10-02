@@ -41,6 +41,5 @@ public class Ejercicio6 {
         else{
             System.out.println(numero+" no es primo");
         }
-        System.out.println(divisores.toString());
     }
 }
