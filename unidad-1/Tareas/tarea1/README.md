@@ -19,7 +19,12 @@ Desarrolle un algoritmo que permita calcular Promedio de Notas; finaliza cuando 
 - Preguntamos cuantas notas quiere poner (N)
 - Declaramos que numero es igual a N
 - Le pedimos que inttroduzca la nota (input)
-- Sumamos a suma su valor mas el de imput
+- Sumamos a suma su valor mas el de input
+- Decrementamos el valor de N
+- Si N<=0 Entonces
+- Imprimimos la media que es suma/numero
+- Sino
+- Volvemos al paso en el que pedimos la nota
 - __Fin__
 
 ### Código en JAVA
