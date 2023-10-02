@@ -98,7 +98,18 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 
 ### Pseudocódigo
 - __Inicio__
-
+- __Pedimos__ los valores
+- __Declaramos__ valorA,valorB
+- __Si__ valorA>valorB __Entonces__
+- __Imprimimos__ "El valorA es mayor"
+- __Fin_Si__
+- __Sino__
+- __Si__ valorB>valorA __Entonces__
+- __Imprimimos__ "El valorB es mayor"
+- __Fin_Si__
+- __Sino__
+- __Imprimimos__ "Son iguales"
+- __Fin_No__
 - __Fin__
 
 ### Código en JAVA
@@ -122,18 +133,7 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 
 ### Pseudocódigo
 - __Inicio__
-- __Pedimos__ los valores
-- __Declaramos__ valorA,valorB
-- __Si__ valorA>valorB __Entonces__
-- __Imprimimos__ "El valorA es mayor"
-- __Fin_Si__
-- __Sino__
-- __Si__ valorB>valorA __Entonces__
-- __Imprimimos__ "El valorB es mayor"
-- __Fin_Si__
-- __Sino__
-- __Imprimimos__ "Son iguales"
-- __Fin_No__
+
 - __Fin__
 
 ### Código en JAVA
