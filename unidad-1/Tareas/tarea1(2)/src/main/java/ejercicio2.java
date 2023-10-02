@@ -25,7 +25,7 @@ public class ejercicio2 {
                 }
                 //Sumamos todos los divisores entre ellos
                 if(suma==i){
-                    System.out.println(i+" es numero perfecto");
+                    System.out.println(i+" es un numero perfecto");
                 }
                 suma=0;
 
