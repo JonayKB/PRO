@@ -44,7 +44,13 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 
 ### Pseudocódigo
 - __Inicio__
-
+- __Declaramos__ variables: suma, i
+- suma = suma + i
+- __Incremento__ de i
+- __Imprimimos__ suma
+- __Si__ i<=10 __Entonces__
+- __Volvemos__ a suma = suma + i
+- __Sino__
 - __Fin__
 
 ### Código en JAVA
