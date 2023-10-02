@@ -69,7 +69,13 @@ Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las vari
 
 ### Pseudocódigo
 - __Inicio__
-
+- __Imprimir__ "Inserte el numero"
+- __Declaramos__ valor
+- __Si__ valor%2==0 __Entonces__
+- __Imprimir__ "Es par"
+- __Sino__ "Es impar
+- __Fin_Si__
+- __Fin_No__
 - __Fin__
 
 ### Código en JAVA
