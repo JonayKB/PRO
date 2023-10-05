@@ -19,9 +19,11 @@ public class ej3 {
 
     for (int i = 1; i<n; i++){
         
+        //La escala de fibonnaci es el valor anterior mas el actual
         valor = valorAnterior + valor;
         valorAnterior= valor-valorAnterior;
     }
+
     System.out.println(valor);
     
     }
