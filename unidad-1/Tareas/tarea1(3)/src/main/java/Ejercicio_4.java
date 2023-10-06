@@ -25,10 +25,10 @@ public class Ejercicio_4 {
         }
     
         if(resultado==n){
-            System.out.println(resultado+" es palíndromo");
+            System.out.println(n+" es palíndromo");
         }
         else{
-            System.out.println(resultado+" no es palíndromo");
+            System.out.println(n+" no es palíndromo");
         }
     }
 }
