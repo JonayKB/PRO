@@ -2,7 +2,7 @@
  * @author JonayKB
  * Ejercicio numero uno
  */
-public class ej1 {
+public class Ejercicio_1 {
     /**
      * Descripcion del algoritmo
      * 1. Escribe un programa en Java que imprima el patrón siguiente:

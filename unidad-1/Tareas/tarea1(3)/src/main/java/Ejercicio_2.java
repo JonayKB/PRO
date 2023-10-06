@@ -4,7 +4,7 @@ import java.util.Scanner;
  * @author JonayKB
  * Ejercicio numero dos
  */
-public class ej2 {
+public class Ejercicio_2 {
     /**
      * Descripcion del algoritmo
      * 2. Escribe un programa en Java que encuentre el máximo común divisor (MCD) de dos números. Se debe solicitar los números por teclado.

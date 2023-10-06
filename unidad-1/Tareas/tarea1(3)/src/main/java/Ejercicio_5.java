@@ -2,12 +2,12 @@ import java.util.Scanner;
 
 /**
  * @author JonayKB
- * Ejercicio numero tres
+ * Ejercicio numero cinco
  */
-public class ej3 {
+public class Ejercicio_5 {
     /**
      * Descripcion del algoritmo
-     * 3. Escribe un programa en Java que encuentre el número de Fibonacci en la posición n.  Se debe solicitar el número por teclado.
+     * 5. Escribe un programa en Java que imprima los primeros n términos de la secuencia de Fibonacci. Se debe solicitar el número n por teclado.
      * @param args
      */ 
     static Scanner input = new Scanner(System.in);
@@ -17,14 +17,14 @@ public class ej3 {
     n = input.nextInt();
 
 
-    for (int i = 1; i<n; i++){
-        
+    for (int i = 0; i<n; i++){
+        System.out.println(valor);
         //La escala de fibonnaci es el valor anterior mas el actual
         valor = valorAnterior + valor;
         valorAnterior= valor-valorAnterior;
     }
 
-    System.out.println(valor);
+    
     
     }
 }
