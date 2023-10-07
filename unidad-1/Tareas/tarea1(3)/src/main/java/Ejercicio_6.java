@@ -10,7 +10,7 @@ public class Ejercicio_6 {
      * 6. Escribe un programa en Java que encuentre todos los números Armstrong entre 1 y 1000.
      * @param args
      */ 
-    static Scanner input = new Scanner(System.in);
+    
     public static void main(String[] args) {
 
         int resultado=0,digitos=1,inicial,contador,numExponentado=1;
