@@ -216,12 +216,46 @@ Imprimir el nombre del día de la semana correspondiente a un número ingresado 
 
 ### Pseudocódigo
 1. __Inicio__
-
+2. __Pedimos__ que introduzca n
+3. __Depende__ de n:
+4. Caso n=1
+5. __Imprimir__ "Lunes"
+4. Caso n=2
+5. __Imprimir__ "Martes"
+4. Caso n=3
+5. __Imprimir__ "Miércoles"
+4. Caso n=4
+5. __Imprimir__ "Jueves"
+4. Caso n=5
+5. __Imprimir__ "Viernes"
+4. Caso n=6
+5. __Imprimir__ "Sábado"
+4. Caso n=7
+5. __Imprimir__ "Domingo"
 0. __Fin__
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio7.java)
 
 
+
+## Ejercicio 8
+
+### Descripción del ejercicio
+Encontrar y mostrar todos los números perfectos en un rango dado utilizando un bucle for. Solicita el límite por teclado.
+
+
+### Diagrama de flujos
+
+<div align="center">
+<img src="images/Diagrama-Flujo8.png"/>
+</div>
+
+### Pseudocódigo
+1. __Inicio__
+
+0. __Fin__
+### Código en JAVA
+- [Click Aquí](src/main/java/Ejercicio8.java)
 
 
 
