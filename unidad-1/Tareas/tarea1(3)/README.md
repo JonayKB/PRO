@@ -95,15 +95,15 @@ Escribe un programa en Java que encuentre el número de Fibonacci en la posició
 
 ### Pseudocódigo
 1. __Inicio__
-2. Declaramos las variables n, i , valorAnterior = 0, valor = 1
-3. Pedimos el valor n
-4. Incrementamos el valor de i
+2. __Declaramos__ las variables n, i , valorAnterior = 0, valor = 1
+3. __Pedimos__ el valor n
+4. __Incrementamos__ el valor de i
 5. valor = valorAnterior + valor
 6. valorAnterior = valor - valorAnterior
-7. Si i>n Entonces
-8. Imprimimos valor
-9. Fin_Si
-10. Sino
+7. __Si__ i>n __Entonces__
+8. __Imprimimos__ valor
+9. __Fin_Si__
+10. __Sino__
 11. Volvemos al paso 4
 0. __Fin__
 
@@ -157,27 +157,47 @@ Escribe un programa en Java que verifique si un número es palíndromo. Se debe 
 ### Descripción del ejercicio
 Escribe un programa en Java que imprima los primeros n términos de la secuencia de Fibonacci. Se debe solicitar el número n por teclado.
 
-    
-    
 ### Diagrama de flujos
 
 <div align="center">
-<img src="images/Diagrama-Flujo4.png"/>
+<img src="images/Diagrama-Flujo5.png"/>
 </div>
 
 ### Pseudocódigo
 1. __Inicio__
-2. Declaramos las variables n, i , valorAnterior = 0, valor = 1
-3. Pedimos el valor n
-4. Incrementamos el valor de i
+2. __Declaramos__ las variables n, i , valorAnterior = 0, valor = 1
+3. __Pedimos__ el valor n
+4. __Incrementamos__ el valor de i
 5. valor = valorAnterior + valor
 6. valorAnterior = valor - valorAnterior
-7. Imprimimos valor
+7. __Imprimimos__ valor
 7. Si i>n Entonces
 9. Fin_Si
-10. Sino
+10. __Sino__
 11. Volvemos al paso 4
 0. __Fin__
 ### Código en JAVA
-- [Click Aquí](src/main/java/Ejercicio4.java)
+- [Click Aquí](src/main/java/Ejercicio5.java)
+</div>
+
+
+
+
+## Ejercicio 6
+
+### Descripción del ejercicio
+Escribe un programa en Java que encuentre todos los números Armstrong entre 1 y 1000.
+
+### Diagrama de flujos
+
+<div align="center">
+<img src="images/Diagrama-Flujo6.png"/>
+</div>
+
+### Pseudocódigo
+1. __Inicio__
+
+0. __Fin__
+### Código en JAVA
+- [Click Aquí](src/main/java/Ejercicio6.java)
 </div>
