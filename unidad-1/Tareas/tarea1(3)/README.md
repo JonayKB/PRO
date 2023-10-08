@@ -129,9 +129,55 @@ Escribe un programa en Java que verifique si un número es palíndromo. Se debe 
 
 ### Pseudocódigo
 1. __Inicio__
-
+2. __Declaramos__ n, resto, resultado, contador
+3. __Pedimos__ n
+4. contador = n
+5. resto = contador%10
+6. resultado = resultado*10 + resto
+7. contador = contador/10
+8. __Si__ contador>0 __Entonces__
+9. Volvemos al paso 5
+10. __Sino__
+11. __Si__ resultado == n __Entonces__
+12. __Imprimimos__ que es palindromo
+13. __Fin_Si__
+14. __Sino__
+15. __Imprimimos__ que no es palindromo
 0. __Fin__
 
+### Código en JAVA
+- [Click Aquí](src/main/java/Ejercicio4.java)
+</div>
+
+
+
+
+## Ejercicio 5
+
+### Descripción del ejercicio
+Escribe un programa en Java que imprima los primeros n términos de la secuencia de Fibonacci. Se debe solicitar el número n por teclado.
+
+    
+    
+### Diagrama de flujos
+
+<div align="center">
+<img src="images/Diagrama-Flujo4.png"/>
+</div>
+
+### Pseudocódigo
+1. __Inicio__
+2. Declaramos las variables n, i , valorAnterior = 0, valor = 1
+3. Pedimos el valor n
+4. Incrementamos el valor de i
+5. valor = valorAnterior + valor
+6. valorAnterior = valor - valorAnterior
+7. Imprimimos valor
+7. Si i>n Entonces
+9. Fin_Si
+10. Sino
+11. Volvemos al paso 4
+0. __Fin__
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio4.java)
 </div>
