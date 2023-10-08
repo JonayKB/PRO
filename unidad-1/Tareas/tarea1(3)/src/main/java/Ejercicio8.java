@@ -24,7 +24,7 @@ public class Ejercicio8 {
                 }
 
                 if(suma==i){
-                    System.out.println(i+" es un numero perfecto");
+                    System.out.println(i+" es un número perfecto");
                 }
                 suma=0;
     
