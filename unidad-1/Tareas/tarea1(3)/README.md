@@ -252,11 +252,52 @@ Encontrar y mostrar todos los números perfectos en un rango dado utilizando un 
 
 ### Pseudocódigo
 1. __Inicio__
-
+2. __Declaramos__ i, n , suma = 0
+3. __Pedimos__ entrada
+5. __Incrementamos__ i
+7. __Incrementamos__ n
+8. __Si__ i%n == 0 __Entonces__
+9. suma += n
+10. __Fin_Si__
+11. __Sino__
+12. __Si__ n >= i/2 __Entonces__
+13. __Si__ suma == i __Entonces__
+14. __Imprimimos__ que i es un numero perfecto
+15. __Fin_Si__
+15. __Sino__
+16. Volvemos a paso 7
+17. __Sino__
+18. suma = 0
+19. __Si__ i = entrada __Entonces__
+20. __Fin_Si__
+21. __Sino__
+22. Volvemos a paso 5
 0. __Fin__
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio8.java)
 
+
+
+
+## Ejercicio 9
+
+### Descripción del ejercicio
+Imprimir la tabla de multiplicar de un número ingresado por el usuario utilizando un bucle for. Solicita el valor de la tabla por teclado.
+
+
+
+### Diagrama de flujos
+
+<div align="center">
+<img src="images/Diagrama-Flujo9.png"/>
+</div>
+
+### Pseudocódigo
+1. __Inicio__
+
+0. __Fin__
+### Código en JAVA
+- [Click Aquí](src/main/java/Ejercicio9.java)
 
 
 </div>
