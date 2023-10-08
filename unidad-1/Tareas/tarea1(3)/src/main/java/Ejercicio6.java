@@ -4,7 +4,7 @@
  * @author JonayKB
  * Ejercicio numero seis
  */
-public class Ejercicio_6 {
+public class Ejercicio6 {
     /**
      * Descripcion del algoritmo
      * 6. Escribe un programa en Java que encuentre todos los números Armstrong entre 1 y 1000.

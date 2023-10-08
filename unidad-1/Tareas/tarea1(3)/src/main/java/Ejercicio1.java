@@ -2,7 +2,7 @@
  * @author JonayKB
  * Ejercicio numero uno
  */
-public class Ejercicio_1 {
+public class Ejercicio1 {
     /**
      * Descripcion del algoritmo
      * 1. Escribe un programa en Java que imprima el patrón siguiente:
@@ -15,9 +15,9 @@ public class Ejercicio_1 {
 
 
     public static void main(String[] args) {
-        int numero=1;
-        int cantidad=1;
-        for(int i = 0; i<=3; i++){
+        int numero = 1;
+        int cantidad = 1;
+        for(int i = 0; i <= 3; i++){
             for(cantidad = 0 ; cantidad <= i ; cantidad++){
                 System.out.print(numero+" ");
                 numero++;

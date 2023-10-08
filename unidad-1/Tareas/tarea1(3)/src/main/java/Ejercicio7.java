@@ -4,7 +4,7 @@ import java.util.Scanner;
  * @author JonayKB
  * Ejercicio numero siete
  */
-public class Ejercicio_7 {
+public class Ejercicio7 {
     /**
      * Descripcion del algoritmo
      * 7. Imprimir el nombre del día de la semana correspondiente a un número ingresado por el usuario utilizando una estructura switch.

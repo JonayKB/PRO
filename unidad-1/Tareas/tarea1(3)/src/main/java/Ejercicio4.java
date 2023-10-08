@@ -4,7 +4,7 @@ import java.util.Scanner;
  * @author JonayKB
  * Ejercicio numero cuatro
  */
-public class Ejercicio_4 {
+public class Ejercicio4 {
     /**
      * Descripcion del algoritmo
      * Escribe un programa en Java que verifique si un número es palíndromo. Se debe solicitar el número por teclado.

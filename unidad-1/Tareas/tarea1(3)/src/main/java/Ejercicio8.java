@@ -4,7 +4,7 @@ import java.util.Scanner;
  * @author JonayKB
  * Ejercicio numero ocho
  */
-public class Ejercicio_8 {
+public class Ejercicio8 {
     /**
      * Descripcion del algoritmo
      * 8. Encontrar y mostrar todos los números perfectos en un rango dado utilizando un bucle for. Solicita el límite por teclado.
