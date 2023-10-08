@@ -205,6 +205,34 @@ Escribe un programa en Java que encuentre todos los números Armstrong entre 1 y
 ### Pseudocódigo
 1. __Inicio__
 
+2. __Declaramos__ resultado = 0, digitos = 1, inicial, contador, numExponentado = 1, contadoExponente
+3. __Incrementamos__ i
+4. __Reseteamos__ valores: inicial = i, contador = i, resultado = 0, digitos = 0
+5. contador = contado/10
+6. __Incrementamos__ digitos
+7. __Si__ contador>0 __Entonces__
+8. Volvemos al paso 5
+9. __Sino__
+10. contador = digitos
+11. contadorExponente = digitos
+12. __Decrementamos__ contadorExponente
+13. numExponentado = numExponentado*(inicial/10)
+14. __Si__ contadorExponente >0 __Entonces__
+15. Volvemos al paso 12
+16. __Sino__
+17. resultado += numExponentado
+18. inicial = inicial/10
+19. __Decrementamos__ contador
+20. numExponentado = 1
+21. __Si__ contador > 0 __Entonces__
+22. Volvemos al paso 11
+23. __Sino__
+24. __Si__ i == resultado __Entonces__
+25. __Imprimimos__ que el resultado es un numero armstrong
+26. __Sino__
+27. __Si__ i <= 1000 __Entonces__
+28. Volvemos al paso 3
+29. __Sino__
 0. __Fin__
 
 
@@ -328,8 +356,6 @@ Imprimir la tabla de multiplicar de un número ingresado por el usuario utilizan
 
 ### Descripción del ejercicio
 Calcular la suma de todos los números pares entre 1 y un número ingresado por el usuario utilizando un bucle do-while.
-
-
 
 
 ### Diagrama de flujos
