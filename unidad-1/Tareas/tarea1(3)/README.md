@@ -5,7 +5,13 @@
 ## Ejercicio 1
 
 ### Descripción del ejercicio
-
+ Escribe un programa en Java que imprima el patrón siguiente:
+```code
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+```
 ### Diagrama de flujos
 
 <div align="center">
@@ -40,7 +46,8 @@
 ## Ejercicio 2
 
 ### Descripción del ejercicio
-
+Escribe un programa en Java que encuentre el máximo común divisor (MCD) de dos números. Se debe solicitar los números por teclado.
+    
 ### Diagrama de flujos
 
 <div align="center">
@@ -54,4 +61,28 @@
 
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio2.java)
+</div>
+
+
+
+
+## Ejercicio 3
+
+### Descripción del ejercicio
+Escribe un programa en Java que encuentre el número de Fibonacci en la posición n.  Se debe solicitar el número por teclado.
+    
+    
+### Diagrama de flujos
+
+<div align="center">
+<img src="images/Diagrama-Flujo2.png"/>
+</div>
+
+### Pseudocódigo
+1. __Inicio__
+
+0. __Fin__
+
+### Código en JAVA
+- [Click Aquí](src/main/java/Ejercicio3.java)
 </div>
