@@ -43,7 +43,7 @@ public class Ejercicio2 {
         }
 
         else{
-            System.out.println("El MCM es "+valor1);
+            System.out.println("El MCM es "+valor1/2);
         }
 
     }
