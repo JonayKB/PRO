@@ -26,7 +26,7 @@ public class Ejercicio6 {
                 contador= contador/10;
                 digitos++;
             }
-            System.out.println(digitos);
+
             contador = digitos;
 
             while(contador>0){
