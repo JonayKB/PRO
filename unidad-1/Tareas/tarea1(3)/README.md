@@ -20,6 +20,8 @@
 
 ### Pseudocódigo
 1. __Inicio__
+
+
 2. __Declaramos__ variables numero, cantidad, i
 3. __Imprimimos__ la variable numero
 4. __Incrementamos__ la variable numero, i y cantidad
@@ -56,6 +58,7 @@ Escribe un programa en Java que encuentre el máximo común divisor (MCD) de dos
 
 ### Pseudocódigo
 1. __Inicio__
+
 2. __Declaramos__ valorMayor e i
 3. __Pedimos__ que intruduzca los valores valorA y valorB
 4. __Si__ valorA>valorB __Entonces__
@@ -95,6 +98,7 @@ Escribe un programa en Java que encuentre el número de Fibonacci en la posició
 
 ### Pseudocódigo
 1. __Inicio__
+
 2. __Declaramos__ las variables n, i , valorAnterior = 0, valor = 1
 3. __Pedimos__ el valor n
 4. __Incrementamos__ el valor de i
@@ -129,6 +133,7 @@ Escribe un programa en Java que verifique si un número es palíndromo. Se debe 
 
 ### Pseudocódigo
 1. __Inicio__
+
 2. __Declaramos__ n, resto, resultado, contador
 3. __Pedimos__ n
 4. contador = n
@@ -165,6 +170,7 @@ Escribe un programa en Java que imprima los primeros n términos de la secuencia
 
 ### Pseudocódigo
 1. __Inicio__
+
 2. __Declaramos__ las variables n, i , valorAnterior = 0, valor = 1
 3. __Pedimos__ el valor n
 4. __Incrementamos__ el valor de i
@@ -176,6 +182,8 @@ Escribe un programa en Java que imprima los primeros n términos de la secuencia
 10. __Sino__
 11. Volvemos al paso 4
 0. __Fin__
+
+
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio5.java)
 
@@ -198,6 +206,8 @@ Escribe un programa en Java que encuentre todos los números Armstrong entre 1 y
 1. __Inicio__
 
 0. __Fin__
+
+
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio6.java)
 
@@ -216,6 +226,7 @@ Imprimir el nombre del día de la semana correspondiente a un número ingresado 
 
 ### Pseudocódigo
 1. __Inicio__
+
 2. __Pedimos__ que introduzca n
 3. __Depende__ de n:
 4. Caso n=1
@@ -233,6 +244,7 @@ Imprimir el nombre del día de la semana correspondiente a un número ingresado 
 4. Caso n=7
 5. __Imprimir__ "Domingo"
 0. __Fin__
+
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio7.java)
 
@@ -252,6 +264,7 @@ Encontrar y mostrar todos los números perfectos en un rango dado utilizando un 
 
 ### Pseudocódigo
 1. __Inicio__
+
 2. __Declaramos__ i, n , suma = 0
 3. __Pedimos__ entrada
 5. __Incrementamos__ i
@@ -273,6 +286,7 @@ Encontrar y mostrar todos los números perfectos en un rango dado utilizando un 
 21. __Sino__
 22. Volvemos a paso 5
 0. __Fin__
+
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio8.java)
 
@@ -295,9 +309,52 @@ Imprimir la tabla de multiplicar de un número ingresado por el usuario utilizan
 ### Pseudocódigo
 1. __Inicio__
 
+2. __Declaramos__ i
+3. __Pedimos__ valor
+4. __Incrementamos__ i
+5. __Imprimimos__ valor*i
+6. __Si__ i == 10 __Entonces__
+7. __Fin_Si__
+8. __Sino__
+9. Volvemos al paso 4
 0. __Fin__
+
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio9.java)
 
+
+
+## Ejercicio 10
+
+### Descripción del ejercicio
+Calcular la suma de todos los números pares entre 1 y un número ingresado por el usuario utilizando un bucle do-while.
+
+
+
+
+### Diagrama de flujos
+
+<div align="center">
+<img src="images/Diagrama-Flujo10.png"/>
+</div>
+
+### Pseudocódigo
+1. __Inicio__
+
+2. __Declaramos__ valor, i, suma = 0
+3. __Pedimos__ valor
+4. __Incrementamos__ i
+5. __Si__ i%2 == 0 __Entonces__
+6. suma += i
+7. __Fin_Si__
+8. S__ino
+9. __Si__ i < valor __Entonces__
+10. Volvemos al paso 4
+11. __Sino__
+12. __Imprimimos__ suma
+0. __Fin__
+
+### Código en JAVA
+- [Click Aquí](src/main/java/Ejercicio10.java)
 
 </div>
