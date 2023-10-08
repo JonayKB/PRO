@@ -26,7 +26,6 @@ public class Ejercicio6 {
                 contador= contador/10;
                 digitos++;
             }
-
             digitos= digitos-1;
             contador = digitos;
 

@@ -36,7 +36,7 @@
 
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio1.java)
-</div>
+
 
 
 
@@ -76,7 +76,7 @@ Escribe un programa en Java que encuentre el máximo común divisor (MCD) de dos
 
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio2.java)
-</div>
+
 
 
 
@@ -109,7 +109,7 @@ Escribe un programa en Java que encuentre el número de Fibonacci en la posició
 
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio3.java)
-</div>
+
 
 
 
@@ -147,7 +147,7 @@ Escribe un programa en Java que verifique si un número es palíndromo. Se debe 
 
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio4.java)
-</div>
+
 
 
 
@@ -178,7 +178,7 @@ Escribe un programa en Java que imprima los primeros n términos de la secuencia
 0. __Fin__
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio5.java)
-</div>
+
 
 
 
@@ -200,4 +200,29 @@ Escribe un programa en Java que encuentre todos los números Armstrong entre 1 y
 0. __Fin__
 ### Código en JAVA
 - [Click Aquí](src/main/java/Ejercicio6.java)
+
+
+
+## Ejercicio 7
+
+### Descripción del ejercicio
+Imprimir el nombre del día de la semana correspondiente a un número ingresado por el usuario utilizando una estructura switch. El día a verificar se debe de pedir por teclado.
+
+### Diagrama de flujos
+
+<div align="center">
+<img src="images/Diagrama-Flujo7.png"/>
+</div>
+
+### Pseudocódigo
+1. __Inicio__
+
+0. __Fin__
+### Código en JAVA
+- [Click Aquí](src/main/java/Ejercicio7.java)
+
+
+
+
+
 </div>
