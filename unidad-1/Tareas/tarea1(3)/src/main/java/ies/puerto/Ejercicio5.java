@@ -12,13 +12,13 @@ public class Ejercicio5 {
      * @param args
      */ 
     static Scanner input = new Scanner(System.in);
-    static int n,valorAnterior=0,valor=1;
+    static int repeticiones,valorAnterior=0,valor=1;
     public static void main(String[] args) {
     System.out.println("Escribe la posición: ");
-    n = input.nextInt();
+    repeticiones = input.nextInt();
 
 
-    for (int i = 0; i<n; i++){
+    for (int i = 0; i<repeticiones; i++){
         System.out.println(valor);
         //La escala de fibonnaci es el valor anterior mas el actual
         valor = valorAnterior + valor;

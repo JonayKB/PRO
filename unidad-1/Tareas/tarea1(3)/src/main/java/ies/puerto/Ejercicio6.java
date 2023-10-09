@@ -58,16 +58,17 @@ public class Ejercicio6 {
 
         int resultado=0,digitos=0,inicial,contador,numExponentado=1;
         for(int numero=1; numero<=1000;numero++){
-
-
-            
             inicial = numero;
             resultado=0;
             digitos=0;
 
+
+
             digitos = calcularDigitos(numero);
-            contador = digitos;
-            
+
+
+
+            contador = digitos;    
 
             while(contador>0){
                 resultado += calcularExponente(digitos, numExponentado, inicial);
