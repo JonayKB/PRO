@@ -14,16 +14,16 @@ public class Ejercicio10 {
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
 
-        int valor,i=1,suma=0;
+        int entrada,numero=1,suma=0;
 
         System.out.println("Introduza el numero");
-        valor = input.nextInt();
+        entrada = input.nextInt();
         do {
-            if(i%2==0){
-                suma += i;
+            if(numero%2==0){
+                suma += numero;
             }
-            i++;
-        }while(i<valor);
+            numero++;
+        }while(numero<entrada);
 
 
         System.out.println(suma);

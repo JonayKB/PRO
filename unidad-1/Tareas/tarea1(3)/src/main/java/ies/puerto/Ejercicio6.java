@@ -19,9 +19,7 @@ public class Ejercicio6 {
      */
 
     public static int calcularDigitos(int numero){
-
         int digitos = 0;
-
         while(numero>0){
                 numero= numero/10;
                 digitos++;

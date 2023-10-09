@@ -14,13 +14,13 @@ public class Ejercicio9 {
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
 
-        int valor;
+        int entrada;
 
         System.out.println("Introduza el numero");
-        valor = input.nextInt();
+        entrada = input.nextInt();
 
-        for(int i = 1; i<=10; i++){
-            System.out.println(valor*i);
+        for(int multiplicador = 1; multiplicador<=10; multiplicador++){
+            System.out.println(entrada*multiplicador);
         }
     }
 }

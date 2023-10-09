@@ -17,10 +17,10 @@ public class Ejercicio8 {
         System.out.println("Incluya el rango: ");
         int suma=0,entrada = input.nextInt();
             for(int numero = 1 ; numero<=entrada ; numero++ ){
-                //Buscamos los divisores
-                for(int n=1 ; n<=numero/2; n++){
-                    if(numero%n == 0){
-                        suma+= n;
+
+                for(int i=1 ; i<=numero/2; i++){
+                    if(numero%i == 0){
+                        suma+= i;
                     }
                 }
 
