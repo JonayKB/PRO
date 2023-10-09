@@ -9,11 +9,11 @@ public class Ejercicio5 {
     /**
      * Descripcion del algoritmo
      * 5. Escribe un programa en Java que imprima los primeros n términos de la secuencia de Fibonacci. Se debe solicitar el número n por teclado.
-     * @param args
      */ 
     static Scanner input = new Scanner(System.in);
     static int repeticiones,valorAnterior=0,valor=1;
     public static void main(String[] args) {
+
     System.out.println("Escribe la posición: ");
     repeticiones = input.nextInt();
 

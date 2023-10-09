@@ -14,6 +14,7 @@ public class Ejercicio7 {
      */ 
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
+        
         System.out.println("Escriba el número de la semana: ");
         int entrada = input.nextInt();
 

@@ -9,7 +9,6 @@ public class Ejercicio3 {
     /**
      * Descripcion del algoritmo
      * 3. Escribe un programa en Java que encuentre el número de Fibonacci en la posición n.  Se debe solicitar el número por teclado.
-     * @param args
      */ 
     static Scanner input = new Scanner(System.in);
     static int n,valorAnterior=0,valor=1;

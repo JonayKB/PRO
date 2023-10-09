@@ -7,8 +7,6 @@ package ies.puerto;
     /**
      * Descripcion del algoritmo
      * 6. Escribe un programa en Java que encuentre todos los números Armstrong entre 1 y 1000.
-     * 
-     * 
      */ 
 
      
@@ -62,11 +60,7 @@ public class Ejercicio6 {
             resultado=0;
             digitos=0;
 
-
-
             digitos = calcularDigitos(numero);
-
-
 
             contador = digitos;    
 

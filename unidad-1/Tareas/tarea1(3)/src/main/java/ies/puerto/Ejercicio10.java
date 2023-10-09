@@ -21,9 +21,6 @@ public class Ejercicio10 {
         do {
             if(i%2==0){
                 suma += i;
-
-
-
             }
             i++;
         }while(i<valor);

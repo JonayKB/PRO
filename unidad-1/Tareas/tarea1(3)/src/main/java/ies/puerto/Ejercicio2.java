@@ -9,8 +9,24 @@ public class Ejercicio2 {
     /**
      * Descripcion del algoritmo
      * 2. Escribe un programa en Java que encuentre el máximo común divisor (MCD) de dos números. Se debe solicitar los números por teclado.
-     * @param args
      */ 
+
+     
+    /**
+     * Método que imprime y calcula el resultado
+     * @param valorMayor El valor que sea mas alto
+     * @param valorMenor El vlaor que sea menor
+     */
+    public static void calcularResultado(int valorMayor, int valorMenor){
+        for(int i = valorMayor/2; i>=0 ; i--  ){
+            
+            if((valorMayor%i==0)&&(valorMenor%i==0)){
+                System.out.println("El número "+i+" es el MCD de "+valorMayor+" y "+valorMenor);
+                break;
+            }
+        }
+    }
+    
     static Scanner input = new Scanner(System.in);
     static int valor1, valor2;
     public static void main(String[] args) {
@@ -22,24 +38,11 @@ public class Ejercicio2 {
 
         
         if(valor1>valor2){
-            for(int i = valor1/2; i>=0 ; i--  ){
-                
-                if((valor1%i==0)&&(valor2%i==0)){
-                    System.out.println(i+" es el MCD de "+valor1+" y "+valor2);
-                    break;
-                }
-            }
+            calcularResultado(valor1, valor2);
         }
 
         else if(valor2>valor1){
-            
-            for(int i = valor2/2; i>=0 ; i--  ){
-
-                if((valor1%i==0)&&(valor2%i==0)){
-                    System.out.println(i+" es el MCD de "+valor1+" y "+valor2);
-                    break;
-                }
-            }
+            calcularResultado(valor2, valor1);
         }
 
         else{

@@ -9,7 +9,6 @@ public class Ejercicio4 {
     /**
      * Descripcion del algoritmo
      * Escribe un programa en Java que verifique si un número es palíndromo. Se debe solicitar el número por teclado.
-     * @param args
      */ 
     static Scanner input = new Scanner(System.in);
     static int n,resto,resultado,contador;
