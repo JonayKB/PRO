@@ -1,3 +1,4 @@
+package ies.puerto;
 import java.util.Scanner;
 
 /**
@@ -14,9 +15,9 @@ public class Ejercicio7 {
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("Escriba el número de la semana: ");
-        int n = input.nextInt();
+        int entrada = input.nextInt();
 
-        switch(n){
+        switch(entrada){
             case 1:
             System.out.println("Lunes");
             break;
@@ -46,7 +47,7 @@ public class Ejercicio7 {
             break;
 
             default:
-            System.out.println("El número"+n+" no existe como día de la semana ");
+            System.out.println("El número"+entrada+" no existe como día de la semana ");
 
         }
     }

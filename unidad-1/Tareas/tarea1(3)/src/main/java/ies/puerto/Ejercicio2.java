@@ -1,3 +1,4 @@
+package ies.puerto;
 import java.util.Scanner;
 
 /**
@@ -20,7 +21,6 @@ public class Ejercicio2 {
         valor2= input.nextInt();
 
         
-        //Decrementamos hasta hallar el primer divisor, comprobamos si es divisor del otro valor y ese sera el MCD
         if(valor1>valor2){
             for(int i = valor1/2; i>=0 ; i--  ){
                 

@@ -1,3 +1,4 @@
+package ies.puerto;
 /**
  * @author JonayKB
  * Ejercicio numero uno
@@ -17,8 +18,8 @@ public class Ejercicio1 {
     public static void main(String[] args) {
         int numero = 1;
         int cantidad = 1;
-        for(int i = 0; i <= 3; i++){
-            for(cantidad = 0 ; cantidad <= i ; cantidad++){
+        for(int fila = 0; fila <= 3; fila++){
+            for(cantidad = 0 ; cantidad <= fila ; cantidad++){
                 System.out.print(numero+" ");
                 numero++;
             }

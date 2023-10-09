@@ -1,3 +1,4 @@
+package ies.puerto;
 import java.util.Scanner;
 
 /**
@@ -15,16 +16,16 @@ public class Ejercicio8 {
 
         System.out.println("Incluya el rango: ");
         int suma=0,entrada = input.nextInt();
-            for(int i = 1 ; i<=entrada ; i++ ){
+            for(int numero = 1 ; numero<=entrada ; numero++ ){
                 //Buscamos los divisores
-                for(int n=1 ; n<=i/2; n++){
-                    if(i%n == 0){
+                for(int n=1 ; n<=numero/2; n++){
+                    if(numero%n == 0){
                         suma+= n;
                     }
                 }
 
-                if(suma==i){
-                    System.out.println(i+" es un número perfecto");
+                if(suma==numero){
+                    System.out.println(numero+" es un número perfecto");
                 }
                 suma=0;
     
