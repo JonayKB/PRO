@@ -11,14 +11,13 @@ public class Ejercicio2 {
      * 2. Escribe un programa en Java que encuentre el máximo común divisor (MCD) de dos números. Se debe solicitar los números por teclado.
      */ 
 
-
     /**
      * Método que imprime y calcula el resultado
      * @param valorMayor El valor que sea mas alto
-     * @param valorMenor El vlaor que sea menor
+     * @param valorMenor El valor que sea menor
      */
     public static void calcularResultado(int valorMayor, int valorMenor){
-        for(int numero = valorMayor/2; numero>=0 ; numero--  ){
+        for(int numero = valorMayor/2; numero>=0 ; numero--){
             
             if((valorMayor%numero==0)&&(valorMenor%numero==0)){
                 System.out.println("El número "+numero+" es el MCD de "+valorMayor+" y "+valorMenor);

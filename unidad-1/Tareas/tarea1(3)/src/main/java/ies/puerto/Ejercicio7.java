@@ -10,9 +10,18 @@ public class Ejercicio7 {
      * Descripcion del algoritmo
      * 7. Imprimir el nombre del día de la semana correspondiente a un número ingresado por el usuario utilizando una estructura switch.
      * El día a verificar se debe de pedir por teclado.
-     * @param args
      */ 
+    
+    /**
+     * Método que enseña el día que es
+     * @param dia String que incluye el día
+     */
+    public static void enseñarDia(String dia){
+        System.out.println(dia);
+    } 
     static Scanner input = new Scanner(System.in);
+
+    
     public static void main(String[] args) {
         
         System.out.println("Escriba el número de la semana: ");
@@ -20,31 +29,31 @@ public class Ejercicio7 {
 
         switch(entrada){
             case 1:
-            System.out.println("Lunes");
+            enseñarDia("Lunes");
             break;
 
             case 2:
-            System.out.println("Martes");
+            enseñarDia("Martes");
             break;
 
             case 3:
-            System.out.println("Miércoles");
+            enseñarDia("Miércoles");
             break;
 
             case 4:
-            System.out.println("Jueves");
+            enseñarDia("Jueves");
             break;
 
             case 5:
-            System.out.println("Viernes");
+            enseñarDia("Viernes");
             break;
 
             case 6:
-            System.out.println("Sábado");
+            enseñarDia("Sábado");
             break;
 
             case 7:
-            System.out.println("Domingo");
+            enseñarDia("Domingo");
             break;
 
             default:

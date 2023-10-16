@@ -9,8 +9,6 @@ package ies.puerto;
      * 6. Escribe un programa en Java que encuentre todos los números Armstrong entre 1 y 1000.
      */ 
 
-     
-
 public class Ejercicio6 {
     /**
      * Función que realiza el calculo para contar los digitos de un número
@@ -28,9 +26,6 @@ public class Ejercicio6 {
         return digitos;
     }
 
-
-
-
     /**
      * Función para calcular el exponente de un número
      * @param digitos Cantidad de digitos que tiene el número
@@ -45,10 +40,6 @@ public class Ejercicio6 {
             }
             return numExponentado;
     }
-
-
-    
-
 
     public static void main(String[] args) {
 

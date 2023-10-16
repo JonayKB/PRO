@@ -9,7 +9,6 @@ public class Ejercicio9 {
     /**
      * Descripcion del algoritmo
      * 9. Imprimir la tabla de multiplicar de un número ingresado por el usuario utilizando un bucle for. Solicita el valor de la tabla por teclado.
-     * @param args
      */ 
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
@@ -20,7 +19,7 @@ public class Ejercicio9 {
         entrada = input.nextInt();
 
         for(int multiplicador = 1; multiplicador<=10; multiplicador++){
-            System.out.println(entrada*multiplicador);
+            System.out.println(entrada+" * "+multiplicador+" = "+entrada*multiplicador);
         }
     }
 }
