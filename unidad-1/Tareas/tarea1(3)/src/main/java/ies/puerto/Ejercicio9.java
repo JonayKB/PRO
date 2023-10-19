@@ -18,7 +18,7 @@ public class Ejercicio9 {
         System.out.println("Introduza el numero");
         entrada = input.nextInt();
 
-        for(int multiplicador = 1; multiplicador<=10; multiplicador++){
+        for(int multiplicador = 0; multiplicador<=10; multiplicador++){
             System.out.println(entrada+" * "+multiplicador+" = "+entrada*multiplicador);
         }
     }
