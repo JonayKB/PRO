@@ -34,7 +34,7 @@ public class Ejercicio6 {
      * @return
      */
     public static int calcularExponente(int digitos, int numExponentado, int inicial){
-        for (int contadorExponente = digitos; contadorExponente>0; contadorExponente--){
+        for (int i = 0; i<digitos; i++){
                 numExponentado = numExponentado*(inicial%10);
                     
             }
