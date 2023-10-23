@@ -26,8 +26,8 @@ public class Ejercicio3 {
     }
     public int calcularSuma (ArrayList<Integer> numeros){
         int suma = 0;
-        for (Integer integer : numeros) {
-            suma =+ integer;
+        for (int i=0; i<numeros.size();i++) {
+            suma +=  numeros.get(i);
         }
         return suma;
     }

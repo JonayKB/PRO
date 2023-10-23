@@ -19,6 +19,14 @@ public class Ejercicio3Test {
         Assertions.assertEquals(resultadoOk, resultado, "No es el valor esperado");
     }
 
+    @Test
+    public void verificarSumaTestOK(){
+        int resultado = ejercicio3.calcularSuma(ejercicio3.pedirYMostrarValores(5, 5,5, 5, 5));
+        
+        int resultadoOk = 25;
+        Assertions.assertEquals(resultadoOk, resultado, "No es el valor esperado");
+    }
+
 
 
 
