@@ -1,6 +1,7 @@
 package ies.puerto;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
@@ -13,7 +14,8 @@ public class Ejercicio3Test {
     @Test
     public void verificarNumerosIntroducidosTestOK(){
         ArrayList<Integer> resultado = ejercicio3.pedirYMostrarValores(5, 5,5, 5, 5);
-        int [] resultadoOk = {5,5,5,5,5};
+        
+        List<Integer> resultadoOk = Arrays.asList(5, 5, 5, 5, 5);
         Assertions.assertEquals(resultadoOk, resultado, "No es el valor esperado");
     }
 
