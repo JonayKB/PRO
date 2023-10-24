@@ -13,7 +13,7 @@ public class Ejercicio2Test {
 
     @Test
     public void verificarParTestOK(){
-        verificarPositivo(10,true);
+        verificarPar(10,true);
     }
 
 
@@ -26,7 +26,7 @@ public class Ejercicio2Test {
 
     @Test
     public void verificarParTeErrorOK(){
-        verificarPositivo(-11, false);
+        verificarPar(-11, false);
         
     }
 
