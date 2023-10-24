@@ -27,6 +27,23 @@ public class Ejercicio3Test {
         Assertions.assertEquals(resultadoOk, resultado, "No es el valor esperado");
     }
 
+    @Test
+    public void verificarOrdenCreciente(){
+        ArrayList<Integer> resultado = ejercicio3.ordenarCreciente(ejercicio3.pedirYMostrarValores(1, 3,2, 4, 5));
+        
+        List<Integer> resultadoOk = Arrays.asList(1, 2, 3, 4, 5);
+        Assertions.assertEquals(resultadoOk, resultado, "No es el valor esperado");
+    }
+
+
+    @Test
+    public void verificarOrdenDecreciente(){
+        ArrayList<Integer> resultado = ejercicio3.ordenarDecreciente(ejercicio3.pedirYMostrarValores(1, 3,2, 4, 5));
+        
+        List<Integer> resultadoOk = Arrays.asList(5, 4, 3, 2, 1);
+        Assertions.assertEquals(resultadoOk, resultado, "No es el valor esperado");
+    }
+
 
 
 
