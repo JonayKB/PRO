@@ -12,6 +12,14 @@ public class Ejercicio6Test {
         double resultadoOK = 10;
         double numero = 50;
         resultado = ejercicio6.fahrenheitACelsius(numero);
-        Assertions.assertEquals(resultadoOK, resultado);
+        Assertions.assertEquals(resultadoOK, resultado, "resultado no esperado");
+    }
+    @Test
+    public void fahrenheitACelsiusTestError(){
+        double resultado = 0;
+        double resultadoOK = 15;
+        double numero = 30;
+        resultado = ejercicio6.fahrenheitACelsius(numero);
+        Assertions.assertNotEquals(resultadoOK, resultado, "Resultado no esperado");
     }
 }

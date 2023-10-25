@@ -12,14 +12,14 @@ public class Ejercicio3Test {
     }
 
     @Test
-    public void calcularCuadradoTest() {
+    public void calcularCuadradoTestOK() {
         int ladoA = 3;
         double resultadoOk = 9;
         double resultado = ejercicio3.areaCuadrado(ladoA);
         Assertions.assertEquals(resultadoOk, resultado, "No se ha obtenido el resultado esperado");
     }
     @Test
-    public void calcularRectanguloTest() {
+    public void calcularRectanguloTestOK() {
         int ladoA = 3;
         int ladoB = 4;
         double resultadoOk = 12;

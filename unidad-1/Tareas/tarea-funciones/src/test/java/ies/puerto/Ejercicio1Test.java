@@ -13,11 +13,19 @@ public class Ejercicio1Test {
     }
 
     @Test
-    public void calcularAreaTrianguloTest() {
+    public void calcularAreaTrianguloTestOK() {
         int base = 2;
         int altura = 3;
         int resultado = ejercicio1.areaTriangulo(base, altura);
         Assertions.assertEquals(resultado, 3, "No se ha obtenido el resultado esperado");
+    }
+
+    @Test
+    public void calcularAreaTrianguloTestError() {
+        int base = 5;
+        int altura = 7;
+        int resultado = ejercicio1.areaTriangulo(base, altura);
+        Assertions.assertNotEquals(resultado, 10, "No se ha obtenido el resultado esperado");
     }
 
 }

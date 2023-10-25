@@ -14,6 +14,9 @@ public class Ejercicio5 {
         for (int i = 1; i<=numero/2; i++){
             if(numero%i == 0){
                 divisores++;
+                if(divisores>2){
+                    break;
+                }
             }
         }
 

@@ -12,7 +12,7 @@ public class Ejercicio4 {
      * @param valorB segundo valor
      * @return devolvemos el valor mayor
      */
-    public int maximoDeDos(int valorA, int valorB){
+    public int calcularMaximo(int valorA, int valorB){
         int resultado = valorB;
         if (valorA > valorB){
             resultado = valorA;
@@ -29,9 +29,9 @@ public class Ejercicio4 {
      * @param valorC tercero valor
      * @return
      */
-    public int maximoDeDos(int valorA, int valorB, int valorC){
-        int resultado = valorC;
-        resultado = maximoDeDos(maximoDeDos(valorA, valorB), valorC);
+    public int calcularMaximo(int valorA, int valorB, int valorC){
+        int resultado = 0;
+        resultado = calcularMaximo(calcularMaximo(valorA, valorB), valorC);
         return resultado;
     }
 }

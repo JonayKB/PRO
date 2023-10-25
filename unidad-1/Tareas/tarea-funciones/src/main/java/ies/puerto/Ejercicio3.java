@@ -12,8 +12,7 @@ public class Ejercicio3 {
  */
     public int areaCuadrado(int a) {
         int resultado = 0;
-        resultado = a*a;
-
+        resultado = areaRectangulo(a, a);
         return resultado;
     }
 /**

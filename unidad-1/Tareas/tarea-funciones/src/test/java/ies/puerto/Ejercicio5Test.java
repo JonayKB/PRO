@@ -12,7 +12,7 @@ public class Ejercicio5Test {
         int resultadoOK = 1;
         int numero = 7;
         resultado = ejercicio5.calcularDivisores(numero);
-        Assertions.assertEquals(resultadoOK, resultado);
+        Assertions.assertEquals(resultadoOK, resultado, "Resultado no esperado");
 
     }
 
@@ -22,7 +22,7 @@ public class Ejercicio5Test {
 
         int numero = 7;
         resultado = ejercicio5.verificarPrimo(numero);
-        Assertions.assertTrue(resultado);
+        Assertions.assertTrue(resultado, "Resultado no esperado");
 
     }
 
@@ -32,7 +32,7 @@ public class Ejercicio5Test {
 
         int numero = 20;
         resultado = ejercicio5.verificarPrimo(numero);
-        Assertions.assertFalse(resultado);
+        Assertions.assertFalse(resultado, "Resultado no esperado");
 
     }
 }
