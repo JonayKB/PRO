@@ -28,7 +28,7 @@ public class Ejercicio3 {
         numeros.add(numero3);
         numeros.add(numero4);
         numeros.add(numero5);
-
+        
         return numeros;
     }
     /**
@@ -38,8 +38,9 @@ public class Ejercicio3 {
      */
     public int calcularSuma (ArrayList<Integer> numeros){
         int suma = 0;
-        for (int i=0; i<numeros.size();i++) {
-            suma +=  numeros.get(i);
+
+        for (int elemento : numeros){
+            suma+= elemento;
         }
         return suma;
     }
@@ -51,6 +52,7 @@ public class Ejercicio3 {
      */
     public ArrayList<Integer> ordenarCreciente(ArrayList<Integer> numeros){
         numeros.sort(Comparator.naturalOrder());
+        
 
         return numeros;
     }
@@ -65,4 +67,71 @@ public class Ejercicio3 {
         return numeros;
     }
 
+
+
+/** 
+
+    public int calcularMayor(int valorA, int valorB){
+        int resultado = valorA;
+        if (valorB>valorA){
+            resultado = valorB;
+        }
+        return resultado;
+    }
+    public int calcularMenor(int valorA, int valorB){
+        int resultado = valorA;
+        if (valorB<valorA){
+            resultado = valorB;
+        }
+        return resultado;
+    }
+
+    public int calcularMayor(int valorA, int valorB, int valorC){
+        int resultado = calcularMayor(calcularMayor(valorA, valorB), valorC);
+        return resultado;
+    }
+    public int calcularMenor(int valorA, int valorB, int valorC){
+        int resultado = calcularMenor(calcularMenor(valorA, valorB), valorC);
+        return resultado;
+    }
+    
+    public int calcularMayor(int valorA, int valorB, int valorC, int valorD){
+        int resultado = calcularMayor(calcularMayor(valorA, valorB, valorC), valorD);
+        return resultado;
+    }
+    public int calcularMenor(int valorA, int valorB, int valorC, int valorD){
+        int resultado = calcularMenor(calcularMenor(valorA, valorB, valorC), valorD);
+        return resultado;
+    }
+
+    public int calcularMayor(int valorA, int valorB, int valorC, int valorD, int valorE){
+        int resultado = calcularMayor(calcularMayor(valorA, valorB, valorC, valorD), valorE);
+        return resultado;
+    }
+    public int calcularMenor(int valorA, int valorB, int valorC, int valorD, int valorE){
+        int resultado = calcularMenor(calcularMenor(valorA, valorB, valorC, valorD), valorE);
+        return resultado;
+    }
+
+
+    public int intermedio(int valorA, int valorB, int valorC){
+        int mayor = calcularMayor(valorA, valorB, valorC);
+        int menor = calcularMenor(valorA, valorB, valorC);
+        int intermedio = (valorA+valorB+valorC)-menor-mayor;
+
+        return intermedio;
+    }
+    public int mostrar4(int valorA, int valorB, int valorC, int valorD){
+
+        int intermedio = intermedio(valorA, valorB, valorC);
+        
+
+        
+    }
+    
+
+
+
+    
+*/
 }
