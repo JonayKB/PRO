@@ -11,7 +11,7 @@ public class Ejercicio8 {
         Arrays.sort(array);
         int longitud = array.length;
         for(int i=0; i<array.length; i++){
-            for(int j = 0; j<array.length-1; j++){
+            for(int j = i; j<array.length-1; j++){
                 if( array[i] == array[j+1]){
                     longitud--;
                     array[j+1] = 0;
