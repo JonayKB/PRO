@@ -2,6 +2,7 @@ package ies.puerto;
 /**
  * Encuentra el valor máximo 
  * y mínimo en un array de enteros.
+ * @author JonayKB
  */
 
 public class Ejercicio3 {

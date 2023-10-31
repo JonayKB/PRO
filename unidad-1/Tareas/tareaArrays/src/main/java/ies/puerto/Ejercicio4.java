@@ -1,6 +1,7 @@
 package ies.puerto;
 /**
  * Imprime los números pares de un array de enteros
+ * @author JonayKB
  */
 public class Ejercicio4 {
     /**

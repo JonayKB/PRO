@@ -1,6 +1,7 @@
 package ies.puerto;
 /**
  * Calcula el promedio de los elementos en un array de números en punto flotante.
+ * @author JonayKB
  */
 
 public class Ejercicio2 {

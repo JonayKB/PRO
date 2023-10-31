@@ -1,5 +1,8 @@
 package ies.puerto;
-
+/**
+ * Sumar todos los números de un array
+ * @author JonayKB
+ */
 public class Ejercicio1 {
     /**
      * Función que calcula la suma de todos los numeros de un array

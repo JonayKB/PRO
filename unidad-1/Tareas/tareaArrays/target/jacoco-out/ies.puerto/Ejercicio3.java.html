@@ -2,24 +2,25 @@
 /**
  * Encuentra el valor máximo 
  * y mínimo en un array de enteros.
+ * @author JonayKB
  */
 
-<span class="fc" id="L7">public class Ejercicio3 {</span>
+<span class="fc" id="L8">public class Ejercicio3 {</span>
     /**
      * Función para calcular el valor mayor de un array
      * @param numeros array de int
      * @return devolvemos el valor mayor
      */
     public int calcularMayor(int[] numeros){
-<span class="fc" id="L14">        int resultado = 0;</span>
-<span class="fc bfc" id="L15" title="All 2 branches covered.">        for (int numero : numeros) {</span>
-<span class="fc bfc" id="L16" title="All 2 branches covered.">            if (numero&gt;resultado){</span>
-<span class="fc" id="L17">                resultado = numero;</span>
+<span class="fc" id="L15">        int resultado = 0;</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        for (int numero : numeros) {</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">            if (numero&gt;resultado){</span>
+<span class="fc" id="L18">                resultado = numero;</span>
             }
             
         }
 
-<span class="fc" id="L22">        return resultado;</span>
+<span class="fc" id="L23">        return resultado;</span>
 
     }
     /**
@@ -28,15 +29,15 @@
      * @return devolvemos el valor menor
      */
     public int calcularMenor(int[] numeros){
-<span class="fc" id="L31">        int resultado = Integer.MAX_VALUE;</span>
-<span class="fc bfc" id="L32" title="All 2 branches covered.">        for (int numero : numeros) {</span>
-<span class="fc bfc" id="L33" title="All 2 branches covered.">            if (numero&lt;resultado){</span>
-<span class="fc" id="L34">                resultado = numero;</span>
+<span class="fc" id="L32">        int resultado = Integer.MAX_VALUE;</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (int numero : numeros) {</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">            if (numero&lt;resultado){</span>
+<span class="fc" id="L35">                resultado = numero;</span>
             }
             
         }
 
-<span class="fc" id="L39">        return resultado;</span>
+<span class="fc" id="L40">        return resultado;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
