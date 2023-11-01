@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * Elimina elementos duplicados de un array, y muestra finalmente los valores iniciales del array y el resultado final.
+ * @author JonayKB
  */
 public class Ejercicio8 {
     /**
