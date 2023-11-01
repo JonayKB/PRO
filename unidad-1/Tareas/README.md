@@ -8,6 +8,6 @@ Tares de Jonay Contreras para el módulo de Programación
 - [Tarea 2](tarea2)
 - [Tarea Metodos](tareaMetodos)
 - [Tarea Funciones](tarea-funciones)
-- [Tarea Metodos 2](tareaMetodos2)
+- [Tarea Metodos 2](trabajoMetodos2)
 - [Tarea Arrays](tareaArrays)
 
