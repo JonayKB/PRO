@@ -6,13 +6,18 @@ import java.util.Arrays;
  * Elimina elementos duplicados de un array, y muestra finalmente los valores iniciales del array y el resultado final.
  */
 public class Ejercicio8 {
-    public int[] eliminarDuplicados(int[] array){
-        int k = 0;
+    /**
+     * Función para eliminar duplicados
+     * @param array que eliminamos duplicados
+     * @return array sin duplicados
+     */
+    public int[] revisarDuplicados(int[] array){
+        
         Arrays.sort(array);
-        int longitud = array.length;
+        int longitud = array.length+1;
         for(int i=0; i<array.length; i++){
             for(int j = i; j<array.length-1; j++){
-                if( array[i] == array[j+1]){
+                if( (array[i] == array[j+1]) && array[i]!=0){
                     longitud--;
                     array[j+1] = 0;
                 }
@@ -20,11 +25,11 @@ public class Ejercicio8 {
                     break;
                 }
             }
+         
         }
-        
 
-        int[] resultado = new int[longitud];
-
+        int[] resultado = new int[longitud-1];
+            int k = 0;
         for (int i : array) {
             if(i!=0){
                 resultado[k] = i;
@@ -32,6 +37,7 @@ public class Ejercicio8 {
             }
             
         }
+
         return resultado;
 
         

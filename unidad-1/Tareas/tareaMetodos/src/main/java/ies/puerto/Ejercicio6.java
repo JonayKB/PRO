@@ -16,7 +16,7 @@ public class Ejercicio6 {
      */
     public boolean verificarArmstrong(int numero){
         boolean resultado = false;
-        int digitos = 0;
+
 
 
         return resultado;
