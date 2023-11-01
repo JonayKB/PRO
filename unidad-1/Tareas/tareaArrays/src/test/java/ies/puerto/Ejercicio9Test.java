@@ -8,7 +8,7 @@ public class Ejercicio9Test {
 
 
     @Test
-    public void verificarDuplicadosTestOK(){
+    public void verificarCombinacionTestOK(){
         int [] array= {1,2,3,4,5};
         int [] array2= {6,7,8,9,10};
         int[] resultado = ejercicio9.combinarArrays(array, array2);
