@@ -15,13 +15,12 @@ public class Ejercicio9 {
         int[] resultado = new int[array.length+array2.length];
         int i = 0;
         
-        while (i<resultado.length) {
-            if(i<array.length){
+        while (i<array.length) {
                 resultado[i] = array[i];
-            }
-            else{
-                resultado[i] = array2[i-array.length];
-            }
+            i++;
+        }
+        while (i<resultado.length) {
+            resultado[i] = array2[i-array.length];
             i++;
         }
 

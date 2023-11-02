@@ -23,6 +23,8 @@ public class Ejercicio10 {
             j++;
         }
 
+        
+
 
     return resultado;
     }
