@@ -1,5 +1,5 @@
 # Tareas
-Tares de Jonay Contreras para el módulo de Programación
+Tareas de la Unidad 1
 ## Unidades
 - [Ejercicio 1](ejercicio1)
 - [Tarea 1](tarea1)
@@ -9,5 +9,5 @@ Tares de Jonay Contreras para el módulo de Programación
 - [Tarea Metodos](tareaMetodos)
 - [Tarea Funciones](tarea-funciones)
 - [Tarea Metodos 2](trabajoMetodos2)
-- [Tarea Arrays](tareaArrays)
+
 

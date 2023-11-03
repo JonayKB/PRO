@@ -30,7 +30,8 @@ public class Ejercicio8 {
         }
 
         int[] resultado = new int[longitud-1];
-            int k = 0;
+
+        int k = 0;
         for (int i : array) {
             if(i!=0){
                 resultado[k] = i;
