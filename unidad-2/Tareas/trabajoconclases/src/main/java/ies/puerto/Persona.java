@@ -8,7 +8,7 @@ public class Persona {
     private String nombre;
     private int edad;
     private String email;
-    private int telefono;
+    private String telefono;
 
     public String getNombre() {
         return this.nombre;
@@ -26,11 +26,11 @@ public class Persona {
         return this.email;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return this.telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -79,7 +79,7 @@ public class Persona {
      * @param email de la persona
      * @param telefono de la persona
      */
-    public Persona(String nombre, int edad, String email, int telefono){
+    public Persona(String nombre, int edad, String email, String telefono){
         this.nombre = nombre;
         this.edad = edad;
         this.email = email;
@@ -94,6 +94,6 @@ public class Persona {
     }
     */
     public String imprimir(){
-        return "\nNombre: "+nombre+"\nEdad: "+ edad+"\nEmail: "+ email+"\nTeléfono: "+ telefono;
+        return "Nombre: "+nombre+"\nEdad: "+ edad+"\nEmail: "+ email+"\nTeléfono: "+ telefono;
     }
 }
