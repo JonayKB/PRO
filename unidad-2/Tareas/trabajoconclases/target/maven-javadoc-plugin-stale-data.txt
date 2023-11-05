@@ -1,0 +1,48 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'trabajoconclases 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'trabajoconclases 1.0-SNAPSHOT API'
+ies.puerto
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/src/main/java = 1699035247522
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/package-search-index.zip = 1699200727136
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/help-doc.html = 1699200727164
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/script.js = 1699200727172
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/allpackages-index.html = 1699200727152
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/stylesheet.css = 1699200727168
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/search.js = 1699200727172
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/index-all.html = 1699200727140
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/allclasses.html = 1699200727164
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/element-list = 1699200727060
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/type-search-index.js = 1699200727136
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/index.html = 1699200727164
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/package-search-index.js = 1699200727132
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/constant-values.html = 1699200727076
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/allclasses-index.html = 1699200727148
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/type-search-index.zip = 1699200727136
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/member-search-index.js = 1699200727136
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/member-search-index.zip = 1699200727140
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/deprecated-list.html = 1699200727160
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/overview-tree.html = 1699200727104
+/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/site/apidocs/jquery-ui.overrides.css = 1699200727180

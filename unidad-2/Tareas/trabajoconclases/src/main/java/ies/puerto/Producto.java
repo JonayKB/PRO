@@ -1,5 +1,8 @@
 package ies.puerto;
-
+/**
+ * Crea una clase Producto con propiedades nombre, precio y stock. 
+ * @author JonayKB
+ */
 public class Producto {
     private String nombre;
     private float precio;

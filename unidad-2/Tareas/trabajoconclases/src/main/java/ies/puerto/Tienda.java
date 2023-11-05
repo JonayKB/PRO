@@ -1,5 +1,8 @@
 package ies.puerto;
-
+/**
+ * Luego, crea una clase Tienda que tenga una lista de productos y métodos para agregar, vender y mostrar el inventario.
+ * @author JonayKB
+ */
 public class Tienda {
     public Tienda(){};
     
