@@ -2,6 +2,7 @@ package ies.puerto;
 /**
  * Crea una clase Estudiante con propiedades como nombre, edad, carrera, y promedio. 
  * Agrega métodos para mostrar detalles, calcular si está aprobado o reprobado, etc.
+ * @author JonayKB
  */
 public class Estudiante {
     private String nombre;
@@ -12,7 +13,6 @@ public class Estudiante {
     public String getNombre() {
         return this.nombre;
     }
-
 
     public int getEdad() {
         return this.edad;
@@ -89,7 +89,7 @@ public class Estudiante {
      * @param promedio
      * @return
      */
-    public boolean verificarAprobado(float promedio){
+    public boolean verificarAprobado(){
         boolean resultado = false;
         if(promedio>=5f){
             resultado = true;

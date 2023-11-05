@@ -2,6 +2,7 @@
 /**
  * Crea una clase Estudiante con propiedades como nombre, edad, carrera, y promedio. 
  * Agrega métodos para mostrar detalles, calcular si está aprobado o reprobado, etc.
+ * @author JonayKB
  */
 public class Estudiante {
     private String nombre;
@@ -10,53 +11,52 @@ public class Estudiante {
     private float promedio;
     //Getters y Setters
     public String getNombre() {
-<span class="nc" id="L13">        return this.nombre;</span>
+<span class="fc" id="L14">        return this.nombre;</span>
     }
 
-
     public int getEdad() {
-<span class="nc" id="L18">        return this.edad;</span>
+<span class="fc" id="L18">        return this.edad;</span>
     }
 
     public void setEdad(int edad) {
-<span class="nc" id="L22">        this.edad = edad;</span>
-<span class="nc" id="L23">    }</span>
+<span class="fc" id="L22">        this.edad = edad;</span>
+<span class="fc" id="L23">    }</span>
 
     public String getCarrera() {
-<span class="nc" id="L26">        return this.carrera;</span>
+<span class="fc" id="L26">        return this.carrera;</span>
     }
 
 
     public float getPromedio() {
-<span class="nc" id="L31">        return this.promedio;</span>
+<span class="fc" id="L31">        return this.promedio;</span>
     }
 
     public void setPromedio(float promedio) {
-<span class="nc" id="L35">        this.promedio = promedio;</span>
-<span class="nc" id="L36">    }</span>
+<span class="fc" id="L35">        this.promedio = promedio;</span>
+<span class="fc" id="L36">    }</span>
 
     /**
      * Constructor por defecto
      */
-<span class="nc" id="L41">    public Estudiante(){}</span>
+<span class="fc" id="L41">    public Estudiante(){}</span>
 
     /**
      * Constructor
      * @param nombre del estudiante
      */
-<span class="nc" id="L47">    public Estudiante(String nombre){</span>
-<span class="nc" id="L48">        this.nombre = nombre;</span>
-<span class="nc" id="L49">    }</span>
+<span class="fc" id="L47">    public Estudiante(String nombre){</span>
+<span class="fc" id="L48">        this.nombre = nombre;</span>
+<span class="fc" id="L49">    }</span>
 
     /**
      * Constructor
      * @param nombre del estudiante
      * @param edad del estudiante
      */
-<span class="nc" id="L56">    public Estudiante(String nombre, int edad){</span>
-<span class="nc" id="L57">        this.nombre = nombre;</span>
-<span class="nc" id="L58">        this.edad = edad;</span>
-<span class="nc" id="L59">    }</span>
+<span class="fc" id="L56">    public Estudiante(String nombre, int edad){</span>
+<span class="fc" id="L57">        this.nombre = nombre;</span>
+<span class="fc" id="L58">        this.edad = edad;</span>
+<span class="fc" id="L59">    }</span>
 
     /**
      * Constructor
@@ -64,11 +64,11 @@ public class Estudiante {
      * @param edad del estudiante
      * @param carrera del estudiante
      */
-<span class="nc" id="L67">    public Estudiante(String nombre, int edad, String carrera){</span>
-<span class="nc" id="L68">        this.nombre = nombre;</span>
-<span class="nc" id="L69">        this.edad = edad;</span>
-<span class="nc" id="L70">        this.carrera = carrera;</span>
-<span class="nc" id="L71">    }</span>
+<span class="fc" id="L67">    public Estudiante(String nombre, int edad, String carrera){</span>
+<span class="fc" id="L68">        this.nombre = nombre;</span>
+<span class="fc" id="L69">        this.edad = edad;</span>
+<span class="fc" id="L70">        this.carrera = carrera;</span>
+<span class="fc" id="L71">    }</span>
 
     /**
      * Constructor
@@ -77,24 +77,24 @@ public class Estudiante {
      * @param carrera del estudiante
      * @param promedio del estudiante
      */
-<span class="nc" id="L80">    public Estudiante(String nombre, int edad, String carrera, float promedio){</span>
-<span class="nc" id="L81">        this.nombre = nombre;</span>
-<span class="nc" id="L82">        this.edad = edad;</span>
-<span class="nc" id="L83">        this.carrera = carrera;</span>
-<span class="nc" id="L84">        this.promedio = promedio;</span>
-<span class="nc" id="L85">    }</span>
+<span class="fc" id="L80">    public Estudiante(String nombre, int edad, String carrera, float promedio){</span>
+<span class="fc" id="L81">        this.nombre = nombre;</span>
+<span class="fc" id="L82">        this.edad = edad;</span>
+<span class="fc" id="L83">        this.carrera = carrera;</span>
+<span class="fc" id="L84">        this.promedio = promedio;</span>
+<span class="fc" id="L85">    }</span>
 
     /**
      * Función para calcular si el alumno esta aprobado o no
      * @param promedio
      * @return
      */
-    public boolean verificarAprobado(float promedio){
-<span class="nc" id="L93">        boolean resultado = false;</span>
-<span class="nc bnc" id="L94" title="All 2 branches missed.">        if(promedio&gt;=5f){</span>
-<span class="nc" id="L95">            resultado = true;</span>
+    public boolean verificarAprobado(){
+<span class="fc" id="L93">        boolean resultado = false;</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        if(promedio&gt;=5f){</span>
+<span class="fc" id="L95">            resultado = true;</span>
         }
-<span class="nc" id="L97">        return resultado;</span>
+<span class="fc" id="L97">        return resultado;</span>
     }
 
     /**
@@ -102,7 +102,7 @@ public class Estudiante {
      * @return
      */
     public String mostrarDetalles(){
-<span class="nc" id="L105">        return &quot;Nombre: &quot;+nombre+&quot;\nEdad: &quot;+edad+&quot;\nCarrera: &quot;+carrera+&quot;\nPromedio: &quot;+promedio;</span>
+<span class="fc" id="L105">        return &quot;Nombre: &quot;+nombre+&quot;\nEdad: &quot;+edad+&quot;\nCarrera: &quot;+carrera+&quot;\nPromedio: &quot;+promedio;</span>
     }
 
 }

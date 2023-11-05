@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="CirculoTest" time="0.01" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="CuentaBancariaTest" time="0.075" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -58,9 +58,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="calcularCircurferencia1TestOK" classname="CirculoTest" time="0.005"/>
-  <testcase name="calcularArea1TestOK" classname="CirculoTest" time="0.001"/>
-  <testcase name="getRadioTestOK" classname="CirculoTest" time="0.002"/>
-  <testcase name="calcularCircurferencia0TestOK" classname="CirculoTest" time="0"/>
-  <testcase name="calcularArea0TestOK" classname="CirculoTest" time="0.001"/>
+  <testcase name="mostrarSaldoTestOK" classname="CuentaBancariaTest" time="0.037"/>
+  <testcase name="mostrarDetallesTestOK" classname="CuentaBancariaTest" time="0.026"/>
+  <testcase name="getNumeroCuentaTestOK" classname="CuentaBancariaTest" time="0.001"/>
+  <testcase name="retirarSaldoTestOK" classname="CuentaBancariaTest" time="0.001"/>
+  <testcase name="getNombreTitularTestOK" classname="CuentaBancariaTest" time="0.001"/>
+  <testcase name="depositarSaldoTestOK" classname="CuentaBancariaTest" time="0.001"/>
 </testsuite>

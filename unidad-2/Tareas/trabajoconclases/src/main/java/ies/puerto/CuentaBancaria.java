@@ -1,24 +1,20 @@
 package ies.puerto;
-
+/**
+ * Crea una clase CuentaBancaria con propiedades como numeroCuenta, nombreTitular y saldo. 
+ * Agrega métodos para realizar depósitos, retiros, y mostrar el saldo actual.
+ * @author JonayKB
+ */
 public class CuentaBancaria {
     private int numeroCuenta;
     private String nombreTitular;
     private double saldo;
-
+    //Setters and Getters
     public int getNumeroCuenta() {
         return this.numeroCuenta;
     }
 
-    public void setNumeroCuenta(int numeroCuenta) {
-        this.numeroCuenta = numeroCuenta;
-    }
-
     public String getNombreTitular() {
         return this.nombreTitular;
-    }
-
-    public void setNombreTitular(String nombreTitular) {
-        this.nombreTitular = nombreTitular;
     }
 
     public double getSaldo() {
@@ -28,32 +24,71 @@ public class CuentaBancaria {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-
+    /**
+     * Constructor por defualt
+     */
     public CuentaBancaria(){}
+    /**
+     * Constructor
+     * @param numeroCuenta de la cuenta
+     */
     public CuentaBancaria(int numeroCuenta){
         this.numeroCuenta = numeroCuenta;
     }
+
+    /**
+     * Constructor
+     * @param numeroCuenta de la cuenta
+     * @param nombreTitular de la cuenta
+     */
     public CuentaBancaria(int numeroCuenta, String nombreTitular){
         this.numeroCuenta = numeroCuenta;
         this.nombreTitular = nombreTitular;
     }
+
+    /**
+     * Constructor
+     * @param numeroCuenta de la cuenta
+     * @param nombreTitular de la cuenta
+     * @param saldo de la cuenta
+     */
     public CuentaBancaria(int numeroCuenta, String nombreTitular, double saldo){
         this.numeroCuenta = numeroCuenta;
         this.nombreTitular = nombreTitular;
         this.saldo = saldo;
     }
 
+    /**
+     * Función para retirar dinero de la cuenta 
+     * @param aRetirar cantidad que se retira
+     */
     public void retirarSaldo(double aRetirar){
         setSaldo(getSaldo()-aRetirar);
     }
+
+    /**
+     * Función para añadir dinero a la cuenta
+     * @param aDepositar cantidad que se añade
+     */
     public void depositarSaldo(double aDepositar){
         setSaldo(getSaldo()+aDepositar);
     }
-    public double mostrarSaldo(CuentaBancaria clase){
-        return clase.getSaldo();
+
+    /**
+     * Función para mostrar el saldo actual
+     * @param clase de la que mostrar el saldo
+     * @return el saldo
+     */
+    public double mostrarSaldo(){
+        return getSaldo();
     }
+
+    /**
+     * Función para mostrar los detalles de la cuenta
+     * @return los detalles
+     */
     public String mostrarDetalles(){
-        return "Número Cuenta: "+numeroCuenta+"\nNombre: "+nombreTitular+"\nSaldo: "+saldo;
+        return "\nNúmero Cuenta: "+numeroCuenta+"\nNombre: "+nombreTitular+"\nSaldo: "+saldo;
 
     }
 
