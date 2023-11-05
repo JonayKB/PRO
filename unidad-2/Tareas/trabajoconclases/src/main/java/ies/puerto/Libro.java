@@ -1,48 +1,68 @@
 package ies.puerto;
-
+/**
+ * Crea una clase Libro con las propiedades titulo, autor y añoPublicacion. 
+ * Crea objetos de esta clase y realiza operaciones como imprimir la información del libro, cambiar el autor, etc.
+ */
 public class Libro {
     private String titulo;
     private String autor;
     private int anoPublicacion;
-
+    /**
+     * Constructor por defecto
+     */
     public Libro(){};
+
+    
+    /**
+     * Constructor
+     * @param titulo del libro
+     */
     public Libro(String titulo){
         this.titulo = titulo;
     }
+
+
+    /**
+     * Constructor
+     * @param titulo del libro
+     * @param autor del libro
+     */
     public Libro(String titulo, String autor){
         this.titulo = titulo;
         this.autor = autor;
     }
+
+
+    /**
+     * Constructor
+     * @param titulo del libro
+     * @param autor del libro
+     * @param anoPublicacion del libro
+     */
     public Libro(String titulo, String autor, int anoPublicacion){
         this.titulo = titulo;
         this.autor = autor;
         this.anoPublicacion = anoPublicacion;
     }
-
+    //Getters y Setters
     public String getTitulo() {
         return this.titulo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
 
     public String getAutor() {
         return this.autor;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
 
     public int getAnoPublicacion() {
         return this.anoPublicacion;
     }
 
-    public void setAnoPublicacion(int anoPublicacion) {
-        this.anoPublicacion = anoPublicacion;
-    }
-
+    /**
+     * Función que devuelve toda la información
+     * @return String que contiene toda la información
+     */
     public String imprimir(){
         return "Titulo: "+titulo+"\nAutor: "+autor+"\nAño Publicación: "+anoPublicacion;
     }

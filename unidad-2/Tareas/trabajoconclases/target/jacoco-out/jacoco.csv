@@ -1,9 +1,9 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 trabajoconclases,ies.puerto,Rectangulo,44,0,0,0,16,0,9,0,9,0
 trabajoconclases,ies.puerto,Producto,51,0,0,0,22,0,10,0,10,0
-trabajoconclases,ies.puerto,Persona,38,37,0,0,17,11,6,6,6,6
+trabajoconclases,ies.puerto,Persona,0,75,0,0,0,28,0,12,0,12
 trabajoconclases,ies.puerto,Circulo,32,0,0,0,7,0,4,0,4,0
 trabajoconclases,ies.puerto,Estudiante,93,0,2,0,36,0,16,0,15,0
 trabajoconclases,ies.puerto,CuentaBancaria,76,0,0,0,28,0,14,0,14,0
-trabajoconclases,ies.puerto,Libro,59,0,0,0,23,0,11,0,11,0
+trabajoconclases,ies.puerto,Libro,0,47,0,0,0,17,0,8,0,8
 trabajoconclases,ies.puerto,Tienda,49,0,0,0,9,0,4,0,4,0
