@@ -2,6 +2,7 @@
 /**
  * Crea una clase Libro con las propiedades titulo, autor y añoPublicacion. 
  * Crea objetos de esta clase y realiza operaciones como imprimir la información del libro, cambiar el autor, etc.
+ * @author JonayKB
  */
 public class Libro {
     private String titulo;
@@ -10,16 +11,16 @@ public class Libro {
     /**
      * Constructor por defecto
      */
-<span class="fc" id="L13">    public Libro(){};</span>
+<span class="fc" id="L14">    public Libro(){};</span>
 
     
     /**
      * Constructor
      * @param titulo del libro
      */
-<span class="fc" id="L20">    public Libro(String titulo){</span>
-<span class="fc" id="L21">        this.titulo = titulo;</span>
-<span class="fc" id="L22">    }</span>
+<span class="fc" id="L21">    public Libro(String titulo){</span>
+<span class="fc" id="L22">        this.titulo = titulo;</span>
+<span class="fc" id="L23">    }</span>
 
 
     /**
@@ -27,10 +28,10 @@ public class Libro {
      * @param titulo del libro
      * @param autor del libro
      */
-<span class="fc" id="L30">    public Libro(String titulo, String autor){</span>
-<span class="fc" id="L31">        this.titulo = titulo;</span>
-<span class="fc" id="L32">        this.autor = autor;</span>
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L31">    public Libro(String titulo, String autor){</span>
+<span class="fc" id="L32">        this.titulo = titulo;</span>
+<span class="fc" id="L33">        this.autor = autor;</span>
+<span class="fc" id="L34">    }</span>
 
 
     /**
@@ -39,24 +40,24 @@ public class Libro {
      * @param autor del libro
      * @param anoPublicacion del libro
      */
-<span class="fc" id="L42">    public Libro(String titulo, String autor, int anoPublicacion){</span>
-<span class="fc" id="L43">        this.titulo = titulo;</span>
-<span class="fc" id="L44">        this.autor = autor;</span>
-<span class="fc" id="L45">        this.anoPublicacion = anoPublicacion;</span>
-<span class="fc" id="L46">    }</span>
+<span class="fc" id="L43">    public Libro(String titulo, String autor, int anoPublicacion){</span>
+<span class="fc" id="L44">        this.titulo = titulo;</span>
+<span class="fc" id="L45">        this.autor = autor;</span>
+<span class="fc" id="L46">        this.anoPublicacion = anoPublicacion;</span>
+<span class="fc" id="L47">    }</span>
     //Getters y Setters
     public String getTitulo() {
-<span class="fc" id="L49">        return this.titulo;</span>
+<span class="fc" id="L50">        return this.titulo;</span>
     }
 
 
     public String getAutor() {
-<span class="fc" id="L54">        return this.autor;</span>
+<span class="fc" id="L55">        return this.autor;</span>
     }
 
 
     public int getAnoPublicacion() {
-<span class="fc" id="L59">        return this.anoPublicacion;</span>
+<span class="fc" id="L60">        return this.anoPublicacion;</span>
     }
 
     /**
@@ -64,7 +65,7 @@ public class Libro {
      * @return String que contiene toda la información
      */
     public String imprimir(){
-<span class="fc" id="L67">        return &quot;Titulo: &quot;+titulo+&quot;\nAutor: &quot;+autor+&quot;\nAño Publicación: &quot;+anoPublicacion;</span>
+<span class="fc" id="L68">        return &quot;Titulo: &quot;+titulo+&quot;\nAutor: &quot;+autor+&quot;\nAño Publicación: &quot;+anoPublicacion;</span>
     }
 
     

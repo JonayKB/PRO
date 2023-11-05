@@ -1,18 +1,18 @@
 package ies.puerto;
-
+/**
+ * Crea una clase Estudiante con propiedades como nombre, edad, carrera, y promedio. 
+ * Agrega métodos para mostrar detalles, calcular si está aprobado o reprobado, etc.
+ */
 public class Estudiante {
     private String nombre;
     private int edad;
     private String carrera;
     private float promedio;
-
+    //Getters y Setters
     public String getNombre() {
         return this.nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
     public int getEdad() {
         return this.edad;
@@ -26,9 +26,6 @@ public class Estudiante {
         return this.carrera;
     }
 
-    public void setCarrera(String carrera) {
-        this.carrera = carrera;
-    }
 
     public float getPromedio() {
         return this.promedio;
@@ -38,19 +35,48 @@ public class Estudiante {
         this.promedio = promedio;
     }
 
+    /**
+     * Constructor por defecto
+     */
     public Estudiante(){}
+
+    /**
+     * Constructor
+     * @param nombre del estudiante
+     */
     public Estudiante(String nombre){
         this.nombre = nombre;
     }
+
+    /**
+     * Constructor
+     * @param nombre del estudiante
+     * @param edad del estudiante
+     */
     public Estudiante(String nombre, int edad){
         this.nombre = nombre;
         this.edad = edad;
     }
+
+    /**
+     * Constructor
+     * @param nombre del estudiante
+     * @param edad del estudiante
+     * @param carrera del estudiante
+     */
     public Estudiante(String nombre, int edad, String carrera){
         this.nombre = nombre;
         this.edad = edad;
         this.carrera = carrera;
     }
+
+    /**
+     * Constructor
+     * @param nombre del estudiante
+     * @param edad del estudiante
+     * @param carrera del estudiante
+     * @param promedio del estudiante
+     */
     public Estudiante(String nombre, int edad, String carrera, float promedio){
         this.nombre = nombre;
         this.edad = edad;
@@ -58,14 +84,23 @@ public class Estudiante {
         this.promedio = promedio;
     }
 
-
-    public boolean calcularPromedio(float promedio){
+    /**
+     * Función para calcular si el alumno esta aprobado o no
+     * @param promedio
+     * @return
+     */
+    public boolean verificarAprobado(float promedio){
         boolean resultado = false;
         if(promedio>=5f){
             resultado = true;
         }
         return resultado;
     }
+
+    /**
+     * Función para mostrar todos los detalles del alumno
+     * @return
+     */
     public String mostrarDetalles(){
         return "Nombre: "+nombre+"\nEdad: "+edad+"\nCarrera: "+carrera+"\nPromedio: "+promedio;
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="LibroTest" time="0.137" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="LibroTest" time="0.156" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/surefire/surefirebooter11794148090644658063.jar /home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/surefire 2023-11-05T12-24-11_314-jvmRun1 surefire8983386210345872370tmp surefire_04875843388865841566tmp"/>
+    <property name="sun.java.command" value="/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/surefire/surefirebooter17807385553063958876.jar /home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/surefire 2023-11-05T15-50-24_427-jvmRun1 surefire5970190315709789697tmp surefire_09816011694734344630tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/test-classes:/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/classes:/home/jonaykb/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/home/jonaykb/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/jonaykb/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/jonaykb/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/home/jonaykb/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.6.0/junit-jupiter-params-5.6.0.jar:/home/jonaykb/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/home/jonaykb/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -32,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/surefire/surefirebooter11794148090644658063.jar"/>
+    <property name="surefire.real.class.path" value="/home/jonaykb/Repositorios/PRO/unidad-2/Tareas/trabajoconclases/target/surefire/surefirebooter17807385553063958876.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.20.1+1-post-Ubuntu-0ubuntu122.04"/>
     <property name="user.name" value="jonaykb"/>
@@ -58,11 +58,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="imprimirLibro0TestOK" classname="LibroTest" time="0.067"/>
-  <testcase name="getTituloTestOK" classname="LibroTest" time="0.001"/>
-  <testcase name="imprimirLibro1TestOK" classname="LibroTest" time="0.002"/>
+  <testcase name="imprimirLibro0TestOK" classname="LibroTest" time="0.115"/>
+  <testcase name="getTituloTestOK" classname="LibroTest" time="0.003"/>
+  <testcase name="imprimirLibro1TestOK" classname="LibroTest" time="0.003"/>
   <testcase name="getAnoPublicacionTestOK" classname="LibroTest" time="0.002"/>
-  <testcase name="imprimirLibro2TestOK" classname="LibroTest" time="0.006"/>
+  <testcase name="imprimirLibro2TestOK" classname="LibroTest" time="0.003"/>
   <testcase name="imprimirLibro3TestOK" classname="LibroTest" time="0.001"/>
-  <testcase name="getAutorTestOK" classname="LibroTest" time="0.003"/>
+  <testcase name="getAutorTestOK" classname="LibroTest" time="0.005"/>
 </testsuite>

@@ -2,6 +2,7 @@ package ies.puerto;
 /**
  * Crea una clase Libro con las propiedades titulo, autor y añoPublicacion. 
  * Crea objetos de esta clase y realiza operaciones como imprimir la información del libro, cambiar el autor, etc.
+ * @author JonayKB
  */
 public class Libro {
     private String titulo;

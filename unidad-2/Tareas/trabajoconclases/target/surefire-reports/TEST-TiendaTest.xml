@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="PersonaTest" time="0.093" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TiendaTest" time="0.042" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -58,15 +58,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="persona4TestOK" classname="PersonaTest" time="0.041"/>
-  <testcase name="persona0TestOK" classname="PersonaTest" time="0.001"/>
-  <testcase name="getNombreTestOK" classname="PersonaTest" time="0.002"/>
-  <testcase name="getEdadTestOK" classname="PersonaTest" time="0.002"/>
-  <testcase name="setTelefonoTestOK" classname="PersonaTest" time="0.001"/>
-  <testcase name="persona1TestOK" classname="PersonaTest" time="0.001"/>
-  <testcase name="setEdadTestOK" classname="PersonaTest" time="0.008"/>
-  <testcase name="persona2TestOK" classname="PersonaTest" time="0.002"/>
-  <testcase name="getTelefonoTestOK" classname="PersonaTest" time="0.002"/>
-  <testcase name="getEmailTestOK" classname="PersonaTest" time="0.001"/>
-  <testcase name="persona3TestOK" classname="PersonaTest" time="0.002"/>
+  <testcase name="comprobarProducto1TestOK" classname="TiendaTest" time="0.001"/>
+  <testcase name="agregarStockTestOK" classname="TiendaTest" time="0.001"/>
+  <testcase name="comprobarProducto2TestOK" classname="TiendaTest" time="0.001"/>
+  <testcase name="cambiarPrecioTestOK" classname="TiendaTest" time="0.002"/>
+  <testcase name="comprobarProducto3TestOK" classname="TiendaTest" time="0.001"/>
+  <testcase name="venderTestOK" classname="TiendaTest" time="0.001"/>
+  <testcase name="TiendaProductosImprimirTestOK" classname="TiendaTest" time="0.026"/>
+  <testcase name="comprobarProducto0TestOK" classname="TiendaTest" time="0.001"/>
 </testsuite>

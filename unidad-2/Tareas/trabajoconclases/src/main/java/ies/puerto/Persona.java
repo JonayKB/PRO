@@ -3,6 +3,7 @@ package ies.puerto;
  * Crea una clase Persona con las siguientes propiedades: nombre, edad, email y telefono. 
  * Crea objetos de esta clase y realiza algunas operaciones como imprimir los detalles de las personas, 
  * cambiar el nombre, etc.
+ * @author JonayKB
  */
 public class Persona {
     private String nombre;
