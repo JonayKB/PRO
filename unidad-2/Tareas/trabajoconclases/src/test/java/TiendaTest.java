@@ -10,9 +10,7 @@ public class TiendaTest {
     Tienda tienda = new Tienda();
 
     Producto producto0 = new Producto();
-    Producto producto1 = new Producto("Desodorante");
-    Producto producto2 = new Producto("Desodorante", 3f);
-    Producto producto3 = new Producto("Desodorante", 3f,9);
+    Producto producto1 = new Producto("Desodorante", 3f,9);
 
     @Test
     public void comprobarProducto0TestOK(){
@@ -28,13 +26,13 @@ public class TiendaTest {
     }
     @Test
     public void comprobarProducto2TestOK(){
-        float resultado =producto2.getPrecio();
+        float resultado =producto1.getPrecio();
         float resultadoOK = 3f;
         Assertions.assertEquals(resultadoOK, resultado);
     }
     @Test
     public void comprobarProducto3TestOK(){
-        float resultado =producto3.getStock();
+        float resultado =producto1.getStock();
         float resultadoOK = 9;
         Assertions.assertEquals(resultadoOK, resultado);
     }

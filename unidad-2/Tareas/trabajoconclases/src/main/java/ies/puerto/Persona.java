@@ -40,38 +40,6 @@ public class Persona {
      */
     public Persona(){}
 
-    /**
-     * Constructor con el parámetro nombre
-     * @param nombre de la persona
-     */
-    public Persona(String nombre){
-        this.nombre=nombre;
-    }
-
-
-    /**
-     * Constructor con el parámetro nombre y edad
-     * @param nombre de la persona
-     * @param edad de la persona
-     */
-    public Persona(String nombre, int edad){
-        this.nombre = nombre;
-        this.edad = edad;
-    }
-
-
-    /**
-     * Constructor con el parámetro nombre, edad y email
-     * @param nombre de la persona
-     * @param edad de la persona
-     * @param email de la persona
-     */
-    public Persona(String nombre, int edad, String email){
-        this.nombre = nombre;
-        this.edad = edad;
-        this.email = email;
-    }
-
 
     /**
      * Constructor con el parámetro nombre, edad, email y telefono

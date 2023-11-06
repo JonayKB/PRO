@@ -6,9 +6,7 @@ import ies.puerto.CuentaBancaria;
 public class CuentaBancariaTest {
     
     CuentaBancaria cuenta0 = new CuentaBancaria();
-    CuentaBancaria cuenta1 = new CuentaBancaria(1);
-    CuentaBancaria cuenta2 = new CuentaBancaria(2, "Federico");
-    CuentaBancaria cuenta3 = new CuentaBancaria(3, "Pablo", 1000);
+    CuentaBancaria cuenta1 = new CuentaBancaria(3, "Pablo", 1000);
 
     @Test
     public void mostrarDetallesTestOK(){
@@ -21,22 +19,22 @@ public class CuentaBancariaTest {
     @Test
     public void getNumeroCuentaTestOK(){
         int resultado = cuenta1.getNumeroCuenta();
-        int resultadoOK = 1;
+        int resultadoOK = 3;
 
         Assertions.assertEquals(resultadoOK, resultado);
     }
 
     @Test
     public void getNombreTitularTestOK(){
-        String resultado = cuenta2.getNombreTitular();
-        String resultadoOK = "Federico";
+        String resultado = cuenta1.getNombreTitular();
+        String resultadoOK = "Pablo";
 
         Assertions.assertEquals(resultadoOK, resultado);
     }
 
     @Test
     public void mostrarSaldoTestOK(){
-        double resultado = cuenta3.mostrarSaldo();
+        double resultado = cuenta1.mostrarSaldo();
         double resultadoOK = 1000.0;
     
         Assertions.assertEquals(resultadoOK, resultado);
@@ -45,9 +43,9 @@ public class CuentaBancariaTest {
     @Test
     public void depositarSaldoTestOK(){
 
-        cuenta3.depositarSaldo(1000);
+        cuenta1.depositarSaldo(1000);
 
-        double resultado = cuenta3.getSaldo();
+        double resultado = cuenta1.getSaldo();
         double resultadoOK = 2000.0;
     
         Assertions.assertEquals(resultadoOK, resultado);
@@ -56,8 +54,8 @@ public class CuentaBancariaTest {
     @Test
     public void retirarSaldoTestOK(){
 
-        cuenta3.retirarSaldo(30);
-        double resultado = cuenta3.getSaldo();
+        cuenta1.retirarSaldo(30);
+        double resultado = cuenta1.getSaldo();
         double resultadoOK = 970.0;
     
         Assertions.assertEquals(resultadoOK, resultado);

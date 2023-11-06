@@ -28,23 +28,6 @@ public class CuentaBancaria {
      * Constructor por defualt
      */
     public CuentaBancaria(){}
-    /**
-     * Constructor
-     * @param numeroCuenta de la cuenta
-     */
-    public CuentaBancaria(int numeroCuenta){
-        this.numeroCuenta = numeroCuenta;
-    }
-
-    /**
-     * Constructor
-     * @param numeroCuenta de la cuenta
-     * @param nombreTitular de la cuenta
-     */
-    public CuentaBancaria(int numeroCuenta, String nombreTitular){
-        this.numeroCuenta = numeroCuenta;
-        this.nombreTitular = nombreTitular;
-    }
 
     /**
      * Constructor

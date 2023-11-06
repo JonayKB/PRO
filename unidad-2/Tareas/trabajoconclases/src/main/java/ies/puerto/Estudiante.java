@@ -43,36 +43,6 @@ public class Estudiante {
     /**
      * Constructor
      * @param nombre del estudiante
-     */
-    public Estudiante(String nombre){
-        this.nombre = nombre;
-    }
-
-    /**
-     * Constructor
-     * @param nombre del estudiante
-     * @param edad del estudiante
-     */
-    public Estudiante(String nombre, int edad){
-        this.nombre = nombre;
-        this.edad = edad;
-    }
-
-    /**
-     * Constructor
-     * @param nombre del estudiante
-     * @param edad del estudiante
-     * @param carrera del estudiante
-     */
-    public Estudiante(String nombre, int edad, String carrera){
-        this.nombre = nombre;
-        this.edad = edad;
-        this.carrera = carrera;
-    }
-
-    /**
-     * Constructor
-     * @param nombre del estudiante
      * @param edad del estudiante
      * @param carrera del estudiante
      * @param promedio del estudiante

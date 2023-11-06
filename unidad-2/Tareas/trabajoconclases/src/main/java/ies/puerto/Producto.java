@@ -36,24 +36,6 @@ public class Producto {
     /**
      * Constructor
      * @param nombre del producto
-     */
-    public Producto(String nombre){
-        this.nombre=nombre;
-    }
-
-    /**
-     * Constructor
-     * @param nombre del producto
-     * @param precio del producto
-     */
-    public Producto(String nombre, float precio){
-        this.nombre=nombre;
-        this.precio = precio;
-    }
-
-    /**
-     * Constructor
-     * @param nombre del producto
      * @param precio del producto
      * @param stock del producto
      */
@@ -61,8 +43,6 @@ public class Producto {
         this.nombre=nombre;
         this.precio = precio;
         this.stock = stock;
-
-
     
     }
 

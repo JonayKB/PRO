@@ -6,33 +6,7 @@ import ies.puerto.Persona;
 public class PersonaTest {
     Persona persona0 = new Persona();
     Persona persona1 = new Persona("Federico", 15, "federico@gmail.com", "648742361");
-    Persona persona2 = new Persona("Federico", 15, "federico@gmail.com");
-    Persona persona3 = new Persona("Federico", 15);
-    Persona persona4 = new Persona("Federico");
 
-    @Test
-    public void persona4TestOK() {
-        String resultadoOK = "Nombre: Federico\nEdad: 0\nEmail: null\nTeléfono: null";
-        String resultado = persona4.imprimir();
-        Assertions.assertEquals(resultadoOK, resultado);
-
-    }
-
-    @Test
-    public void persona3TestOK() {
-        String resultadoOK = "Nombre: Federico\nEdad: 15\nEmail: null\nTeléfono: null";
-        String resultado = persona3.imprimir();
-        Assertions.assertEquals(resultadoOK, resultado);
-
-    }
-
-    @Test
-    public void persona2TestOK() {
-        String resultadoOK = "Nombre: Federico\nEdad: 15\nEmail: federico@gmail.com\nTeléfono: null";
-        String resultado = persona2.imprimir();
-        Assertions.assertEquals(resultadoOK, resultado);
-
-    }
 
     @Test
     public void persona1TestOK() {

@@ -12,28 +12,7 @@ public class Libro {
      * Constructor por defecto
      */
     public Libro(){};
-
     
-    /**
-     * Constructor
-     * @param titulo del libro
-     */
-    public Libro(String titulo){
-        this.titulo = titulo;
-    }
-
-
-    /**
-     * Constructor
-     * @param titulo del libro
-     * @param autor del libro
-     */
-    public Libro(String titulo, String autor){
-        this.titulo = titulo;
-        this.autor = autor;
-    }
-
-
     /**
      * Constructor
      * @param titulo del libro

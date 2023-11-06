@@ -23,14 +23,6 @@ public class Rectangulo {
     public Rectangulo(){}
 
     /**
-     * Constructor
-     * @param largo del rectangulo
-     */
-    public Rectangulo(float largo){
-        this.largo = largo;
-    }
-
-    /**
      * Constructor 
      * @param largo del rectangulo
      * @param ancho del rectangulo
