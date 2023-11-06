@@ -19,6 +19,6 @@
 6. [Rectángulo](/src/main/java/ies/puerto/Rectangulo.java)
     - [Test](src/test/java/RectanguloTest.java)
 
-6. [Tienda](/src/main/java/ies/puerto/Tienda.java)
+6. [Tienda](./src/main/java/ies/puerto/Tienda.java)
     - [Test](src/test/java/TiendaTest.java)
     - [Producto](/src/main/java/ies/puerto/Producto.java)
