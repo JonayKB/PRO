@@ -62,7 +62,7 @@ public class TiendaTest {
 
     @Test
     public void agregarStockTestOK(){
-        tienda.agregarStock(tienda.arrayProductos[0], 10);
+        tienda.arrayProductos[0].agregarStock( 10);
         int resultado = tienda.arrayProductos[0].getStock();
         int resultadoOK = 110;
         Assertions.assertEquals(resultadoOK, resultado);
@@ -70,14 +70,14 @@ public class TiendaTest {
 
     @Test
     public void venderTestOK(){
-        tienda.vender(tienda.arrayProductos[0], 10);
+        tienda.arrayProductos[0].vender( 10);
         int resultado = tienda.arrayProductos[0].getStock();
         int resultadoOK = 90;
         Assertions.assertEquals(resultadoOK, resultado);
     }
      @Test
     public void cambiarPrecioTestOK(){
-        tienda.cambiarPrecio(tienda.arrayProductos[1], 100f);
+        tienda.arrayProductos[1].cambiarPrecio(100f);
         float resultado = tienda.arrayProductos[1].getPrecio();
         float resultadoOK = 100f;
         Assertions.assertEquals(resultadoOK, resultado);
