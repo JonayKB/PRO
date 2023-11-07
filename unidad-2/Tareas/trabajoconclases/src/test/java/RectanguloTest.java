@@ -34,7 +34,7 @@ public class RectanguloTest {
     @Test
     public void calcularPerimetroTestOK(){
         float resultado = rectangulo1.calcularPerimetro();
-        float resultadoOK = 40f;
+        float resultadoOK = 80f;
         
         Assertions.assertEquals(resultadoOK, resultado);
     }

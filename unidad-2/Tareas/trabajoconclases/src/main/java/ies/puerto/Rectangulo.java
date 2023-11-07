@@ -37,7 +37,7 @@ public class Rectangulo {
      * @return perimetro
      */
     public float calcularPerimetro(){
-        return largo+ancho;
+        return (largo+ancho)*2;
     }
 
     /**

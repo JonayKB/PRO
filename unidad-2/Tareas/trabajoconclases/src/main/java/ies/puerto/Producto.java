@@ -48,7 +48,6 @@ public class Producto {
 
     /**
      * Función para agregar stock a un producto
-     * @param clase del producto
      * @param aAnadir cantidad que se añade
      */
     public void agregarStock(int aAnadir){
@@ -56,7 +55,6 @@ public class Producto {
     }
     /**
      * Función para eliminar Stock de un producto
-     * @param clase a vender
      * @param aVender cuantos se han vendido
      */
     public void vender(int aVender){
@@ -64,7 +62,6 @@ public class Producto {
     }
     /**
      * Clase para cambiar el precio de un producto
-     * @param clase de la que cambiar el precio
      * @param nuevoPrecio del producto
      */
     public void cambiarPrecio(float nuevoPrecio){

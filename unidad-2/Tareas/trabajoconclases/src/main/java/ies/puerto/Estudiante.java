@@ -56,7 +56,6 @@ public class Estudiante {
 
     /**
      * Función para calcular si el alumno esta aprobado o no
-     * @param promedio
      * @return
      */
     public boolean verificarAprobado(){

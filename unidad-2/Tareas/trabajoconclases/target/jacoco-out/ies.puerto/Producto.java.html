@@ -36,33 +36,37 @@ public class Producto {
     /**
      * Constructor
      * @param nombre del producto
-     */
-<span class="fc" id="L40">    public Producto(String nombre){</span>
-<span class="fc" id="L41">        this.nombre=nombre;</span>
-<span class="fc" id="L42">    }</span>
-
-    /**
-     * Constructor
-     * @param nombre del producto
-     * @param precio del producto
-     */
-<span class="fc" id="L49">    public Producto(String nombre, float precio){</span>
-<span class="fc" id="L50">        this.nombre=nombre;</span>
-<span class="fc" id="L51">        this.precio = precio;</span>
-<span class="fc" id="L52">    }</span>
-
-    /**
-     * Constructor
-     * @param nombre del producto
      * @param precio del producto
      * @param stock del producto
      */
-<span class="fc" id="L60">    public Producto(String nombre, float precio, int stock){</span>
-<span class="fc" id="L61">        this.nombre=nombre;</span>
-<span class="fc" id="L62">        this.precio = precio;</span>
-<span class="fc" id="L63">        this.stock = stock;</span>
-<span class="fc" id="L64">    }</span>
+<span class="fc" id="L42">    public Producto(String nombre, float precio, int stock){</span>
+<span class="fc" id="L43">        this.nombre=nombre;</span>
+<span class="fc" id="L44">        this.precio = precio;</span>
+<span class="fc" id="L45">        this.stock = stock;</span>
+    
+<span class="fc" id="L47">    }</span>
 
+    /**
+     * Función para agregar stock a un producto
+     * @param aAnadir cantidad que se añade
+     */
+    public void agregarStock(int aAnadir){
+<span class="fc" id="L54">        setStock(getStock()+aAnadir);</span>
+<span class="fc" id="L55">    }</span>
+    /**
+     * Función para eliminar Stock de un producto
+     * @param aVender cuantos se han vendido
+     */
+    public void vender(int aVender){
+<span class="fc" id="L61">        setStock(getStock()-aVender);</span>
+<span class="fc" id="L62">    }</span>
+    /**
+     * Clase para cambiar el precio de un producto
+     * @param nuevoPrecio del producto
+     */
+    public void cambiarPrecio(float nuevoPrecio){
+<span class="fc" id="L68">        setPrecio(nuevoPrecio);</span>
+<span class="fc" id="L69">    }</span>
 
 
 }

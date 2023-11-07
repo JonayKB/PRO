@@ -1,4 +1,7 @@
 package ies.puerto;
+
+import java.util.ArrayList;
+
 /**
  * Luego, crea una clase Tienda que tenga una lista de productos y métodos para agregar, vender y mostrar el inventario.
  * @author JonayKB
@@ -14,8 +17,11 @@ public class Tienda {
     Producto producto2 = new Producto("Tenedor", 1f, 1000);
     Producto producto3 = new Producto("Filete de ternera", 5f, 10);
 
-    public Producto[] arrayProductos = {producto1,producto2,producto3};
+     public Producto[] arrayProductos = {producto1,producto2,producto3};
 
+    
+    
+    
 
     
     /**

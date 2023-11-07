@@ -17,40 +17,17 @@ public class Tienda {
 <span class="fc" id="L17">    public Producto[] arrayProductos = {producto1,producto2,producto3};</span>
 
 
-    /**
-     * Función para agregar stock a un producto
-     * @param clase del producto
-     * @param aAnadir cantidad que se añade
-     */
-    public void agregarStock(Producto clase, int aAnadir){
-<span class="fc" id="L26">        clase.setStock(clase.getStock()+aAnadir);</span>
-<span class="fc" id="L27">    }</span>
-    /**
-     * Función para eliminar Stock de un producto
-     * @param clase a vender
-     * @param aVender cuantos se han vendido
-     */
-    public void vender(Producto clase, int aVender){
-<span class="fc" id="L34">        clase.setStock(clase.getStock()-aVender);</span>
-<span class="fc" id="L35">    }</span>
-    /**
-     * Clase para cambiar el precio de un producto
-     * @param clase de la que cambiar el precio
-     * @param nuevoPrecio del producto
-     */
-    public void cambiarPrecio(Producto clase, float nuevoPrecio){
-<span class="fc" id="L42">        clase.setPrecio(nuevoPrecio);</span>
-<span class="fc" id="L43">    }</span>
+    
     /**
      * Enseña todos los detalles de todos los productos
      * @return string con los detalles
      */
     public String mostrarInventario(){
-<span class="fc" id="L49">        String resultado =&quot;&quot;;</span>
-<span class="fc bfc" id="L50" title="All 2 branches covered.">        for (Producto producto : arrayProductos) {</span>
-<span class="fc" id="L51">            resultado = resultado+&quot;\nNombre: &quot;+producto.getNombre()+&quot;\nPrecio: &quot;+producto.getPrecio()+&quot;\nStock: &quot;+producto.getStock();</span>
+<span class="fc" id="L26">        String resultado =&quot;&quot;;</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (Producto producto : arrayProductos) {</span>
+<span class="fc" id="L28">            resultado = resultado+&quot;\nNombre: &quot;+producto.getNombre()+&quot;\nPrecio: &quot;+producto.getPrecio()+&quot;\nStock: &quot;+producto.getStock();</span>
         }
-<span class="fc" id="L53">        return resultado;</span>
+<span class="fc" id="L30">        return resultado;</span>
     }
 
     

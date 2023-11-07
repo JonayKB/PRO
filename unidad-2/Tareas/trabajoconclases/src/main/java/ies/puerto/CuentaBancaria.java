@@ -59,7 +59,6 @@ public class CuentaBancaria {
 
     /**
      * Función para mostrar el saldo actual
-     * @param clase de la que mostrar el saldo
      * @return el saldo
      */
     public double mostrarSaldo(){
