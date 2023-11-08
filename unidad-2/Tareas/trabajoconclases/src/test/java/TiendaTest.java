@@ -75,7 +75,7 @@ public class TiendaTest {
     }
      @Test
     public void cambiarPrecioTestOK(){
-        tienda.arrayProductos[1].cambiarPrecio(100f);
+        tienda.arrayProductos[1].setPrecio(100f);
         float resultado = tienda.arrayProductos[1].getPrecio();
         float resultadoOK = 100f;
         Assertions.assertEquals(resultadoOK, resultado);

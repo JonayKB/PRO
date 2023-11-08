@@ -60,13 +60,7 @@ public class Producto {
     public void vender(int aVender){
         setStock(getStock()-aVender);
     }
-    /**
-     * Clase para cambiar el precio de un producto
-     * @param nuevoPrecio del producto
-     */
-    public void cambiarPrecio(float nuevoPrecio){
-        setPrecio(nuevoPrecio);
-    }
+
 
 
 }
