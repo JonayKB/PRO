@@ -58,20 +58,26 @@ public class PersonaTest {
 
     @Test
     public void setTelefonoTestOK() {
-        String resultado = "123456789";
-        persona1.setTelefono(resultado);
-        String resultadoOK = "123456789";
+        String resultadoOK = "100000";
+        persona1.setTelefono(resultadoOK);
+        String resultado = persona1.getTelefono();
         Assertions.assertEquals(resultadoOK, resultado);
-
     }
 
     @Test
     public void setEdadTestOK() {
-        int resultado = 10;
-        persona1.setEdad(resultado);
         int resultadoOK = 10;
+        persona1.setEdad(resultadoOK);
+        int resultado = persona1.getEdad();
         Assertions.assertEquals(resultadoOK, resultado);
+    }
 
+    @Test
+    public void setNombreTestOK() {
+        String resultadoOK = "Pedro";
+        persona1.setNombre(resultadoOK);
+        String resultado = persona1.getNombre();
+        Assertions.assertEquals(resultadoOK, resultado);
     }
 
 }
