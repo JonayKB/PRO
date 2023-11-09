@@ -28,9 +28,7 @@ public class Producto {
     public void setStock(int stock) {
         this.stock = stock;
     }
-    /**
-     * Constructor por defecto
-     */
+
     public Producto(){}
 
     /**

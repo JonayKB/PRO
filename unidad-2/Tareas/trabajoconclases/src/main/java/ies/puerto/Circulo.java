@@ -12,9 +12,7 @@ public class Circulo {
     public float getRadio() {
         return this.radio;
     }
-    /**
-     * Constructor por defecto
-     */
+
     public Circulo(){}
 
     /**

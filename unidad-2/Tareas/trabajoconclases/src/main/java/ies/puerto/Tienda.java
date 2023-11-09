@@ -6,9 +6,7 @@ package ies.puerto;
  * @author JonayKB
  */
 public class Tienda {
-    /**
-     * Constructor por default
-     */
+
     public Tienda(){};
     
     

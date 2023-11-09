@@ -8,11 +8,10 @@ public class Libro {
     private String titulo;
     private String autor;
     private int anoPublicacion;
-    /**
-     * Constructor por defecto
-     */
+
     public Libro(){};
     
+
     /**
      * Constructor
      * @param titulo del libro

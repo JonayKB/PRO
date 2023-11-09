@@ -38,9 +38,7 @@ public class Persona {
         this.telefono = telefono;
     }
 
-    /**
-     * Constructor por defecto de la clase
-     */
+
     public Persona(){}
 
 
@@ -58,13 +56,6 @@ public class Persona {
         this.telefono = telefono;
     }
 
-    /**public void imprimir(){
-        System.out.println("Nombre: "+ nombre);
-        System.out.println("Edad: "+ edad);
-        System.out.println("Email: "+ email);
-        System.out.println("Teléfono: "+ telefono);
-    }
-    */
     public String imprimir(){
         return "Nombre: "+nombre+"\nEdad: "+ edad+"\nEmail: "+ email+"\nTeléfono: "+ telefono;
     }

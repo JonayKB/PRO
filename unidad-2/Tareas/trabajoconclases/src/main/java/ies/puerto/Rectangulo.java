@@ -17,9 +17,7 @@ public class Rectangulo {
         return this.ancho;
     }
 
-    /**
-     * Constructor por default
-     */
+
     public Rectangulo(){}
 
     /**

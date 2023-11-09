@@ -35,9 +35,7 @@ public class Estudiante {
         this.promedio = promedio;
     }
 
-    /**
-     * Constructor por defecto
-     */
+
     public Estudiante(){}
 
     /**

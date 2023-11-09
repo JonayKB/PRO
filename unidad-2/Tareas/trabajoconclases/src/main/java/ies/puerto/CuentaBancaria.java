@@ -24,9 +24,7 @@ public class CuentaBancaria {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-    /**
-     * Constructor por defualt
-     */
+
     public CuentaBancaria(){}
 
     /**
