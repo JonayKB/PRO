@@ -8,35 +8,34 @@ public class Libro {
     private String titulo;
     private String autor;
     private int anoPublicacion;
-    /**
-     * Constructor por defecto
-     */
-<span class="fc" id="L14">    public Libro(){};</span>
+
+<span class="fc" id="L12">    public Libro(){};</span>
     
+
     /**
      * Constructor
      * @param titulo del libro
      * @param autor del libro
      * @param anoPublicacion del libro
      */
-<span class="fc" id="L22">    public Libro(String titulo, String autor, int anoPublicacion){</span>
-<span class="fc" id="L23">        this.titulo = titulo;</span>
-<span class="fc" id="L24">        this.autor = autor;</span>
-<span class="fc" id="L25">        this.anoPublicacion = anoPublicacion;</span>
-<span class="fc" id="L26">    }</span>
+<span class="fc" id="L21">    public Libro(String titulo, String autor, int anoPublicacion){</span>
+<span class="fc" id="L22">        this.titulo = titulo;</span>
+<span class="fc" id="L23">        this.autor = autor;</span>
+<span class="fc" id="L24">        this.anoPublicacion = anoPublicacion;</span>
+<span class="fc" id="L25">    }</span>
     //Getters y Setters
     public String getTitulo() {
-<span class="fc" id="L29">        return this.titulo;</span>
+<span class="fc" id="L28">        return this.titulo;</span>
     }
 
 
     public String getAutor() {
-<span class="fc" id="L34">        return this.autor;</span>
+<span class="fc" id="L33">        return this.autor;</span>
     }
 
 
     public int getAnoPublicacion() {
-<span class="fc" id="L39">        return this.anoPublicacion;</span>
+<span class="fc" id="L38">        return this.anoPublicacion;</span>
     }
 
     /**
@@ -44,7 +43,7 @@ public class Libro {
      * @return String que contiene toda la información
      */
     public String imprimir(){
-<span class="fc" id="L47">        return &quot;Titulo: &quot;+titulo+&quot;\nAutor: &quot;+autor+&quot;\nAño Publicación: &quot;+anoPublicacion;</span>
+<span class="fc" id="L46">        return &quot;Titulo: &quot;+titulo+&quot;\nAutor: &quot;+autor+&quot;\nAño Publicación: &quot;+anoPublicacion;</span>
     }
 
     

@@ -24,10 +24,8 @@ public class CuentaBancaria {
     public void setSaldo(double saldo) {
 <span class="fc" id="L25">        this.saldo = saldo;</span>
 <span class="fc" id="L26">    }</span>
-    /**
-     * Constructor por defualt
-     */
-<span class="fc" id="L30">    public CuentaBancaria(){}</span>
+
+<span class="fc" id="L28">    public CuentaBancaria(){}</span>
 
     /**
      * Constructor
@@ -35,34 +33,34 @@ public class CuentaBancaria {
      * @param nombreTitular de la cuenta
      * @param saldo de la cuenta
      */
-<span class="fc" id="L38">    public CuentaBancaria(int numeroCuenta, String nombreTitular, double saldo){</span>
-<span class="fc" id="L39">        this.numeroCuenta = numeroCuenta;</span>
-<span class="fc" id="L40">        this.nombreTitular = nombreTitular;</span>
-<span class="fc" id="L41">        this.saldo = saldo;</span>
-<span class="fc" id="L42">    }</span>
+<span class="fc" id="L36">    public CuentaBancaria(int numeroCuenta, String nombreTitular, double saldo){</span>
+<span class="fc" id="L37">        this.numeroCuenta = numeroCuenta;</span>
+<span class="fc" id="L38">        this.nombreTitular = nombreTitular;</span>
+<span class="fc" id="L39">        this.saldo = saldo;</span>
+<span class="fc" id="L40">    }</span>
 
     /**
      * Función para retirar dinero de la cuenta 
      * @param aRetirar cantidad que se retira
      */
     public void retirarSaldo(double aRetirar){
-<span class="fc" id="L49">        setSaldo(getSaldo()-aRetirar);</span>
-<span class="fc" id="L50">    }</span>
+<span class="fc" id="L47">        setSaldo(getSaldo()-aRetirar);</span>
+<span class="fc" id="L48">    }</span>
 
     /**
      * Función para añadir dinero a la cuenta
      * @param aDepositar cantidad que se añade
      */
     public void depositarSaldo(double aDepositar){
-<span class="fc" id="L57">        setSaldo(getSaldo()+aDepositar);</span>
-<span class="fc" id="L58">    }</span>
+<span class="fc" id="L55">        setSaldo(getSaldo()+aDepositar);</span>
+<span class="fc" id="L56">    }</span>
 
     /**
      * Función para mostrar el saldo actual
      * @return el saldo
      */
     public double mostrarSaldo(){
-<span class="fc" id="L65">        return getSaldo();</span>
+<span class="fc" id="L63">        return getSaldo();</span>
     }
 
     /**
@@ -70,7 +68,7 @@ public class CuentaBancaria {
      * @return los detalles
      */
     public String mostrarDetalles(){
-<span class="fc" id="L73">        return &quot;\nNúmero Cuenta: &quot;+numeroCuenta+&quot;\nNombre: &quot;+nombreTitular+&quot;\nSaldo: &quot;+saldo;</span>
+<span class="fc" id="L71">        return &quot;\nNúmero Cuenta: &quot;+numeroCuenta+&quot;\nNombre: &quot;+nombreTitular+&quot;\nSaldo: &quot;+saldo;</span>
 
     }
 

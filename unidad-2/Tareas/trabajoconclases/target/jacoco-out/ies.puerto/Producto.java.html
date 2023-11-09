@@ -28,10 +28,8 @@ public class Producto {
     public void setStock(int stock) {
 <span class="fc" id="L29">        this.stock = stock;</span>
 <span class="fc" id="L30">    }</span>
-    /**
-     * Constructor por defecto
-     */
-<span class="fc" id="L34">    public Producto(){}</span>
+
+<span class="fc" id="L32">    public Producto(){}</span>
 
     /**
      * Constructor
@@ -39,27 +37,27 @@ public class Producto {
      * @param precio del producto
      * @param stock del producto
      */
-<span class="fc" id="L42">    public Producto(String nombre, float precio, int stock){</span>
-<span class="fc" id="L43">        this.nombre=nombre;</span>
-<span class="fc" id="L44">        this.precio = precio;</span>
-<span class="fc" id="L45">        this.stock = stock;</span>
+<span class="fc" id="L40">    public Producto(String nombre, float precio, int stock){</span>
+<span class="fc" id="L41">        this.nombre=nombre;</span>
+<span class="fc" id="L42">        this.precio = precio;</span>
+<span class="fc" id="L43">        this.stock = stock;</span>
     
-<span class="fc" id="L47">    }</span>
+<span class="fc" id="L45">    }</span>
 
     /**
      * Función para agregar stock a un producto
      * @param aAnadir cantidad que se añade
      */
     public void agregarStock(int aAnadir){
-<span class="fc" id="L54">        setStock(getStock()+aAnadir);</span>
-<span class="fc" id="L55">    }</span>
+<span class="fc" id="L52">        setStock(getStock()+aAnadir);</span>
+<span class="fc" id="L53">    }</span>
     /**
      * Función para eliminar Stock de un producto
      * @param aVender cuantos se han vendido
      */
     public void vender(int aVender){
-<span class="fc" id="L61">        setStock(getStock()-aVender);</span>
-<span class="fc" id="L62">    }</span>
+<span class="fc" id="L59">        setStock(getStock()-aVender);</span>
+<span class="fc" id="L60">    }</span>
 
 
 

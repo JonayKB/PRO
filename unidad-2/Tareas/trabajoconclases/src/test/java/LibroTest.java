@@ -1,14 +1,22 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ies.puerto.Libro;
 
 public class LibroTest {
-    Libro libro1 = new Libro("La Mancha", "Federico", 2013);
-    Libro libro0 = new Libro();
 
+    Libro libro;
+    String titulo = "La Mancha";
+    String autor = "Federico";
+    int anoPublicacion = 2013;
 
+    @BeforeEach
+    public void BeforeEach() {
+        libro = new Libro(titulo, autor, anoPublicacion);
+    }
     
+  
     public void imprimirTest(Libro clase, String titulo, String autor , int anoPublicacion){
         String resultado = clase.imprimir();
         String resultadoOK = "Titulo: "+titulo+"\nAutor: "+autor+"\nAño Publicación: "+anoPublicacion;
@@ -16,33 +24,22 @@ public class LibroTest {
     }
 
     @Test
-    public void imprimirLibro0TestOK(){
-        imprimirTest(libro0, null, null, 0);
+    public void ConstructorTestOK(){
+        imprimirTest(libro, titulo, autor, anoPublicacion);
     }
     
     @Test
     public void imprimirLibro3TestOK(){
-        imprimirTest(libro1, "La Mancha", "Federico", 2013);
+        imprimirTest(libro, titulo, autor, anoPublicacion);
     }
-    
 
     @Test
-    public void getTituloTestOK(){
-        String resultado = libro1.getTitulo();
-        String resultadoOK = "La Mancha";
-        Assertions.assertEquals(resultadoOK,resultado);
+    public void gettersTestOK(){
+        
+        Assertions.assertEquals(titulo,libro.getTitulo(), "El titulo esta mal");
+        Assertions.assertEquals(autor,libro.getAutor(), "El autor esta mal");
+        Assertions.assertEquals(anoPublicacion,libro.getAnoPublicacion(), "El año publicacion esta mal");
     }
-    @Test
-    public void getAutorTestOK(){
-        String resultado = libro1.getAutor();
-        String resultadoOK = "Federico";
-        Assertions.assertEquals(resultadoOK,resultado);
-    }
-    @Test
-    public void getAnoPublicacionTestOK(){
-        int resultado = libro1.getAnoPublicacion();
-        int resultadoOK = 2013;
-        Assertions.assertEquals(resultadoOK,resultado);
-    }
+
 
 }
