@@ -6,15 +6,10 @@ package ies.puerto;
  * @author JonayKB
  */
 public class Tienda {
-
-    public Tienda(){};
-    
-    
-    Producto producto1 = new Producto("Jabon", 3f, 100);
-    Producto producto2 = new Producto("Tenedor", 1f, 1000);
-    Producto producto3 = new Producto("Filete de ternera", 5f, 10);
-
-    public Producto[] arrayProductos = {producto1,producto2,producto3};
+    Producto[] arrayProductos;
+    public Tienda(Producto[] arrayProductos){
+        this.arrayProductos = arrayProductos;
+    };
     
     /**
      * Enseña todos los detalles de todos los productos

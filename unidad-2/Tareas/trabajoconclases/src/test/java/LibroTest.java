@@ -12,19 +12,25 @@ public class LibroTest {
     int anoPublicacion = 2013;
 
     @BeforeEach
-    public void BeforeEach() {
+    public void beforeEach() {
         libro = new Libro(titulo, autor, anoPublicacion);
     }
     
-  
+    
     public void imprimirTest(Libro clase, String titulo, String autor , int anoPublicacion){
         String resultado = clase.imprimir();
         String resultadoOK = "Titulo: "+titulo+"\nAutor: "+autor+"\nAño Publicación: "+anoPublicacion;
-        Assertions.assertEquals(resultadoOK, resultado);
+        Assertions.assertEquals(resultadoOK, resultado, "El imprimir esta mal");
     }
 
+
     @Test
-    public void ConstructorTestOK(){
+    public void constructorDefaultTestOK(){
+        Libro libro0 = new Libro();
+        imprimirTest(libro0, null, null, 0);
+    }
+    @Test
+    public void constructorTestOK(){
         imprimirTest(libro, titulo, autor, anoPublicacion);
     }
     
@@ -34,12 +40,22 @@ public class LibroTest {
     }
 
     @Test
-    public void gettersTestOK(){
-        
-        Assertions.assertEquals(titulo,libro.getTitulo(), "El titulo esta mal");
-        Assertions.assertEquals(autor,libro.getAutor(), "El autor esta mal");
-        Assertions.assertEquals(anoPublicacion,libro.getAnoPublicacion(), "El año publicacion esta mal");
+    public void getTituloTestOK(){
+        String resultado = libro.getTitulo();
+        String resultadoOK = titulo;
+        Assertions.assertEquals(resultadoOK,resultado, "El titulo esta mal");
     }
-
+    @Test
+    public void getAutorTestOK(){
+        String resultado = libro.getAutor();
+        String resultadoOK = autor;
+        Assertions.assertEquals(resultadoOK,resultado, "El autor esta mal");
+    }
+    @Test
+    public void getAnoPublicacionTestOK(){
+        int resultado = libro.getAnoPublicacion();
+        int resultadoOK = anoPublicacion;
+        Assertions.assertEquals(resultadoOK,resultado, "El año publicacion esta mal");
+    }
 
 }

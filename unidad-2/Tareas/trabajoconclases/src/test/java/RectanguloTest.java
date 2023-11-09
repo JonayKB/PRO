@@ -13,7 +13,7 @@ public class RectanguloTest {
         float resultado = rectangulo0.getAncho();
         float resultadoOK = 0f;
         
-        Assertions.assertEquals(resultadoOK, resultado);
+        Assertions.assertEquals(resultadoOK, resultado, "El ancho esta mal");
     }
 
     @Test
@@ -21,7 +21,7 @@ public class RectanguloTest {
         float resultado = rectangulo1.getLargo();
         float resultadoOK = 10f;
         
-        Assertions.assertEquals(resultadoOK, resultado);
+        Assertions.assertEquals(resultadoOK, resultado, "El largo esta mal");
     }
 
     @Test
@@ -29,13 +29,13 @@ public class RectanguloTest {
         float resultado = rectangulo1.calcularArea();
         float resultadoOK = 300f;
         
-        Assertions.assertEquals(resultadoOK, resultado);
+        Assertions.assertEquals(resultadoOK, resultado, "El area esta mal");
     }
     @Test
     public void calcularPerimetroTestOK(){
         float resultado = rectangulo1.calcularPerimetro();
         float resultadoOK = 80f;
         
-        Assertions.assertEquals(resultadoOK, resultado);
+        Assertions.assertEquals(resultadoOK, resultado, "El perimetro esta mal");
     }
 }

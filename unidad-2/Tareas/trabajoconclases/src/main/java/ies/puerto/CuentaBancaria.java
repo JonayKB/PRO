@@ -55,13 +55,6 @@ public class CuentaBancaria {
         setSaldo(getSaldo()+aDepositar);
     }
 
-    /**
-     * Función para mostrar el saldo actual
-     * @return el saldo
-     */
-    public double mostrarSaldo(){
-        return getSaldo();
-    }
 
     /**
      * Función para mostrar los detalles de la cuenta

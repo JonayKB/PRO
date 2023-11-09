@@ -13,7 +13,7 @@ public class CuentaBancariaTest {
         String resultado = cuenta0.mostrarDetalles();
         String resultadoOK = "\nNúmero Cuenta: 0\nNombre: null\nSaldo: 0.0";
 
-        Assertions.assertEquals(resultadoOK, resultado);
+        Assertions.assertEquals(resultadoOK, resultado, "Mostar detalles esta mal");
     }
 
     @Test
@@ -21,7 +21,7 @@ public class CuentaBancariaTest {
         int resultado = cuenta1.getNumeroCuenta();
         int resultadoOK = 3;
 
-        Assertions.assertEquals(resultadoOK, resultado);
+        Assertions.assertEquals(resultadoOK, resultado, "El numero cuenta esta mal");
     }
 
     @Test
@@ -29,16 +29,9 @@ public class CuentaBancariaTest {
         String resultado = cuenta1.getNombreTitular();
         String resultadoOK = "Pablo";
 
-        Assertions.assertEquals(resultadoOK, resultado);
+        Assertions.assertEquals(resultadoOK, resultado, "El nombre esta mal");
     }
 
-    @Test
-    public void mostrarSaldoTestOK(){
-        double resultado = cuenta1.mostrarSaldo();
-        double resultadoOK = 1000.0;
-    
-        Assertions.assertEquals(resultadoOK, resultado);
-    }
 
     @Test
     public void depositarSaldoTestOK(){
@@ -48,7 +41,7 @@ public class CuentaBancariaTest {
         double resultado = cuenta1.getSaldo();
         double resultadoOK = 2000.0;
     
-        Assertions.assertEquals(resultadoOK, resultado);
+        Assertions.assertEquals(resultadoOK, resultado, "Depositar saldo esta mal");
     }
 
     @Test
@@ -58,6 +51,6 @@ public class CuentaBancariaTest {
         double resultado = cuenta1.getSaldo();
         double resultadoOK = 970.0;
     
-        Assertions.assertEquals(resultadoOK, resultado);
+        Assertions.assertEquals(resultadoOK, resultado, "Retirar saldo esta mal");
     }
 }

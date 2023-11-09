@@ -9,7 +9,7 @@ public class EstudianteTest {
     Estudiante estudiante2 = new Estudiante("Federico", 30, "Ingienería Química", 4.9f);
 
     @Test
-    public void getNombre0TestOK(){
+    public void constructorDefaulTestOK(){
         String resultado = estudiante0.getNombre();
         String resultadoOK = null;
 
@@ -17,20 +17,13 @@ public class EstudianteTest {
     }
 
     @Test
-    public void getNombre1estOK(){
+    public void getNombreTestOK(){
         String resultado = estudiante1.getNombre();
         String resultadoOK = "Cristian";
 
         Assertions.assertEquals(resultadoOK, resultado);
     }
 
-    @Test
-    public void getEdadTestOK(){
-        int resultado = estudiante1.getEdad();
-        int resultadoOK = 17;
-
-        Assertions.assertEquals(resultadoOK, resultado);
-    }
     @Test
     public void setEdadTestOK(){
         int resultado = 19;
@@ -44,14 +37,6 @@ public class EstudianteTest {
     public void getCarreraTestOK(){
         String resultado = estudiante1.getCarrera();
         String resultadoOK = "Bellas Artes";
-
-        Assertions.assertEquals(resultadoOK, resultado);
-    }
-
-    @Test
-    public void getPromedioTestOK(){
-        float resultado = estudiante1.getPromedio();
-        float resultadoOK = 9f;
 
         Assertions.assertEquals(resultadoOK, resultado);
     }

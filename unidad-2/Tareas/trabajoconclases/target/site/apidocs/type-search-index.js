@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ies.puerto","l":"Circulo"},{"p":"ies.puerto","l":"CuentaBancaria"},{"p":"ies.puerto","l":"Estudiante"},{"p":"ies.puerto","l":"Libro"},{"p":"ies.puerto","l":"Persona"},{"p":"ies.puerto","l":"Producto"},{"p":"ies.puerto","l":"Rectangulo"},{"p":"ies.puerto","l":"Tienda"}]
