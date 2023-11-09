@@ -17,11 +17,6 @@ public class Tienda {
     Producto producto3 = new Producto("Filete de ternera", 5f, 10);
 
     public Producto[] arrayProductos = {producto1,producto2,producto3};
-
-    
-    
-    
-
     
     /**
      * Enseña todos los detalles de todos los productos
