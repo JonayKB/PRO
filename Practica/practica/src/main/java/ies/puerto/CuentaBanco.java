@@ -14,7 +14,7 @@ Se pide:
         Depositar un cantidad de dinero.
         Retirar una cantidad de dinero.
         informacion sobre el titular y la cantidad de dinero que tiene en ese momento en la cuenta.
-
+ *@author JonayKB
  */
 public class CuentaBanco {
     private String titular;
