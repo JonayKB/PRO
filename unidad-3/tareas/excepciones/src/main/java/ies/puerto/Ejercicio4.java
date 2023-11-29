@@ -13,7 +13,7 @@ public class Ejercicio4 {
         try {
             int comprobar = vacio.length();
             } catch (NullPointerException e) {
-            System.out.println("ESTA DEATH");
+            System.out.println("Esta muerto");
         }
     }
     

@@ -9,7 +9,7 @@ public class Ejercicio3 {
         try {
             int a = array[4];
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("DA ERROR :(");
+            System.out.println("El array sale de numero");
         }
     }
 }
