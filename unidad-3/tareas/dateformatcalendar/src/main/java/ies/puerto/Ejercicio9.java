@@ -10,7 +10,7 @@ public class Ejercicio9 {
 
     public static void main(String[] args) {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), 1);
-        System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
+        System.out.println(calendar.getActualMinimum(Calendar.DAY_OF_MONTH));
+
     }
 }

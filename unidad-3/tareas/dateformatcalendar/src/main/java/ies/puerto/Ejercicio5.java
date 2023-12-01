@@ -10,8 +10,8 @@ public class Ejercicio5 {
         Calendar calendar = Calendar.getInstance();
 
         calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH)-1,calendar.get(Calendar.DAY_OF_MONTH));
-        int mes = calendar.get(Calendar.MONTH);
+        
 
-        System.out.println(mes);
+        System.out.println(calendar.get(Calendar.MONTH));
     }
 }

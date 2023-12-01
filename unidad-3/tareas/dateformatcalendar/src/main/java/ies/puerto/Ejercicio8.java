@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Ejercicio8 {
     
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws ParseException {
         Scanner input = new Scanner(System.in);
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         Date fecha = new Date();
@@ -21,8 +21,8 @@ public class Ejercicio8 {
         
         try {
             fecha=format.parse(input.nextLine());
-        } catch (Exception e) {
-            throw new Exception();
+        } catch (ParseException e) {
+            throw new ParseException("Error parse",1);
         }finally{
             input.close();
         }

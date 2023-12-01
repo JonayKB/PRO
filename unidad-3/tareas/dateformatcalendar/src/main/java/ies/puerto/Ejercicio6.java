@@ -10,7 +10,6 @@ public class Ejercicio6 {
         String mensaje = "Las fechas son distintas";
         Date fecha1 = new Date();
         Date fecha2 = new Date();
-   
         
         if (fecha1.compareTo(fecha2)==0) {
             mensaje = "Las fechas son iguales";

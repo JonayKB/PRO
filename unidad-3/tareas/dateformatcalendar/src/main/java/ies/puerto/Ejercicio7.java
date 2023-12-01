@@ -11,7 +11,6 @@ public class Ejercicio7 {
         int diasAnio0=0;
         int diasAnio1=0;
 
-        
         Calendar calendario = Calendar.getInstance();
         Calendar calendario1 = Calendar.getInstance();
 
@@ -20,10 +19,8 @@ public class Ejercicio7 {
         diasAnio0 = calendario.get(Calendar.DAY_OF_YEAR);
         diasAnio1 = calendario1.get(Calendar.DAY_OF_YEAR);
 
-        int operacion= diasAnio0-diasAnio1;
-        if (operacion<0) {
-            operacion= diasAnio1-diasAnio0;
-        }
-        System.out.println("La diferencia es de "+operacion+" dias");
+        int operacion=diasAnio0-diasAnio1;
+        
+        System.out.println("La diferencia es de "+Math.abs(operacion)+" dias");
     }
 }
