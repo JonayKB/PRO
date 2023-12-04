@@ -1,7 +1,12 @@
 # Unidad 3
 Tareas de la unidad 3
 ## Tareas
-- [Unidad 1](unidad-1)
+- [Breaks y Continues](./breakcontinue/)
+- [Integer](./claseinteger/)
+- [String](./clasestring/)
+- [DateFormatCalendar](./dateformatcalendar/)
+- [Excepciones](./excepciones/)
+- [Expresiones Regulares](./expresionesregulares/)
 
 
   
