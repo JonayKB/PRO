@@ -16,7 +16,7 @@ public class Ejercicio2 {
         Matcher matcher = pattern.matcher(telefono);
         int i = 1;
         while (matcher.find()) {
-            System.out.println("Numero valido "+i+": "+matcher.group(i));
+            System.out.println("Numero valido "+i+": "+matcher.group(0));
             i++;
         }
 
