@@ -14,6 +14,7 @@ public class Ejercicio5 {
         //Es una basura de código, pero ante problemas soluciones
         Scanner scanner = new Scanner(System.in);
         String[][] array = new String[3][scanner.nextInt()*2];
+        scanner.close();
         int espera =0;
         int esperaArriba =2;
         for (int i = 0; i < array.length; i++) {

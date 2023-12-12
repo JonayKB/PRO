@@ -10,13 +10,18 @@ import java.util.Scanner;
 public class Ejercicio3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Integer resultado = 0;
+        scanner.close();
+        
         String entrada = scanner.nextLine();
-
+        int resultado = calcularSuma(entrada);
+        System.out.println(resultado);
+    }
+    public static int calcularSuma(String entrada){
+        int resultado = 0;
         for (int i = 0; i < entrada.length(); i++) {
 
             resultado += Integer.parseInt(entrada.substring(i, i+1));
         }
-        System.out.println(resultado);
+        return resultado;
     }
 }

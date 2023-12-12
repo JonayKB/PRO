@@ -13,6 +13,12 @@ public class Ejercicio2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String entrada = scanner.nextLine();
+        scanner.close();
+        int contador=contarVocales(entrada);
+        System.out.println("Hay "+contador+" vocales");
+    }
+    
+    public static int contarVocales(String entrada){
         String regex = "[aeiouAEIOU]";
         int contador = 0;
 
@@ -22,6 +28,6 @@ public class Ejercicio2 {
         while (matcher.find()) {
             contador++;
         }
-        System.out.println("Hay "+contador+" vocales");
+        return contador;
     }
 }

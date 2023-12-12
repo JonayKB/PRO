@@ -9,15 +9,20 @@ import java.util.Scanner;
  */
 public class Ejercicio1 {
     public static void main(String[] args) {
-        String resultado = "";
         Scanner scanner = new Scanner(System.in);
-
-        String entrada = scanner.nextLine();
         scanner.close();
+        String entrada = scanner.nextLine();
+
+        System.out.println(invertirCadena(entrada));
+    }
+    public static String invertirCadena(String entrada){
+        String resultado = "";
+        
+        
         for (int i = 0; i < entrada.length(); i++) {
             resultado += entrada.charAt(entrada.length()-1-i);
         }
 
-        System.out.println(resultado);
+        return resultado;
     }
 }
