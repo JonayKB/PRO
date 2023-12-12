@@ -12,11 +12,22 @@ import java.util.Scanner;
 public class Ejercicio4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+        int entrada = scanner.nextInt();
+        scanner.close();
+        String resultado = pasarABinario(entrada);
+        System.out.println(resultado);
+    }
+    /**
+     * Pasa un número a binario
+     * @param entrada numero a pasar
+     * @return el número convertido
+     */
+    public static String pasarABinario(int entrada){
         String resultado = "";
 
-        resultado = Integer.toBinaryString(scanner.nextInt());
-        scanner.close();
-        System.out.println(resultado);
+        resultado = Integer.toBinaryString(entrada);
+        
+        return resultado;
+        
     }
 }

@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import ies.puerto.Ejercicio1;
+
 import ies.puerto.Ejercicio2;
 
 public class Ejercicio2Test {

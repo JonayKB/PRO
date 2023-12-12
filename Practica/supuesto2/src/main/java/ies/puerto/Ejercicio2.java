@@ -17,7 +17,11 @@ public class Ejercicio2 {
         int contador=contarVocales(entrada);
         System.out.println("Hay "+contador+" vocales");
     }
-    
+    /**
+     * Cuenta las vocales de una cadena de texto
+     * @param entrada la cadena de texto
+     * @return la cantidad de vocales
+     */
     public static int contarVocales(String entrada){
         String regex = "[aeiouAEIOU]";
         int contador = 0;

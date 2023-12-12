@@ -16,6 +16,11 @@ public class Ejercicio3 {
         int resultado = calcularSuma(entrada);
         System.out.println(resultado);
     }
+    /**
+     * Calcula la suma de todos los dígios de una numero
+     * @param entrada el número
+     * @return la suma final
+     */
     public static int calcularSuma(String entrada){
         int resultado = 0;
         for (int i = 0; i < entrada.length(); i++) {

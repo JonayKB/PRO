@@ -15,6 +15,11 @@ public class Ejercicio1 {
 
         System.out.println(invertirCadena(entrada));
     }
+    /**
+     * Invierte una cadena
+     * @param entrada la cadena
+     * @return la cadena invertida
+     */
     public static String invertirCadena(String entrada){
         String resultado = "";
         

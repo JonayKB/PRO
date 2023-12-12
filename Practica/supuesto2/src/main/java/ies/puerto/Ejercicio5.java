@@ -13,8 +13,39 @@ public class Ejercicio5 {
     public static void main(String[] args) {
         //Es una basura de código, pero ante problemas soluciones
         Scanner scanner = new Scanner(System.in);
-        String[][] array = new String[3][scanner.nextInt()*2];
+        int entrada = 0;
+        do{
+            entrada=scanner.nextInt()*2;
+        }while(entrada<4);
         scanner.close();
+        String[][] array = new String[3][entrada];
+        String resultado = mostrar(crearTabla(array));
+        System.out.println(resultado);
+    }
+    /**
+     * Muestra el array creado
+     * @param array que contiene los caracteres
+     * @return string con el resultado
+     */
+    public static String mostrar(String[][] array){
+        String resultado = "\n";
+        for (String[] is : array) {
+            for (String numero : is) {
+                if (numero==null) {
+                    numero = " ";
+                }
+                resultado += numero;
+            }
+            resultado += "\n";
+        }
+        return resultado;
+    }
+    /**
+     * Crea la tabla con los "*"
+     * @param array que contiene las dimensiones
+     * @return tabla terminada
+     */
+    public static String[][] crearTabla(String[][] array){
         int espera =0;
         int esperaArriba =2;
         for (int i = 0; i < array.length; i++) {
@@ -40,26 +71,9 @@ public class Ejercicio5 {
                         }
                 }
             }
-                    
-            
-            
-            
-        }
-        String resultado = mostrar(array);
-        System.out.println(resultado);
-    }
 
-    public static String mostrar(String[][] array){
-        String resultado = "";
-        for (String[] is : array) {
-            for (String numero : is) {
-                if (numero==null) {
-                    numero = " ";
-                }
-                resultado += numero;
-            }
-            resultado += "\n";
         }
-        return resultado;
+        return array;
     }
+    
 }
