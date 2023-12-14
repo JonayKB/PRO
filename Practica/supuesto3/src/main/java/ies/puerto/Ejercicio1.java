@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 /**
  * Ejercicio 1: Crea una aplicación en Java que construya y muestre una representación gráfica de un triángulo invertido. 
- * El programa debe de solicitar por teclado el número de columnas y si es menor que cuatro generar una exception indicando el error. Puntuación 5 puntos.
+ * El programa debe de solicitar por teclado el número de columnas y si es menor que cuatro generar una exception indicando el error. 
+ * Puntuación 5 puntos.
  * @author JonayKB
  */
 public class Ejercicio1 {
@@ -13,15 +14,21 @@ public class Ejercicio1 {
         int entrada = scanner.nextInt();
         scanner.close();
         System.out.println(imprimir(crearTabla(entrada)));
-
-        
     }
 
     public static int[][] crearTabla(int entrada){
-        int[][] array = new int[4][(((entrada)/2)*2)+1];
+        int[][] array = new int[(((entrada)/2)*2)*2][(((entrada)/2)*2)+1];
+        int posicionI = 0;
+
+        for(int i=3; i>=0; i--){
+            for (int j = posicionI; j <array[i].length-posicionI ; j++) {
+                array[i][j]=1;
+            }
+            posicionI++;
+        }
         for(int i=0; i<4; i++){
             for (int j = i; j <array[i].length-i ; j++) {
-                array[i][j]=1;
+                array[i+3][j]=1;
             }
         }
         return array;
