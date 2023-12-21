@@ -1,6 +1,6 @@
 package ies.puerto;
 
-public class Main {
+public class Ejercicio1 {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
