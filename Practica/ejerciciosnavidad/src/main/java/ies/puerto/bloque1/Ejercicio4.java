@@ -1,7 +1,10 @@
 package ies.puerto.bloque1;
 
 import java.util.Scanner;
-
+/**
+ * Escribe un programa que muestre tu nombre, tu edad y tu hobby favorito en 
+ * líneas separadas, similar a un perfil básico.
+ */
 public class Ejercicio4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
