@@ -1,4 +1,4 @@
-package ies.puerto;
+package ies.puerto.bloque1;
 
 public class Ejercicio1 {
     public static void main(String[] args) {
