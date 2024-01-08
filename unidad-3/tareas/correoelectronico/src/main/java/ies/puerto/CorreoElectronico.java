@@ -1,5 +1,6 @@
 package ies.puerto;
 
+
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -30,7 +31,7 @@ public class CorreoElectronico {
     public void validar() throws CorreoInvalidoException{
         String regex= "^[a-zA-Z-%$\"!?¿()&ñ]+@[a-zA-Z-%$\"!?¿()&ñ]+\\.\\w{2,3}$";
         Pattern pattern = Pattern.compile(regex);
-
+        
         if (pattern.matches(regex, correo)) {
             System.out.println("El correo "+correo+" es correcto");
         }else{

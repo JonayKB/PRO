@@ -12,6 +12,7 @@ public class Ejercicio3 {
         int año = calendar.get(Calendar.YEAR);
         int mes = calendar.get(Calendar.MONTH);
         int dia = calendar.get(Calendar.DAY_OF_MONTH);
+   
 
         System.out.println("Dia: "+dia+"\nMes: "+mes+"\nAño: "+año);
     }

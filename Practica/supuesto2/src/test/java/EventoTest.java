@@ -15,6 +15,7 @@ public class EventoTest {
 
         Assertions.assertEquals(resultadoOK, resultado);
     }
+
     @Test
     public  void  estaProximoEvento1TestError()throws ParseException{
         boolean resultado = evento1.estaProximo(evento1.convertirDate(evento1.getFecha()));
