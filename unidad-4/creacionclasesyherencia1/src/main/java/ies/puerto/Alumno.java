@@ -47,6 +47,10 @@ public class Alumno extends Persona {
         return resultado;
     }
     @Override
+    public String saludar(){
+        return "Hola, ¿Cómo te va pibe?";
+    }
+    @Override
     public String toString(){
         return "Soy un Alumno:{DNI: "+dni+"\nNombre: "+nombre+"\nEdad: "+edad+"\nCurso: "+curso+"\nNotas: "+notasString()+"}";
     }

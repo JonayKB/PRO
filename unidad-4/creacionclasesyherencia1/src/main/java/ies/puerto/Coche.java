@@ -2,6 +2,10 @@ package ies.puerto;
 
 public class Coche extends Vehiculo {
     private int cilindrada;
+
+    public Coche() {
+    }
+
     /**
      * Consturctor de Coche
      * @param marca del vehiculo
@@ -22,4 +26,8 @@ public class Coche extends Vehiculo {
         this.cilindrada = cilindrada;
     }
 
+    @Override
+    public String toString() {
+        return "Soy un Coche:{Marca: "+getMarca()+"\nModelo: "+getModelo()+"\nPrecio: "+getPrecio()+"\nCilindrada: "+cilindrada+"}";
+    }
 }

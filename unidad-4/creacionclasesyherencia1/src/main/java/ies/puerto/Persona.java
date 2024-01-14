@@ -1,10 +1,13 @@
 package ies.puerto;
 
+import ies.puerto.acceso.Autenticacion;
+import ies.puerto.excepciones.ValidationException;
+
 public class Persona {
     protected int edad;
     protected String nombre;
     protected String dni;
-
+    protected boolean dniError = false;
     public Persona() {
     }
     /**
@@ -17,6 +20,12 @@ public class Persona {
         this.edad = edad;
         this.nombre = nombre;
         this.dni = dni;
+        Autenticacion autenticacion = new Autenticacion(dni);
+        try {
+            autenticacion.validar();
+        } catch (ValidationException e) {
+            dniError = true;
+        };
     }
     //Getters and Setters
     public int getEdad() {
@@ -42,9 +51,15 @@ public class Persona {
     public void setDni(String dni) {
         this.dni = dni;
     }
+
+    public String saludar(){
+        return "Hola buenos dias";
+    }
     @Override
     public String toString(){
         return "Soy una Persona:{DNI: "+dni+"\nNombre: "+nombre+"\nEdad: "+edad+"}";
     }
+
+
 
 }
