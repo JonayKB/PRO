@@ -9,5 +9,6 @@ Tareas de la Unidad 1
 - [Tarea Metodos](tareaMetodos)
 - [Tarea Funciones](tarea-funciones)
 - [Tarea Metodos 2](trabajoMetodos2)
+- [Tarea Metodos Pruebas](tareaMetodosPruebas)
 
 
