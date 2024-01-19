@@ -19,10 +19,7 @@ public abstract class Empleado extends Persona implements ITrabajador {
 
     public abstract float calcularSalario();
     @Override
-    public String toString() {
-
-        return "Me llamo "+getNombre()+"\nNací en "+getFechaNacimiento()+"\nSalario: "+salario+"\nMi trabajo es "+trabajo;
-    }
+    public abstract String toString();
     
 
     public float getSalario() {

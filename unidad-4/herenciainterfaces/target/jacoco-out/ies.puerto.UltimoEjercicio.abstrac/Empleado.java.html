@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Empleado.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">herenciainterfaces</a> &gt; <a href="index.source.html" class="el_package">ies.puerto.UltimoEjercicio.abstrac</a> &gt; <span class="el_source">Empleado.java</span></div><h1>Empleado.java</h1><pre class="source lang-java linenums">package ies.puerto.UltimoEjercicio.abstrac;
+
+import ies.puerto.UltimoEjercicio.interfaz.ITrabajador;
+
+public abstract class Empleado extends Persona implements ITrabajador {
+    private float salario;
+    private String trabajo;
+<span class="nc" id="L8">    public Empleado(){}</span>
+    public Empleado(String nombre, String fechaNacimiento, float salario, String trabajo) {
+<span class="fc" id="L10">        super(nombre, fechaNacimiento);</span>
+<span class="fc" id="L11">        this.salario = salario;</span>
+<span class="fc" id="L12">        this.trabajo = trabajo;</span>
+<span class="fc" id="L13">    }</span>
+    
+    @Override
+    public String trabajar() {
+<span class="nc" id="L17">        return &quot;Trabajando en:&quot;+trabajo;</span>
+    }
+
+    public abstract float calcularSalario();
+    @Override
+    public String toString() {
+
+<span class="nc" id="L24">        return &quot;Me llamo &quot;+getNombre()+&quot;\nNací en &quot;+getFechaNacimiento()+&quot;\nSalario: &quot;+salario+&quot;\nMi trabajo es &quot;+trabajo;</span>
+    }
+    
+
+    public float getSalario() {
+<span class="fc" id="L29">        return this.salario;</span>
+    }
+
+    public void setSalario(float salario) {
+<span class="nc" id="L33">        this.salario = salario;</span>
+<span class="nc" id="L34">    }</span>
+
+    public String getTrabajo() {
+<span class="fc" id="L37">        return this.trabajo;</span>
+    }
+
+    public void setTrabajo(String trabajo) {
+<span class="nc" id="L41">        this.trabajo = trabajo;</span>
+<span class="nc" id="L42">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
