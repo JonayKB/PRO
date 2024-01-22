@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Persona.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">herenciainterfaces</a> &gt; <a href="index.source.html" class="el_package">ies.puerto.UltimoEjercicio.abstrac</a> &gt; <span class="el_source">Persona.java</span></div><h1>Persona.java</h1><pre class="source lang-java linenums">package ies.puerto.UltimoEjercicio.abstrac;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public abstract class Persona {
+    private String nombre;
+    private String fechaNacimiento;
+
+<span class="nc" id="L11">    public Persona(){}</span>
+<span class="fc" id="L12">    public Persona(String nombre, String fechaNacimiento){</span>
+<span class="fc" id="L13">        this.nombre = nombre;</span>
+<span class="fc" id="L14">        this.fechaNacimiento = fechaNacimiento;</span>
+<span class="fc" id="L15">    }</span>
+    public int anios() throws ParseException{
+<span class="fc" id="L17">        SimpleDateFormat format = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="fc" id="L18">        Date fechaNacimientoDate= new Date();</span>
+<span class="fc" id="L19">        Date fechaActual = new Date();</span>
+
+        
+<span class="fc" id="L22">        fechaNacimientoDate = format.parse(fechaNacimiento);</span>
+
+<span class="fc" id="L24">        long edad = ((fechaActual.getTime()-fechaNacimientoDate.getTime())/(1000*3600L*24*365));</span>
+
+<span class="fc" id="L26">        return (int)edad;</span>
+
+    }
+
+
+    public String getNombre() {
+<span class="fc" id="L32">        return this.nombre;</span>
+    }
+
+    public void setNombre(String nombre) {
+<span class="nc" id="L36">        this.nombre = nombre;</span>
+<span class="nc" id="L37">    }</span>
+
+    public String getFechaNacimiento() {
+<span class="fc" id="L40">        return this.fechaNacimiento;</span>
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+<span class="nc" id="L44">        this.fechaNacimiento = fechaNacimiento;</span>
+<span class="nc" id="L45">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AppConexionRed.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">herenciainterfaces</a> &gt; <a href="index.source.html" class="el_package">ies.puerto.ConexionRed.app</a> &gt; <span class="el_source">AppConexionRed.java</span></div><h1>AppConexionRed.java</h1><pre class="source lang-java linenums">package ies.puerto.ConexionRed.app;
+
+import ies.puerto.ConexionRed.impl.ConexionEthernet;
+import ies.puerto.ConexionRed.impl.ConexionWifi;
+import ies.puerto.ConexionRed.implementation.ConexionEthernet2;
+import ies.puerto.ConexionRed.implementation.ConexionWifi2;
+import ies.puerto.ConexionRed.interfaz.IConexionRed;
+
+<span class="nc" id="L9">public class AppConexionRed {</span>
+    static IConexionRed wifi;
+    static IConexionRed ethernet;
+
+    static ConexionWifi2 wifi2;
+    static ConexionEthernet2 ethernet2;
+    public static void main(String[] args) {
+<span class="nc" id="L16">        wifi = new ConexionWifi();</span>
+<span class="nc" id="L17">        ethernet = new ConexionEthernet();</span>
+<span class="nc" id="L18">        wifi2 = new ConexionWifi2();</span>
+<span class="nc" id="L19">        ethernet2 = new ConexionEthernet2();</span>
+
+<span class="nc" id="L21">        System.out.println(wifi.conectar());</span>
+<span class="nc" id="L22">        System.out.println(ethernet.conectar());</span>
+<span class="nc" id="L23">        System.out.println(wifi2.conectar());</span>
+<span class="nc" id="L24">        System.out.println(ethernet2.conectar());</span>
+<span class="nc" id="L25">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
