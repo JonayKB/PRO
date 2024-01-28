@@ -81,7 +81,7 @@ public class Colegio {
      * @return el salario que es
      */
     public float salarioMinimo(){
-        float salarioMaximo = 0;
+        float salarioMaximo = Float.MAX_VALUE;
         for (Aula aula : aulas) {
             if (salarioMaximo>aula.getProfesor().getSalario()) {
                 salarioMaximo= aula.getProfesor().getSalario();
@@ -89,7 +89,11 @@ public class Colegio {
         }
         return salarioMaximo;
     }
-
+    /**
+     * Busca una persona por su dni
+     * @param dniBuscado de la persona a buscar
+     * @return el toString de la persona
+     */
     public String busquedaPorDni(String dniBuscado){
         
         for (Aula aula : aulas) {
@@ -106,7 +110,12 @@ public class Colegio {
         }
         return "No encontrado";
     }
-    public int edadMediaTodos()throws ParseException{
+    /**
+     * Calcula la edad media de profesor y alumnos juntos
+     * @return la edad 
+     * @throws ParseException
+     */
+    public float edadMediaTodos()throws ParseException{
         int cantidad = 0;
         int suma=0;
         for (Aula aula : aulas) {
@@ -119,5 +128,20 @@ public class Colegio {
 
         }
         return suma/cantidad;
+    }
+    public float edadMediaAlumnos() throws ParseException{
+        int cantidad = 0;
+        int suma = 0;
+        for (Aula aula : aulas) {
+            for (Alumno alumno : aula.getAlumnos()) {
+                suma += alumno.anios();
+                cantidad++;
+            }
+        }
+        return suma/cantidad;
+    }
+    @Override
+    public String toString() {
+        return "Soy un colegio\nNombre: "+nombre+"\nDireccion: "+dirreccion+"\nUbicacion: "+ubicacion+"\nAulas: "+aulas;
     }
 }

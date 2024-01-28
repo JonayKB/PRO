@@ -46,7 +46,7 @@ public abstract class Persona {
         Date dateNacimiento = format.parse(fechaNacimiento);
         Date dateActual = new Date();
 
-        int edad = (int)((dateActual.getTime()-dateNacimiento.getTime())/(1000*3600+24*365L));
+        int edad = (int)((dateActual.getTime()-dateNacimiento.getTime())/(1000*3600*24*365L));
         return edad;
     }
 }

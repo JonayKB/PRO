@@ -52,4 +52,8 @@ public class Aula {
         }
         return suma/cantidad;
     }
+    @Override
+    public String toString() {
+        return "Soy un aula,\nNombre: "+nombre+"\nProfesor: "+profesor+"\nAlumnos: "+alumnos;
+    }
 }

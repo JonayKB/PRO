@@ -20,6 +20,6 @@ public class Alumno extends Persona{
     @Override
     public String toString() {
         
-        return "Soy un alumnom\nNombre: "+getNombre()+"\nDNI: "+getDni()+"\nFecha Nacimiento: "+getFechaNacimiento()+"\nNotas: "+notas;
+        return "Soy un alumno\nNombre: "+getNombre()+"\nDNI: "+getDni()+"\nFecha Nacimiento: "+getFechaNacimiento()+"\nNotas: "+notas;
     }
 }
