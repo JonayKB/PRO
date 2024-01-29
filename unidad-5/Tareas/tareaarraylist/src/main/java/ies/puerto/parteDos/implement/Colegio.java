@@ -1,7 +1,8 @@
-package ies.puerto.parteDos;
+package ies.puerto.parteDos.implement;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Colegio {
     private String nombre;
@@ -22,16 +23,11 @@ public class Colegio {
      */
     public float notaMedia(){
         float suma=0;
-        int cantidad=0;
+
         for (Aula aula : aulas) {
-            for (Alumno alumno : aula.getAlumnos()) {
-                for (Nota nota : alumno.getNotas()) {
-                    suma+= nota.getValor();
-                    cantidad++;
-                }
-            }
+            suma += aula.notaMedia();
         }
-        return suma/cantidad;
+        return suma/aulas.size();
     }
     /**
      * Calcula la nota mas alta de un colegio
@@ -130,8 +126,8 @@ public class Colegio {
         return suma/cantidad;
     }
     public float edadMediaAlumnos() throws ParseException{
-        int cantidad = 0;
         int suma = 0;
+        int cantidad = 0;
         for (Aula aula : aulas) {
             for (Alumno alumno : aula.getAlumnos()) {
                 suma += alumno.anios();
@@ -144,4 +140,21 @@ public class Colegio {
     public String toString() {
         return "Soy un colegio\nNombre: "+nombre+"\nDireccion: "+dirreccion+"\nUbicacion: "+ubicacion+"\nAulas: "+aulas;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Colegio)) {
+            return false;
+        }
+        Colegio colegio = (Colegio) o;
+        return Objects.equals(nombre, colegio.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, dirreccion, ubicacion, aulas);
+    }
+    
 }

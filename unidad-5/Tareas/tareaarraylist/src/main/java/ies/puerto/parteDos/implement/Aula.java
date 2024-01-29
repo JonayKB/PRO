@@ -1,4 +1,4 @@
-package ies.puerto.parteDos;
+package ies.puerto.parteDos.implement;
 
 import java.util.ArrayList;
 
@@ -43,14 +43,10 @@ public class Aula {
      */
     public float notaMedia(){
         float suma = 0;
-        int cantidad = 0;
         for (Alumno alumno : alumnos) {
-            for (Nota nota : alumno.getNotas()) {
-                suma+=nota.getValor();
-                cantidad++;
-            }
+            suma += alumno.notaMedia();
         }
-        return suma/cantidad;
+        return suma/alumnos.size();
     }
     @Override
     public String toString() {

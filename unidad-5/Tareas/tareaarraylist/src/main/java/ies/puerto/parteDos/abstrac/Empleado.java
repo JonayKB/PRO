@@ -1,6 +1,6 @@
-package ies.puerto.parteDos;
+package ies.puerto.parteDos.abstrac;
 
-public class Empleado  extends Trabajador{
+public abstract class Empleado  extends Trabajador{
     public Empleado(String nombre, String dni, String fechaNacimiento, float salario){
         super(nombre, dni, fechaNacimiento, salario);
     }    

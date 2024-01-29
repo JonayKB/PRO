@@ -1,4 +1,4 @@
-package ies.puerto.parteDos;
+package ies.puerto.parteDos.abstrac;
 
 public abstract class Trabajador extends Persona{
     private float salario;

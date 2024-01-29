@@ -1,9 +1,10 @@
-package ies.puerto.parteDos;
+package ies.puerto.parteDos.abstrac;
 
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public abstract class Persona {
     private String nombre;
@@ -49,4 +50,22 @@ public abstract class Persona {
         int edad = (int)((dateActual.getTime()-dateNacimiento.getTime())/(1000*3600*24*365L));
         return edad;
     }
+    
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Persona)) {
+            return false;
+        }
+        Persona persona = (Persona) o;
+        return Objects.equals(dni, persona.dni);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, dni, fechaNacimiento);
+    }
+    
 }

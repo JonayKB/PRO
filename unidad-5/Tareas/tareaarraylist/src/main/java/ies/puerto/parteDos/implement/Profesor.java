@@ -1,4 +1,6 @@
-package ies.puerto.parteDos;
+package ies.puerto.parteDos.implement;
+
+import ies.puerto.parteDos.abstrac.Empleado;
 
 public class Profesor extends Empleado{
     private String especialidad;

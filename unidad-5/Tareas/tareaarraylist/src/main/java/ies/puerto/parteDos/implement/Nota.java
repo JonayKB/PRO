@@ -1,4 +1,5 @@
-package ies.puerto.parteDos;
+package ies.puerto.parteDos.implement;
+import java.util.Objects;
 
 public class Nota {
     private String nombre;
@@ -32,4 +33,22 @@ public class Nota {
         
         return nombre+" "+valor;
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Nota)) {
+            return false;
+        }
+        Nota nota = (Nota) o;
+        return Objects.equals(nombre, nota.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, valor);
+    }
+    
 }

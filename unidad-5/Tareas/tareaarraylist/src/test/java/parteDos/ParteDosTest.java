@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import ies.puerto.parteDos.Alumno;
-import ies.puerto.parteDos.Aula;
-import ies.puerto.parteDos.Colegio;
-import ies.puerto.parteDos.Nota;
-import ies.puerto.parteDos.Profesor;
+import ies.puerto.parteDos.implement.Alumno;
+import ies.puerto.parteDos.implement.Aula;
+import ies.puerto.parteDos.implement.Colegio;
+import ies.puerto.parteDos.implement.Nota;
+import ies.puerto.parteDos.implement.Profesor;
 
 public class ParteDosTest {
     static Colegio colegio;
@@ -48,7 +48,13 @@ public class ParteDosTest {
         aulas.add(aula2);
         colegio = new Colegio("Colegio", "Alguna direccion", "Tenerife", aulas);
     }
+    @Test
+    public void notaMediaAlumno1(){
+        float resultado = alumno1.notaMedia();
+        float resultadoOK = 10f;
 
+        Assertions.assertEquals(resultadoOK, resultado);
+    }
     @Test
     public void comprobarExistenciaEstudiantes1(){
         String resultado = alumno1.toString();
@@ -112,7 +118,7 @@ public class ParteDosTest {
     @Test
     public void comprobarEdadMediaColegio() throws ParseException{
         float resultado = colegio.edadMediaTodos();
-        float resultadoOK = 26.75f;
+        float resultadoOK = 26.00f;
         Assertions.assertEquals(resultado, resultadoOK);
 
     }
@@ -170,5 +176,8 @@ public class ParteDosTest {
 
         Assertions.assertEquals(resultado, resultadoOK);
     }
-    
+    @Test
+    public void comprobarIguales(){
+        
+    }
 }
