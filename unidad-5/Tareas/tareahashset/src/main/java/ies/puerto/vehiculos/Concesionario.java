@@ -17,6 +17,11 @@ public class Concesionario {
     }
     
     public boolean addMotocicleta(Motocicleta motocicleta){
+        for (Motocicleta motocicleta2 : motocicletas) {
+            if (motocicleta2.equals(motocicleta)) {
+                return false;
+            }
+        }
         motocicletas.add(motocicleta);
         return true;
     }
