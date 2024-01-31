@@ -94,18 +94,8 @@ public class Concesionario {
 
 
 
-    public float velocidadMediaVehiculos(){
-        int resultado =0;
-        if (coches.isEmpty()||motocicletas.isEmpty()) {
-            return resultado;
-        }
-        for (Coche coche : coches) {
-            resultado+=coche.getVelocidad();
-        }
-        for (Motocicleta motocicleta : motocicletas) {
-            resultado+=motocicleta.getVelocidad();
-        }
-        return resultado/(motocicletas.size()+coches.size());
+    public float velocidadMediaVehiculos(){    
+        return (velocidadMediaCoches()+velocidadMediaMotocicletas())/(motocicletas.size()+coches.size());
     }
     
 }
