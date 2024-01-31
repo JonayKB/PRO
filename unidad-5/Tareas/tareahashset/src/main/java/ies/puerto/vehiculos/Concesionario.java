@@ -15,7 +15,11 @@ public class Concesionario {
         this.coches = coches;
         this.motocicletas = motocicletas;
     }
-    
+    /**
+     * Añade una motocicleta a la lista de motos
+     * @param motocicleta que añade
+     * @return si la añadio o no
+     */
     public boolean addMotocicleta(Motocicleta motocicleta){
         for (Motocicleta motocicleta2 : motocicletas) {
             if (motocicleta2.equals(motocicleta)) {
@@ -25,6 +29,11 @@ public class Concesionario {
         motocicletas.add(motocicleta);
         return true;
     }
+    /**
+     * Elimina una motocicleta de la lista de motos
+     * @param motocicleta que elimina
+     * @return si la elimino o no
+     */
     public boolean removeMotocicleta(Motocicleta motocicleta){
         if (motocicletas.isEmpty()) {
             return false;
@@ -32,6 +41,11 @@ public class Concesionario {
         motocicletas.remove(motocicleta);
         return true;
     }
+    /**
+     * Obtiene la motocicleta de la lista 
+     * @param matricula de la motocicleta a buscar
+     * @return la motocicleta si la encuentra
+     */
     public Motocicleta obtenerMotocicleta(String matricula){
         if (motocicletas.isEmpty()) {
             return null;
@@ -44,6 +58,10 @@ public class Concesionario {
         }
         return null;
     }
+    /**
+     * La velocidad media de todas las motocicletas en la lista
+     * @return la velocidad media
+     */
     public float velocidadMediaMotocicletas(){
         int resultado=0;
         if (motocicletas.isEmpty()) {
@@ -57,11 +75,20 @@ public class Concesionario {
 
     
 
-
+    /**
+     * Añade un coche a la lista de coches
+     * @param coche a añadir
+     * @return si lo añadio o no
+     */
     public boolean addCoche(Coche coche){
         coches.add(coche);
         return true;
     }
+    /**
+     * Elimina un coche de la lista de coches
+     * @param coche a eliminar
+     * @return si lo elimino o no
+     */
     public boolean removeCoche(Coche coche){
         if (coches.isEmpty()) {
             return false;
@@ -69,6 +96,11 @@ public class Concesionario {
         coches.remove(coche);
         return true;
     }
+    /**
+     * Obtiene un coche por la matricula
+     * @param matricula a buscar
+     * @return el cochce vinculado si existe
+     */
     public Coche obtenerCoche(String matricula){
         if (coches.isEmpty()) {
             return null;
@@ -81,6 +113,10 @@ public class Concesionario {
         }
         return null;
     }
+    /**
+     * La velocidad media de todos los coches
+     * @return la velocidad media
+     */
     public float velocidadMediaCoches(){
         int resultado=0;
         if (coches.isEmpty()) {
@@ -93,7 +129,10 @@ public class Concesionario {
     }
 
 
-
+    /**
+     * La velocidad media de todos los vehiculos
+     * @return la velocidad media
+     */
     public float velocidadMediaVehiculos(){    
         return (velocidadMediaCoches()+velocidadMediaMotocicletas())/(motocicletas.size()+coches.size());
     }

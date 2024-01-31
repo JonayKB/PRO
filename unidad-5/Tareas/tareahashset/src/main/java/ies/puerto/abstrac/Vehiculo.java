@@ -71,5 +71,5 @@ public abstract class Vehiculo implements IVehiculo {
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
-    
+
 }

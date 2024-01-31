@@ -8,7 +8,6 @@ public class Coche extends Vehiculo{
     public Coche (String matricula, String marca, String modelo, int velocidad){
         super(marca, modelo, matricula, velocidad);
     }
-    
     @Override
     public int velocidadMaxima() {
         return 180;
