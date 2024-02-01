@@ -3,6 +3,7 @@ package ies.puerto.vehiculos;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 
 public class Concesionario {
     HashSet<Coche> coches = new HashSet<>();
@@ -21,10 +22,8 @@ public class Concesionario {
      * @return si la añadio o no
      */
     public boolean addMotocicleta(Motocicleta motocicleta){
-        for (Motocicleta motocicleta2 : motocicletas) {
-            if (motocicleta2.equals(motocicleta)) {
-                return false;
-            }
+        if (motocicletas.contains(motocicleta)) {
+            return false;
         }
         motocicletas.add(motocicleta);
         return true;
@@ -78,7 +77,7 @@ public class Concesionario {
     /**
      * Añade un coche a la lista de coches
      * @param coche a añadir
-     * @return si lo añadio o no
+     * @return si lo intente añadir o no
      */
     public boolean addCoche(Coche coche){
         coches.add(coche);
@@ -137,4 +136,7 @@ public class Concesionario {
         return (velocidadMediaCoches()+velocidadMediaMotocicletas())/(motocicletas.size()+coches.size());
     }
     
+
+    
 }
+

@@ -36,7 +36,7 @@ public class AppConcesionario {
         motocicletas.add(motocicleta4);
 
         Concesionario concesionario =new Concesionario(coches,motocicletas);
-
+        System.out.println("Añadir Motocicleta Duplicada: "+concesionario.addMotocicleta(motocicleta2));
         System.out.println("Añadir Motocicleta: "+concesionario.addMotocicleta(motocicleta5));
         System.out.println("Eliminar Motocicleta: "+concesionario.removeMotocicleta(motocicleta5));
         System.out.println("Obtener Motocicleta: "+concesionario.obtenerMotocicleta("VWX234"));
