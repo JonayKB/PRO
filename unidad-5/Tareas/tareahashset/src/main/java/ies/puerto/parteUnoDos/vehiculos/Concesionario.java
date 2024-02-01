@@ -1,20 +1,26 @@
-package ies.puerto.vehiculos;
+package ies.puerto.parteUnoDos.vehiculos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
+import java.util.Map;
 
 public class Concesionario {
     HashSet<Coche> coches = new HashSet<>();
     List<Motocicleta> motocicletas = new ArrayList<>();
+    Map<String, Camion> camiones = new HashMap<>();
+    Map<String, Bicicleta> bicicletas = new HashMap<>();
+
 
     public Concesionario() {
     }
 
-    public Concesionario(HashSet<Coche> coches, List<Motocicleta> motocicletas) {
+    public Concesionario(HashSet<Coche> coches, List<Motocicleta> motocicletas, Map<String, Camion> camiones, Map<String, Bicicleta> bicicletas) {
         this.coches = coches;
         this.motocicletas = motocicletas;
+        this.camiones = camiones;
+        this.bicicletas = bicicletas;
     }
     /**
      * Añade una motocicleta a la lista de motos
@@ -80,8 +86,7 @@ public class Concesionario {
      * @return si lo intente añadir o no
      */
     public boolean addCoche(Coche coche){
-        coches.add(coche);
-        return true;
+        return coches.add(coche);
     }
     /**
      * Elimina un coche de la lista de coches
@@ -133,10 +138,80 @@ public class Concesionario {
      * @return la velocidad media
      */
     public float velocidadMediaVehiculos(){    
-        return (velocidadMediaCoches()+velocidadMediaMotocicletas())/(motocicletas.size()+coches.size());
+        return (velocidadMediaCoches()+velocidadMediaMotocicletas()+velocidadMediaCamiones()+velocidadMediaBicicletas())/(motocicletas.size()+coches.size()+camiones.size()+bicicletas.size());
     }
     
+    public boolean addCamion(Camion camion){
+        if (!camiones.isEmpty() && !camiones.containsKey(camion.getMatricula())) {
+            camiones.put(camion.getMatricula(), camion);
+        
+        }
+        return true;
+    }
 
+    public boolean removeCamion(Camion camion){
+        if (!camiones.isEmpty() && camiones.containsKey(camion.getMatricula())) {
+            camiones.remove(camion.getMatricula());
+            return true;
+        }
+        return false;
+    }
+
+    public Camion obtenerCamion(String matricula){
+        if (!camiones.isEmpty() ) {
+            return camiones.get(matricula);
+        }
+        return null;
+    }
+
+    public float velocidadMediaCamiones(){
+        int resultado =0;
+        if (!camiones.isEmpty()) {
+            for (Camion camion : camiones.values()) {
+                resultado +=camion.getVelocidad();
+        
+            }
+            return resultado/camiones.size();
+        }
+        return resultado;
+    }
+
+
+
+    public boolean addBicicleta(Bicicleta bicicleta){
+        if (!bicicletas.isEmpty() && !bicicletas.containsKey(bicicleta.getMatricula())) {
+            bicicletas.put(bicicleta.getMatricula(), bicicleta);
+        
+        }
+        return true;
+    }
+
+    public boolean removeBicicleta(Bicicleta bicicleta){
+        if (!bicicletas.isEmpty() && bicicletas.containsKey(bicicleta.getMatricula())) {
+            bicicletas.remove(bicicleta.getMatricula());
+            return true;
+        }
+        return false;
+    }
+
+    public Bicicleta obtenerBicicletas(String matricula){
+        if (!bicicletas.isEmpty() ) {
+            return bicicletas.get(matricula);
+        }
+        return null;
+    }
+
+    public float velocidadMediaBicicletas(){
+        int resultado =0;
+        if (!bicicletas.isEmpty()) {
+            for (Bicicleta bicicleta : bicicletas.values()) {
+                resultado +=bicicleta.getVelocidad();
+        
+            }
+            return resultado/bicicletas.size();
+        }
+        return resultado;
+    }    
     
 }
 

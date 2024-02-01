@@ -1,8 +1,8 @@
-package ies.puerto.vehiculos;
+package ies.puerto.parteUnoDos.vehiculos;
 
 import java.util.Objects;
 
-import ies.puerto.abstrac.Vehiculo;
+import ies.puerto.parteUnoDos.abstrac.Vehiculo;
 
 public class Coche extends Vehiculo{
     public Coche (String matricula, String marca, String modelo, int velocidad){

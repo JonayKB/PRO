@@ -1,4 +1,4 @@
-package ies.puerto.interfaz;
+package ies.puerto.parteUnoDos.interfaz;
 
 public interface IVehiculo {
     /**

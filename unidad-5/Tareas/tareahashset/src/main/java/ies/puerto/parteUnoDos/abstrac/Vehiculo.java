@@ -1,8 +1,8 @@
-package ies.puerto.abstrac;
+package ies.puerto.parteUnoDos.abstrac;
 
 import java.util.Objects;
 
-import ies.puerto.interfaz.IVehiculo;
+import ies.puerto.parteUnoDos.interfaz.IVehiculo;
 
 public abstract class Vehiculo implements IVehiculo {
     private String marca;
