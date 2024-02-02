@@ -169,7 +169,7 @@ public class Concesionario {
      * @return la velocidad media
      */
     public float velocidadMediaVehiculos(){    
-        return (velocidadMediaCoches()+velocidadMediaMotocicletas()+velocidadMediaCamiones()+velocidadMediaBicicletas())/(motocicletas.size()+coches.size()+camiones.size()+bicicletas.size());
+        return (velocidadMediaCoches()+velocidadMediaMotocicletas()+velocidadMediaCamiones()+velocidadMediaBicicletas())/(4);
     }
     
     public boolean addCamion(Camion camion){

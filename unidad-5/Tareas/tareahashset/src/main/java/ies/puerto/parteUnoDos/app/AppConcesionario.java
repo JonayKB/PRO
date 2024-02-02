@@ -102,6 +102,10 @@ public class AppConcesionario {
                 break;
         
             case "modificar":
+            volver = false;
+                do {
+                    volver = modificar();
+                } while (volver==false);
                 break;
                 
             case "eliminar":
@@ -110,14 +114,21 @@ public class AppConcesionario {
                     volver = eliminar();
                 } while (volver==false);
                 break;
+
             case "velocidad media":
+                volver = false;
+                do {
+                    volver = velocidadMedia();
+                } while (volver==false);
                 break;
+
             case "mostrar":
                 volver = false;
                     do {
                         volver = mostrar();
                     } while (volver==false);
                     break;
+
             case "salir":
                 return true;                
             
@@ -309,6 +320,189 @@ public class AppConcesionario {
                     }
 
                     break;
+                case "volver":
+                    return true;
+            }
+            return false;
+        }
+
+
+        public static boolean velocidadMedia(){
+            System.out.println("\n--Medias Vehiculos--\nCamiones\nCoches\nMotocicletas\nBicicletas\nTodos\nVolver\n");
+            switch (scanner.nextLine().toLowerCase()) {
+                case "coches":
+                    System.out.println("Velocidad Media: "+concesionario.velocidadMediaCoches());
+                    return false;
+
+                case "camiones":
+                    System.out.println("Velocidad Media: "+concesionario.velocidadMediaCamiones());  
+                    return false;
+
+                case "motocicletas":
+                    System.out.println("Velocidad Media: "+concesionario.velocidadMediaMotocicletas());  
+                    return false;
+
+                case "bicicletas":
+                    System.out.println("Velocidad Media: "+concesionario.velocidadMediaBicicletas());
+                    return false;
+                case "todos":
+                    System.out.println("Velocidad Media: "+concesionario.velocidadMediaVehiculos());
+                    return false;
+                case "volver":
+                    return true;
+            }
+            return false;
+        }
+
+
+
+        public static boolean modificar(){
+            System.out.println("\n--Modificar--\nCamiones\nCoches\nMotocicletas\nBicicletas\nVolver\n");
+            switch (scanner.nextLine().toLowerCase()) {
+                case "camiones":
+                    System.out.println("\n--Tipo Modificacion--\nMatricula\nMarca\nModelo\nVelocidad\n");
+                    switch (scanner.nextLine().toLowerCase()) {
+                        
+                        case "matricula":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            Camion camion = concesionario.obtenerCamion(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            camion.setMatricula(scanner.nextLine());
+                            return false;
+
+                        case "marca":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            camion = concesionario.obtenerCamion(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            camion.setMarca(scanner.nextLine());
+                            return false;
+
+                        case "modelo":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            camion = concesionario.obtenerCamion(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            camion.setModelo(scanner.nextLine());
+                            return false;
+
+                        case "velocidad":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            camion = concesionario.obtenerCamion(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            camion.setVelocidad(scanner.nextInt());
+                            return false;
+                    
+
+                    }
+                    return false;
+
+                case "coches":
+                    System.out.println("\n--Tipo Modificacion--\nMatricula\nMarca\nModelo\nVelocidad\n");
+                    switch (scanner.nextLine().toLowerCase()) {
+                        
+                        case "matricula":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            Coche coche = concesionario.obtenerCoche(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            coche.setMatricula(scanner.nextLine());
+                            return false;
+
+                        case "marca":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            coche = concesionario.obtenerCoche(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            coche.setMarca(scanner.nextLine());
+                            return false;
+
+                        case "modelo":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            coche = concesionario.obtenerCoche(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            coche.setModelo(scanner.nextLine());
+                            return false;
+
+                        case "velocidad":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            coche = concesionario.obtenerCoche(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            coche.setVelocidad(scanner.nextInt());
+                            return false;
+                    
+
+                    }
+                    return false;
+
+                case "motocicletas":
+                    System.out.println("\n--Tipo Modificacion--\nMatricula\nMarca\nModelo\nVelocidad\n");
+                    switch (scanner.nextLine().toLowerCase()) {
+                        
+                        case "matricula":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            Motocicleta motocicleta = concesionario.obtenerMotocicleta(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            motocicleta.setMatricula(scanner.nextLine());
+                            return false;
+
+                        case "marca":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            motocicleta = concesionario.obtenerMotocicleta(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            motocicleta.setMarca(scanner.nextLine());
+                            return false;
+
+                        case "modelo":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            motocicleta = concesionario.obtenerMotocicleta(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            motocicleta.setModelo(scanner.nextLine());
+                            return false;
+
+                        case "velocidad":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            motocicleta = concesionario.obtenerMotocicleta(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            motocicleta.setVelocidad(scanner.nextInt());
+                            return false;
+                    
+
+                    }
+                    return false;
+
+                case "bicicletas":
+                    System.out.println("\n--Tipo Modificacion--\nMatricula\nMarca\nModelo\nVelocidad\n");
+                    switch (scanner.nextLine().toLowerCase()) {
+                        
+                        case "matricula":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            Bicicleta bicicleta = concesionario.obtenerBicicletas(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            bicicleta.setMatricula(scanner.nextLine());
+                            return false;
+
+                        case "marca":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            bicicleta = concesionario.obtenerBicicletas(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            bicicleta.setMarca(scanner.nextLine());
+                            return false;
+
+                        case "modelo":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            bicicleta = concesionario.obtenerBicicletas(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            bicicleta.setModelo(scanner.nextLine());
+                            return false;
+
+                        case "velocidad":
+                            System.out.println("\nIndique la matricula del vehiculo: ");
+                            bicicleta = concesionario.obtenerBicicletas(scanner.nextLine());
+                            System.out.println("Indique el nuevo valor: ");
+                            bicicleta.setVelocidad(scanner.nextInt());
+                            return false;
+                    
+
+                    }
+                    return false;
+            
                 case "volver":
                     return true;
             }
