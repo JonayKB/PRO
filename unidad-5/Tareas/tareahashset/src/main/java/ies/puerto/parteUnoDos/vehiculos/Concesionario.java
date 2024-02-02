@@ -13,6 +13,38 @@ public class Concesionario {
     Map<String, Bicicleta> bicicletas = new HashMap<>();
 
 
+    public HashSet<Coche> getCoches() {
+        return this.coches;
+    }
+
+    public void setCoches(HashSet<Coche> coches) {
+        this.coches = coches;
+    }
+
+    public List<Motocicleta> getMotocicletas() {
+        return this.motocicletas;
+    }
+
+    public void setMotocicletas(List<Motocicleta> motocicletas) {
+        this.motocicletas = motocicletas;
+    }
+
+    public Map<String,Camion> getCamiones() {
+        return this.camiones;
+    }
+
+    public void setCamiones(Map<String,Camion> camiones) {
+        this.camiones = camiones;
+    }
+
+    public Map<String,Bicicleta> getBicicletas() {
+        return this.bicicletas;
+    }
+
+    public void setBicicletas(Map<String,Bicicleta> bicicletas) {
+        this.bicicletas = bicicletas;
+    }
+
     public Concesionario() {
     }
 
@@ -56,7 +88,7 @@ public class Concesionario {
             return null;
         }
         for (Motocicleta motocicleta : motocicletas) {
-            if (motocicleta.getMatricula()==matricula) {
+            if (motocicleta.getMatricula().equals(matricula)) {
                 return motocicleta;
                 
             }
@@ -110,9 +142,8 @@ public class Concesionario {
             return null;
         }
         for (Coche coche : coches) {
-            if (coche.getMatricula()==matricula) {
+            if (coche.getMatricula().equals(matricula)) {
                 return coche;
-                
             }
         }
         return null;
