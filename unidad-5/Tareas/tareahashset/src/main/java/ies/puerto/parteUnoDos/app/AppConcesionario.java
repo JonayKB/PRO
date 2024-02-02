@@ -13,10 +13,6 @@ import ies.puerto.parteUnoDos.vehiculos.Concesionario;
 import ies.puerto.parteUnoDos.vehiculos.Motocicleta;
 
 public class AppConcesionario {
-    static Camion camion6;
-    static Bicicleta bicicleta6;
-    static Motocicleta motocicleta6;
-    static Coche coche6;
     static Concesionario concesionario;
     static Scanner scanner = new Scanner(System.in);
     
@@ -102,7 +98,7 @@ public class AppConcesionario {
                 break;
         
             case "modificar":
-            volver = false;
+                volver = false;
                 do {
                     volver = modificar();
                 } while (volver==false);
@@ -149,9 +145,8 @@ public class AppConcesionario {
                         String matricula = scanner.nextLine();
                         System.out.println("Introduzca la velocidad");
                         int velocidad = scanner.nextInt();
-                        camion6 = new Camion(marca, modelo, matricula, velocidad);
-                        concesionario.addCamion(camion6);
-                        System.out.println("Añadido Camion: "+camion6);
+                        concesionario.addCamion(new Camion(marca, modelo, matricula, velocidad));
+                        System.out.println("Añadido Camion: "+concesionario.obtenerCamion(matricula));
                         return false;
 
                     
@@ -164,9 +159,8 @@ public class AppConcesionario {
                         matricula = scanner.nextLine();
                         System.out.println("Introduzca la velocidad");
                         velocidad = scanner.nextInt();
-                        coche6 = new Coche(matricula, marca, modelo, velocidad);
-                        concesionario.addCoche(coche6);
-                        System.out.println("Añadido Coche: "+coche6);
+                        concesionario.addCoche(new Coche(matricula, marca, modelo, velocidad));
+                        System.out.println("Añadido Coche: "+concesionario.obtenerCoche(matricula));
                         return false;
 
 
@@ -179,9 +173,8 @@ public class AppConcesionario {
                         matricula = scanner.nextLine();
                         System.out.println("Introduzca la velocidad");
                         velocidad = scanner.nextInt();
-                        motocicleta6 = new Motocicleta(matricula, marca, modelo, velocidad);
-                        concesionario.addMotocicleta(motocicleta6);
-                        System.out.println("Añadida Motocicleta: "+motocicleta6);
+                        concesionario.addMotocicleta(new Motocicleta(matricula, marca, modelo, velocidad));
+                        System.out.println("Añadida Motocicleta: "+concesionario.obtenerMotocicleta(matricula));
                         return false;
 
 
@@ -194,9 +187,8 @@ public class AppConcesionario {
                         matricula = scanner.nextLine();
                         System.out.println("Introduzca la velocidad");
                         velocidad = scanner.nextInt();
-                        bicicleta6 = new Bicicleta(marca, modelo, matricula, velocidad);
-                        concesionario.addBicicleta(bicicleta6);
-                        System.out.println("Añadida Bicicleta: "+bicicleta6);
+                        concesionario.addBicicleta(new Bicicleta(marca, modelo, matricula, velocidad));
+                        System.out.println("Añadida Bicicleta: "+concesionario.obtenerBicicletas(matricula));
                         return false;
 
 

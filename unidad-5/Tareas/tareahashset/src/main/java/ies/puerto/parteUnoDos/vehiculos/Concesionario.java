@@ -88,7 +88,7 @@ public class Concesionario {
             return null;
         }
         for (Motocicleta motocicleta : motocicletas) {
-            if (motocicleta.getMatricula().equals(matricula)) {
+            if (motocicleta.equals(motocicleta)) {
                 return motocicleta;
                 
             }
@@ -142,7 +142,7 @@ public class Concesionario {
             return null;
         }
         for (Coche coche : coches) {
-            if (coche.getMatricula().equals(matricula)) {
+            if (coche.equals(coche)) {
                 return coche;
             }
         }
