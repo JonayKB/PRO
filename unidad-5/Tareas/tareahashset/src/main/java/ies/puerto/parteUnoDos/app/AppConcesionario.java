@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 
+import ies.puerto.parteUnoDos.abstrac.Vehiculo;
 import ies.puerto.parteUnoDos.vehiculos.Bicicleta;
 import ies.puerto.parteUnoDos.vehiculos.Camion;
 import ies.puerto.parteUnoDos.vehiculos.Coche;
@@ -173,7 +174,8 @@ public class AppConcesionario {
                         matricula = scanner.nextLine();
                         System.out.println("Introduzca la velocidad");
                         velocidad = scanner.nextInt();
-                        concesionario.addMotocicleta(new Motocicleta(matricula, marca, modelo, velocidad));
+                        Motocicleta motocicleta = new Motocicleta(matricula, marca, modelo, velocidad);
+                        concesionario.addMotocicleta(motocicleta);
                         System.out.println("Añadida Motocicleta: "+concesionario.obtenerMotocicleta(matricula));
                         return false;
 
