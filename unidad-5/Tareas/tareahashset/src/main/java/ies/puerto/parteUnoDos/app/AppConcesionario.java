@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 
-import ies.puerto.parteUnoDos.abstrac.Vehiculo;
 import ies.puerto.parteUnoDos.vehiculos.Bicicleta;
 import ies.puerto.parteUnoDos.vehiculos.Camion;
 import ies.puerto.parteUnoDos.vehiculos.Coche;
@@ -14,6 +13,15 @@ import ies.puerto.parteUnoDos.vehiculos.Concesionario;
 import ies.puerto.parteUnoDos.vehiculos.Motocicleta;
 
 public class AppConcesionario {
+    private static final String NO_REMOVIDO = "No se ha removido";
+    private static final String REMOVIDO = "Se ha removido";
+    private static final String MOTOCICLETA = "motocicleta";
+    private static final String BICICLETA = "bicicleta";
+    private static final String COCHE = "coche";
+    private static final String CAMION = "camion";
+    private static final String INTRODUZCA_LA_MARCA = "Introduzca la marca";
+    private static final String NO_EXISTE = "No existe ese vehiculo";
+    private static final String PEDIR_MATRICULA = "\nEscriba la matricula del vehiculo: ";
     static Concesionario concesionario;
     static Scanner scanner = new Scanner(System.in);
     
@@ -137,8 +145,8 @@ public class AppConcesionario {
             System.out.println("\n--AÑADIR--\n-Camion\n-Coche\n-Bicicleta\n-Motocicleta\n-Volver");
             String entradaInsertar= scanner.nextLine();
                 switch (entradaInsertar.toLowerCase()) {
-                    case "camion":
-                        System.out.println("Introduzca la marca");
+                    case CAMION:
+                        System.out.println(INTRODUZCA_LA_MARCA);
                         String marca = scanner.nextLine();
                         System.out.println("Introduzca el modelo");
                         String modelo = scanner.nextLine();
@@ -151,8 +159,8 @@ public class AppConcesionario {
                         return false;
 
                     
-                    case "coche":
-                        System.out.println("Introduzca la marca");
+                    case COCHE:
+                        System.out.println(INTRODUZCA_LA_MARCA);
                         marca = scanner.nextLine();
                         System.out.println("Introduzca el modelo");
                         modelo = scanner.nextLine();
@@ -165,8 +173,8 @@ public class AppConcesionario {
                         return false;
 
 
-                    case "motocicleta":
-                        System.out.println("Introduzca la marca");
+                    case MOTOCICLETA:
+                        System.out.println(INTRODUZCA_LA_MARCA);
                         marca = scanner.nextLine();
                         System.out.println("Introduzca el modelo");
                         modelo = scanner.nextLine();
@@ -180,8 +188,8 @@ public class AppConcesionario {
                         return false;
 
 
-                    case "bicicleta":
-                        System.out.println("Introduzca la marca");
+                    case BICICLETA:
+                        System.out.println(INTRODUZCA_LA_MARCA);
                         marca = scanner.nextLine();
                         System.out.println("Introduzca el modelo");
                         modelo = scanner.nextLine();
@@ -205,50 +213,50 @@ public class AppConcesionario {
         public static boolean eliminar(){
             System.out.println("\n--ELIMIANR--\n-Camion\n-Coche\n-Bicicleta\n-Motocicleta\n-Volver\n");
             switch (scanner.nextLine().toLowerCase()) {
-                case "camion":
-                    System.out.println("\nEscriba la matricula del vehiculo: ");
+                case CAMION:
+                    System.out.println(PEDIR_MATRICULA);
                     Camion camionInsert = concesionario.obtenerCamion(scanner.nextLine());
                     if (camionInsert!=null) {
-                        System.out.println(concesionario.removeCamion(camionInsert)==true ? "Se ha removido" : "No se ha removido");
+                        System.out.println(concesionario.removeCamion(camionInsert)? REMOVIDO : NO_REMOVIDO);
                     }
                     else{
-                        System.out.println("No existe ese vehiculo");
+                        System.out.println(NO_EXISTE);
                     }
                     return false;
 
             
-                case "coche":
-                    System.out.println("\nEscriba la matricula del vehiculo: ");
+                case COCHE:
+                    System.out.println(PEDIR_MATRICULA);
                     Coche cocheInsert = concesionario.obtenerCoche(scanner.nextLine());
                     if (cocheInsert!=null) {
-                        System.out.println(concesionario.removeCoche(cocheInsert)== true ? "Se ha removido" : "No se ha removido");
+                        System.out.println(concesionario.removeCoche(cocheInsert)== true ? REMOVIDO : NO_REMOVIDO);
                     }
                     else{
-                        System.out.println("No existe ese vehiculo");
+                        System.out.println(NO_EXISTE);
                     }
                     return false;
 
 
-                case "bicicleta":
-                    System.out.println("\nEscriba la matricula del vehiculo: ");
+                case BICICLETA:
+                    System.out.println(PEDIR_MATRICULA);
                     Bicicleta bicicletaInsert = concesionario.obtenerBicicletas(scanner.nextLine());
                     if (bicicletaInsert!=null) {
-                        System.out.println(concesionario.removeBicicleta(bicicletaInsert)== true ? "Se ha removido" : "No se ha removido");
+                        System.out.println(concesionario.removeBicicleta(bicicletaInsert)== true ? REMOVIDO : NO_REMOVIDO);
                     }
                     else{
-                        System.out.println("No existe ese vehiculo");
+                        System.out.println(NO_EXISTE);
                     }
                     return false;
+                    
 
-
-                case "motocicleta":
-                    System.out.println("\nEscriba la matricula del vehiculo: ");
+                case MOTOCICLETA:
+                    System.out.println(PEDIR_MATRICULA);
                     Motocicleta motocicletaInsert = concesionario.obtenerMotocicleta(scanner.nextLine());
                     if (motocicletaInsert!=null) {
-                        System.out.println(concesionario.removeMotocicleta(motocicletaInsert)== true ? "Se ha removido" : "No se ha removido");
+                        System.out.println(concesionario.removeMotocicleta(motocicletaInsert)== true ? REMOVIDO : NO_REMOVIDO);
                     }
                     else{
-                        System.out.println("No existe ese vehiculo");
+                        System.out.println(NO_EXISTE);
                     }
                     return false;
 
@@ -262,53 +270,53 @@ public class AppConcesionario {
         public static boolean mostrar(){
             System.out.println("\n--MOSTRAR--\n-Camion\n-Coche\n-Bicicleta\n-Motocicleta\n-Volver\n");
             switch (scanner.nextLine().toLowerCase()) {
-                case "camion":
+                case CAMION:
                     System.out.println("\nLista\nEspecifico");
                         switch (scanner.nextLine().toLowerCase()) {
                             case "lista":
                                 System.out.println(concesionario.getCamiones());
                                 return false;
                             case "especifico":
-                                System.out.println("\nEscriba la matricula del vehiculo: ");
+                                System.out.println(PEDIR_MATRICULA);
                                 System.out.println(concesionario.obtenerCamion(scanner.nextLine()));
                                 return false;
                         }
                     break;
             
-                case "coche":
+                case COCHE:
                     System.out.println("\nLista\nEspecifico");
                     switch (scanner.nextLine().toLowerCase()) {
                         case "lista":
                             System.out.println(concesionario.getCoches());
                             return false;
                         case "especifico":
-                            System.out.println("\nEscriba la matricula del vehiculo: ");
+                            System.out.println(PEDIR_MATRICULA);
                             System.out.println(concesionario.obtenerCoche(scanner.nextLine()));
                             return false;
                 }
 
                     break;
-                case "bicicleta":
+                case BICICLETA:
                     System.out.println("\nLista\nEspecifico");
                     switch (scanner.nextLine().toLowerCase()) {
                         case "lista":
                             System.out.println(concesionario.getBicicletas());
                             return false;
                         case "especifico":
-                            System.out.println("\nEscriba la matricula del vehiculo: ");
+                            System.out.println(PEDIR_MATRICULA);
                             System.out.println(concesionario.obtenerBicicletas(scanner.nextLine()));
                             return false;
                 }
 
                     break;
-                case "motocicleta":
+                case MOTOCICLETA:
                     System.out.println("\nLista\nEspecifico");
                     switch (scanner.nextLine().toLowerCase()) {
                         case "lista":
                             System.out.println(concesionario.getMotocicletas());
                             return false;
                         case "especifico":
-                            System.out.println("\nEscriba la matricula del vehiculo: ");
+                            System.out.println(PEDIR_MATRICULA);
                             System.out.println(concesionario.obtenerMotocicleta(scanner.nextLine()));
                             return false;
                     }
