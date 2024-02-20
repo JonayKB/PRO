@@ -1,0 +1,11 @@
+/home/dam/Escritorio/ExamenProJonay/src/main/java/es/ies/puerto/interfaces/IRecomendable.java
+/home/dam/Escritorio/ExamenProJonay/src/main/java/es/ies/puerto/productos/Tienda.java
+/home/dam/Escritorio/ExamenProJonay/src/main/java/es/ies/puerto/abstrac/ProductoRecomendable.java
+/home/dam/Escritorio/ExamenProJonay/src/main/java/es/ies/puerto/productos/CuidadoPersonal.java
+/home/dam/Escritorio/ExamenProJonay/src/main/java/es/ies/puerto/abstrac/ProductoFresco.java
+/home/dam/Escritorio/ExamenProJonay/src/main/java/es/ies/puerto/interfaces/ISaludable.java
+/home/dam/Escritorio/ExamenProJonay/src/main/java/es/ies/puerto/productos/Aparato.java
+/home/dam/Escritorio/ExamenProJonay/src/main/java/es/ies/puerto/productos/Alimento.java
+/home/dam/Escritorio/ExamenProJonay/src/main/java/es/ies/puerto/abstrac/Producto.java
+/home/dam/Escritorio/ExamenProJonay/src/main/java/es/ies/puerto/productos/Souvenir.java
+/home/dam/Escritorio/ExamenProJonay/src/main/java/es/ies/puerto/interfaces/IVendible.java

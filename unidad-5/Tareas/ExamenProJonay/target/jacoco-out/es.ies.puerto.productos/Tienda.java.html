@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Tienda.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examenprojonay</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.productos</a> &gt; <span class="el_source">Tienda.java</span></div><h1>Tienda.java</h1><pre class="source lang-java linenums">package es.ies.puerto.productos;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+
+
+public class Tienda {
+    ArrayList&lt;Alimento&gt; alimentos;
+    HashMap&lt;String, Aparato&gt; aparatos;
+    HashSet&lt;CuidadoPersonal&gt; cuidadoPersonales;
+    HashSet&lt;Souvenir&gt; souvenirs;
+
+
+<span class="fc" id="L15">    public Tienda() {</span>
+<span class="fc" id="L16">        alimentos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L17">        aparatos = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L18">        cuidadoPersonales = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L19">        souvenirs = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L20">    }</span>
+
+<span class="fc" id="L22">    public Tienda(ArrayList&lt;Alimento&gt; alimentos, HashMap&lt;String,Aparato&gt; aparatos, HashSet&lt;CuidadoPersonal&gt; cuidadoPersonales, HashSet&lt;Souvenir&gt; souvenirs) {</span>
+<span class="fc" id="L23">        this.alimentos = alimentos;</span>
+<span class="fc" id="L24">        this.aparatos = aparatos;</span>
+<span class="fc" id="L25">        this.cuidadoPersonales = cuidadoPersonales;</span>
+<span class="fc" id="L26">        this.souvenirs = souvenirs;</span>
+<span class="fc" id="L27">    }</span>
+
+
+    public ArrayList&lt;Alimento&gt; getAlimentos() {
+<span class="fc" id="L31">        return this.alimentos;</span>
+    }
+
+    public void setAlimentos(ArrayList&lt;Alimento&gt; alimentos) {
+<span class="nc" id="L35">        this.alimentos = alimentos;</span>
+<span class="nc" id="L36">    }</span>
+
+    public HashMap&lt;String,Aparato&gt; getAparatos() {
+<span class="fc" id="L39">        return this.aparatos;</span>
+    }
+
+    public void setAparatos(HashMap&lt;String,Aparato&gt; aparatos) {
+<span class="nc" id="L43">        this.aparatos = aparatos;</span>
+<span class="nc" id="L44">    }</span>
+
+    public HashSet&lt;CuidadoPersonal&gt; getCuidadoPersonales() {
+<span class="fc" id="L47">        return this.cuidadoPersonales;</span>
+    }
+
+    public void setCuidadoPersonales(HashSet&lt;CuidadoPersonal&gt; cuidadoPersonales) {
+<span class="nc" id="L51">        this.cuidadoPersonales = cuidadoPersonales;</span>
+<span class="nc" id="L52">    }</span>
+
+    public HashSet&lt;Souvenir&gt; getSouvenirs() {
+<span class="fc" id="L55">        return this.souvenirs;</span>
+    }
+
+    public void setSouvenirs(HashSet&lt;Souvenir&gt; souvenirs) {
+<span class="nc" id="L59">        this.souvenirs = souvenirs;</span>
+<span class="nc" id="L60">    }</span>
+
+    /**
+     * Obtiene un alimento
+     * @param udi por lo que se obtiene
+     * @return el alimento
+     */
+    public Alimento obtenerAlimento(String udi){
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">        if (!alimentos.isEmpty()) {</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">            for (Alimento alimento : alimentos) {</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">                if (alimento.getUdi().equals(udi)) {</span>
+<span class="fc" id="L71">                    return alimento;</span>
+                }
+            }
+        }
+<span class="nc" id="L75">        return null;</span>
+    }
+    /**
+     * Obtiene un aparato
+     * @param udi por lo que se obtiene
+     * @return el aparato
+     */
+    public Aparato obtenerAparato(String udi){
+<span class="pc bpc" id="L83" title="2 of 4 branches missed.">        if (!aparatos.isEmpty() &amp;&amp; aparatos.containsKey(udi)) {</span>
+<span class="fc" id="L84">            return aparatos.get(udi);</span>
+        }
+<span class="nc" id="L86">        return null;</span>
+    }
+
+    /**
+     * Obtener CuidadoPersonal
+     * @param udi por el cual obtener
+     * @return el cuidadoPersonal
+     */
+    public CuidadoPersonal obtenerCuidadoPersonal(String udi){
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">        if (!cuidadoPersonales.isEmpty()) {</span>
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">            for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">                if (cuidadoPersonal.getUdi().equals(udi)) {</span>
+<span class="fc" id="L98">                    return cuidadoPersonal;</span>
+                }
+            }
+        }
+<span class="nc" id="L102">        return null;</span>
+    }
+
+    /**
+     * Obtener Souvenir
+     * @param udi por el cual obtener
+     * @return el souvenir
+     */
+    public Souvenir obtenerSouvenir(String udi){
+<span class="pc bpc" id="L111" title="1 of 2 branches missed.">        if (!souvenirs.isEmpty()) {</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">            for (Souvenir souvenir : souvenirs) {</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">                if (souvenir.getUdi().equals(udi)) {</span>
+<span class="fc" id="L114">                    return souvenir;</span>
+                }
+            }
+        }
+<span class="nc" id="L118">        return null;</span>
+    }
+
+
+
+
+    /**
+     * Añade un alimento
+     * @param alimento a añadir
+     * @return añadido o no
+     */
+    public boolean agregarAlimento(Alimento alimento){
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">        if (!alimentos.contains(alimento)) {</span>
+<span class="fc" id="L131">            return alimentos.add(alimento);</span>
+        }
+<span class="nc" id="L133">        return true;</span>
+    }
+    /**
+     * Añade un aparato
+     * @param aparato a añadir
+     * @return añadido o no
+     */
+    public boolean agregarAparato(Aparato aparato){
+<span class="pc bpc" id="L141" title="1 of 2 branches missed.">        if (!aparatos.containsKey(aparato.getUdi())) {</span>
+<span class="fc" id="L142">            aparatos.put(aparato.getUdi(), aparato);</span>
+<span class="fc" id="L143">            return true;</span>
+        }
+<span class="nc" id="L145">        return true;</span>
+    }
+    /**
+     * Añade un cuidado personal
+     * @param cuidadoPersonal a añadir
+     * @return añadido o no
+     */
+    public boolean agregarCuidadosPersonal(CuidadoPersonal cuidadoPersonal){
+<span class="pc bpc" id="L153" title="1 of 2 branches missed.">        if (!cuidadoPersonales.contains(cuidadoPersonal)) {</span>
+<span class="fc" id="L154">            return cuidadoPersonales.add(cuidadoPersonal);</span>
+        }
+<span class="nc" id="L156">        return true;</span>
+    }
+    /**
+     * Añade un souvenir
+     * @param souvenir a añadir
+     * @return añadido o no
+     */
+    public boolean agregarSouvenir(Souvenir souvenir){
+<span class="pc bpc" id="L164" title="1 of 2 branches missed.">        if (!souvenirs.contains(souvenir)) {</span>
+<span class="fc" id="L165">            return souvenirs.add(souvenir);</span>
+        }
+<span class="nc" id="L167">        return true;</span>
+    }
+
+
+
+
+    /**
+     * Elimina un alimento
+     * @param alimento a eliminar
+     * @return eliminado o no
+     */
+    public boolean eliminarAlimento(Alimento alimento){
+<span class="pc bpc" id="L179" title="1 of 2 branches missed.">        if (alimentos.contains(alimento)) {</span>
+<span class="fc" id="L180">            return alimentos.remove(alimento);</span>
+        }
+<span class="nc" id="L182">        return true;</span>
+    }
+    /**
+     * Elimina un aparato
+     * @param aparato a eliminar
+     * @return eliminado o no
+     */
+    public boolean eliminarAparato(Aparato aparato){
+<span class="pc bpc" id="L190" title="1 of 2 branches missed.">        if (aparatos.containsKey(aparato.getUdi())) {</span>
+<span class="fc" id="L191">            aparatos.remove(aparato.getUdi());</span>
+<span class="fc" id="L192">            return true;</span>
+        }
+<span class="nc" id="L194">        return true;</span>
+    }
+    /**
+     * Elimina un cuidadoPersonal
+     * @param cuidadoPersonal a eliminar
+     * @return eliminado o no
+     */
+    public boolean eliminarCuidadoPersonal(CuidadoPersonal cuidadoPersonal){
+<span class="pc bpc" id="L202" title="1 of 2 branches missed.">        if (cuidadoPersonales.contains(cuidadoPersonal)) {</span>
+<span class="fc" id="L203">            return cuidadoPersonales.remove(cuidadoPersonal);</span>
+        }
+<span class="nc" id="L205">        return true;</span>
+    }
+    /**
+     * Elimina un souvenir
+     * @param souvenir a eliminar
+     * @return eliminado o no
+     */
+    public boolean eliminarSouvenir(Souvenir souvenir){
+<span class="pc bpc" id="L213" title="1 of 2 branches missed.">        if (souvenirs.contains(souvenir)) {</span>
+<span class="fc" id="L214">            return souvenirs.remove(souvenir);</span>
+        }
+<span class="nc" id="L216">        return true;</span>
+    }
+
+
+
+
+    /**
+     * Suma todos los precios de los alimentos
+     * @return precio total
+     */
+    public float precioAlimentos(){
+<span class="fc" id="L227">        float resultado = 0;</span>
+<span class="fc bfc" id="L228" title="All 2 branches covered.">        for (Alimento alimento : alimentos) {</span>
+<span class="pc bpc" id="L229" title="1 of 2 branches missed.">            if (!alimento.productoCaducado()) {</span>
+<span class="fc" id="L230">                resultado += alimento.getPrecio();</span>
+            }
+            
+        }
+<span class="fc" id="L234">        return resultado;</span>
+    }
+    /**
+     * Suma todos los precios de los aparatos
+     * @return precio total
+     */
+    public float precioAparatos(){
+<span class="fc" id="L241">        float resultado = 0;</span>
+<span class="fc bfc" id="L242" title="All 2 branches covered.">        for (Aparato aparato : aparatos.values()) {</span>
+<span class="fc" id="L243">            resultado += aparato.getPrecio();</span>
+        }
+<span class="fc" id="L245">        return resultado;</span>
+    }
+    /**
+     * Suma todos los precios de los cuidados personales
+     * @return precio total
+     */
+    public float precioCuidadoPersonales(){
+<span class="fc" id="L252">        float resultado = 0;</span>
+<span class="fc bfc" id="L253" title="All 2 branches covered.">        for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
+<span class="fc" id="L254">            resultado += cuidadoPersonal.getPrecio();</span>
+        }
+<span class="fc" id="L256">        return resultado;</span>
+    }
+    /**
+     * Suma todos los precios de los souvenirs
+     * @return precio total
+     */
+    public float precioSouvenirs(){
+<span class="fc" id="L263">        float resultado = 0;</span>
+<span class="fc bfc" id="L264" title="All 2 branches covered.">        for (Souvenir souvenir : souvenirs) {</span>
+<span class="fc" id="L265">            resultado += souvenir.getPrecio();</span>
+        }
+<span class="fc" id="L267">        return resultado;</span>
+    }
+    /**
+     * Devuelve el precio de todos los productos
+     * @return precio total
+     */
+    public float precioProductos(){
+<span class="fc" id="L274">        return precioAlimentos() + precioAparatos() + precioCuidadoPersonales() + precioSouvenirs();</span>
+    }
+
+
+
+    /**
+     * Suma todos las ganancias de los alimentos
+     * @return ganancia total
+     */
+    public float ganaciaAlimentos(){
+<span class="fc" id="L284">        float resultado = 0;</span>
+<span class="fc bfc" id="L285" title="All 2 branches covered.">        for (Alimento alimento : alimentos) {</span>
+<span class="pc bpc" id="L286" title="1 of 2 branches missed.">            if (!alimento.productoCaducado()) {</span>
+<span class="fc" id="L287">                resultado += alimento.precioMaximo()-alimento.getPrecio();</span>
+            }
+            
+        }
+<span class="fc" id="L291">        return resultado;</span>
+    }
+    /**
+     * Suma todos las ganacia de los aparatos
+     * @return ganacia total
+     */
+    public float gananciaAparatos(){
+<span class="fc" id="L298">        float resultado = 0;</span>
+<span class="fc bfc" id="L299" title="All 2 branches covered.">        for (Aparato aparato : aparatos.values()) {</span>
+<span class="fc" id="L300">            resultado += aparato.precioMaximo()-aparato.getPrecio();</span>
+        }
+<span class="fc" id="L302">        return resultado;</span>
+    }
+    /**
+     * Suma todos las ganancias de los cuidados personales
+     * @return precio total
+     */
+    public float gananciaCuidadoPersonales(){
+<span class="fc" id="L309">        float resultado = 0;</span>
+<span class="fc bfc" id="L310" title="All 2 branches covered.">        for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
+<span class="fc" id="L311">            resultado += cuidadoPersonal.precioMaximo()-cuidadoPersonal.getPrecio();</span>
+        }
+<span class="fc" id="L313">        return resultado;</span>
+    }
+    /**
+     * Suma todos las ganancias de los souvenirs
+     * @return precio total
+     */
+    public float ganaciaSouvenirs(){
+<span class="fc" id="L320">        float resultado = 0;</span>
+<span class="fc bfc" id="L321" title="All 2 branches covered.">        for (Souvenir souvenir : souvenirs) {</span>
+<span class="fc" id="L322">            resultado += souvenir.precioMaximo()-souvenir.getPrecio();</span>
+        }
+<span class="fc" id="L324">        return resultado;</span>
+    }
+    /**
+     * Devuelve la ganancia de todos los productos
+     * @return precio total
+     */
+    public float ganaciaProductos(){
+<span class="fc" id="L331">        return ganaciaAlimentos() + gananciaAparatos() + gananciaCuidadoPersonales() + ganaciaSouvenirs();</span>
+    }
+
+    /**
+     * Suma todos las cantidades de los alimentos
+     * @return ganancia total
+     */
+    public float cantidadAlimentos(){
+<span class="fc" id="L339">        float resultado = 0;</span>
+<span class="fc bfc" id="L340" title="All 2 branches covered.">        for (Alimento alimento : alimentos) {</span>
+<span class="fc bfc" id="L341" title="All 2 branches covered.">            if (!alimento.productoCaducado()) {</span>
+<span class="fc" id="L342">                resultado += alimento.cantidadDisponible();</span>
+            }
+            
+        }
+<span class="fc" id="L346">        return resultado;</span>
+    }
+    /**
+     * Suma todos las cantidades de los aparatos
+     * @return ganacia total
+     */
+    public float cantidadAparatos(){
+<span class="fc" id="L353">        float resultado = 0;</span>
+<span class="fc bfc" id="L354" title="All 2 branches covered.">        for (Aparato aparato : aparatos.values()) {</span>
+<span class="fc" id="L355">            resultado += aparato.cantidadDisponible();</span>
+        }
+<span class="fc" id="L357">        return resultado;</span>
+    }
+    /**
+     * Suma todos las ganancias de los cuidados personales
+     * @return precio total
+     */
+    public float cantidadCuidadoPersonales(){
+<span class="fc" id="L364">        float resultado = 0;</span>
+<span class="fc bfc" id="L365" title="All 2 branches covered.">        for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
+<span class="fc" id="L366">            resultado += cuidadoPersonal.cantidadDisponible();</span>
+        }
+<span class="fc" id="L368">        return resultado;</span>
+    }
+    /**
+     * Suma todos las ganancias de los souvenirs
+     * @return precio total
+     */
+    public float cantidadSouvenirs(){
+<span class="fc" id="L375">        float resultado = 0;</span>
+<span class="fc bfc" id="L376" title="All 2 branches covered.">        for (Souvenir souvenir : souvenirs) {</span>
+<span class="fc" id="L377">            resultado += souvenir.cantidadDisponible();</span>
+        }
+<span class="fc" id="L379">        return resultado;</span>
+    }
+    /**
+     * Devuelve la cantidad de todos los productos
+     * @return precio total
+     */
+    public float cantidadProductos(){
+<span class="fc" id="L386">        return cantidadAlimentos() + cantidadAparatos() + cantidadCuidadoPersonales() + cantidadSouvenirs();</span>
+    }
+
+    /**
+     * Enseña todos los prodcutos recomendados
+     * @return una hashset de los productos
+     */
+    public HashSet&lt;CuidadoPersonal&gt; productosRecomendados(){
+<span class="fc" id="L394">        HashSet&lt;CuidadoPersonal&gt; productosRecomendados = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L395" title="All 2 branches covered.">        for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
+<span class="pc bpc" id="L396" title="1 of 2 branches missed.">            if (cuidadoPersonal.recomendarProducto()) {</span>
+<span class="fc" id="L397">                productosRecomendados.add(cuidadoPersonal);</span>
+            }
+        }
+<span class="fc" id="L400">        return productosRecomendados;</span>
+    }
+
+    public boolean venderAlimento(Alimento alimento){
+<span class="fc bfc" id="L404" title="All 2 branches covered.">        if (!alimento.productoCaducado()) {</span>
+<span class="fc" id="L405">            return eliminarAlimento(alimento);</span>
+        }
+<span class="fc" id="L407">        return false;</span>
+    }
+
+
+
+    @Override
+    public String toString() {
+<span class="fc" id="L414">        return &quot;{&quot; +</span>
+<span class="fc" id="L415">            &quot; alimentos='&quot; + getAlimentos() + &quot;'&quot; +</span>
+<span class="fc" id="L416">            &quot;, aparatos='&quot; + getAparatos() + &quot;'&quot; +</span>
+<span class="fc" id="L417">            &quot;, cuidadoPersonales='&quot; + getCuidadoPersonales() + &quot;'&quot; +</span>
+<span class="fc" id="L418">            &quot;, souvenirs='&quot; + getSouvenirs() + &quot;'&quot; +</span>
+            &quot;}&quot;;
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

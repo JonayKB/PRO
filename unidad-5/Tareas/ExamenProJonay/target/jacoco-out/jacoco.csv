@@ -1,0 +1,9 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+examenprojonay,es.ies.puerto.productos,Alimento,21,59,0,2,9,12,6,7,6,6
+examenprojonay,es.ies.puerto.productos,Aparato,0,17,0,0,0,6,0,4,0,4
+examenprojonay,es.ies.puerto.productos,Souvenir,0,17,0,0,0,6,0,4,0,4
+examenprojonay,es.ies.puerto.productos,Tienda,40,587,20,54,20,115,24,53,4,36
+examenprojonay,es.ies.puerto.productos,CuidadoPersonal,0,31,0,2,0,9,0,7,0,6
+examenprojonay,es.ies.puerto.abstrac,Producto,18,82,1,3,9,23,5,10,4,9
+examenprojonay,es.ies.puerto.abstrac,ProductoRecomendable,0,10,0,0,0,4,0,2,0,2
+examenprojonay,es.ies.puerto.abstrac,ProductoFresco,4,28,0,0,2,12,1,4,1,4
