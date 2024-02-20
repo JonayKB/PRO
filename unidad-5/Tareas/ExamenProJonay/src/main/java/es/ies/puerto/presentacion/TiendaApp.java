@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
 import es.ies.puerto.modelo.productos.Alimento;
 import es.ies.puerto.modelo.productos.Aparato;
