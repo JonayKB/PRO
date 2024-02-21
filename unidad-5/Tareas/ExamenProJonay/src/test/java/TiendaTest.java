@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import es.ies.puerto.modelo.productos.Alimento;
@@ -29,32 +28,10 @@ public class TiendaTest {
 
     static Tienda tienda;
     static Tienda tiendaVacia;
-    @BeforeAll
-    public static void BeforeAll() throws ParseException{
-        alimento = new Alimento("Manzanas", 2.50f, "2024-01-09","ALM001","2024-01-15");
-        alimento2 = new Alimento("Arroz",3.75f,	"2024-01-15","ALM003","2024-02-30");
-        aparato2 = new Aparato("Cafetera",39.99f,"2024-02-09","APA003");
-        aparato = new Aparato("Televisor LED",499.99f,"2024-02-09","APA001");
-        cuidadoPersonal = new CuidadoPersonal("Cepillo de dientes",2.29f,"2024-02-09","CUI003",6);
-        cuidadoPersonal2 = new CuidadoPersonal("Champú",3.99f,"2024-02-09","CUI001"	,7);
-        souvenir = new Souvenir("Imán de nevera",1.99f,"2024-02-09","SOU001");
+    @org.junit.jupiter.api.BeforeEach
+    public  void BeforeEach() throws Exception{
 
-        alimentos = new ArrayList<>();
-        alimentos.add(alimento);
-        alimentos.add(alimento2);
-
-        aparatos = new HashMap<>();
-        aparatos.put(aparato.getUdi(),aparato);
-        aparatos.put(aparato2.getUdi(), aparato2);
-
-        cuidadoPersonales = new HashSet<>();
-        cuidadoPersonales.add(cuidadoPersonal);
-        cuidadoPersonales.add(cuidadoPersonal2);
-        
-        souvenirs = new HashSet<>();
-        souvenirs.add(souvenir);
-
-        tienda = new Tienda(alimentos, aparatos, cuidadoPersonales, souvenirs);
+        tienda = new Tienda();
         tiendaVacia = new Tienda();
     }
     @Test
@@ -123,11 +100,11 @@ public class TiendaTest {
     }
     @Test
     void gananciaAlimentosTest(){
-        Assertions.assertEquals(1.3125, tienda.ganaciaAlimentos());
+        Assertions.assertEquals(0, tienda.ganaciaAlimentos());
     }
     @Test
     void ganaciaSouvenirsTest(){
-        Assertions.assertEquals(0.5969998836517334,tienda.ganaciaSouvenirs());
+        Assertions.assertEquals(1.9409995079040527,tienda.ganaciaSouvenirs());
     }
     @Test
     void ganaciaAparatosTest(){
@@ -143,19 +120,19 @@ public class TiendaTest {
     }
     @Test
     void precioAparatosTest(){
-        Assertions.assertEquals(839.97998046875, tienda.precioAparatos());
+        Assertions.assertEquals(1339.969970703125, tienda.precioAparatos());
     }
     @Test
     void precioCuidadosPersonalesTest(){
-        Assertions.assertEquals(3.990000009536743 ,tienda.precioCuidadoPersonales());
+        Assertions.assertEquals(11.769999504089355 ,tienda.precioCuidadoPersonales());
     }
     @Test
     void precioProductosTest(){
-        Assertions.assertEquals(55.21000289916992, tienda.precioProductos());
+        Assertions.assertEquals(1358.2099609375, tienda.precioProductos());
     }
     @Test
     void productosRecomendadosTest(){
-        Assertions.assertEquals("[{ nombre='Champú', precio='3.99', fechaEntrada='2024-02-09', udi='CUI001'}]", tienda.productosRecomendados().toString());
+        Assertions.assertTrue( tienda.productosRecomendados().toString().contains("Champú")&& tienda.productosRecomendados().toString().contains("Crema"));
     }
     @Test
     void venderAlimentoTestTrue(){

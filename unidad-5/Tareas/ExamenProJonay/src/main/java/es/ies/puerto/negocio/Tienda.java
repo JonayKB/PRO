@@ -1,5 +1,6 @@
 package es.ies.puerto.negocio;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import es.ies.puerto.modelo.ficheros.csv.FileCsv;
 import es.ies.puerto.modelo.productos.Alimento;
 import es.ies.puerto.modelo.productos.Aparato;
 import es.ies.puerto.modelo.productos.CuidadoPersonal;
@@ -18,21 +20,15 @@ public class Tienda {
     Map<String, Aparato> aparatos;
     Set<CuidadoPersonal> cuidadoPersonales;
     Set<Souvenir> souvenirs;
+    FileCsv fileCsv = new FileCsv();
 
-
-    public Tienda() {
-        alimentos = new ArrayList<>();
-        aparatos = new HashMap<>();
-        cuidadoPersonales = new HashSet<>();
-        souvenirs = new HashSet<>();
+    public Tienda() throws Exception{
+        alimentos=fileCsv.obtenerAlimentos();
+        cuidadoPersonales=fileCsv.obtenerCuidadoPersonal();
+        souvenirs=fileCsv.obtenerSouvenirs();
+        aparatos=fileCsv.obtenerAparatos();
     }
 
-    public Tienda(List<Alimento> alimentos, Map<String,Aparato> aparatos, Set<CuidadoPersonal> cuidadoPersonales, Set<Souvenir> souvenirs) {
-        this.alimentos = alimentos;
-        this.aparatos = aparatos;
-        this.cuidadoPersonales = cuidadoPersonales;
-        this.souvenirs = souvenirs;
-    }
 
 
     public List<Alimento> getAlimentos() {

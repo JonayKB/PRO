@@ -6,14 +6,17 @@ import java.text.ParseException;
 import java.util.Scanner;
 
 import es.ies.puerto.modelo.ficheros.csv.FileCsv;
+import es.ies.puerto.negocio.Tienda;
 
 
 
 public class TiendaApp {
     static Scanner scanner;
-    public static void main(String[] args) throws ParseException,IOException{
-        FileCsv fileCsv = new FileCsv();
-        System.out.println(fileCsv.leer("src/main/resources/alimentos.csv", "alimento"));
+    static Tienda tienda;
+    static FileCsv fileCsv;
+    public static void main(String[] args) throws Exception{
+        tienda = new Tienda();
+        System.out.println(tienda.ganaciaAlimentos());
     }
 
     public void menu(){

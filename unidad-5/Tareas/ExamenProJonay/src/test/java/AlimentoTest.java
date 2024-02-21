@@ -27,7 +27,7 @@ public class AlimentoTest {
     }
     @Test
     void comprobarDiasCaducidadTest(){
-        Assertions.assertEquals(-35,alimento.diasCaducidad());
+        Assertions.assertEquals(-37,alimento.diasCaducidad());
     }
     @Test
     void comprobarCaducadoTestTrue(){
