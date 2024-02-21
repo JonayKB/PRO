@@ -1,7 +1,5 @@
 package es.ies.puerto.presentacion;
 
-import java.io.IOException;
-import java.text.ParseException;
 
 import java.util.Scanner;
 
@@ -14,9 +12,8 @@ public class TiendaApp {
     static Scanner scanner;
     static Tienda tienda;
     static FileCsv fileCsv;
-    public static void main(String[] args) throws Exception{
-        tienda = new Tienda();
-        System.out.println(tienda.ganaciaAlimentos());
+    public static void main(String[] args) {
+        
     }
 
     public void menu(){
@@ -26,7 +23,7 @@ public class TiendaApp {
         do {
             switch (scanner.next().toLowerCase()) {
                 case "añadir":
-                    menuAñadir();
+                    menuAniadir();
                     break;
 
                 case "eliminar":
@@ -50,8 +47,13 @@ public class TiendaApp {
             }
         } while (mantener);
     }
-    public void menuAñadir(){}
-    public void menuEliminar(){}
+    
+    public void menuAniadir(){
+        //TODO
+    }
+    public void menuEliminar(){
+        //TODO
+    }
     public void menuMostrar(){
         Boolean mantener= true;
         do {
@@ -72,10 +74,14 @@ public class TiendaApp {
                 case "volver":
                     mantener = false;
                     break;
+                default:
+                    System.out.println("No existe esa opcion");
             }
         } while (mantener);
     }
-    public void menuModificar(){}
+    public void menuModificar(){
+        //TODO
+    }
 
 
 }

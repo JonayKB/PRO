@@ -1,10 +1,10 @@
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 
+import java.text.ParseException;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 
 import es.ies.puerto.modelo.productos.Alimento;
 import es.ies.puerto.modelo.productos.Aparato;
@@ -12,27 +12,23 @@ import es.ies.puerto.modelo.productos.CuidadoPersonal;
 import es.ies.puerto.modelo.productos.Souvenir;
 import es.ies.puerto.negocio.Tienda;
 
-public class TiendaTest {
-    static Alimento alimento;
-    static Alimento alimento2;
-    static Aparato aparato;
-    static Aparato aparato2;
-    static CuidadoPersonal cuidadoPersonal;
-    static CuidadoPersonal cuidadoPersonal2;
-    static Souvenir souvenir;
+class TiendaTest {
 
-    static ArrayList<Alimento> alimentos;
-    static HashMap<String, Aparato> aparatos;
-    static HashSet<CuidadoPersonal> cuidadoPersonales;
-    static HashSet<Souvenir> souvenirs;
-
+    static String alimentosCsvBackUp;
+    static String cuidadoPersonalCsvBackUp;
+    static String aparatosCsvBackUp;
+    static String souvenirsCsvBackUp;
     static Tienda tienda;
     static Tienda tiendaVacia;
     @org.junit.jupiter.api.BeforeEach
     public  void BeforeEach() throws Exception{
-
         tienda = new Tienda();
         tiendaVacia = new Tienda();
+
+    }
+    @AfterEach
+    public void afterEach(){
+        
     }
     @Test
     void comprobarConstructorCompletoTest(){

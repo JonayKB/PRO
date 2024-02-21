@@ -37,5 +37,9 @@ public class CuidadoPersonal extends ProductoRecomendable {
     }
 
 
+    @Override
+    public String toCsv(){
+        return getNombre()+SEPARADOR+getPrecio()+SEPARADOR+getFechaEntrada()+SEPARADOR+getUdi()+SEPARADOR+popularidad;
+    }
     
 }

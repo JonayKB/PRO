@@ -69,6 +69,9 @@ public class Alimento extends ProductoFresco {
     public float precioMaximo() {
         return getPrecio()*1.35f;
     }
-
+    @Override
+    public String toCsv(){
+        return getNombre()+SEPARADOR+getPrecio()+SEPARADOR+getFechaEntrada()+SEPARADOR+getUdi()+SEPARADOR+getFechaCaducidad();
+    }
     
 }

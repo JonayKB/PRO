@@ -8,7 +8,7 @@ public abstract class Producto implements IVendible{
     private float precio;
     private String fechaEntrada;
     private String udi;
-
+    public static final String SEPARADOR = ",";
     public Producto(String nombre, float precio, String fechaEntrada, String udi) {
         this.nombre = nombre;
         this.precio = precio;
@@ -75,6 +75,10 @@ public abstract class Producto implements IVendible{
             ", fechaEntrada='" + getFechaEntrada() + "'" +
             ", udi='" + getUdi() + "'" +
             "}";
+    }
+
+    public String toCsv(){
+        return nombre+SEPARADOR+precio+SEPARADOR+fechaEntrada+SEPARADOR+udi;
     }
     
 

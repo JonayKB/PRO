@@ -1,8 +1,8 @@
 package es.ies.puerto.negocio;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
+
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +22,7 @@ public class Tienda {
     Set<Souvenir> souvenirs;
     FileCsv fileCsv = new FileCsv();
 
-    public Tienda() throws Exception{
+    public Tienda() throws ParseException,IOException{
         alimentos=fileCsv.obtenerAlimentos();
         cuidadoPersonales=fileCsv.obtenerCuidadoPersonal();
         souvenirs=fileCsv.obtenerSouvenirs();
@@ -132,6 +132,7 @@ public class Tienda {
      */
     public boolean agregarAlimento(Alimento alimento){
         if (!alimentos.contains(alimento)) {
+            fileCsv.almacenar(alimento);
             return alimentos.add(alimento);
         }
         return true;
@@ -143,6 +144,7 @@ public class Tienda {
      */
     public boolean agregarAparato(Aparato aparato){
         if (!aparatos.containsKey(aparato.getUdi())) {
+            fileCsv.almacenar(aparato);
             aparatos.put(aparato.getUdi(), aparato);
             return true;
         }
@@ -155,6 +157,7 @@ public class Tienda {
      */
     public boolean agregarCuidadosPersonal(CuidadoPersonal cuidadoPersonal){
         if (!cuidadoPersonales.contains(cuidadoPersonal)) {
+            fileCsv.almacenar(cuidadoPersonal);
             return cuidadoPersonales.add(cuidadoPersonal);
         }
         return true;
@@ -166,6 +169,7 @@ public class Tienda {
      */
     public boolean agregarSouvenir(Souvenir souvenir){
         if (!souvenirs.contains(souvenir)) {
+            fileCsv.almacenar(souvenir);
             return souvenirs.add(souvenir);
         }
         return true;
@@ -398,6 +402,7 @@ public class Tienda {
         }
         return true;
     }
+
 
 
 

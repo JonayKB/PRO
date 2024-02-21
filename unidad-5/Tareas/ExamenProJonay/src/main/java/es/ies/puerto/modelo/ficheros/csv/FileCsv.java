@@ -24,38 +24,30 @@ import es.ies.puerto.modelo.productos.Souvenir;
 public class FileCsv extends Ficheros{
 
 
-    private static final String SOUVENIR = "souvenir";
-    private static final String CUIDADO_PERSONAL = "cuidadoPersonal";
-    private static final String APARATO = "aparato";
-    private static final String ALIMENTO = "alimento";
-    private static final int COLUMNA_NOMBRE = 0;
-    private static final int COLUMNA_PRECIO = 1;
-    private static final int COLUMNA_FENTRADA = 2;
-    private static final int COLUMNA_UDI = 3;
-    private static final int COLUMNA_FCADUCIDAD = 4;
-    private static final int COLUMNA_POPULARIDAD = 4;
 
-    public Set<Producto> leer(String tipo) throws IOException, ParseException {
-        String path;
+    public String obtenerRuta(String tipo){
         switch (tipo) {
             case ALIMENTO:
-                path=RUTA_ALIMENTOS_CSV;
-            break;
+                return RUTA_ALIMENTOS_CSV;
+
             case APARATO:
-                path=RUTA_APARATOS_CSV;
-            break;
+                return RUTA_APARATOS_CSV;
+
             case CUIDADO_PERSONAL:
-                path=RUTA_CUIDADOSPERSONALES_CSV;
-            break;
+                return RUTA_CUIDADOSPERSONALES_CSV;
+
             case SOUVENIR:
-                path=RUTA_SOUVENIRS_CSV;
-            break;
+                return RUTA_SOUVENIRS_CSV;
+
             default:
-                path=null;
-            break;
+                return null;
+
         }
+    }
+    public Set<Producto> leer(String tipo) throws IOException, ParseException {
+        String path = obtenerRuta(tipo);
+        Set<Producto> productos = new HashSet<>();
         if (existe(path)) {
-            Set<Producto> productos = new HashSet<>();
             File fichero = new File(path);
             try ( BufferedReader br = new BufferedReader(new FileReader(fichero))) {
                 String linea;
@@ -89,7 +81,7 @@ public class FileCsv extends Ficheros{
                 e.printStackTrace();
             }
         }
-        return null;
+        return productos;
     }
 
     private Producto crearAlimento(String[] array) throws ParseException{
@@ -156,6 +148,14 @@ public class FileCsv extends Ficheros{
         }
     }
     return false;
+    }
+
+    public boolean almacenar(Producto producto){
+        String path = obtenerRuta(producto.getClass().getSimpleName());
+        if (existe(path)) {
+            escribir(path, producto.toCsv());
+        }
+        return false;
     }
 
 
