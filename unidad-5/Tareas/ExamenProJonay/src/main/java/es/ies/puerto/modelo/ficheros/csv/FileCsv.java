@@ -87,6 +87,20 @@ public class FileCsv extends Ficheros{
     private Producto crearAlimento(String[] array) throws ParseException{
         return new Alimento(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI], array[COLUMNA_FCADUCIDAD]);
     }
+
+
+    private Producto crearAparato(String[] array) {
+        return new Aparato(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI]);
+    }
+
+    private Producto crearCuidadoPersonal(String[] array) {
+        return new CuidadoPersonal(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI],Integer.parseInt(array[COLUMNA_POPULARIDAD]));
+    }
+
+    private Producto crearSouvenir(String[] array) {
+        return new Souvenir(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI]);
+    }
+
     public List<Alimento> obtenerAlimentos()throws IOException,ParseException{
         List<Alimento> alimentos = new ArrayList<>();
         for (Producto producto : leer(ALIMENTO)) {
@@ -123,19 +137,7 @@ public class FileCsv extends Ficheros{
         }
         return souvenirs;
     }
-
-    private Producto crearAparato(String[] array) {
-        return new Aparato(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI]);
-    }
-
-    private Producto crearCuidadoPersonal(String[] array) {
-        return new CuidadoPersonal(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI],Integer.parseInt(array[COLUMNA_POPULARIDAD]));
-    }
-
-    private Producto crearSouvenir(String[] array) {
-        return new Souvenir(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI]);
-    }
-
+    
     @Override
     public boolean escribir(String path, String texto) {
     if (existe(path)) {
