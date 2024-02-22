@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import es.ies.puerto.modelo.productos.Souvenir;
+import es.ies.puerto.modelo.impl.Souvenir;
 
 public class SouvenirTest {
     static Souvenir souvenirVacio;

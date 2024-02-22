@@ -9,10 +9,10 @@ import java.util.Map;
 import java.util.Set;
 
 import es.ies.puerto.modelo.ficheros.csv.FileCsv;
-import es.ies.puerto.modelo.productos.Alimento;
-import es.ies.puerto.modelo.productos.Aparato;
-import es.ies.puerto.modelo.productos.CuidadoPersonal;
-import es.ies.puerto.modelo.productos.Souvenir;
+import es.ies.puerto.modelo.impl.Alimento;
+import es.ies.puerto.modelo.impl.Aparato;
+import es.ies.puerto.modelo.impl.CuidadoPersonal;
+import es.ies.puerto.modelo.impl.Souvenir;
 
 
 public class Tienda {
@@ -183,8 +183,9 @@ public class Tienda {
      * @param alimento a eliminar
      * @return eliminado o no
      */
-    public boolean eliminarAlimento(String udi){
-            return alimentos.remove(obtenerAlimento(udi));
+    public boolean eliminarAlimento(String udi) throws IOException,ParseException{
+            alimentos.remove(obtenerAlimento(udi));
+            return fileCsv.borrar(alimentos);
     }
     /**
      * Elimina un aparato
@@ -193,6 +194,7 @@ public class Tienda {
      */
     public boolean eliminarAparato(String udi){
             aparatos.remove(udi);
+            fileCsv.borrar(aparatos);
             return true;
     }
     /**
@@ -201,7 +203,8 @@ public class Tienda {
      * @return eliminado o no
      */
     public boolean eliminarCuidadoPersonal(String udi){
-        return cuidadoPersonales.remove(obtenerCuidadoPersonal(udi));
+        cuidadoPersonales.remove(obtenerCuidadoPersonal(udi));
+        return fileCsv.borrar(cuidadoPersonales);
     }
     /**
      * Elimina un souvenir

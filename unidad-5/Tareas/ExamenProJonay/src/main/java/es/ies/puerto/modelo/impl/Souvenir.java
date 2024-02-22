@@ -1,14 +1,13 @@
-package es.ies.puerto.modelo.productos;
-
+package es.ies.puerto.modelo.impl;
 
 import es.ies.puerto.modelo.abstrac.Producto;
 
-public class Aparato extends Producto{
+public class Souvenir extends Producto{
 
-    public Aparato() {
+    public Souvenir() {
     }
-
-    public Aparato(String nombre, float precio, String fechaEntrada, String udi){
+    
+    public Souvenir(String nombre, float precio, String fechaEntrada, String udi){
         super(nombre, precio, fechaEntrada, udi);
 
     }
@@ -21,7 +20,6 @@ public class Aparato extends Producto{
 
     @Override
     public float precioMaximo() {
-
-        return getPrecio()*1.42f;
+        return getPrecio()*1.3f;
     }
 }

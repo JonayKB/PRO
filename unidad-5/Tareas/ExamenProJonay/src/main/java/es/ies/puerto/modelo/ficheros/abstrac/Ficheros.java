@@ -2,14 +2,12 @@ package es.ies.puerto.modelo.ficheros.abstrac;
 
 
 import java.io.File;
-import java.io.IOException;
-import java.text.ParseException;
-import java.util.Set;
 
-import es.ies.puerto.modelo.abstrac.Producto;
+import es.ies.puerto.modelo.ficheros.interfaces.IFicheros;
 
 
-public abstract class Ficheros {
+
+public abstract class Ficheros implements IFicheros{
     public static final String RUTA_ALIMENTOS_CSV="src/main/resources/alimentos.csv";
     public static final String RUTA_APARATOS_CSV="src/main/resources/aparatos.csv";
     public static final String RUTA_CUIDADOSPERSONALES_CSV="src/main/resources/cuidado-personal.csv";
@@ -26,14 +24,13 @@ public abstract class Ficheros {
     public static final int COLUMNA_FCADUCIDAD = 4;
     public static final int COLUMNA_POPULARIDAD = 4;
     
-
-    public static boolean existe(String path){
+    @Override
+    public boolean existe(String path){
         if (path == null || path.isEmpty()) {
             return false;
         }
         File fichero = new File(path);
         return fichero.exists() && fichero.isFile();
     }
-    public abstract Set<Producto> leer(String tipo) throws IOException, ParseException;
-    public abstract boolean escribir(String path, String texto);
+
 }

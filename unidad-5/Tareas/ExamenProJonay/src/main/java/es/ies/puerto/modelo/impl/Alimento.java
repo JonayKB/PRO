@@ -1,4 +1,4 @@
-package es.ies.puerto.modelo.productos;
+package es.ies.puerto.modelo.impl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

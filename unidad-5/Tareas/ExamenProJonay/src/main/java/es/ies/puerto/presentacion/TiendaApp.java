@@ -1,9 +1,12 @@
 package es.ies.puerto.presentacion;
 
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 import es.ies.puerto.modelo.ficheros.csv.FileCsv;
+import es.ies.puerto.modelo.impl.Alimento;
 import es.ies.puerto.negocio.Tienda;
 
 
@@ -12,7 +15,9 @@ public class TiendaApp {
     static Scanner scanner;
     static Tienda tienda;
     static FileCsv fileCsv;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException,IOException {
+        tienda = new Tienda();
+        tienda.eliminarAlimento("ALM01");
         
     }
 

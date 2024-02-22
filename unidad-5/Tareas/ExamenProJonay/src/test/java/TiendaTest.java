@@ -5,11 +5,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
-import es.ies.puerto.modelo.productos.Alimento;
-import es.ies.puerto.modelo.productos.Aparato;
-import es.ies.puerto.modelo.productos.CuidadoPersonal;
-import es.ies.puerto.modelo.productos.Souvenir;
+import es.ies.puerto.modelo.impl.Alimento;
+import es.ies.puerto.modelo.impl.Aparato;
+import es.ies.puerto.modelo.impl.CuidadoPersonal;
+import es.ies.puerto.modelo.impl.Souvenir;
 import es.ies.puerto.negocio.Tienda;
 
 class TiendaTest {

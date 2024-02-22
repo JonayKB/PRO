@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import es.ies.puerto.modelo.productos.CuidadoPersonal;
+import es.ies.puerto.modelo.impl.CuidadoPersonal;
 
 public class CuidadoPersonalTest {
     static CuidadoPersonal cuidadoPersonalVacio;

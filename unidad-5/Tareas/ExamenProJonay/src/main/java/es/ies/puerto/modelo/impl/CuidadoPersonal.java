@@ -1,4 +1,4 @@
-package es.ies.puerto.modelo.productos;
+package es.ies.puerto.modelo.impl;
 
 
 import es.ies.puerto.modelo.abstrac.ProductoRecomendable;
