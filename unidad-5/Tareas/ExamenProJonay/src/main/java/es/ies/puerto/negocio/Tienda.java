@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import es.ies.puerto.modelo.abstrac.Producto;
 import es.ies.puerto.modelo.ficheros.csv.FileCsv;
 import es.ies.puerto.modelo.impl.Alimento;
 import es.ies.puerto.modelo.impl.Aparato;
@@ -204,7 +205,9 @@ public class Tienda {
      */
     public boolean eliminarCuidadoPersonal(String udi){
         cuidadoPersonales.remove(obtenerCuidadoPersonal(udi));
-        return fileCsv.borrar(cuidadoPersonales);
+        Set<Producto> lista = new HashSet<>();
+        lista.addAll(cuidadoPersonales);
+        return fileCsv.borrar(lista);
     }
     /**
      * Elimina un souvenir
@@ -212,7 +215,11 @@ public class Tienda {
      * @return eliminado o no
      */
     public boolean eliminarSouvenir(String udi){
-            return souvenirs.remove(obtenerSouvenir(udi));
+        souvenirs.remove(obtenerSouvenir(udi));
+        Set<Producto> lista = new HashSet<>();
+        lista.addAll(souvenirs);
+        return fileCsv.borrar(lista);
+
     }
 
 
@@ -399,7 +406,7 @@ public class Tienda {
         return productosRecomendados;
     }
 
-    public boolean venderAlimento(String udi){
+    public boolean venderAlimento(String udi) throws IOException,ParseException{
         if (!obtenerAlimento(udi).productoCaducado()) {
             return eliminarAlimento(udi);
         }

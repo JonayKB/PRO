@@ -55,7 +55,7 @@ public class FileCsv extends Ficheros{
                 String linea;
                 int i =0;
                 while ((linea=br.readLine()) != null) {
-                    if (i>0) {    
+    
                         String[] array = linea.split(",");
                         switch (tipo) {
                             case ALIMENTO:
@@ -74,7 +74,7 @@ public class FileCsv extends Ficheros{
                             default:
                                 productos.add(crearSouvenir(array));
                             break;
-                        }
+
                     }
                     i++;
                 }
@@ -107,19 +107,14 @@ public class FileCsv extends Ficheros{
     }
     @Override
     public boolean borrar(Set<Producto> lista){
-        String path = obtenerRuta(SOUVENIR);
-        
+        String path = elegirPathSet(lista);
         try {
-
             File file = new File(path);
             FileOutputStream outputStream = new FileOutputStream(file);
             byte[] emptyContent = {};
             outputStream.write(emptyContent);
             outputStream.close();
-
-            for (Souvenir souvenir : lista) {
-                escribir(path, souvenir.toCsv());
-            }
+            escribirSet(lista, path);
             return true;
 
         } catch (IOException e) {
@@ -130,7 +125,6 @@ public class FileCsv extends Ficheros{
     @Override
     public boolean borrar(Map<String, Aparato> lista){
         String path = obtenerRuta(APARATO);
-
         try {
 
             File file = new File(path);
@@ -232,6 +226,36 @@ public class FileCsv extends Ficheros{
         return false;
     }
 
-
+    public String elegirPathSet(Set<Producto> lista){
+        String path="";
+        try {
+            for (Producto producto : lista) {
+                Souvenir souvenir = (Souvenir)producto;
+                path = obtenerRuta(souvenir.getClass().getSimpleName());
+                break;
+            }
+        } catch (Exception e) {
+            for (Producto producto : lista) {
+                CuidadoPersonal cuidadoPersonal = (CuidadoPersonal)producto;
+                path = obtenerRuta(cuidadoPersonal.getClass().getSimpleName());
+                break;
+            }
+        }
+        return path;
+    }
+    public void escribirSet(Set<Producto> lista, String path){
+        if (path==RUTA_SOUVENIRS_CSV) {
+            for (Producto producto : lista) {
+                Souvenir souvenir = (Souvenir) producto;
+                escribir(path, souvenir.toCsv());
+            }
+        }else{
+            for (Producto producto : lista) {
+                CuidadoPersonal cuidadoPersonal = (CuidadoPersonal) producto;
+                escribir(path, cuidadoPersonal.toCsv());
+            }
+        }
+        
+    }
     
 }

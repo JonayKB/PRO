@@ -78,7 +78,7 @@ class TiendaTest {
         Assertions.assertEquals(0,tienda.cantidadProductos());
     }
     @Test
-    void eliminarAlimentoTest(){
+    void eliminarAlimentoTest()throws Exception{
         Assertions.assertTrue(tienda.eliminarAlimento("ALM001"));
     }
     @Test
@@ -130,7 +130,7 @@ class TiendaTest {
         Assertions.assertTrue( tienda.productosRecomendados().toString().contains("Champú")&& tienda.productosRecomendados().toString().contains("Crema"));
     }
     @Test
-    void venderAlimentoTestTrue(){
+    void venderAlimentoTestTrue()throws Exception{
         Assertions.assertTrue(tienda.venderAlimento("ALM003"));
     }
 
