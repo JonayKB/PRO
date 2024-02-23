@@ -195,8 +195,8 @@ public class Tienda {
      */
     public boolean eliminarAparato(String udi){
             aparatos.remove(udi);
-            fileCsv.borrar(aparatos);
-            return true;
+            
+            return fileCsv.borrar(aparatos);
     }
     /**
      * Elimina un cuidadoPersonal
@@ -219,6 +219,37 @@ public class Tienda {
         Set<Producto> lista = new HashSet<>();
         lista.addAll(souvenirs);
         return fileCsv.borrar(lista);
+
+    }
+
+
+
+    public boolean modificarAlimento(Alimento alimento) throws IOException,ParseException{
+        alimentos.remove(alimento);
+        fileCsv.borrar(alimentos);
+        return agregarAlimento(alimento);
+    }
+
+    public boolean modificarAparato(Aparato aparato){
+        aparatos.remove(aparato.getUdi());
+        fileCsv.borrar(aparatos);
+        return agregarAparato(aparato);
+    }
+
+    public boolean modificarCuidadoPersonal(CuidadoPersonal cuidadoPersonal){
+        cuidadoPersonales.remove(cuidadoPersonal);
+        Set<Producto> lista= new HashSet<>();
+        lista.addAll(cuidadoPersonales);
+        fileCsv.borrar(lista);
+        return agregarCuidadosPersonal(cuidadoPersonal);
+    }
+
+    public boolean modificarSouvenir(Souvenir souvenir){
+        souvenirs.remove(souvenir);
+        Set<Producto> lista= new HashSet<>();
+        lista.addAll(souvenirs);
+        fileCsv.borrar(lista);
+        return agregarSouvenir(souvenir);
 
     }
 

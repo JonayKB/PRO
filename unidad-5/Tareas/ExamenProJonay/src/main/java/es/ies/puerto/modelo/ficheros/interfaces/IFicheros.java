@@ -2,7 +2,6 @@ package es.ies.puerto.modelo.ficheros.interfaces;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -36,4 +35,6 @@ public interface IFicheros {
     public Map<String, Aparato> obtenerAparatos()throws IOException,ParseException;
     public Set<CuidadoPersonal> obtenerCuidadoPersonal()throws IOException,ParseException;
     public Set<Souvenir> obtenerSouvenirs()throws IOException,ParseException;
+
+
 }

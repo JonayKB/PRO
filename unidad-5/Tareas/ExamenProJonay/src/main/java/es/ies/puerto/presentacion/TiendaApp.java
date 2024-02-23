@@ -17,7 +17,9 @@ public class TiendaApp {
     static FileCsv fileCsv;
     public static void main(String[] args) throws ParseException,IOException {
         tienda = new Tienda();
-        tienda.eliminarAlimento("ALM001");
+        Alimento alimento =tienda.obtenerAlimento("ALM0030");
+        alimento.setNombre("DIOS");
+        tienda.modificarAlimento(alimento);
         
     }
 

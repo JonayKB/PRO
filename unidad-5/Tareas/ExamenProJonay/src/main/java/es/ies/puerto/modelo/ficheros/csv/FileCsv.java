@@ -9,7 +9,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -26,7 +25,7 @@ import es.ies.puerto.modelo.impl.Souvenir;
 public class FileCsv extends Ficheros{
 
 
-
+    @Override
     public String obtenerRuta(String tipo){
         switch (tipo) {
             case ALIMENTO:
@@ -46,6 +45,7 @@ public class FileCsv extends Ficheros{
 
         }
     }
+    @Override
     public Set<Producto> leer(String tipo) throws IOException, ParseException {
         String path = obtenerRuta(tipo);
         Set<Producto> productos = new HashSet<>();
@@ -53,7 +53,6 @@ public class FileCsv extends Ficheros{
             File fichero = new File(path);
             try ( BufferedReader br = new BufferedReader(new FileReader(fichero))) {
                 String linea;
-                int i =0;
                 while ((linea=br.readLine()) != null) {
     
                         String[] array = linea.split(",");
@@ -74,9 +73,7 @@ public class FileCsv extends Ficheros{
                             default:
                                 productos.add(crearSouvenir(array));
                             break;
-
                     }
-                    i++;
                 }
                 return productos;
             } catch (IOException e) {
@@ -232,19 +229,17 @@ public class FileCsv extends Ficheros{
             for (Producto producto : lista) {
                 Souvenir souvenir = (Souvenir)producto;
                 path = obtenerRuta(souvenir.getClass().getSimpleName());
-                break;
             }
         } catch (Exception e) {
             for (Producto producto : lista) {
                 CuidadoPersonal cuidadoPersonal = (CuidadoPersonal)producto;
                 path = obtenerRuta(cuidadoPersonal.getClass().getSimpleName());
-                break;
             }
         }
         return path;
     }
     public void escribirSet(Set<Producto> lista, String path){
-        if (path==RUTA_SOUVENIRS_CSV) {
+        if (path.equals(RUTA_SOUVENIRS_CSV)) {
             for (Producto producto : lista) {
                 Souvenir souvenir = (Souvenir) producto;
                 escribir(path, souvenir.toCsv());
@@ -257,5 +252,7 @@ public class FileCsv extends Ficheros{
         }
         
     }
+
+
     
 }
