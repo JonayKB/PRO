@@ -24,30 +24,6 @@ public class Alimento extends ProductoFresco {
 
     }
 
-    public Date getFechaActualDate() {
-        return this.fechaActualDate;
-    }
-
-    public void setFechaActualDate(Date fechaActualDate) {
-        this.fechaActualDate = fechaActualDate;
-    }
-
-    public Date getFechaCaducidadDate() {
-        return this.fechaCaducidadDate;
-    }
-
-    public void setFechaCaducidadDate(Date fechaCaducidadDate) {
-        this.fechaCaducidadDate = fechaCaducidadDate;
-    }
-
-    public SimpleDateFormat getFormat() {
-        return this.format;
-    }
-
-    public void setFormat(SimpleDateFormat format) {
-        this.format = format;
-    }
-
 
     @Override
     public int diasCaducidad() {

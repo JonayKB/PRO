@@ -7,19 +7,17 @@ import java.util.Scanner;
 
 import es.ies.puerto.modelo.ficheros.csv.FileCsv;
 import es.ies.puerto.modelo.impl.Alimento;
-import es.ies.puerto.negocio.Tienda;
+import es.ies.puerto.negocio.TiendaNegocio;
 
 
 
 public class TiendaApp {
     static Scanner scanner;
-    static Tienda tienda;
+    static TiendaNegocio tienda;
     static FileCsv fileCsv;
     public static void main(String[] args) throws ParseException,IOException {
-        tienda = new Tienda();
-        Alimento alimento =tienda.obtenerAlimento("ALM0030");
-        alimento.setNombre("DIOS");
-        tienda.modificarAlimento(alimento);
+        tienda = new TiendaNegocio();
+        
         
     }
 

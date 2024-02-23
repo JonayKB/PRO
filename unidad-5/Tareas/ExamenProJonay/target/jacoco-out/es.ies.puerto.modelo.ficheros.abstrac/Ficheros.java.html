@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Ficheros.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examenprojonay</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.modelo.ficheros.abstrac</a> &gt; <span class="el_source">Ficheros.java</span></div><h1>Ficheros.java</h1><pre class="source lang-java linenums">package es.ies.puerto.modelo.ficheros.abstrac;
+
+
+import java.io.File;
+
+import es.ies.puerto.modelo.ficheros.interfaces.IFicheros;
+
+
+
+<span class="fc" id="L10">public abstract class Ficheros implements IFicheros{</span>
+    public static final String RUTA_ALIMENTOS_CSV=&quot;src/main/resources/alimentos.csv&quot;;
+    public static final String RUTA_APARATOS_CSV=&quot;src/main/resources/aparatos.csv&quot;;
+    public static final String RUTA_CUIDADOSPERSONALES_CSV=&quot;src/main/resources/cuidado-personal.csv&quot;;
+    public static final String RUTA_SOUVENIRS_CSV=&quot;src/main/resources/souvenirs.csv&quot;;
+
+    public static final String SOUVENIR = &quot;Souvenir&quot;;
+    public static final String CUIDADO_PERSONAL = &quot;CuidadoPersonal&quot;;
+    public static final String APARATO = &quot;Aparato&quot;;
+    public static final String ALIMENTO = &quot;Alimento&quot;;
+    public static final int COLUMNA_NOMBRE = 0;
+    public static final int COLUMNA_PRECIO = 1;
+    public static final int COLUMNA_FENTRADA = 2;
+    public static final int COLUMNA_UDI = 3;
+    public static final int COLUMNA_FCADUCIDAD = 4;
+    public static final int COLUMNA_POPULARIDAD = 4;
+    
+    @Override
+    public boolean existe(String path){
+<span class="pc bpc" id="L29" title="2 of 4 branches missed.">        if (path == null || path.isEmpty()) {</span>
+<span class="nc" id="L30">            return false;</span>
+        }
+<span class="fc" id="L32">        File fichero = new File(path);</span>
+<span class="pc bpc" id="L33" title="2 of 4 branches missed.">        return fichero.exists() &amp;&amp; fichero.isFile();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

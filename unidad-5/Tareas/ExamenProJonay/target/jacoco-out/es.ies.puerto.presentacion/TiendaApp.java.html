@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TiendaApp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examenprojonay</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.presentacion</a> &gt; <span class="el_source">TiendaApp.java</span></div><h1>TiendaApp.java</h1><pre class="source lang-java linenums">package es.ies.puerto.presentacion;
+
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.Scanner;
+
+import es.ies.puerto.modelo.ficheros.csv.FileCsv;
+import es.ies.puerto.modelo.impl.Alimento;
+import es.ies.puerto.negocio.TiendaNegocio;
+
+
+
+<span class="nc" id="L14">public class TiendaApp {</span>
+    static Scanner scanner;
+    static TiendaNegocio tienda;
+    static FileCsv fileCsv;
+    public static void main(String[] args) throws ParseException,IOException {
+<span class="nc" id="L19">        tienda = new TiendaNegocio();</span>
+        
+        
+<span class="nc" id="L22">    }</span>
+
+    public void menu(){
+<span class="nc" id="L25">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L26">        boolean mantener =true;</span>
+<span class="nc" id="L27">        System.out.println(&quot;--Menu--\n-Añadir\n-Eliminar\n-Mostrar\n-Modificar\n-Salir&quot;);</span>
+        do {
+<span class="nc bnc" id="L29" title="All 6 branches missed.">            switch (scanner.next().toLowerCase()) {</span>
+                case &quot;añadir&quot;:
+<span class="nc" id="L31">                    menuAniadir();</span>
+<span class="nc" id="L32">                    break;</span>
+
+                case &quot;eliminar&quot;:
+<span class="nc" id="L35">                    menuEliminar();</span>
+<span class="nc" id="L36">                    break;</span>
+
+                case &quot;mostrar&quot;:
+<span class="nc" id="L39">                    menuMostrar();</span>
+<span class="nc" id="L40">                    break;</span>
+
+                case &quot;modificar&quot;:
+<span class="nc" id="L43">                    menuModificar();</span>
+<span class="nc" id="L44">                    break;</span>
+                
+                case &quot;volver&quot;:
+<span class="nc" id="L47">                    mantener= false;</span>
+<span class="nc" id="L48">                    break;</span>
+                default:
+                    
+                    
+            }
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        } while (mantener);</span>
+<span class="nc" id="L54">    }</span>
+    
+    public void menuAniadir(){
+        //TODO
+<span class="nc" id="L58">    }</span>
+    public void menuEliminar(){
+        //TODO
+<span class="nc" id="L61">    }</span>
+    public void menuMostrar(){
+<span class="nc" id="L63">        Boolean mantener= true;</span>
+        do {
+<span class="nc" id="L65">            System.out.println(&quot;--Mostrar--\n-Alimentos\n-Aparatos\n-Souvenirs\n-Cuidado Personal\n-Volver&quot;);</span>
+<span class="nc bnc" id="L66" title="All 6 branches missed.">            switch (scanner.next().toLowerCase()) {</span>
+                case &quot;alimentos&quot;:
+
+<span class="nc" id="L69">                    break;</span>
+                case &quot;aparatos&quot;:
+                    
+<span class="nc" id="L72">                    break;</span>
+                case &quot;souvenirs&quot;:
+                    
+<span class="nc" id="L75">                    break;</span>
+                case &quot;cuidado personal&quot;:
+                    
+<span class="nc" id="L78">                    break;</span>
+                case &quot;volver&quot;:
+<span class="nc" id="L80">                    mantener = false;</span>
+<span class="nc" id="L81">                    break;</span>
+                default:
+<span class="nc" id="L83">                    System.out.println(&quot;No existe esa opcion&quot;);</span>
+            }
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        } while (mantener);</span>
+<span class="nc" id="L86">    }</span>
+    public void menuModificar(){
+        //TODO
+<span class="nc" id="L89">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

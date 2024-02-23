@@ -47,10 +47,6 @@ public abstract class Producto implements IVendible{
         return this.udi;
     }
 
-    public void setUdi(String udi) {
-        this.udi = udi;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == this)

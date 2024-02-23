@@ -14,27 +14,16 @@ import es.ies.puerto.modelo.impl.Souvenir;
 
 public interface IFicheros {
     public boolean existe(String path);
-    public String obtenerRuta(String tipo);
 
-    public Set<Producto> leer(String tipo) throws IOException, ParseException;
+    public Set<Producto> leer(String path,String tipo) throws IOException, ParseException;
     public boolean escribir(String path, String texto);
-    public boolean borrar(List<Alimento> lista)throws IOException,ParseException;
-    public boolean borrar(Set<Producto> lista);
-    public boolean borrar(Map<String,Aparato> lista);
+    public boolean borrar(String path, String texto);
+    public boolean modificar(String path, String texto);
 
-
-
-    public boolean almacenar(Producto producto);
+    public boolean almacenar(String path, String texto);
 
     public Producto crearAlimento(String[] array) throws ParseException;
     public Producto crearAparato(String[] array);
     public Producto crearCuidadoPersonal(String[] array);
     public Producto crearSouvenir(String[] array);
-
-    public List<Alimento> obtenerAlimentos()throws IOException,ParseException;
-    public Map<String, Aparato> obtenerAparatos()throws IOException,ParseException;
-    public Set<CuidadoPersonal> obtenerCuidadoPersonal()throws IOException,ParseException;
-    public Set<Souvenir> obtenerSouvenirs()throws IOException,ParseException;
-
-
 }

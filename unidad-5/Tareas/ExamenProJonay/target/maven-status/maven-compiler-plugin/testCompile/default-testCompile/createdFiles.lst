@@ -1,0 +1,6 @@
+modelo/impl/SouvenirTest.class
+modelo/impl/CuidadoPersonalTest.class
+modelo/ficheros/csv/FileCsvTest.class
+modelo/impl/AlimentoTest.class
+modelo/impl/AparatoTest.class
+negocio/TiendaTest.class
