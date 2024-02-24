@@ -8,8 +8,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -121,5 +119,47 @@ public class FileCsv extends Ficheros{
     public boolean almacenar(String path, String texto){
             return escribir(path, texto); 
     }
+
+    public String listaToCsv(List<Alimento> alimentos){
+        StringBuilder resultado = new StringBuilder();
+        for (Alimento alimento : alimentos) {
+            resultado.append(alimento.toCsv()+"\n");
+        }
+        return resultado.toString();
+    }
+    public String listaToCsv(Map<String,Aparato> aparatos){
+        StringBuilder resultado = new StringBuilder();
+        for (Aparato aparato : aparatos.values()) {
+            resultado.append(aparato.toCsv()+"\n");
+        }
+        return resultado.toString();
+    }
+    public String listaToCsv(Set<?> lista){
+        StringBuilder resultado = new StringBuilder();
+        String tipo = obtenerTipoSet(lista);
+        if (tipo.equals(SOUVENIR)) {
+            Set<Souvenir> souvenirs = (Set<Souvenir>)lista;
+            for (Souvenir souvenir : souvenirs) {
+                resultado.append(souvenir.toCsv()+"\n");
+            }
+        }else if (tipo.equals(CUIDADO_PERSONAL)) {
+            Set<CuidadoPersonal> cuidadoPersonals = (Set<CuidadoPersonal>)lista;
+            for (CuidadoPersonal cuidadoPersonal : cuidadoPersonals) {
+                resultado.append(cuidadoPersonal.toCsv()+"\n");
+            }
+        }
+        return resultado.toString();
+        
+    }
+
+    public static String obtenerTipoSet(Set<?> set) {
+        if (!set.isEmpty()) {
+            Object firstElement = set.iterator().next();
+            return firstElement.getClass().getSimpleName();
+        }
+        return "null";
+        
+    }
+    
     
 }
