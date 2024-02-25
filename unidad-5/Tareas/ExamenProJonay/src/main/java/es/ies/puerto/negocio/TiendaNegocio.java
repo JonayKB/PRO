@@ -2,7 +2,6 @@ package es.ies.puerto.negocio;
 
 
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -141,7 +140,7 @@ public class TiendaNegocio {
      */
     public boolean agregarAlimento(Alimento alimento){
         if (!alimentos.contains(alimento)) {
-            fileCsv.almacenar(alimento);
+            fileCsv.almacenar(Ficheros.RUTA_ALIMENTOS_CSV, alimento.toCsv());
             return alimentos.add(alimento);
         }
         return true;
@@ -153,9 +152,8 @@ public class TiendaNegocio {
      */
     public boolean agregarAparato(Aparato aparato){
         if (!aparatos.containsKey(aparato.getUdi())) {
-            fileCsv.almacenar(aparato);
             aparatos.put(aparato.getUdi(), aparato);
-            return true;
+            return fileCsv.almacenar(Ficheros.RUTA_APARATOS_CSV, aparato.toCsv());
         }
         return true;
     }
@@ -166,7 +164,7 @@ public class TiendaNegocio {
      */
     public boolean agregarCuidadosPersonal(CuidadoPersonal cuidadoPersonal){
         if (!cuidadoPersonales.contains(cuidadoPersonal)) {
-            fileCsv.almacenar(cuidadoPersonal);
+            fileCsv.almacenar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, cuidadoPersonal.toCsv());
             return cuidadoPersonales.add(cuidadoPersonal);
         }
         return true;
@@ -178,7 +176,7 @@ public class TiendaNegocio {
      */
     public boolean agregarSouvenir(Souvenir souvenir){
         if (!souvenirs.contains(souvenir)) {
-            fileCsv.almacenar(souvenir);
+            fileCsv.almacenar(Ficheros.RUTA_SOUVENIRS_CSV, souvenir.toCsv());
             return souvenirs.add(souvenir);
         }
         return true;
@@ -186,16 +184,15 @@ public class TiendaNegocio {
 
 
 
-    // TODO LISTA.toCSV
     /**
      * Elimina un alimento
      * @param souvenir a eliminar
      * @return eliminado o no
      */
-    public boolean eliminarAlimento(String udi) throws IOException,ParseException{
+    public boolean eliminarAlimento(String udi){
             Alimento alimentoRemove = obtenerAlimento(udi);
             alimentos.remove(alimentoRemove);
-            return fileCsv.borrar(Ficheros.RUTA_ALIMENTOS_CSV, "");
+            return fileCsv.borrar(Ficheros.RUTA_ALIMENTOS_CSV, fileCsv.listaToCsv(alimentos));
     }
     /**
      * Elimina un aparato
@@ -205,7 +202,7 @@ public class TiendaNegocio {
     public boolean eliminarAparato(String udi){
             aparatos.remove(udi);
             
-            return fileCsv.borrar(Ficheros.RUTA_APARATOS_CSV,"");
+            return fileCsv.borrar(Ficheros.RUTA_APARATOS_CSV,fileCsv.listaToCsv(aparatos));
     }
     /**
      * Elimina un cuidadoPersonal
@@ -215,7 +212,7 @@ public class TiendaNegocio {
     public boolean eliminarCuidadoPersonal(String udi){
         CuidadoPersonal cuidadoPersonalRemove = obtenerCuidadoPersonal(udi);
         cuidadoPersonales.remove(cuidadoPersonalRemove);
-        return fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, "");
+        return fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, fileCsv.listaToCsv(cuidadoPersonales));
     }
     /**
      * Elimina un souvenir
@@ -225,41 +222,37 @@ public class TiendaNegocio {
     public boolean eliminarSouvenir(String udi){
         Souvenir souvenirRemove = obtenerSouvenir(udi);
         souvenirs.remove(souvenirRemove);
-        return fileCsv.borrar(Ficheros.RUTA_SOUVENIRS_CSV,"");
+        return fileCsv.borrar(Ficheros.RUTA_SOUVENIRS_CSV,fileCsv.listaToCsv(souvenirs));
 
     }
 
 
-    // TODO LISTA.toCSV
     public boolean modificarAlimento(String nombre, float precio, String fEntrada, String udi, String fCaducidad) throws ParseException{
         Alimento alimentoModificar= new Alimento(nombre, precio, fEntrada, udi, fCaducidad);
         alimentos.remove(alimentoModificar);
-        fileCsv.borrar(Ficheros.RUTA_ALIMENTOS_CSV,"");
+        fileCsv.borrar(Ficheros.RUTA_ALIMENTOS_CSV,fileCsv.listaToCsv(alimentos));
         return agregarAlimento(alimentoModificar);
     }
 
     public boolean modificarAparato(String nombre, float precio, String fEntrada, String udi){
         Aparato aparatoModificar= new Aparato(nombre, precio, fEntrada, udi);
         aparatos.remove(aparatoModificar.getUdi());
-        fileCsv.borrar(Ficheros.RUTA_APARATOS_CSV,"");
+        fileCsv.borrar(Ficheros.RUTA_APARATOS_CSV,fileCsv.listaToCsv(aparatos));
         return agregarAparato(aparatoModificar);
     }
 
-    public boolean modificarCuidadoPersonal(CuidadoPersonal cuidadoPersonal){
-        cuidadoPersonales.remove(cuidadoPersonal);
-        Set<Producto> lista= new HashSet<>();
-        lista.addAll(cuidadoPersonales);
-        fileCsv.borrar(lista);
-        return agregarCuidadosPersonal(cuidadoPersonal);
+    public boolean modificarCuidadoPersonal(String nombre, float precio, String fEntrada, String udi, int popularidad){
+        CuidadoPersonal cuidadoPersonalModificar= new CuidadoPersonal(nombre, precio, fEntrada, udi,popularidad);
+        cuidadoPersonales.remove(cuidadoPersonalModificar);
+        fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, fileCsv.listaToCsv(cuidadoPersonales));
+        return agregarCuidadosPersonal(cuidadoPersonalModificar);
     }
 
-    public boolean modificarSouvenir(Souvenir souvenir){
-        souvenirs.remove(souvenir);
-        Set<Producto> lista= new HashSet<>();
-        lista.addAll(souvenirs);
-        fileCsv.borrar(lista);
-        return agregarSouvenir(souvenir);
-
+    public boolean modificarSouvenir(String nombre, float precio, String fEntrada, String udi){
+        Souvenir souvenirModificar= new Souvenir(nombre, precio, fEntrada, udi);
+        souvenirs.remove(souvenirModificar);
+        fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,fileCsv.listaToCsv(souvenirs));
+        return agregarSouvenir(souvenirModificar);
     }
 
 
@@ -455,7 +448,7 @@ public class TiendaNegocio {
         return productosRecomendados;
     }
 
-    public boolean venderAlimento(String udi) throws IOException,ParseException{
+    public boolean venderAlimento(String udi){
         if (!obtenerAlimento(udi).productoCaducado()) {
             return eliminarAlimento(udi);
         }
