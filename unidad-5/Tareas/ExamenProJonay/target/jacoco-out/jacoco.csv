@@ -1,6 +1,6 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 examenprojonay,es.ies.puerto.modelo.ficheros.abstrac,Ficheros,3,22,4,4,1,4,4,2,0,2
-examenprojonay,es.ies.puerto.negocio,TiendaNegocio,177,575,20,50,46,128,28,50,10,33
+examenprojonay,es.ies.puerto.negocio,TiendaNegocio,211,726,20,58,46,152,28,59,10,38
 examenprojonay,es.ies.puerto.modelo.abstrac,ProductoRecomendable,3,7,0,0,2,2,1,1,1,1
 examenprojonay,es.ies.puerto.modelo.abstrac,ProductoFresco,7,25,0,0,4,10,2,3,2,3
 examenprojonay,es.ies.puerto.modelo.abstrac,Producto,5,101,1,3,3,28,2,13,1,12
@@ -8,5 +8,5 @@ examenprojonay,es.ies.puerto.modelo.impl,Souvenir,3,14,0,0,2,4,1,3,1,3
 examenprojonay,es.ies.puerto.modelo.impl,Alimento,3,68,0,2,2,11,1,7,1,6
 examenprojonay,es.ies.puerto.modelo.impl,Aparato,3,14,0,0,2,4,1,3,1,3
 examenprojonay,es.ies.puerto.modelo.impl,CuidadoPersonal,3,40,0,2,2,8,1,7,1,6
-examenprojonay,es.ies.puerto.modelo.ficheros.csv,FileCsv,35,552,9,39,18,117,9,37,0,19
+examenprojonay,es.ies.puerto.modelo.ficheros.csv,FileCsv,28,317,6,21,12,58,7,21,1,12
 examenprojonay,es.ies.puerto.presentacion,TiendaApp,80,0,16,0,34,0,19,0,7,0

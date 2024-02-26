@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="negocio.TiendaTest" time="0.465" tests="24" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="negocio.TiendaTest" time="0.257" tests="24" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/jonaykb/Repositorios/pro/unidad-5/Tareas/ExamenProJonay/target/surefire/surefirebooter12338268924781140483.jar /home/jonaykb/Repositorios/pro/unidad-5/Tareas/ExamenProJonay/target/surefire 2024-02-23T17-13-59_688-jvmRun1 surefire3909961867143796799tmp surefire_08006073596266015105tmp"/>
+    <property name="sun.java.command" value="/home/jonaykb/Repositorios/pro/unidad-5/Tareas/ExamenProJonay/target/surefire/surefirebooter9933348566500086732.jar /home/jonaykb/Repositorios/pro/unidad-5/Tareas/ExamenProJonay/target/surefire 2024-02-26T15-50-49_293-jvmRun1 surefire937519657182759810tmp surefire_017804340671918198613tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/jonaykb/Repositorios/pro/unidad-5/Tareas/ExamenProJonay/target/test-classes:/home/jonaykb/Repositorios/pro/unidad-5/Tareas/ExamenProJonay/target/classes:/home/jonaykb/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/home/jonaykb/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/jonaykb/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/jonaykb/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/home/jonaykb/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.6.0/junit-jupiter-params-5.6.0.jar:/home/jonaykb/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/home/jonaykb/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -32,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/jonaykb/Repositorios/pro/unidad-5/Tareas/ExamenProJonay/target/surefire/surefirebooter12338268924781140483.jar"/>
+    <property name="surefire.real.class.path" value="/home/jonaykb/Repositorios/pro/unidad-5/Tareas/ExamenProJonay/target/surefire/surefirebooter9933348566500086732.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.20.1+1-post-Ubuntu-0ubuntu122.04"/>
     <property name="user.name" value="jonaykb"/>
@@ -58,28 +58,28 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="eliminarCuidadoPersonalTest" classname="negocio.TiendaTest" time="0.245"/>
-  <testcase name="eliminarAlimentoTest" classname="negocio.TiendaTest" time="0.008"/>
-  <testcase name="cantidadAparatosTest" classname="negocio.TiendaTest" time="0.017"/>
-  <testcase name="precioCuidadosPersonalesTest" classname="negocio.TiendaTest" time="0.008"/>
-  <testcase name="ganaciaSouvenirsTest" classname="negocio.TiendaTest" time="0.009"/>
-  <testcase name="gananciaAlimentosTest" classname="negocio.TiendaTest" time="0.007"/>
-  <testcase name="eliminarAparatoTest" classname="negocio.TiendaTest" time="0.008"/>
-  <testcase name="ganaciaAparatosTest" classname="negocio.TiendaTest" time="0.007"/>
-  <testcase name="productosRecomendadosTest" classname="negocio.TiendaTest" time="0.022"/>
-  <testcase name="cantidadCuidadoPersonalesTest" classname="negocio.TiendaTest" time="0.007"/>
-  <testcase name="agregarCuidadoPersonalTest" classname="negocio.TiendaTest" time="0.007"/>
-  <testcase name="precioProductosTest" classname="negocio.TiendaTest" time="0.007"/>
-  <testcase name="comprobarConstructorCompletoTest" classname="negocio.TiendaTest" time="0.02"/>
-  <testcase name="precioAlimentosTest" classname="negocio.TiendaTest" time="0.005"/>
-  <testcase name="cantidadProductosTest" classname="negocio.TiendaTest" time="0.005"/>
-  <testcase name="eliminarSouvenirsTest" classname="negocio.TiendaTest" time="0.006"/>
-  <testcase name="cantidadAlimentosTest" classname="negocio.TiendaTest" time="0.005"/>
-  <testcase name="agregarSouvenirTest" classname="negocio.TiendaTest" time="0.006"/>
-  <testcase name="venderAlimentoTestTrue" classname="negocio.TiendaTest" time="0.005"/>
-  <testcase name="ganaciaProductosTest" classname="negocio.TiendaTest" time="0.006"/>
-  <testcase name="agregarAparatoTest" classname="negocio.TiendaTest" time="0.005"/>
-  <testcase name="agregarAlimentoTest" classname="negocio.TiendaTest" time="0.005"/>
-  <testcase name="cantidadSouvenirsTest" classname="negocio.TiendaTest" time="0.005"/>
-  <testcase name="precioAparatosTest" classname="negocio.TiendaTest" time="0.005"/>
+  <testcase name="eliminarCuidadoPersonalTest" classname="negocio.TiendaTest" time="0.107"/>
+  <testcase name="eliminarAlimentoTest" classname="negocio.TiendaTest" time="0.005"/>
+  <testcase name="cantidadAparatosTest" classname="negocio.TiendaTest" time="0.009"/>
+  <testcase name="precioCuidadosPersonalesTest" classname="negocio.TiendaTest" time="0.004"/>
+  <testcase name="ganaciaSouvenirsTest" classname="negocio.TiendaTest" time="0.005"/>
+  <testcase name="gananciaAlimentosTest" classname="negocio.TiendaTest" time="0.004"/>
+  <testcase name="eliminarAparatoTest" classname="negocio.TiendaTest" time="0.006"/>
+  <testcase name="ganaciaAparatosTest" classname="negocio.TiendaTest" time="0.006"/>
+  <testcase name="productosRecomendadosTest" classname="negocio.TiendaTest" time="0.02"/>
+  <testcase name="cantidadCuidadoPersonalesTest" classname="negocio.TiendaTest" time="0.001"/>
+  <testcase name="agregarCuidadoPersonalTest" classname="negocio.TiendaTest" time="0.005"/>
+  <testcase name="precioProductosTest" classname="negocio.TiendaTest" time="0.004"/>
+  <testcase name="comprobarConstructorCompletoTest" classname="negocio.TiendaTest" time="0.017"/>
+  <testcase name="precioAlimentosTest" classname="negocio.TiendaTest" time="0.004"/>
+  <testcase name="cantidadProductosTest" classname="negocio.TiendaTest" time="0.004"/>
+  <testcase name="eliminarSouvenirsTest" classname="negocio.TiendaTest" time="0.005"/>
+  <testcase name="cantidadAlimentosTest" classname="negocio.TiendaTest" time="0.004"/>
+  <testcase name="agregarSouvenirTest" classname="negocio.TiendaTest" time="0.004"/>
+  <testcase name="venderAlimentoTestTrue" classname="negocio.TiendaTest" time="0.007"/>
+  <testcase name="ganaciaProductosTest" classname="negocio.TiendaTest" time="0.001"/>
+  <testcase name="agregarAparatoTest" classname="negocio.TiendaTest" time="0.004"/>
+  <testcase name="agregarAlimentoTest" classname="negocio.TiendaTest" time="0.004"/>
+  <testcase name="cantidadSouvenirsTest" classname="negocio.TiendaTest" time="0.004"/>
+  <testcase name="precioAparatosTest" classname="negocio.TiendaTest" time="0.003"/>
 </testsuite>

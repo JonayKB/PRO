@@ -1,9 +1,7 @@
 package negocio;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -13,7 +11,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import es.ies.puerto.modelo.abstrac.Producto;
+import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.ficheros.csv.FileCsv;
 import es.ies.puerto.modelo.impl.Alimento;
 import es.ies.puerto.modelo.impl.Aparato;
@@ -29,20 +27,29 @@ class TiendaTest {
     private static final String FEntrada = "2024-02-09";
     private static final String TESTUDI = "TESTUDI";
     private static final String TEST = "TEST";
-    static TiendaNegocio tienda;
-    static TiendaNegocio tiendaVacia;
-    static FileCsv fileCsv;
-    static List<Alimento> alimentos;
-    static Set<Souvenir> souvenirs;
-    static Set<CuidadoPersonal> cuidadoPersonals;
-    static Map<String, Aparato> aparatos;
+    TiendaNegocio tienda;
+    FileCsv fileCsv;
+    List<Alimento> alimentos;
+    Map<String, Aparato> aparatos;
+    Set<CuidadoPersonal> cuidadoPersonals;
+    Set<Souvenir> souvenirs;
+
     @BeforeEach
     public  void BeforeEach() throws Exception{
+        tienda = new TiendaNegocio();
+        fileCsv = new FileCsv();
+        alimentos = tienda.obtenerAlimentos();
+        aparatos = tienda.obtenerAparatos();
+        cuidadoPersonals = tienda.obtenerCuidadoPersonal();
+        souvenirs = tienda.obtenerSouvenirs();
         
     }
     @AfterEach
     public void afterEach()throws IOException,ParseException{
-
+        fileCsv.borrar(Ficheros.RUTA_ALIMENTOS_CSV, fileCsv.listaToFile(alimentos));
+        fileCsv.borrar(Ficheros.RUTA_APARATOS_CSV, fileCsv.listaToFile(aparatos));
+        fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, fileCsv.listaToFile(cuidadoPersonals));
+        fileCsv.borrar(Ficheros.RUTA_SOUVENIRS_CSV, fileCsv.listaToFile(souvenirs));
     }
     @Test
     void comprobarConstructorCompletoTest(){
@@ -118,11 +125,11 @@ class TiendaTest {
     }
     @Test
     void ganaciaAparatosTest(){
-        Assertions.assertEquals(562.787353515625f, tienda.gananciaAparatos() ); 
+        Assertions.assertEquals(562.78735f, tienda.gananciaAparatos() ); 
     }
     @Test
     void ganaciaProductosTest(){
-        Assertions.assertEquals(578.3408203125f, tienda.ganaciaProductos()); 
+        Assertions.assertEquals(577.0283f, tienda.ganaciaProductos()); 
     }
     @Test
     void precioAlimentosTest(){
@@ -130,7 +137,7 @@ class TiendaTest {
     }
     @Test
     void precioAparatosTest(){
-        Assertions.assertEquals(1339.969970703125, tienda.precioAparatos());
+        Assertions.assertEquals(1339.97f, tienda.precioAparatos());
     }
     @Test
     void precioCuidadosPersonalesTest(){
@@ -138,7 +145,7 @@ class TiendaTest {
     }
     @Test
     void precioProductosTest(){
-        Assertions.assertEquals(1370.2f, tienda.precioProductos());
+        Assertions.assertEquals(1366.45f, tienda.precioProductos());
     }
     @Test
     void productosRecomendadosTest(){

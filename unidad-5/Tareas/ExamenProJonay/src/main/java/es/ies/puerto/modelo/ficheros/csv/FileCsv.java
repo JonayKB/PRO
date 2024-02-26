@@ -61,20 +61,18 @@ public class FileCsv extends Ficheros{
     }
     @Override
     public boolean borrar(String path,String texto){
-
-        try {
-
+        if (existe(path)) {
             File file = new File(path);
-            FileOutputStream outputStream = new FileOutputStream(file);
-            byte[] emptyContent = {};
-            outputStream.write(emptyContent);
-            outputStream.close();
-            almacenar(path, texto);
-            return true;
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            try(FileOutputStream outputStream= new FileOutputStream(file)) {
+                byte[] emptyContent = {};
+                outputStream.write(emptyContent);
+                return escribir(path, texto);
+    
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        
         return false;
     }
     @Override
@@ -116,14 +114,10 @@ public class FileCsv extends Ficheros{
     return false;
     }
     @Override
-    public boolean almacenar(String path, String texto){
-            return escribir(path, texto); 
-    }
-    @Override
     public String listaToFile(List<Alimento> alimentos){
         StringBuilder resultado = new StringBuilder();
         for (Alimento alimento : alimentos) {
-            resultado.append(alimento.toCsv()+"\n");
+            resultado.append(alimento.toCsv()).append("\n");
         }
         return resultado.toString();
     }
@@ -131,10 +125,11 @@ public class FileCsv extends Ficheros{
     public String listaToFile(Map<String,Aparato> aparatos){
         StringBuilder resultado = new StringBuilder();
         for (Aparato aparato : aparatos.values()) {
-            resultado.append(aparato.toCsv()+"\n");
+            resultado.append(aparato.toCsv()).append("\n");
         }
         return resultado.toString();
     }
+    @SuppressWarnings("unchecked")
     @Override
     public String listaToFile(Set<?> lista){
         StringBuilder resultado = new StringBuilder();
@@ -142,24 +137,24 @@ public class FileCsv extends Ficheros{
         if (tipo.equals(SOUVENIR)) {
             Set<Souvenir> souvenirs = (Set<Souvenir>)lista;
             for (Souvenir souvenir : souvenirs) {
-                resultado.append(souvenir.toCsv()+"\n");
+                resultado.append(souvenir.toCsv()).append("\n");
             }
         }else if (tipo.equals(CUIDADO_PERSONAL)) {
             Set<CuidadoPersonal> cuidadoPersonals = (Set<CuidadoPersonal>)lista;
             for (CuidadoPersonal cuidadoPersonal : cuidadoPersonals) {
-                resultado.append(cuidadoPersonal.toCsv()+"\n");
+                resultado.append(cuidadoPersonal.toCsv()).append("\n");
             }
         }
         return resultado.toString();
         
     }
 
-    public static String obtenerTipoSet(Set<?> set) {
-        if (!set.isEmpty()) {
-            Object primerElemento = set.iterator().next();
+    public static String obtenerTipoSet(Set<?> lista) {
+        if (!lista.isEmpty()) {
+            Object primerElemento = lista.iterator().next();
             return primerElemento.getClass().getSimpleName();
         }
-        return "null";
+        return "Souvenir";
         
     }
     

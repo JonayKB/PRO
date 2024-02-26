@@ -13,6 +13,7 @@ import java.util.Set;
 import es.ies.puerto.modelo.abstrac.Producto;
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.ficheros.csv.FileCsv;
+import es.ies.puerto.modelo.ficheros.interfaces.IFicheros;
 import es.ies.puerto.modelo.impl.Alimento;
 import es.ies.puerto.modelo.impl.Aparato;
 import es.ies.puerto.modelo.impl.CuidadoPersonal;
@@ -25,10 +26,10 @@ public class TiendaNegocio {
     Set<CuidadoPersonal> cuidadoPersonales;
     Set<Souvenir> souvenirs;
     Set<Producto> productos;
-    FileCsv fileCsv;
+    IFicheros ficheros;
 
     public TiendaNegocio() throws ParseException,IOException{
-        fileCsv = new FileCsv();
+        ficheros = new FileCsv();
 
         alimentos=obtenerAlimentos();
         cuidadoPersonales=obtenerCuidadoPersonal();
@@ -140,7 +141,7 @@ public class TiendaNegocio {
      */
     public boolean agregarAlimento(Alimento alimento){
         if (!alimentos.contains(alimento)) {
-            fileCsv.almacenar(Ficheros.RUTA_ALIMENTOS_CSV, alimento.toCsv());
+            ficheros.escribir(Ficheros.RUTA_ALIMENTOS_CSV, alimento.toCsv());
             return alimentos.add(alimento);
         }
         return true;
@@ -153,7 +154,7 @@ public class TiendaNegocio {
     public boolean agregarAparato(Aparato aparato){
         if (!aparatos.containsKey(aparato.getUdi())) {
             aparatos.put(aparato.getUdi(), aparato);
-            return fileCsv.almacenar(Ficheros.RUTA_APARATOS_CSV, aparato.toCsv());
+            return ficheros.escribir(Ficheros.RUTA_APARATOS_CSV, aparato.toCsv());
         }
         return true;
     }
@@ -164,7 +165,7 @@ public class TiendaNegocio {
      */
     public boolean agregarCuidadosPersonal(CuidadoPersonal cuidadoPersonal){
         if (!cuidadoPersonales.contains(cuidadoPersonal)) {
-            fileCsv.almacenar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, cuidadoPersonal.toCsv());
+            ficheros.escribir(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, cuidadoPersonal.toCsv());
             return cuidadoPersonales.add(cuidadoPersonal);
         }
         return true;
@@ -176,7 +177,7 @@ public class TiendaNegocio {
      */
     public boolean agregarSouvenir(Souvenir souvenir){
         if (!souvenirs.contains(souvenir)) {
-            fileCsv.almacenar(Ficheros.RUTA_SOUVENIRS_CSV, souvenir.toCsv());
+            ficheros.escribir(Ficheros.RUTA_SOUVENIRS_CSV, souvenir.toCsv());
             return souvenirs.add(souvenir);
         }
         return true;
@@ -192,7 +193,7 @@ public class TiendaNegocio {
     public boolean eliminarAlimento(String udi){
             Alimento alimentoRemove = obtenerAlimento(udi);
             alimentos.remove(alimentoRemove);
-            return fileCsv.borrar(Ficheros.RUTA_ALIMENTOS_CSV, fileCsv.listaToFile(alimentos));
+            return ficheros.borrar(Ficheros.RUTA_ALIMENTOS_CSV, ficheros.listaToFile(alimentos));
     }
     /**
      * Elimina un aparato
@@ -202,7 +203,7 @@ public class TiendaNegocio {
     public boolean eliminarAparato(String udi){
             aparatos.remove(udi);
             
-            return fileCsv.borrar(Ficheros.RUTA_APARATOS_CSV,fileCsv.listaToFile(aparatos));
+            return ficheros.borrar(Ficheros.RUTA_APARATOS_CSV,ficheros.listaToFile(aparatos));
     }
     /**
      * Elimina un cuidadoPersonal
@@ -212,7 +213,7 @@ public class TiendaNegocio {
     public boolean eliminarCuidadoPersonal(String udi){
         CuidadoPersonal cuidadoPersonalRemove = obtenerCuidadoPersonal(udi);
         cuidadoPersonales.remove(cuidadoPersonalRemove);
-        return fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, fileCsv.listaToFile(cuidadoPersonales));
+        return ficheros.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, ficheros.listaToFile(cuidadoPersonales));
     }
     /**
      * Elimina un souvenir
@@ -222,7 +223,7 @@ public class TiendaNegocio {
     public boolean eliminarSouvenir(String udi){
         Souvenir souvenirRemove = obtenerSouvenir(udi);
         souvenirs.remove(souvenirRemove);
-        return fileCsv.borrar(Ficheros.RUTA_SOUVENIRS_CSV,fileCsv.listaToFile(souvenirs));
+        return ficheros.borrar(Ficheros.RUTA_SOUVENIRS_CSV,ficheros.listaToFile(souvenirs));
 
     }
 
@@ -230,28 +231,28 @@ public class TiendaNegocio {
     public boolean modificarAlimento(String nombre, float precio, String fEntrada, String udi, String fCaducidad) throws ParseException{
         Alimento alimentoModificar= new Alimento(nombre, precio, fEntrada, udi, fCaducidad);
         alimentos.remove(alimentoModificar);
-        fileCsv.borrar(Ficheros.RUTA_ALIMENTOS_CSV,fileCsv.listaToFile(alimentos));
+        ficheros.modificar(Ficheros.RUTA_ALIMENTOS_CSV,ficheros.listaToFile(alimentos));
         return agregarAlimento(alimentoModificar);
     }
 
     public boolean modificarAparato(String nombre, float precio, String fEntrada, String udi){
         Aparato aparatoModificar= new Aparato(nombre, precio, fEntrada, udi);
         aparatos.remove(aparatoModificar.getUdi());
-        fileCsv.borrar(Ficheros.RUTA_APARATOS_CSV,fileCsv.listaToFile(aparatos));
+        ficheros.modificar(Ficheros.RUTA_APARATOS_CSV,ficheros.listaToFile(aparatos));
         return agregarAparato(aparatoModificar);
     }
 
     public boolean modificarCuidadoPersonal(String nombre, float precio, String fEntrada, String udi, int popularidad){
         CuidadoPersonal cuidadoPersonalModificar= new CuidadoPersonal(nombre, precio, fEntrada, udi,popularidad);
         cuidadoPersonales.remove(cuidadoPersonalModificar);
-        fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, fileCsv.listaToFile(cuidadoPersonales));
+        ficheros.modificar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, ficheros.listaToFile(cuidadoPersonales));
         return agregarCuidadosPersonal(cuidadoPersonalModificar);
     }
 
     public boolean modificarSouvenir(String nombre, float precio, String fEntrada, String udi){
         Souvenir souvenirModificar= new Souvenir(nombre, precio, fEntrada, udi);
         souvenirs.remove(souvenirModificar);
-        fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,fileCsv.listaToFile(souvenirs));
+        ficheros.modificar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,ficheros.listaToFile(souvenirs));
         return agregarSouvenir(souvenirModificar);
     }
 
@@ -457,28 +458,28 @@ public class TiendaNegocio {
 
     public List<Alimento> obtenerAlimentos()throws IOException,ParseException{
         List<Alimento> alimentosObtener = new ArrayList<>();
-        for (Producto producto : fileCsv.leer(Ficheros.RUTA_ALIMENTOS_CSV,Ficheros.ALIMENTO)) {
+        for (Producto producto : ficheros.leer(Ficheros.RUTA_ALIMENTOS_CSV,Ficheros.ALIMENTO)) {
                 alimentosObtener.add((Alimento)producto);
         }
         return alimentosObtener;
     }
     public Map<String, Aparato> obtenerAparatos()throws IOException,ParseException{
         Map<String, Aparato> aparatosObtener = new HashMap<>();
-        for (Producto producto : fileCsv.leer(Ficheros.RUTA_APARATOS_CSV,Ficheros.APARATO)) {
+        for (Producto producto : ficheros.leer(Ficheros.RUTA_APARATOS_CSV,Ficheros.APARATO)) {
                 aparatosObtener.put(producto.getUdi(),(Aparato)producto);
         }
         return aparatosObtener;
     }
     public Set<CuidadoPersonal> obtenerCuidadoPersonal()throws IOException,ParseException{
         Set<CuidadoPersonal> cuidadosPersonalesObtener = new HashSet<>();
-        for (Producto producto : fileCsv.leer(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,Ficheros.CUIDADO_PERSONAL)) {
+        for (Producto producto : ficheros.leer(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,Ficheros.CUIDADO_PERSONAL)) {
                 cuidadosPersonalesObtener.add((CuidadoPersonal)producto);
         }
         return cuidadosPersonalesObtener;
     }
     public Set<Souvenir> obtenerSouvenirs()throws IOException,ParseException{
         Set<Souvenir> souvenirsObtener = new HashSet<>();
-        for (Producto producto : fileCsv.leer(Ficheros.RUTA_SOUVENIRS_CSV,Ficheros.SOUVENIR)) {
+        for (Producto producto : ficheros.leer(Ficheros.RUTA_SOUVENIRS_CSV,Ficheros.SOUVENIR)) {
                 souvenirsObtener.add((Souvenir)producto);
         }
         return souvenirsObtener;
@@ -486,10 +487,10 @@ public class TiendaNegocio {
     public Set<Producto> obtenerProductos()throws ParseException,IOException{
         
         Set<Producto> productosObtener = new HashSet<>();
-        productosObtener.addAll(fileCsv.leer(Ficheros.RUTA_ALIMENTOS_CSV,Ficheros.ALIMENTO));
-        productosObtener.addAll(fileCsv.leer(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,Ficheros.CUIDADO_PERSONAL));
-        productosObtener.addAll(fileCsv.leer(Ficheros.RUTA_APARATOS_CSV,Ficheros.APARATO));
-        productosObtener.addAll(fileCsv.leer(Ficheros.RUTA_SOUVENIRS_CSV,Ficheros.SOUVENIR));
+        productosObtener.addAll(ficheros.leer(Ficheros.RUTA_ALIMENTOS_CSV,Ficheros.ALIMENTO));
+        productosObtener.addAll(ficheros.leer(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,Ficheros.CUIDADO_PERSONAL));
+        productosObtener.addAll(ficheros.leer(Ficheros.RUTA_APARATOS_CSV,Ficheros.APARATO));
+        productosObtener.addAll(ficheros.leer(Ficheros.RUTA_SOUVENIRS_CSV,Ficheros.SOUVENIR));
         return productosObtener;
     }
 

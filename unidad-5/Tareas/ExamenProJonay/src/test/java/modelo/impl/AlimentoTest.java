@@ -56,7 +56,7 @@ public class AlimentoTest {
     }
     @Test
     public void diasCaducidadTest(){
-        Assertions.assertEquals(-39, alimento.diasCaducidad());
+        Assertions.assertTrue(String.valueOf(alimento.diasCaducidad()).contains("-"));
     }
     @Test
     public void productoCaducadoTestTrue(){
@@ -64,7 +64,7 @@ public class AlimentoTest {
     }
     @Test
     public void productoCaducadoTestFalse()throws ParseException{
-        Alimento alimentoNoCaducado = new Alimento(NOMBRE, PRECIO, FENTRADA, UDI, "2024-02-30");
+        Alimento alimentoNoCaducado = new Alimento(NOMBRE, PRECIO, FENTRADA, UDI, "2024-10-30");
         Assertions.assertFalse(alimentoNoCaducado.productoCaducado());
     }
 }

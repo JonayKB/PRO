@@ -19,7 +19,6 @@ public interface IFicheros {
     public boolean borrar(String path, String texto);
     public boolean modificar(String path, String texto);
 
-    public boolean almacenar(String path, String texto);
 
     public Producto crearAlimento(String[] array) throws ParseException;
     public Producto crearAparato(String[] array);

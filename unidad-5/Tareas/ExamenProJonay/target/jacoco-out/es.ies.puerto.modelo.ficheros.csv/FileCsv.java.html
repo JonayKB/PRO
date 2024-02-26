@@ -8,8 +8,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -22,248 +20,144 @@ import es.ies.puerto.modelo.impl.Aparato;
 import es.ies.puerto.modelo.impl.CuidadoPersonal;
 import es.ies.puerto.modelo.impl.Souvenir;
 
-<span class="fc" id="L25">public class FileCsv extends Ficheros{</span>
+<span class="fc" id="L23">public class FileCsv extends Ficheros{</span>
 
 
     @Override
-    public String obtenerRuta(String tipo){
-<span class="pc bpc" id="L30" title="1 of 5 branches missed.">        switch (tipo) {</span>
-            case ALIMENTO:
-<span class="fc" id="L32">                return RUTA_ALIMENTOS_CSV;</span>
-
-            case APARATO:
-<span class="fc" id="L35">                return RUTA_APARATOS_CSV;</span>
-
-            case CUIDADO_PERSONAL:
-<span class="fc" id="L38">                return RUTA_CUIDADOSPERSONALES_CSV;</span>
-
-            case SOUVENIR:
-<span class="fc" id="L41">                return RUTA_SOUVENIRS_CSV;</span>
-
-            default:
-<span class="nc" id="L44">                return null;</span>
-
-        }
-    }
-    @Override
-    public Set&lt;Producto&gt; leer(String tipo) throws IOException, ParseException {
-<span class="fc" id="L50">        String path = obtenerRuta(tipo);</span>
-<span class="fc" id="L51">        Set&lt;Producto&gt; productos = new HashSet&lt;&gt;();</span>
-<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (existe(path)) {</span>
-<span class="fc" id="L53">            File fichero = new File(path);</span>
-<span class="fc" id="L54">            try ( BufferedReader br = new BufferedReader(new FileReader(fichero))) {</span>
+    public Set&lt;Producto&gt; leer(String path,String tipo) throws IOException, ParseException {
+<span class="fc" id="L28">        Set&lt;Producto&gt; productos = new HashSet&lt;&gt;();</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">        if (existe(path)) {</span>
+<span class="fc" id="L30">            File fichero = new File(path);</span>
+<span class="fc" id="L31">            try ( BufferedReader br = new BufferedReader(new FileReader(fichero))) {</span>
                 String linea;
-<span class="fc bfc" id="L56" title="All 2 branches covered.">                while ((linea=br.readLine()) != null) {</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">                while ((linea=br.readLine()) != null) {</span>
     
-<span class="fc" id="L58">                        String[] array = linea.split(&quot;,&quot;);</span>
-<span class="pc bpc" id="L59" title="1 of 5 branches missed.">                        switch (tipo) {</span>
+<span class="fc" id="L35">                        String[] array = linea.split(&quot;,&quot;);</span>
+<span class="pc bpc" id="L36" title="1 of 5 branches missed.">                        switch (tipo) {</span>
                             case ALIMENTO:
-<span class="fc" id="L61">                                productos.add(crearAlimento(array));</span>
-<span class="fc" id="L62">                            break;</span>
+<span class="fc" id="L38">                                productos.add(crearAlimento(array));</span>
+<span class="fc" id="L39">                            break;</span>
                             case APARATO:
-<span class="fc" id="L64">                                productos.add(crearAparato(array));</span>
-<span class="fc" id="L65">                            break;</span>
+<span class="fc" id="L41">                                productos.add(crearAparato(array));</span>
+<span class="fc" id="L42">                            break;</span>
                             case CUIDADO_PERSONAL:
-<span class="fc" id="L67">                                productos.add(crearCuidadoPersonal(array));</span>
-<span class="fc" id="L68">                            break;</span>
+<span class="fc" id="L44">                                productos.add(crearCuidadoPersonal(array));</span>
+<span class="fc" id="L45">                            break;</span>
                             case SOUVENIR:
-<span class="fc" id="L70">                                productos.add(crearSouvenir(array));</span>
+<span class="fc" id="L47">                                productos.add(crearSouvenir(array));</span>
                                 
-<span class="fc" id="L72">                            break;</span>
+<span class="fc" id="L49">                            break;</span>
                             default:
-<span class="nc" id="L74">                                productos.add(crearSouvenir(array));</span>
+<span class="nc" id="L51">                                productos.add(crearSouvenir(array));</span>
                             break;
                     }
-<span class="fc" id="L77">                }</span>
-<span class="fc" id="L78">                return productos;</span>
-<span class="nc" id="L79">            } catch (IOException e) {</span>
-<span class="nc" id="L80">                e.printStackTrace();</span>
+<span class="fc" id="L54">                }</span>
+<span class="fc" id="L55">                return productos;</span>
+<span class="nc" id="L56">            } catch (IOException e) {</span>
+<span class="nc" id="L57">                e.printStackTrace();</span>
             }
         }
-<span class="nc" id="L83">        return productos;</span>
+<span class="nc" id="L60">        return productos;</span>
     }
     @Override
-    public boolean borrar(List&lt;Alimento&gt; lista)throws IOException,ParseException{
-<span class="fc" id="L87">         String path = obtenerRuta(ALIMENTO);</span>
-        try {
-
-<span class="fc" id="L90">            File file = new File(path);</span>
-<span class="fc" id="L91">            FileOutputStream outputStream = new FileOutputStream(file);</span>
-<span class="fc" id="L92">            byte[] emptyContent = {};</span>
-<span class="fc" id="L93">            outputStream.write(emptyContent);</span>
-<span class="fc" id="L94">            outputStream.close();</span>
-<span class="fc bfc" id="L95" title="All 2 branches covered.">            for (Alimento alimento : lista) {</span>
-<span class="fc" id="L96">                escribir(path, alimento.toCsv());</span>
-<span class="fc" id="L97">            }</span>
-<span class="fc" id="L98">            return true;</span>
-
-<span class="nc" id="L100">        } catch (IOException e) {</span>
-<span class="nc" id="L101">            e.printStackTrace();</span>
+    public boolean borrar(String path,String texto){
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">        if (existe(path)) {</span>
+<span class="fc" id="L65">            File file = new File(path);</span>
+<span class="fc" id="L66">            try(FileOutputStream outputStream= new FileOutputStream(file)) {</span>
+<span class="fc" id="L67">                byte[] emptyContent = {};</span>
+<span class="fc" id="L68">                outputStream.write(emptyContent);</span>
+<span class="fc" id="L69">                return escribir(path, texto);</span>
+    
+<span class="nc" id="L71">            } catch (IOException e) {</span>
+<span class="nc" id="L72">                e.printStackTrace();</span>
+            }
         }
-<span class="nc" id="L103">        return false;</span>
+        
+<span class="nc" id="L76">        return false;</span>
     }
     @Override
-    public boolean borrar(Set&lt;Producto&gt; lista){
-<span class="fc" id="L107">        String path = elegirPathSet(lista);</span>
-        try {
-<span class="fc" id="L109">            File file = new File(path);</span>
-<span class="fc" id="L110">            FileOutputStream outputStream = new FileOutputStream(file);</span>
-<span class="fc" id="L111">            byte[] emptyContent = {};</span>
-<span class="fc" id="L112">            outputStream.write(emptyContent);</span>
-<span class="fc" id="L113">            outputStream.close();</span>
-<span class="fc" id="L114">            escribirSet(lista, path);</span>
-<span class="fc" id="L115">            return true;</span>
-
-<span class="nc" id="L117">        } catch (IOException e) {</span>
-<span class="nc" id="L118">            e.printStackTrace();</span>
-        }
-<span class="nc" id="L120">        return false;</span>
+    public boolean modificar(String path, String text){
+<span class="nc" id="L80">        return borrar(path, text);</span>
     }
-    @Override
-    public boolean borrar(Map&lt;String, Aparato&gt; lista){
-<span class="fc" id="L124">        String path = obtenerRuta(APARATO);</span>
-        try {
-
-<span class="fc" id="L127">            File file = new File(path);</span>
-<span class="fc" id="L128">            FileOutputStream outputStream = new FileOutputStream(file);</span>
-<span class="fc" id="L129">            byte[] emptyContent = {};</span>
-<span class="fc" id="L130">            outputStream.write(emptyContent);</span>
-<span class="fc" id="L131">            outputStream.close();</span>
-<span class="fc bfc" id="L132" title="All 2 branches covered.">            for (Aparato aparato : lista.values()) {</span>
-<span class="fc" id="L133">                escribir(path, aparato.toCsv());</span>
-<span class="fc" id="L134">            }</span>
-<span class="fc" id="L135">            return true;</span>
-
-<span class="nc" id="L137">        } catch (IOException e) {</span>
-<span class="nc" id="L138">            e.printStackTrace();</span>
-        }
-
-<span class="nc" id="L141">        return false;</span>
-    }
+    
 
     
     @Override
     public Producto crearAlimento(String[] array) throws ParseException{
-<span class="fc" id="L147">        return new Alimento(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI], array[COLUMNA_FCADUCIDAD]);</span>
+<span class="fc" id="L87">        return new Alimento(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI], array[COLUMNA_FCADUCIDAD]);</span>
     }
 
     @Override
     public Producto crearAparato(String[] array) {
-<span class="fc" id="L152">        return new Aparato(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI]);</span>
+<span class="fc" id="L92">        return new Aparato(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI]);</span>
     }
     @Override
     public Producto crearCuidadoPersonal(String[] array) {
-<span class="fc" id="L156">        return new CuidadoPersonal(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI],Integer.parseInt(array[COLUMNA_POPULARIDAD]));</span>
+<span class="fc" id="L96">        return new CuidadoPersonal(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI],Integer.parseInt(array[COLUMNA_POPULARIDAD]));</span>
     }
     @Override
     public Producto crearSouvenir(String[] array) {
-<span class="fc" id="L160">        return new Souvenir(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI]);</span>
+<span class="fc" id="L100">        return new Souvenir(array[COLUMNA_NOMBRE], Float.parseFloat(array[COLUMNA_PRECIO]), array[COLUMNA_FENTRADA], array[COLUMNA_UDI]);</span>
     }
-    @Override
-    public List&lt;Alimento&gt; obtenerAlimentos()throws IOException,ParseException{
-<span class="fc" id="L164">        List&lt;Alimento&gt; alimentos = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L165" title="All 2 branches covered.">        for (Producto producto : leer(ALIMENTO)) {</span>
-<span class="pc bpc" id="L166" title="1 of 2 branches missed.">            if (producto instanceof Alimento) {</span>
-<span class="fc" id="L167">                alimentos.add((Alimento)producto);</span>
-            }
-<span class="fc" id="L169">        }</span>
-<span class="fc" id="L170">        return alimentos;</span>
-    }
-    @Override
-    public Map&lt;String, Aparato&gt; obtenerAparatos()throws IOException,ParseException{
-<span class="fc" id="L174">        Map&lt;String, Aparato&gt; aparatos = new HashMap&lt;&gt;();</span>
-<span class="fc bfc" id="L175" title="All 2 branches covered.">        for (Producto producto : leer(APARATO)) {</span>
-<span class="pc bpc" id="L176" title="1 of 2 branches missed.">            if (producto instanceof Aparato) {</span>
-<span class="fc" id="L177">                aparatos.put(producto.getUdi(),(Aparato)producto);</span>
-            }
-<span class="fc" id="L179">        }</span>
-<span class="fc" id="L180">        return aparatos;</span>
-    }
-    @Override
-    public Set&lt;CuidadoPersonal&gt; obtenerCuidadoPersonal()throws IOException,ParseException{
-<span class="fc" id="L184">        Set&lt;CuidadoPersonal&gt; cuidadosPersonales = new HashSet&lt;&gt;();</span>
-<span class="fc bfc" id="L185" title="All 2 branches covered.">        for (Producto producto : leer(CUIDADO_PERSONAL)) {</span>
-<span class="pc bpc" id="L186" title="1 of 2 branches missed.">            if (producto instanceof CuidadoPersonal) {</span>
-<span class="fc" id="L187">                cuidadosPersonales.add((CuidadoPersonal)producto);</span>
-            }
-<span class="fc" id="L189">        }</span>
-<span class="fc" id="L190">        return cuidadosPersonales;</span>
-    }
-    @Override
-    public Set&lt;Souvenir&gt; obtenerSouvenirs()throws IOException,ParseException{
-<span class="fc" id="L194">        Set&lt;Souvenir&gt; souvenirs = new HashSet&lt;&gt;();</span>
-<span class="fc bfc" id="L195" title="All 2 branches covered.">        for (Producto producto : leer(SOUVENIR)) {</span>
-<span class="pc bpc" id="L196" title="1 of 2 branches missed.">            if (producto instanceof Souvenir) {</span>
-<span class="fc" id="L197">                souvenirs.add((Souvenir)producto);</span>
-            }
-<span class="fc" id="L199">        }</span>
-<span class="fc" id="L200">        return souvenirs;</span>
-    }
-    @Override
-    public Set&lt;Producto&gt; obtenerProductos()throws ParseException,IOException{
-        
-<span class="fc" id="L205">        Set&lt;Producto&gt; productos = new HashSet&lt;&gt;();</span>
-<span class="fc" id="L206">        productos.addAll(leer(ALIMENTO));</span>
-<span class="fc" id="L207">        productos.addAll(leer(CUIDADO_PERSONAL));</span>
-<span class="fc" id="L208">        productos.addAll(leer(APARATO));</span>
-<span class="fc" id="L209">        productos.addAll(leer(SOUVENIR));</span>
-<span class="fc" id="L210">        return productos;</span>
-    }
+
     
     @Override
     public boolean escribir(String path, String texto) {
-<span class="pc bpc" id="L215" title="1 of 2 branches missed.">    if (existe(path)) {</span>
-<span class="fc" id="L216">        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))){</span>
-<span class="fc" id="L217">            bw.write(texto);</span>
-<span class="fc" id="L218">            bw.newLine();</span>
-<span class="fc" id="L219">            return true;</span>
-<span class="nc" id="L220">        } catch (Exception e) {</span>
-<span class="nc" id="L221">            e.printStackTrace();</span>
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">    if (existe(path)) {</span>
+<span class="fc" id="L107">        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))){</span>
+<span class="fc" id="L108">            bw.write(texto);</span>
+<span class="fc" id="L109">            return true;</span>
+<span class="nc" id="L110">        } catch (Exception e) {</span>
+<span class="nc" id="L111">            e.printStackTrace();</span>
         }
     }
-<span class="nc" id="L224">    return false;</span>
+<span class="nc" id="L114">    return false;</span>
     }
     @Override
-    public boolean almacenar(Producto producto){
-<span class="fc" id="L228">        String path = obtenerRuta(producto.getClass().getSimpleName());</span>
-<span class="pc bpc" id="L229" title="1 of 2 branches missed.">        if (existe(path)) {</span>
-<span class="fc" id="L230">            escribir(path, producto.toCsv());</span>
-<span class="fc" id="L231">            return true;</span>
-        }
-<span class="nc" id="L233">        return false;</span>
+    public String listaToFile(List&lt;Alimento&gt; alimentos){
+<span class="fc" id="L118">        StringBuilder resultado = new StringBuilder();</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">        for (Alimento alimento : alimentos) {</span>
+<span class="fc" id="L120">            resultado.append(alimento.toCsv()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L121">        }</span>
+<span class="fc" id="L122">        return resultado.toString();</span>
     }
-
-    public String elegirPathSet(Set&lt;Producto&gt; lista){
-<span class="fc" id="L237">        String path=&quot;&quot;;</span>
-        try {
-<span class="fc bfc" id="L239" title="All 2 branches covered.">            for (Producto producto : lista) {</span>
-<span class="fc" id="L240">                Souvenir souvenir = (Souvenir)producto;</span>
-<span class="fc" id="L241">                path = obtenerRuta(souvenir.getClass().getSimpleName());</span>
-<span class="fc" id="L242">            }</span>
-<span class="fc" id="L243">        } catch (Exception e) {</span>
-<span class="fc bfc" id="L244" title="All 2 branches covered.">            for (Producto producto : lista) {</span>
-<span class="fc" id="L245">                CuidadoPersonal cuidadoPersonal = (CuidadoPersonal)producto;</span>
-<span class="fc" id="L246">                path = obtenerRuta(cuidadoPersonal.getClass().getSimpleName());</span>
-<span class="fc" id="L247">            }</span>
-<span class="fc" id="L248">        }</span>
-<span class="fc" id="L249">        return path;</span>
+    @Override
+    public String listaToFile(Map&lt;String,Aparato&gt; aparatos){
+<span class="fc" id="L126">        StringBuilder resultado = new StringBuilder();</span>
+<span class="fc bfc" id="L127" title="All 2 branches covered.">        for (Aparato aparato : aparatos.values()) {</span>
+<span class="fc" id="L128">            resultado.append(aparato.toCsv()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L129">        }</span>
+<span class="fc" id="L130">        return resultado.toString();</span>
     }
-    public void escribirSet(Set&lt;Producto&gt; lista, String path){
-<span class="fc bfc" id="L252" title="All 2 branches covered.">        if (path.equals(RUTA_SOUVENIRS_CSV)) {</span>
-<span class="fc bfc" id="L253" title="All 2 branches covered.">            for (Producto producto : lista) {</span>
-<span class="fc" id="L254">                Souvenir souvenir = (Souvenir) producto;</span>
-<span class="fc" id="L255">                escribir(path, souvenir.toCsv());</span>
-<span class="fc" id="L256">            }</span>
-        }else{
-<span class="fc bfc" id="L258" title="All 2 branches covered.">            for (Producto producto : lista) {</span>
-<span class="fc" id="L259">                CuidadoPersonal cuidadoPersonal = (CuidadoPersonal) producto;</span>
-<span class="fc" id="L260">                escribir(path, cuidadoPersonal.toCsv());</span>
-<span class="fc" id="L261">            }</span>
+    @SuppressWarnings(&quot;unchecked&quot;)
+    @Override
+    public String listaToFile(Set&lt;?&gt; lista){
+<span class="fc" id="L135">        StringBuilder resultado = new StringBuilder();</span>
+<span class="fc" id="L136">        String tipo = obtenerTipoSet(lista);</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">        if (tipo.equals(SOUVENIR)) {</span>
+<span class="fc" id="L138">            Set&lt;Souvenir&gt; souvenirs = (Set&lt;Souvenir&gt;)lista;</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">            for (Souvenir souvenir : souvenirs) {</span>
+<span class="fc" id="L140">                resultado.append(souvenir.toCsv()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L141">            }</span>
+<span class="pc bpc" id="L142" title="1 of 2 branches missed.">        }else if (tipo.equals(CUIDADO_PERSONAL)) {</span>
+<span class="fc" id="L143">            Set&lt;CuidadoPersonal&gt; cuidadoPersonals = (Set&lt;CuidadoPersonal&gt;)lista;</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">            for (CuidadoPersonal cuidadoPersonal : cuidadoPersonals) {</span>
+<span class="fc" id="L145">                resultado.append(cuidadoPersonal.toCsv()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L146">            }</span>
         }
+<span class="fc" id="L148">        return resultado.toString();</span>
         
-<span class="fc" id="L264">    }</span>
+    }
 
-
+    public static String obtenerTipoSet(Set&lt;?&gt; lista) {
+<span class="pc bpc" id="L153" title="1 of 2 branches missed.">        if (!lista.isEmpty()) {</span>
+<span class="fc" id="L154">            Object primerElemento = lista.iterator().next();</span>
+<span class="fc" id="L155">            return primerElemento.getClass().getSimpleName();</span>
+        }
+<span class="nc" id="L157">        return &quot;Souvenir&quot;;</span>
+        
+    }
+    
     
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
