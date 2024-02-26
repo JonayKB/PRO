@@ -119,22 +119,24 @@ public class FileCsv extends Ficheros{
     public boolean almacenar(String path, String texto){
             return escribir(path, texto); 
     }
-
-    public String listaToCsv(List<Alimento> alimentos){
+    @Override
+    public String listaToFile(List<Alimento> alimentos){
         StringBuilder resultado = new StringBuilder();
         for (Alimento alimento : alimentos) {
             resultado.append(alimento.toCsv()+"\n");
         }
         return resultado.toString();
     }
-    public String listaToCsv(Map<String,Aparato> aparatos){
+    @Override
+    public String listaToFile(Map<String,Aparato> aparatos){
         StringBuilder resultado = new StringBuilder();
         for (Aparato aparato : aparatos.values()) {
             resultado.append(aparato.toCsv()+"\n");
         }
         return resultado.toString();
     }
-    public String listaToCsv(Set<?> lista){
+    @Override
+    public String listaToFile(Set<?> lista){
         StringBuilder resultado = new StringBuilder();
         String tipo = obtenerTipoSet(lista);
         if (tipo.equals(SOUVENIR)) {
@@ -154,8 +156,8 @@ public class FileCsv extends Ficheros{
 
     public static String obtenerTipoSet(Set<?> set) {
         if (!set.isEmpty()) {
-            Object firstElement = set.iterator().next();
-            return firstElement.getClass().getSimpleName();
+            Object primerElemento = set.iterator().next();
+            return primerElemento.getClass().getSimpleName();
         }
         return "null";
         

@@ -192,7 +192,7 @@ public class TiendaNegocio {
     public boolean eliminarAlimento(String udi){
             Alimento alimentoRemove = obtenerAlimento(udi);
             alimentos.remove(alimentoRemove);
-            return fileCsv.borrar(Ficheros.RUTA_ALIMENTOS_CSV, fileCsv.listaToCsv(alimentos));
+            return fileCsv.borrar(Ficheros.RUTA_ALIMENTOS_CSV, fileCsv.listaToFile(alimentos));
     }
     /**
      * Elimina un aparato
@@ -202,7 +202,7 @@ public class TiendaNegocio {
     public boolean eliminarAparato(String udi){
             aparatos.remove(udi);
             
-            return fileCsv.borrar(Ficheros.RUTA_APARATOS_CSV,fileCsv.listaToCsv(aparatos));
+            return fileCsv.borrar(Ficheros.RUTA_APARATOS_CSV,fileCsv.listaToFile(aparatos));
     }
     /**
      * Elimina un cuidadoPersonal
@@ -212,7 +212,7 @@ public class TiendaNegocio {
     public boolean eliminarCuidadoPersonal(String udi){
         CuidadoPersonal cuidadoPersonalRemove = obtenerCuidadoPersonal(udi);
         cuidadoPersonales.remove(cuidadoPersonalRemove);
-        return fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, fileCsv.listaToCsv(cuidadoPersonales));
+        return fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, fileCsv.listaToFile(cuidadoPersonales));
     }
     /**
      * Elimina un souvenir
@@ -222,7 +222,7 @@ public class TiendaNegocio {
     public boolean eliminarSouvenir(String udi){
         Souvenir souvenirRemove = obtenerSouvenir(udi);
         souvenirs.remove(souvenirRemove);
-        return fileCsv.borrar(Ficheros.RUTA_SOUVENIRS_CSV,fileCsv.listaToCsv(souvenirs));
+        return fileCsv.borrar(Ficheros.RUTA_SOUVENIRS_CSV,fileCsv.listaToFile(souvenirs));
 
     }
 
@@ -230,28 +230,28 @@ public class TiendaNegocio {
     public boolean modificarAlimento(String nombre, float precio, String fEntrada, String udi, String fCaducidad) throws ParseException{
         Alimento alimentoModificar= new Alimento(nombre, precio, fEntrada, udi, fCaducidad);
         alimentos.remove(alimentoModificar);
-        fileCsv.borrar(Ficheros.RUTA_ALIMENTOS_CSV,fileCsv.listaToCsv(alimentos));
+        fileCsv.borrar(Ficheros.RUTA_ALIMENTOS_CSV,fileCsv.listaToFile(alimentos));
         return agregarAlimento(alimentoModificar);
     }
 
     public boolean modificarAparato(String nombre, float precio, String fEntrada, String udi){
         Aparato aparatoModificar= new Aparato(nombre, precio, fEntrada, udi);
         aparatos.remove(aparatoModificar.getUdi());
-        fileCsv.borrar(Ficheros.RUTA_APARATOS_CSV,fileCsv.listaToCsv(aparatos));
+        fileCsv.borrar(Ficheros.RUTA_APARATOS_CSV,fileCsv.listaToFile(aparatos));
         return agregarAparato(aparatoModificar);
     }
 
     public boolean modificarCuidadoPersonal(String nombre, float precio, String fEntrada, String udi, int popularidad){
         CuidadoPersonal cuidadoPersonalModificar= new CuidadoPersonal(nombre, precio, fEntrada, udi,popularidad);
         cuidadoPersonales.remove(cuidadoPersonalModificar);
-        fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, fileCsv.listaToCsv(cuidadoPersonales));
+        fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, fileCsv.listaToFile(cuidadoPersonales));
         return agregarCuidadosPersonal(cuidadoPersonalModificar);
     }
 
     public boolean modificarSouvenir(String nombre, float precio, String fEntrada, String udi){
         Souvenir souvenirModificar= new Souvenir(nombre, precio, fEntrada, udi);
         souvenirs.remove(souvenirModificar);
-        fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,fileCsv.listaToCsv(souvenirs));
+        fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,fileCsv.listaToFile(souvenirs));
         return agregarSouvenir(souvenirModificar);
     }
 
