@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: negocio.TiendaTest
 -------------------------------------------------------------------------------
-Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.257 s - in negocio.TiendaTest
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.336 s - in negocio.TiendaTest

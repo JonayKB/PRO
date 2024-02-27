@@ -60,13 +60,13 @@ public class FileCsv extends Ficheros{
         return productos;
     }
     @Override
-    public boolean borrar(String path,String texto){
+    public boolean borrar(String path,String textoAEscribir){
         if (existe(path)) {
             File file = new File(path);
             try(FileOutputStream outputStream= new FileOutputStream(file)) {
                 byte[] emptyContent = {};
                 outputStream.write(emptyContent);
-                return escribir(path, texto);
+                return escribir(path, textoAEscribir);
     
             } catch (IOException e) {
                 e.printStackTrace();
@@ -76,8 +76,8 @@ public class FileCsv extends Ficheros{
         return false;
     }
     @Override
-    public boolean modificar(String path, String text){
-        return borrar(path, text);
+    public boolean modificar(String path, String textoAEscribir){
+        return borrar(path, textoAEscribir);
     }
     
 
@@ -129,17 +129,20 @@ public class FileCsv extends Ficheros{
         }
         return resultado.toString();
     }
-    @SuppressWarnings("unchecked")
+    
+
     @Override
     public String listaToFile(Set<?> lista){
         StringBuilder resultado = new StringBuilder();
-        String tipo = obtenerTipoSet(lista);
-        if (tipo.equals(SOUVENIR)) {
+        Object primerElemento = lista.iterator().next();
+
+        if (primerElemento instanceof Souvenir) {
             Set<Souvenir> souvenirs = (Set<Souvenir>)lista;
             for (Souvenir souvenir : souvenirs) {
                 resultado.append(souvenir.toCsv()).append("\n");
             }
-        }else if (tipo.equals(CUIDADO_PERSONAL)) {
+        }
+        else if (primerElemento instanceof CuidadoPersonal) {
             Set<CuidadoPersonal> cuidadoPersonals = (Set<CuidadoPersonal>)lista;
             for (CuidadoPersonal cuidadoPersonal : cuidadoPersonals) {
                 resultado.append(cuidadoPersonal.toCsv()).append("\n");
@@ -149,14 +152,7 @@ public class FileCsv extends Ficheros{
         
     }
 
-    public static String obtenerTipoSet(Set<?> lista) {
-        if (!lista.isEmpty()) {
-            Object primerElemento = lista.iterator().next();
-            return primerElemento.getClass().getSimpleName();
-        }
-        return "Souvenir";
-        
-    }
+
     
     
 }

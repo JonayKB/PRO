@@ -60,13 +60,13 @@ import es.ies.puerto.modelo.impl.Souvenir;
 <span class="nc" id="L60">        return productos;</span>
     }
     @Override
-    public boolean borrar(String path,String texto){
+    public boolean borrar(String path,String textoAEscribir){
 <span class="pc bpc" id="L64" title="1 of 2 branches missed.">        if (existe(path)) {</span>
 <span class="fc" id="L65">            File file = new File(path);</span>
 <span class="fc" id="L66">            try(FileOutputStream outputStream= new FileOutputStream(file)) {</span>
 <span class="fc" id="L67">                byte[] emptyContent = {};</span>
 <span class="fc" id="L68">                outputStream.write(emptyContent);</span>
-<span class="fc" id="L69">                return escribir(path, texto);</span>
+<span class="fc" id="L69">                return escribir(path, textoAEscribir);</span>
     
 <span class="nc" id="L71">            } catch (IOException e) {</span>
 <span class="nc" id="L72">                e.printStackTrace();</span>
@@ -129,32 +129,33 @@ import es.ies.puerto.modelo.impl.Souvenir;
 <span class="fc" id="L129">        }</span>
 <span class="fc" id="L130">        return resultado.toString();</span>
     }
+    
     @SuppressWarnings(&quot;unchecked&quot;)
     @Override
     public String listaToFile(Set&lt;?&gt; lista){
-<span class="fc" id="L135">        StringBuilder resultado = new StringBuilder();</span>
-<span class="fc" id="L136">        String tipo = obtenerTipoSet(lista);</span>
-<span class="fc bfc" id="L137" title="All 2 branches covered.">        if (tipo.equals(SOUVENIR)) {</span>
-<span class="fc" id="L138">            Set&lt;Souvenir&gt; souvenirs = (Set&lt;Souvenir&gt;)lista;</span>
-<span class="fc bfc" id="L139" title="All 2 branches covered.">            for (Souvenir souvenir : souvenirs) {</span>
-<span class="fc" id="L140">                resultado.append(souvenir.toCsv()).append(&quot;\n&quot;);</span>
-<span class="fc" id="L141">            }</span>
-<span class="pc bpc" id="L142" title="1 of 2 branches missed.">        }else if (tipo.equals(CUIDADO_PERSONAL)) {</span>
-<span class="fc" id="L143">            Set&lt;CuidadoPersonal&gt; cuidadoPersonals = (Set&lt;CuidadoPersonal&gt;)lista;</span>
-<span class="fc bfc" id="L144" title="All 2 branches covered.">            for (CuidadoPersonal cuidadoPersonal : cuidadoPersonals) {</span>
-<span class="fc" id="L145">                resultado.append(cuidadoPersonal.toCsv()).append(&quot;\n&quot;);</span>
-<span class="fc" id="L146">            }</span>
+<span class="fc" id="L136">        StringBuilder resultado = new StringBuilder();</span>
+<span class="fc" id="L137">        String tipo = obtenerTipoSet(lista);</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">        if (tipo.equals(SOUVENIR)) {</span>
+<span class="fc" id="L139">            Set&lt;Souvenir&gt; souvenirs = (Set&lt;Souvenir&gt;)lista;</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">            for (Souvenir souvenir : souvenirs) {</span>
+<span class="fc" id="L141">                resultado.append(souvenir.toCsv()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L142">            }</span>
+<span class="pc bpc" id="L143" title="1 of 2 branches missed.">        }else if (tipo.equals(CUIDADO_PERSONAL)) {</span>
+<span class="fc" id="L144">            Set&lt;CuidadoPersonal&gt; cuidadoPersonals = (Set&lt;CuidadoPersonal&gt;)lista;</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">            for (CuidadoPersonal cuidadoPersonal : cuidadoPersonals) {</span>
+<span class="fc" id="L146">                resultado.append(cuidadoPersonal.toCsv()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L147">            }</span>
         }
-<span class="fc" id="L148">        return resultado.toString();</span>
+<span class="fc" id="L149">        return resultado.toString();</span>
         
     }
 
     public static String obtenerTipoSet(Set&lt;?&gt; lista) {
-<span class="pc bpc" id="L153" title="1 of 2 branches missed.">        if (!lista.isEmpty()) {</span>
-<span class="fc" id="L154">            Object primerElemento = lista.iterator().next();</span>
-<span class="fc" id="L155">            return primerElemento.getClass().getSimpleName();</span>
+<span class="pc bpc" id="L154" title="1 of 2 branches missed.">        if (!lista.isEmpty()) {</span>
+<span class="fc" id="L155">            Object primerElemento = lista.iterator().next();</span>
+<span class="fc" id="L156">            return primerElemento.getClass().getSimpleName();</span>
         }
-<span class="nc" id="L157">        return &quot;Souvenir&quot;;</span>
+<span class="nc" id="L158">        return &quot;Souvenir&quot;;</span>
         
     }
     
