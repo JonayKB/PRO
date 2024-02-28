@@ -6,7 +6,6 @@ import java.text.ParseException;
 import java.util.Scanner;
 
 import es.ies.puerto.modelo.ficheros.csv.FileCsv;
-import es.ies.puerto.modelo.impl.Alimento;
 import es.ies.puerto.negocio.TiendaNegocio;
 
 
