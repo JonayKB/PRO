@@ -147,6 +147,8 @@ public class FileCsv extends Ficheros{
             for (CuidadoPersonal cuidadoPersonal : cuidadoPersonals) {
                 resultado.append(cuidadoPersonal.toCsv()).append("\n");
             }
+        }else{
+            return null;
         }
         return resultado.toString();
         
