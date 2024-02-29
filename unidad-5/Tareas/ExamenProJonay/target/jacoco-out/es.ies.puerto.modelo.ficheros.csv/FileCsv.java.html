@@ -76,8 +76,8 @@ import es.ies.puerto.modelo.impl.Souvenir;
 <span class="nc" id="L76">        return false;</span>
     }
     @Override
-    public boolean modificar(String path, String text){
-<span class="nc" id="L80">        return borrar(path, text);</span>
+    public boolean modificar(String path, String textoAEscribir){
+<span class="fc" id="L80">        return borrar(path, textoAEscribir);</span>
     }
     
 
@@ -130,34 +130,31 @@ import es.ies.puerto.modelo.impl.Souvenir;
 <span class="fc" id="L130">        return resultado.toString();</span>
     }
     
-    @SuppressWarnings(&quot;unchecked&quot;)
+
     @Override
     public String listaToFile(Set&lt;?&gt; lista){
 <span class="fc" id="L136">        StringBuilder resultado = new StringBuilder();</span>
-<span class="fc" id="L137">        String tipo = obtenerTipoSet(lista);</span>
-<span class="fc bfc" id="L138" title="All 2 branches covered.">        if (tipo.equals(SOUVENIR)) {</span>
-<span class="fc" id="L139">            Set&lt;Souvenir&gt; souvenirs = (Set&lt;Souvenir&gt;)lista;</span>
-<span class="fc bfc" id="L140" title="All 2 branches covered.">            for (Souvenir souvenir : souvenirs) {</span>
-<span class="fc" id="L141">                resultado.append(souvenir.toCsv()).append(&quot;\n&quot;);</span>
-<span class="fc" id="L142">            }</span>
-<span class="pc bpc" id="L143" title="1 of 2 branches missed.">        }else if (tipo.equals(CUIDADO_PERSONAL)) {</span>
-<span class="fc" id="L144">            Set&lt;CuidadoPersonal&gt; cuidadoPersonals = (Set&lt;CuidadoPersonal&gt;)lista;</span>
-<span class="fc bfc" id="L145" title="All 2 branches covered.">            for (CuidadoPersonal cuidadoPersonal : cuidadoPersonals) {</span>
-<span class="fc" id="L146">                resultado.append(cuidadoPersonal.toCsv()).append(&quot;\n&quot;);</span>
-<span class="fc" id="L147">            }</span>
+<span class="fc" id="L137">        Object primerElemento = lista.iterator().next();</span>
+
+<span class="fc bfc" id="L139" title="All 2 branches covered.">        if (primerElemento instanceof Souvenir) {</span>
+<span class="fc" id="L140">            Set&lt;Souvenir&gt; souvenirs = (Set&lt;Souvenir&gt;)lista;</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">            for (Souvenir souvenir : souvenirs) {</span>
+<span class="fc" id="L142">                resultado.append(souvenir.toCsv()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L143">            }</span>
+<span class="fc" id="L144">        }</span>
+<span class="pc bpc" id="L145" title="1 of 2 branches missed.">        else if (primerElemento instanceof CuidadoPersonal) {</span>
+<span class="fc" id="L146">            Set&lt;CuidadoPersonal&gt; cuidadoPersonals = (Set&lt;CuidadoPersonal&gt;)lista;</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">            for (CuidadoPersonal cuidadoPersonal : cuidadoPersonals) {</span>
+<span class="fc" id="L148">                resultado.append(cuidadoPersonal.toCsv()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L149">            }</span>
+<span class="fc" id="L150">        }else{</span>
+<span class="nc" id="L151">            return null;</span>
         }
-<span class="fc" id="L149">        return resultado.toString();</span>
+<span class="fc" id="L153">        return resultado.toString();</span>
         
     }
 
-    public static String obtenerTipoSet(Set&lt;?&gt; lista) {
-<span class="pc bpc" id="L154" title="1 of 2 branches missed.">        if (!lista.isEmpty()) {</span>
-<span class="fc" id="L155">            Object primerElemento = lista.iterator().next();</span>
-<span class="fc" id="L156">            return primerElemento.getClass().getSimpleName();</span>
-        }
-<span class="nc" id="L158">        return &quot;Souvenir&quot;;</span>
-        
-    }
+
     
     
 }

@@ -120,6 +120,10 @@ class TiendaTest {
         Assertions.assertEquals(0, tienda.ganaciaAlimentos());
     }
     @Test
+    void gananciaCuidadosPersonalesTest(){
+        Assertions.assertEquals(9.415998f ,tienda.gananciaCuidadoPersonales());
+    }
+    @Test
     void ganaciaSouvenirsTest(){
         Assertions.assertEquals(1.9409995079040527,tienda.ganaciaSouvenirs());
     }
@@ -144,6 +148,10 @@ class TiendaTest {
         Assertions.assertEquals(11.7699995f ,tienda.precioCuidadoPersonales());
     }
     @Test
+    void precioSouvenirsTest(){
+        Assertions.assertEquals(11.7699995f ,tienda.precioCuidadoPersonales());
+    }
+    @Test
     void precioProductosTest(){
         Assertions.assertEquals(1366.45f, tienda.precioProductos());
     }
@@ -155,6 +163,39 @@ class TiendaTest {
     void venderAlimentoTestTrue()throws Exception{
         Assertions.assertTrue(tienda.venderAlimento("ALM003"));
     }
+    @Test
+    void modificarAlimentoTest()throws ParseException{
+        String nombreUpdate="PRUEBA";
+        String udi="ALM003";
+        Alimento alimento = tienda.obtenerAlimento(udi);
+        tienda.modificarAlimento(nombreUpdate, alimento.getPrecio(), alimento.getFechaEntrada(), alimento.getUdi(), alimento.getFechaCaducidad());
+        Assertions.assertEquals(nombreUpdate, tienda.obtenerAlimento(udi).getNombre());
+    }
+    @Test
+    void modificarAparatoTest(){
+        String nombreUpdate="PRUEBA";
+        String udi="APA003";
+        Aparato aparato = tienda.obtenerAparato(udi);
+        tienda.modificarAparato(nombreUpdate, aparato.getPrecio(), aparato.getFechaEntrada(), aparato.getUdi());
+        Assertions.assertEquals(nombreUpdate, tienda.obtenerAparato(udi).getNombre());
+    }
+    @Test
+    void modificarCuidadoPersonalTest(){
+        String nombreUpdate="PRUEBA";
+        String udi="CUI003";
+        CuidadoPersonal cuidadoPersonal = tienda.obtenerCuidadoPersonal(udi);
+        tienda.modificarCuidadoPersonal(nombreUpdate, cuidadoPersonal.getPrecio(), cuidadoPersonal.getFechaEntrada(), cuidadoPersonal.getUdi(),cuidadoPersonal.calcularPopularidad());
+        Assertions.assertEquals(nombreUpdate, tienda.obtenerCuidadoPersonal(udi).getNombre());
+    }
+    @Test
+    void modificarSouvenirTest(){
+        String nombreUpdate="PRUEBA";
+        String udi="SOU003";
+        Souvenir souvenir = tienda.obtenerSouvenir(udi);
+        tienda.modificarSouvenir(nombreUpdate, souvenir.getPrecio(), souvenir.getFechaEntrada(), souvenir.getUdi());
+        Assertions.assertEquals(nombreUpdate, tienda.obtenerSouvenir(udi).getNombre());
+    }
+    
 
 
     
