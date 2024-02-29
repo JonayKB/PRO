@@ -21,7 +21,7 @@ public class CuidadoPersonal extends ProductoRecomendable {
     @Override
     public boolean recomendarProducto() {
 
-        return calcularPopularidad()>=7 ? true : false;
+        return calcularPopularidad()>=7;
     }
 
     @Override

@@ -227,7 +227,16 @@ public class TiendaNegocio {
 
     }
 
-
+    /**
+     * Modifica un alimento
+     * @param nombre nuevo
+     * @param precio nuevo
+     * @param fEntrada nuevo
+     * @param udi nuevo
+     * @param fCaducidad nuevo
+     * @return si se pudo modificar
+     * @throws ParseException
+     */
     public boolean modificarAlimento(String nombre, float precio, String fEntrada, String udi, String fCaducidad) throws ParseException{
         Alimento alimentoModificar= new Alimento(nombre, precio, fEntrada, udi, fCaducidad);
         alimentos.remove(alimentoModificar);
