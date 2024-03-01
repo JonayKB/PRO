@@ -60,24 +60,28 @@ public class FileCsv extends Ficheros{
         return productos;
     }
     @Override
-    public boolean borrar(String path,String textoAEscribir){
+    public boolean borrar(String path){
         if (existe(path)) {
             File file = new File(path);
             try(FileOutputStream outputStream= new FileOutputStream(file)) {
                 byte[] emptyContent = {};
                 outputStream.write(emptyContent);
-                return escribir(path, textoAEscribir);
-    
+                return true;
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        
         return false;
     }
     @Override
+    public boolean borrarYEscribir(String path,String textoAEscribir){
+        borrar(path);
+        return escribir(path, textoAEscribir);
+    }
+
+    @Override
     public boolean modificar(String path, String textoAEscribir){
-        return borrar(path, textoAEscribir);
+        return borrarYEscribir(path, textoAEscribir);
     }
     
 

@@ -77,13 +77,10 @@ public class TiendaNegocio {
      * @param udi por lo que se obtiene
      * @return el alimento
      */
-    public Alimento obtenerAlimento(String udi){
+    public Alimento obtenerAlimento(String udi)throws ParseException{
         if (!alimentos.isEmpty()) {
-            for (Alimento alimento : alimentos) {
-                if (alimento.getUdi().equals(udi)) {
-                    return alimento;
-                }
-            }
+            Alimento alimentoBuscar = new Alimento(null, 0, "2024-02-10", udi, "2024-02-10");
+            return alimentos.get(alimentos.indexOf(alimentoBuscar));
         }
         return null;
     }
@@ -190,10 +187,10 @@ public class TiendaNegocio {
      * @param souvenir a eliminar
      * @return eliminado o no
      */
-    public boolean eliminarAlimento(String udi){
+    public boolean eliminarAlimento(String udi)throws ParseException{
             Alimento alimentoRemove = obtenerAlimento(udi);
             alimentos.remove(alimentoRemove);
-            return ficheros.borrar(Ficheros.RUTA_ALIMENTOS_CSV, ficheros.listaToFile(alimentos));
+            return ficheros.borrarYEscribir(Ficheros.RUTA_ALIMENTOS_CSV, ficheros.listaToFile(alimentos));
     }
     /**
      * Elimina un aparato
@@ -203,7 +200,7 @@ public class TiendaNegocio {
     public boolean eliminarAparato(String udi){
             aparatos.remove(udi);
             
-            return ficheros.borrar(Ficheros.RUTA_APARATOS_CSV,ficheros.listaToFile(aparatos));
+            return ficheros.borrarYEscribir(Ficheros.RUTA_APARATOS_CSV,ficheros.listaToFile(aparatos));
     }
     /**
      * Elimina un cuidadoPersonal
@@ -213,7 +210,7 @@ public class TiendaNegocio {
     public boolean eliminarCuidadoPersonal(String udi){
         CuidadoPersonal cuidadoPersonalRemove = obtenerCuidadoPersonal(udi);
         cuidadoPersonales.remove(cuidadoPersonalRemove);
-        return ficheros.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, ficheros.listaToFile(cuidadoPersonales));
+        return ficheros.borrarYEscribir(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, ficheros.listaToFile(cuidadoPersonales));
     }
     /**
      * Elimina un souvenir
@@ -223,7 +220,7 @@ public class TiendaNegocio {
     public boolean eliminarSouvenir(String udi){
         Souvenir souvenirRemove = obtenerSouvenir(udi);
         souvenirs.remove(souvenirRemove);
-        return ficheros.borrar(Ficheros.RUTA_SOUVENIRS_CSV,ficheros.listaToFile(souvenirs));
+        return ficheros.borrarYEscribir(Ficheros.RUTA_SOUVENIRS_CSV,ficheros.listaToFile(souvenirs));
 
     }
 
@@ -458,11 +455,11 @@ public class TiendaNegocio {
         return productosRecomendados;
     }
 
-    public boolean venderAlimento(String udi){
+    public boolean venderAlimento(String udi)throws ParseException{
         if (!obtenerAlimento(udi).productoCaducado()) {
             return eliminarAlimento(udi);
         }
-        return true;
+        return false;
     }
 
     public List<Alimento> obtenerAlimentos()throws IOException,ParseException{

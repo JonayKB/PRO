@@ -30,12 +30,18 @@ public interface IFicheros {
      */
     public boolean escribir(String path, String texto);
     /**
+     * Borra el documento
+     * @param path el lugar que esta
+     * @return si lo borro o no
+     */
+    public boolean borrar(String path);
+    /**
      * Borra t0do el contenido del archivo y escribe nuevo
      * @param path el lugar
      * @param texto que escribe
      * @return
      */
-    public boolean borrar(String path, String texto);
+    public boolean borrarYEscribir(String path, String texto);
     /**
      * Modifca el documento
      * @param path donde modificar

@@ -39,10 +39,10 @@ public class FileCsvTest {
     }
     @AfterEach
     public void afterEach()throws IOException,ParseException{
-        fileCsv.borrar(Ficheros.RUTA_ALIMENTOS_CSV, fileCsv.listaToFile(alimentos));
-        fileCsv.borrar(Ficheros.RUTA_APARATOS_CSV, fileCsv.listaToFile(aparatos));
-        fileCsv.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, fileCsv.listaToFile(cuidadoPersonals));
-        fileCsv.borrar(Ficheros.RUTA_SOUVENIRS_CSV, fileCsv.listaToFile(souvenirs));
+        fileCsv.borrarYEscribir(Ficheros.RUTA_ALIMENTOS_CSV, fileCsv.listaToFile(alimentos));
+        fileCsv.borrarYEscribir(Ficheros.RUTA_APARATOS_CSV, fileCsv.listaToFile(aparatos));
+        fileCsv.borrarYEscribir(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, fileCsv.listaToFile(cuidadoPersonals));
+        fileCsv.borrarYEscribir(Ficheros.RUTA_SOUVENIRS_CSV, fileCsv.listaToFile(souvenirs));
     }
     @Test
     public void listaToCsvAlimentosTest()throws ParseException,IOException{
