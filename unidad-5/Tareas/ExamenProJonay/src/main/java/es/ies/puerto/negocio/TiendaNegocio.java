@@ -234,29 +234,25 @@ public class TiendaNegocio {
      * @return si se pudo modificar
      * @throws ParseException
      */
-    public boolean modificarAlimento(String nombre, float precio, String fEntrada, String udi, String fCaducidad) throws ParseException{
-        Alimento alimentoModificar= new Alimento(nombre, precio, fEntrada, udi, fCaducidad);
+    public boolean modificarAlimento(Alimento alimentoModificar){
         alimentos.remove(alimentoModificar);
         ficheros.modificar(Ficheros.RUTA_ALIMENTOS_CSV,ficheros.listaToFile(alimentos));
         return agregarAlimento(alimentoModificar);
     }
 
-    public boolean modificarAparato(String nombre, float precio, String fEntrada, String udi){
-        Aparato aparatoModificar= new Aparato(nombre, precio, fEntrada, udi);
+    public boolean modificarAparato(Aparato aparatoModificar){
         aparatos.remove(aparatoModificar.getUdi());
         ficheros.modificar(Ficheros.RUTA_APARATOS_CSV,ficheros.listaToFile(aparatos));
         return agregarAparato(aparatoModificar);
     }
 
-    public boolean modificarCuidadoPersonal(String nombre, float precio, String fEntrada, String udi, int popularidad){
-        CuidadoPersonal cuidadoPersonalModificar= new CuidadoPersonal(nombre, precio, fEntrada, udi,popularidad);
+    public boolean modificarCuidadoPersonal(CuidadoPersonal cuidadoPersonalModificar){
         cuidadoPersonales.remove(cuidadoPersonalModificar);
         ficheros.modificar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, ficheros.listaToFile(cuidadoPersonales));
         return agregarCuidadosPersonal(cuidadoPersonalModificar);
     }
 
-    public boolean modificarSouvenir(String nombre, float precio, String fEntrada, String udi){
-        Souvenir souvenirModificar= new Souvenir(nombre, precio, fEntrada, udi);
+    public boolean modificarSouvenir(Souvenir souvenirModificar){
         souvenirs.remove(souvenirModificar);
         ficheros.modificar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,ficheros.listaToFile(souvenirs));
         return agregarSouvenir(souvenirModificar);

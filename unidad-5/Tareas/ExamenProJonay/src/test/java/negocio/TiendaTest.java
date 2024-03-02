@@ -167,32 +167,32 @@ class TiendaTest {
     void modificarAlimentoTest()throws ParseException{
         String nombreUpdate="PRUEBA";
         String udi="ALM003";
-        Alimento alimento = tienda.obtenerAlimento(udi);
-        tienda.modificarAlimento(nombreUpdate, alimento.getPrecio(), alimento.getFechaEntrada(), alimento.getUdi(), alimento.getFechaCaducidad());
+        Alimento alimentoModificar = new Alimento(nombreUpdate, PRECIO, FEntrada, udi, FCaducidad);
+        tienda.modificarAlimento(alimentoModificar);
         Assertions.assertEquals(nombreUpdate, tienda.obtenerAlimento(udi).getNombre());
     }
     @Test
     void modificarAparatoTest(){
         String nombreUpdate="PRUEBA";
         String udi="APA003";
-        Aparato aparato = tienda.obtenerAparato(udi);
-        tienda.modificarAparato(nombreUpdate, aparato.getPrecio(), aparato.getFechaEntrada(), aparato.getUdi());
+        Aparato aparatoModificar = new Aparato(nombreUpdate, PRECIO, FEntrada, udi);
+        tienda.modificarAparato(aparatoModificar);
         Assertions.assertEquals(nombreUpdate, tienda.obtenerAparato(udi).getNombre());
     }
     @Test
     void modificarCuidadoPersonalTest(){
         String nombreUpdate="PRUEBA";
         String udi="CUI003";
-        CuidadoPersonal cuidadoPersonal = tienda.obtenerCuidadoPersonal(udi);
-        tienda.modificarCuidadoPersonal(nombreUpdate, cuidadoPersonal.getPrecio(), cuidadoPersonal.getFechaEntrada(), cuidadoPersonal.getUdi(),cuidadoPersonal.calcularPopularidad());
+        CuidadoPersonal cuidadoPersonalModificar = new CuidadoPersonal(nombreUpdate, PRECIO, FEntrada, udi, POPULARIDAD);
+        tienda.modificarCuidadoPersonal(cuidadoPersonalModificar);
         Assertions.assertEquals(nombreUpdate, tienda.obtenerCuidadoPersonal(udi).getNombre());
     }
     @Test
     void modificarSouvenirTest(){
         String nombreUpdate="PRUEBA";
         String udi="SOU003";
-        Souvenir souvenir = tienda.obtenerSouvenir(udi);
-        tienda.modificarSouvenir(nombreUpdate, souvenir.getPrecio(), souvenir.getFechaEntrada(), souvenir.getUdi());
+        Souvenir souvenir = new Souvenir(nombreUpdate, PRECIO, FEntrada, udi);
+        tienda.modificarSouvenir(souvenir);
         Assertions.assertEquals(nombreUpdate, tienda.obtenerSouvenir(udi).getNombre());
     }
     

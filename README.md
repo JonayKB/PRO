@@ -10,5 +10,6 @@ Repositorio de Jonay Contreras para el módulo de Programación
 - [Unidad 7](unidad-7)
 - [Unidad 8](unidad-8)
 - [Unidad 9](unidad-9)
+- [Logica](logica)
   
 

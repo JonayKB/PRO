@@ -1,7 +1,11 @@
 package es.ies.puerto.modelo.ficheros.abstrac;
 
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import es.ies.puerto.modelo.ficheros.interfaces.IFicheros;
 
@@ -31,6 +35,45 @@ public abstract class Ficheros implements IFicheros{
         }
         File fichero = new File(path);
         return fichero.exists() && fichero.isFile();
+    }
+
+    @Override
+    public boolean borrar(String path){
+        if (existe(path)) {
+            File file = new File(path);
+            try(FileOutputStream outputStream= new FileOutputStream(file)) {
+                byte[] emptyContent = {};
+                outputStream.write(emptyContent);
+                return true;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+    
+    @Override
+    public boolean escribir(String path, String texto) {
+    if (existe(path)) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))){
+            bw.write(texto);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    return false;
+    }
+
+    @Override
+    public boolean borrarYEscribir(String path,String textoAEscribir){
+        borrar(path);
+        return escribir(path, textoAEscribir);
+    }
+
+    @Override
+    public boolean modificar(String path, String textoAEscribir){
+        return borrarYEscribir(path, textoAEscribir);
     }
 
 }

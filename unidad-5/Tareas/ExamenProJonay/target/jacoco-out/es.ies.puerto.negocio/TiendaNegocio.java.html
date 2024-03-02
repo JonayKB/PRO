@@ -77,15 +77,12 @@ public class TiendaNegocio {
      * @param udi por lo que se obtiene
      * @return el alimento
      */
-    public Alimento obtenerAlimento(String udi){
+    public Alimento obtenerAlimento(String udi)throws ParseException{
 <span class="pc bpc" id="L81" title="1 of 2 branches missed.">        if (!alimentos.isEmpty()) {</span>
-<span class="pc bpc" id="L82" title="1 of 2 branches missed.">            for (Alimento alimento : alimentos) {</span>
-<span class="fc bfc" id="L83" title="All 2 branches covered.">                if (alimento.getUdi().equals(udi)) {</span>
-<span class="fc" id="L84">                    return alimento;</span>
-                }
-<span class="fc" id="L86">            }</span>
+<span class="fc" id="L82">            Alimento alimentoBuscar = new Alimento(null, 0, &quot;2024-02-10&quot;, udi, &quot;2024-02-10&quot;);</span>
+<span class="fc" id="L83">            return alimentos.get(alimentos.indexOf(alimentoBuscar));</span>
         }
-<span class="nc" id="L88">        return null;</span>
+<span class="nc" id="L85">        return null;</span>
     }
     /**
      * Obtiene un aparato
@@ -93,10 +90,10 @@ public class TiendaNegocio {
      * @return el aparato
      */
     public Aparato obtenerAparato(String udi){
-<span class="pc bpc" id="L96" title="2 of 4 branches missed.">        if (!aparatos.isEmpty() &amp;&amp; aparatos.containsKey(udi)) {</span>
-<span class="fc" id="L97">            return aparatos.get(udi);</span>
+<span class="pc bpc" id="L93" title="2 of 4 branches missed.">        if (!aparatos.isEmpty() &amp;&amp; aparatos.containsKey(udi)) {</span>
+<span class="fc" id="L94">            return aparatos.get(udi);</span>
         }
-<span class="nc" id="L99">        return null;</span>
+<span class="nc" id="L96">        return null;</span>
     }
 
     /**
@@ -105,14 +102,14 @@ public class TiendaNegocio {
      * @return el cuidadoPersonal
      */
     public CuidadoPersonal obtenerCuidadoPersonal(String udi){
-<span class="pc bpc" id="L108" title="1 of 2 branches missed.">        if (!cuidadoPersonales.isEmpty()) {</span>
-<span class="pc bpc" id="L109" title="1 of 2 branches missed.">            for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
-<span class="fc bfc" id="L110" title="All 2 branches covered.">                if (cuidadoPersonal.getUdi().equals(udi)) {</span>
-<span class="fc" id="L111">                    return cuidadoPersonal;</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">        if (!cuidadoPersonales.isEmpty()) {</span>
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">            for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">                if (cuidadoPersonal.getUdi().equals(udi)) {</span>
+<span class="fc" id="L108">                    return cuidadoPersonal;</span>
                 }
-<span class="fc" id="L113">            }</span>
+<span class="fc" id="L110">            }</span>
         }
-<span class="nc" id="L115">        return null;</span>
+<span class="nc" id="L112">        return null;</span>
     }
 
     /**
@@ -121,14 +118,14 @@ public class TiendaNegocio {
      * @return el souvenir
      */
     public Souvenir obtenerSouvenir(String udi){
-<span class="pc bpc" id="L124" title="1 of 2 branches missed.">        if (!souvenirs.isEmpty()) {</span>
-<span class="pc bpc" id="L125" title="1 of 2 branches missed.">            for (Souvenir souvenir : souvenirs) {</span>
-<span class="fc bfc" id="L126" title="All 2 branches covered.">                if (souvenir.getUdi().equals(udi)) {</span>
-<span class="fc" id="L127">                    return souvenir;</span>
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">        if (!souvenirs.isEmpty()) {</span>
+<span class="pc bpc" id="L122" title="1 of 2 branches missed.">            for (Souvenir souvenir : souvenirs) {</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">                if (souvenir.getUdi().equals(udi)) {</span>
+<span class="fc" id="L124">                    return souvenir;</span>
                 }
-<span class="fc" id="L129">            }</span>
+<span class="fc" id="L126">            }</span>
         }
-<span class="nc" id="L131">        return null;</span>
+<span class="nc" id="L128">        return null;</span>
     }
 
 
@@ -140,11 +137,11 @@ public class TiendaNegocio {
      * @return añadido o no
      */
     public boolean agregarAlimento(Alimento alimento){
-<span class="pc bpc" id="L143" title="1 of 2 branches missed.">        if (!alimentos.contains(alimento)) {</span>
-<span class="fc" id="L144">            ficheros.escribir(Ficheros.RUTA_ALIMENTOS_CSV, alimento.toCsv());</span>
-<span class="fc" id="L145">            return alimentos.add(alimento);</span>
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">        if (!alimentos.contains(alimento)) {</span>
+<span class="fc" id="L141">            ficheros.escribir(Ficheros.RUTA_ALIMENTOS_CSV, alimento.toCsv());</span>
+<span class="fc" id="L142">            return alimentos.add(alimento);</span>
         }
-<span class="nc" id="L147">        return true;</span>
+<span class="nc" id="L144">        return true;</span>
     }
     /**
      * Añade un aparato
@@ -152,11 +149,11 @@ public class TiendaNegocio {
      * @return añadido o no
      */
     public boolean agregarAparato(Aparato aparato){
-<span class="pc bpc" id="L155" title="1 of 2 branches missed.">        if (!aparatos.containsKey(aparato.getUdi())) {</span>
-<span class="fc" id="L156">            aparatos.put(aparato.getUdi(), aparato);</span>
-<span class="fc" id="L157">            return ficheros.escribir(Ficheros.RUTA_APARATOS_CSV, aparato.toCsv());</span>
+<span class="pc bpc" id="L152" title="1 of 2 branches missed.">        if (!aparatos.containsKey(aparato.getUdi())) {</span>
+<span class="fc" id="L153">            aparatos.put(aparato.getUdi(), aparato);</span>
+<span class="fc" id="L154">            return ficheros.escribir(Ficheros.RUTA_APARATOS_CSV, aparato.toCsv());</span>
         }
-<span class="nc" id="L159">        return true;</span>
+<span class="nc" id="L156">        return true;</span>
     }
     /**
      * Añade un cuidado personal
@@ -164,11 +161,11 @@ public class TiendaNegocio {
      * @return añadido o no
      */
     public boolean agregarCuidadosPersonal(CuidadoPersonal cuidadoPersonal){
-<span class="pc bpc" id="L167" title="1 of 2 branches missed.">        if (!cuidadoPersonales.contains(cuidadoPersonal)) {</span>
-<span class="fc" id="L168">            ficheros.escribir(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, cuidadoPersonal.toCsv());</span>
-<span class="fc" id="L169">            return cuidadoPersonales.add(cuidadoPersonal);</span>
+<span class="pc bpc" id="L164" title="1 of 2 branches missed.">        if (!cuidadoPersonales.contains(cuidadoPersonal)) {</span>
+<span class="fc" id="L165">            ficheros.escribir(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, cuidadoPersonal.toCsv());</span>
+<span class="fc" id="L166">            return cuidadoPersonales.add(cuidadoPersonal);</span>
         }
-<span class="nc" id="L171">        return true;</span>
+<span class="nc" id="L168">        return true;</span>
     }
     /**
      * Añade un souvenir
@@ -176,11 +173,11 @@ public class TiendaNegocio {
      * @return añadido o no
      */
     public boolean agregarSouvenir(Souvenir souvenir){
-<span class="pc bpc" id="L179" title="1 of 2 branches missed.">        if (!souvenirs.contains(souvenir)) {</span>
-<span class="fc" id="L180">            ficheros.escribir(Ficheros.RUTA_SOUVENIRS_CSV, souvenir.toCsv());</span>
-<span class="fc" id="L181">            return souvenirs.add(souvenir);</span>
+<span class="pc bpc" id="L176" title="1 of 2 branches missed.">        if (!souvenirs.contains(souvenir)) {</span>
+<span class="fc" id="L177">            ficheros.escribir(Ficheros.RUTA_SOUVENIRS_CSV, souvenir.toCsv());</span>
+<span class="fc" id="L178">            return souvenirs.add(souvenir);</span>
         }
-<span class="nc" id="L183">        return true;</span>
+<span class="nc" id="L180">        return true;</span>
     }
 
 
@@ -190,10 +187,10 @@ public class TiendaNegocio {
      * @param souvenir a eliminar
      * @return eliminado o no
      */
-    public boolean eliminarAlimento(String udi){
-<span class="fc" id="L194">            Alimento alimentoRemove = obtenerAlimento(udi);</span>
-<span class="fc" id="L195">            alimentos.remove(alimentoRemove);</span>
-<span class="fc" id="L196">            return ficheros.borrar(Ficheros.RUTA_ALIMENTOS_CSV, ficheros.listaToFile(alimentos));</span>
+    public boolean eliminarAlimento(String udi)throws ParseException{
+<span class="fc" id="L191">            Alimento alimentoRemove = obtenerAlimento(udi);</span>
+<span class="fc" id="L192">            alimentos.remove(alimentoRemove);</span>
+<span class="fc" id="L193">            return ficheros.borrarYEscribir(Ficheros.RUTA_ALIMENTOS_CSV, ficheros.listaToFile(alimentos));</span>
     }
     /**
      * Elimina un aparato
@@ -201,9 +198,9 @@ public class TiendaNegocio {
      * @return eliminado o no
      */
     public boolean eliminarAparato(String udi){
-<span class="fc" id="L204">            aparatos.remove(udi);</span>
+<span class="fc" id="L201">            aparatos.remove(udi);</span>
             
-<span class="fc" id="L206">            return ficheros.borrar(Ficheros.RUTA_APARATOS_CSV,ficheros.listaToFile(aparatos));</span>
+<span class="fc" id="L203">            return ficheros.borrarYEscribir(Ficheros.RUTA_APARATOS_CSV,ficheros.listaToFile(aparatos));</span>
     }
     /**
      * Elimina un cuidadoPersonal
@@ -211,9 +208,9 @@ public class TiendaNegocio {
      * @return eliminado o no
      */
     public boolean eliminarCuidadoPersonal(String udi){
-<span class="fc" id="L214">        CuidadoPersonal cuidadoPersonalRemove = obtenerCuidadoPersonal(udi);</span>
-<span class="fc" id="L215">        cuidadoPersonales.remove(cuidadoPersonalRemove);</span>
-<span class="fc" id="L216">        return ficheros.borrar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, ficheros.listaToFile(cuidadoPersonales));</span>
+<span class="fc" id="L211">        CuidadoPersonal cuidadoPersonalRemove = obtenerCuidadoPersonal(udi);</span>
+<span class="fc" id="L212">        cuidadoPersonales.remove(cuidadoPersonalRemove);</span>
+<span class="fc" id="L213">        return ficheros.borrarYEscribir(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, ficheros.listaToFile(cuidadoPersonales));</span>
     }
     /**
      * Elimina un souvenir
@@ -221,9 +218,9 @@ public class TiendaNegocio {
      * @return eliminado o no
      */
     public boolean eliminarSouvenir(String udi){
-<span class="fc" id="L224">        Souvenir souvenirRemove = obtenerSouvenir(udi);</span>
-<span class="fc" id="L225">        souvenirs.remove(souvenirRemove);</span>
-<span class="fc" id="L226">        return ficheros.borrar(Ficheros.RUTA_SOUVENIRS_CSV,ficheros.listaToFile(souvenirs));</span>
+<span class="fc" id="L221">        Souvenir souvenirRemove = obtenerSouvenir(udi);</span>
+<span class="fc" id="L222">        souvenirs.remove(souvenirRemove);</span>
+<span class="fc" id="L223">        return ficheros.borrarYEscribir(Ficheros.RUTA_SOUVENIRS_CSV,ficheros.listaToFile(souvenirs));</span>
 
     }
 
@@ -237,32 +234,28 @@ public class TiendaNegocio {
      * @return si se pudo modificar
      * @throws ParseException
      */
-    public boolean modificarAlimento(String nombre, float precio, String fEntrada, String udi, String fCaducidad) throws ParseException{
-<span class="fc" id="L241">        Alimento alimentoModificar= new Alimento(nombre, precio, fEntrada, udi, fCaducidad);</span>
-<span class="fc" id="L242">        alimentos.remove(alimentoModificar);</span>
-<span class="fc" id="L243">        ficheros.modificar(Ficheros.RUTA_ALIMENTOS_CSV,ficheros.listaToFile(alimentos));</span>
-<span class="fc" id="L244">        return agregarAlimento(alimentoModificar);</span>
+    public boolean modificarAlimento(Alimento alimentoModificar){
+<span class="fc" id="L238">        alimentos.remove(alimentoModificar);</span>
+<span class="fc" id="L239">        ficheros.modificar(Ficheros.RUTA_ALIMENTOS_CSV,ficheros.listaToFile(alimentos));</span>
+<span class="fc" id="L240">        return agregarAlimento(alimentoModificar);</span>
     }
 
-    public boolean modificarAparato(String nombre, float precio, String fEntrada, String udi){
-<span class="fc" id="L248">        Aparato aparatoModificar= new Aparato(nombre, precio, fEntrada, udi);</span>
-<span class="fc" id="L249">        aparatos.remove(aparatoModificar.getUdi());</span>
-<span class="fc" id="L250">        ficheros.modificar(Ficheros.RUTA_APARATOS_CSV,ficheros.listaToFile(aparatos));</span>
-<span class="fc" id="L251">        return agregarAparato(aparatoModificar);</span>
+    public boolean modificarAparato(Aparato aparatoModificar){
+<span class="fc" id="L244">        aparatos.remove(aparatoModificar.getUdi());</span>
+<span class="fc" id="L245">        ficheros.modificar(Ficheros.RUTA_APARATOS_CSV,ficheros.listaToFile(aparatos));</span>
+<span class="fc" id="L246">        return agregarAparato(aparatoModificar);</span>
     }
 
-    public boolean modificarCuidadoPersonal(String nombre, float precio, String fEntrada, String udi, int popularidad){
-<span class="fc" id="L255">        CuidadoPersonal cuidadoPersonalModificar= new CuidadoPersonal(nombre, precio, fEntrada, udi,popularidad);</span>
-<span class="fc" id="L256">        cuidadoPersonales.remove(cuidadoPersonalModificar);</span>
-<span class="fc" id="L257">        ficheros.modificar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, ficheros.listaToFile(cuidadoPersonales));</span>
-<span class="fc" id="L258">        return agregarCuidadosPersonal(cuidadoPersonalModificar);</span>
+    public boolean modificarCuidadoPersonal(CuidadoPersonal cuidadoPersonalModificar){
+<span class="fc" id="L250">        cuidadoPersonales.remove(cuidadoPersonalModificar);</span>
+<span class="fc" id="L251">        ficheros.modificar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV, ficheros.listaToFile(cuidadoPersonales));</span>
+<span class="fc" id="L252">        return agregarCuidadosPersonal(cuidadoPersonalModificar);</span>
     }
 
-    public boolean modificarSouvenir(String nombre, float precio, String fEntrada, String udi){
-<span class="fc" id="L262">        Souvenir souvenirModificar= new Souvenir(nombre, precio, fEntrada, udi);</span>
-<span class="fc" id="L263">        souvenirs.remove(souvenirModificar);</span>
-<span class="fc" id="L264">        ficheros.modificar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,ficheros.listaToFile(souvenirs));</span>
-<span class="fc" id="L265">        return agregarSouvenir(souvenirModificar);</span>
+    public boolean modificarSouvenir(Souvenir souvenirModificar){
+<span class="fc" id="L256">        souvenirs.remove(souvenirModificar);</span>
+<span class="fc" id="L257">        ficheros.modificar(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,ficheros.listaToFile(souvenirs));</span>
+<span class="fc" id="L258">        return agregarSouvenir(souvenirModificar);</span>
     }
 
 
@@ -273,58 +266,58 @@ public class TiendaNegocio {
      * @return precio total
      */
     public float precioAlimentos(){
-<span class="fc" id="L276">        float resultado = 0;</span>
-<span class="fc bfc" id="L277" title="All 2 branches covered.">        for (Alimento alimento : alimentos) {</span>
-<span class="pc bpc" id="L278" title="1 of 2 branches missed.">            if (!alimento.productoCaducado()) {</span>
-<span class="nc" id="L279">                resultado += alimento.getPrecio();</span>
+<span class="fc" id="L269">        float resultado = 0;</span>
+<span class="fc bfc" id="L270" title="All 2 branches covered.">        for (Alimento alimento : alimentos) {</span>
+<span class="fc bfc" id="L271" title="All 2 branches covered.">            if (!alimento.productoCaducado()) {</span>
+<span class="fc" id="L272">                resultado += alimento.getPrecio();</span>
             }
             
-<span class="fc" id="L282">        }</span>
-<span class="fc" id="L283">        return resultado;</span>
+<span class="fc" id="L275">        }</span>
+<span class="fc" id="L276">        return resultado;</span>
     }
     /**
      * Suma todos los precios de los aparatos
      * @return precio total
      */
     public float precioAparatos(){
-<span class="fc" id="L290">        float resultado = 0;</span>
-<span class="fc bfc" id="L291" title="All 2 branches covered.">        for (Aparato aparato : aparatos.values()) {</span>
-<span class="fc" id="L292">            resultado += aparato.getPrecio();</span>
-<span class="fc" id="L293">        }</span>
-<span class="fc" id="L294">        return resultado;</span>
+<span class="fc" id="L283">        float resultado = 0;</span>
+<span class="fc bfc" id="L284" title="All 2 branches covered.">        for (Aparato aparato : aparatos.values()) {</span>
+<span class="fc" id="L285">            resultado += aparato.getPrecio();</span>
+<span class="fc" id="L286">        }</span>
+<span class="fc" id="L287">        return resultado;</span>
     }
     /**
      * Suma todos los precios de los cuidados personales
      * @return precio total
      */
     public float precioCuidadoPersonales(){
-<span class="fc" id="L301">        float resultado = 0;</span>
-<span class="fc bfc" id="L302" title="All 2 branches covered.">        for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
-<span class="fc" id="L303">            resultado += cuidadoPersonal.getPrecio();</span>
-<span class="fc" id="L304">        }</span>
-<span class="fc" id="L305">        return resultado;</span>
+<span class="fc" id="L294">        float resultado = 0;</span>
+<span class="fc bfc" id="L295" title="All 2 branches covered.">        for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
+<span class="fc" id="L296">            resultado += cuidadoPersonal.getPrecio();</span>
+<span class="fc" id="L297">        }</span>
+<span class="fc" id="L298">        return resultado;</span>
     }
     /**
      * Suma todos los precios de los souvenirs
      * @return precio total
      */
     public float precioSouvenirs(){
-<span class="nc" id="L312">        float resultado = 0;</span>
-<span class="nc bnc" id="L313" title="All 2 branches missed.">        for (Souvenir souvenir : souvenirs) {</span>
-<span class="nc" id="L314">            resultado += souvenir.getPrecio();</span>
-<span class="nc" id="L315">        }</span>
-<span class="nc" id="L316">        return resultado;</span>
+<span class="nc" id="L305">        float resultado = 0;</span>
+<span class="nc bnc" id="L306" title="All 2 branches missed.">        for (Souvenir souvenir : souvenirs) {</span>
+<span class="nc" id="L307">            resultado += souvenir.getPrecio();</span>
+<span class="nc" id="L308">        }</span>
+<span class="nc" id="L309">        return resultado;</span>
     }
     /**
      * Devuelve el precio de todos los productos
      * @return precio total
      */
     public float precioProductos(){
-<span class="fc" id="L323">        float resultado = 0;</span>
-<span class="fc bfc" id="L324" title="All 2 branches covered.">        for (Producto producto : productos) {</span>
-<span class="fc" id="L325">            resultado+=producto.getPrecio();</span>
-<span class="fc" id="L326">        }</span>
-<span class="fc" id="L327">        return resultado;</span>
+<span class="fc" id="L316">        float resultado = 0;</span>
+<span class="fc bfc" id="L317" title="All 2 branches covered.">        for (Producto producto : productos) {</span>
+<span class="fc" id="L318">            resultado+=producto.getPrecio();</span>
+<span class="fc" id="L319">        }</span>
+<span class="fc" id="L320">        return resultado;</span>
     }
 
 
@@ -334,58 +327,58 @@ public class TiendaNegocio {
      * @return ganancia total
      */
     public float ganaciaAlimentos(){
-<span class="fc" id="L337">        float resultado = 0;</span>
-<span class="fc bfc" id="L338" title="All 2 branches covered.">        for (Alimento alimento : alimentos) {</span>
-<span class="pc bpc" id="L339" title="1 of 2 branches missed.">            if (!alimento.productoCaducado()) {</span>
-<span class="nc" id="L340">                resultado += alimento.precioMaximo()-alimento.getPrecio();</span>
+<span class="fc" id="L330">        float resultado = 0;</span>
+<span class="fc bfc" id="L331" title="All 2 branches covered.">        for (Alimento alimento : alimentos) {</span>
+<span class="fc bfc" id="L332" title="All 2 branches covered.">            if (!alimento.productoCaducado()) {</span>
+<span class="fc" id="L333">                resultado += alimento.precioMaximo()-alimento.getPrecio();</span>
             }
             
-<span class="fc" id="L343">        }</span>
-<span class="fc" id="L344">        return resultado;</span>
+<span class="fc" id="L336">        }</span>
+<span class="fc" id="L337">        return resultado;</span>
     }
     /**
      * Suma todos las ganacia de los aparatos
      * @return ganacia total
      */
     public float gananciaAparatos(){
-<span class="fc" id="L351">        float resultado = 0;</span>
-<span class="fc bfc" id="L352" title="All 2 branches covered.">        for (Aparato aparato : aparatos.values()) {</span>
-<span class="fc" id="L353">            resultado += aparato.precioMaximo()-aparato.getPrecio();</span>
-<span class="fc" id="L354">        }</span>
-<span class="fc" id="L355">        return resultado;</span>
+<span class="fc" id="L344">        float resultado = 0;</span>
+<span class="fc bfc" id="L345" title="All 2 branches covered.">        for (Aparato aparato : aparatos.values()) {</span>
+<span class="fc" id="L346">            resultado += aparato.precioMaximo()-aparato.getPrecio();</span>
+<span class="fc" id="L347">        }</span>
+<span class="fc" id="L348">        return resultado;</span>
     }
     /**
      * Suma todos las ganancias de los cuidados personales
      * @return precio total
      */
     public float gananciaCuidadoPersonales(){
-<span class="fc" id="L362">        float resultado = 0;</span>
-<span class="fc bfc" id="L363" title="All 2 branches covered.">        for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
-<span class="fc" id="L364">            resultado += cuidadoPersonal.precioMaximo()-cuidadoPersonal.getPrecio();</span>
-<span class="fc" id="L365">        }</span>
-<span class="fc" id="L366">        return resultado;</span>
+<span class="fc" id="L355">        float resultado = 0;</span>
+<span class="fc bfc" id="L356" title="All 2 branches covered.">        for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
+<span class="fc" id="L357">            resultado += cuidadoPersonal.precioMaximo()-cuidadoPersonal.getPrecio();</span>
+<span class="fc" id="L358">        }</span>
+<span class="fc" id="L359">        return resultado;</span>
     }
     /**
      * Suma todos las ganancias de los souvenirs
      * @return precio total
      */
     public float ganaciaSouvenirs(){
-<span class="fc" id="L373">        float resultado = 0;</span>
-<span class="fc bfc" id="L374" title="All 2 branches covered.">        for (Souvenir souvenir : souvenirs) {</span>
-<span class="fc" id="L375">            resultado += souvenir.precioMaximo()-souvenir.getPrecio();</span>
-<span class="fc" id="L376">        }</span>
-<span class="fc" id="L377">        return resultado;</span>
+<span class="fc" id="L366">        float resultado = 0;</span>
+<span class="fc bfc" id="L367" title="All 2 branches covered.">        for (Souvenir souvenir : souvenirs) {</span>
+<span class="fc" id="L368">            resultado += souvenir.precioMaximo()-souvenir.getPrecio();</span>
+<span class="fc" id="L369">        }</span>
+<span class="fc" id="L370">        return resultado;</span>
     }
     /**
      * Devuelve la ganancia de todos los productos
      * @return precio total
      */
     public float ganaciaProductos(){
-<span class="fc" id="L384">        float resultado = 0;</span>
-<span class="fc bfc" id="L385" title="All 2 branches covered.">        for (Producto producto : productos) {</span>
-<span class="fc" id="L386">            resultado+=producto.precioMaximo()-producto.getPrecio();</span>
-<span class="fc" id="L387">        }</span>
-<span class="fc" id="L388">        return resultado;</span>
+<span class="fc" id="L377">        float resultado = 0;</span>
+<span class="fc bfc" id="L378" title="All 2 branches covered.">        for (Producto producto : productos) {</span>
+<span class="fc" id="L379">            resultado+=producto.precioMaximo()-producto.getPrecio();</span>
+<span class="fc" id="L380">        }</span>
+<span class="fc" id="L381">        return resultado;</span>
     }
 
     /**
@@ -393,47 +386,47 @@ public class TiendaNegocio {
      * @return ganancia total
      */
     public float cantidadAlimentos(){
-<span class="fc" id="L396">        float resultado = 0;</span>
-<span class="fc bfc" id="L397" title="All 2 branches covered.">        for (Alimento alimento : alimentos) {</span>
-<span class="pc bpc" id="L398" title="1 of 2 branches missed.">            if (!alimento.productoCaducado()) {</span>
-<span class="nc" id="L399">                resultado += alimento.cantidadDisponible();</span>
+<span class="fc" id="L389">        float resultado = 0;</span>
+<span class="fc bfc" id="L390" title="All 2 branches covered.">        for (Alimento alimento : alimentos) {</span>
+<span class="fc bfc" id="L391" title="All 2 branches covered.">            if (!alimento.productoCaducado()) {</span>
+<span class="fc" id="L392">                resultado += alimento.cantidadDisponible();</span>
             }
             
-<span class="fc" id="L402">        }</span>
-<span class="fc" id="L403">        return resultado;</span>
+<span class="fc" id="L395">        }</span>
+<span class="fc" id="L396">        return resultado;</span>
     }
     /**
      * Suma todos las cantidades de los aparatos
      * @return ganacia total
      */
     public float cantidadAparatos(){
-<span class="fc" id="L410">        float resultado = 0;</span>
-<span class="fc bfc" id="L411" title="All 2 branches covered.">        for (Aparato aparato : aparatos.values()) {</span>
-<span class="fc" id="L412">            resultado += aparato.cantidadDisponible();</span>
-<span class="fc" id="L413">        }</span>
-<span class="fc" id="L414">        return resultado;</span>
+<span class="fc" id="L403">        float resultado = 0;</span>
+<span class="fc bfc" id="L404" title="All 2 branches covered.">        for (Aparato aparato : aparatos.values()) {</span>
+<span class="fc" id="L405">            resultado += aparato.cantidadDisponible();</span>
+<span class="fc" id="L406">        }</span>
+<span class="fc" id="L407">        return resultado;</span>
     }
     /**
      * Suma todos las ganancias de los cuidados personales
      * @return precio total
      */
     public float cantidadCuidadoPersonales(){
-<span class="fc" id="L421">        float resultado = 0;</span>
-<span class="fc bfc" id="L422" title="All 2 branches covered.">        for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
-<span class="fc" id="L423">            resultado += cuidadoPersonal.cantidadDisponible();</span>
-<span class="fc" id="L424">        }</span>
-<span class="fc" id="L425">        return resultado;</span>
+<span class="fc" id="L414">        float resultado = 0;</span>
+<span class="fc bfc" id="L415" title="All 2 branches covered.">        for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
+<span class="fc" id="L416">            resultado += cuidadoPersonal.cantidadDisponible();</span>
+<span class="fc" id="L417">        }</span>
+<span class="fc" id="L418">        return resultado;</span>
     }
     /**
      * Suma todos las ganancias de los souvenirs
      * @return precio total
      */
     public float cantidadSouvenirs(){
-<span class="fc" id="L432">        float resultado = 0;</span>
-<span class="fc bfc" id="L433" title="All 2 branches covered.">        for (Souvenir souvenir : souvenirs) {</span>
-<span class="fc" id="L434">            resultado += souvenir.cantidadDisponible();</span>
-<span class="fc" id="L435">        }</span>
-<span class="fc" id="L436">        return resultado;</span>
+<span class="fc" id="L425">        float resultado = 0;</span>
+<span class="fc bfc" id="L426" title="All 2 branches covered.">        for (Souvenir souvenir : souvenirs) {</span>
+<span class="fc" id="L427">            resultado += souvenir.cantidadDisponible();</span>
+<span class="fc" id="L428">        }</span>
+<span class="fc" id="L429">        return resultado;</span>
     }
     /**
      * Devuelve la cantidad de todos los productos
@@ -441,7 +434,7 @@ public class TiendaNegocio {
      */
     public float cantidadProductos(){
         
-<span class="fc" id="L444">        return cantidadAlimentos() + cantidadAparatos() + cantidadCuidadoPersonales() + cantidadSouvenirs();</span>
+<span class="fc" id="L437">        return cantidadAlimentos() + cantidadAparatos() + cantidadCuidadoPersonales() + cantidadSouvenirs();</span>
     }
 
     /**
@@ -449,69 +442,69 @@ public class TiendaNegocio {
      * @return una hashset de los productos
      */
     public Set&lt;CuidadoPersonal&gt; productosRecomendados(){
-<span class="fc" id="L452">        HashSet&lt;CuidadoPersonal&gt; productosRecomendados = new HashSet&lt;&gt;();</span>
-<span class="fc bfc" id="L453" title="All 2 branches covered.">        for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
-<span class="fc bfc" id="L454" title="All 2 branches covered.">            if (cuidadoPersonal.recomendarProducto()) {</span>
-<span class="fc" id="L455">                productosRecomendados.add(cuidadoPersonal);</span>
+<span class="fc" id="L445">        HashSet&lt;CuidadoPersonal&gt; productosRecomendados = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L446" title="All 2 branches covered.">        for (CuidadoPersonal cuidadoPersonal : cuidadoPersonales) {</span>
+<span class="fc bfc" id="L447" title="All 2 branches covered.">            if (cuidadoPersonal.recomendarProducto()) {</span>
+<span class="fc" id="L448">                productosRecomendados.add(cuidadoPersonal);</span>
             }
-<span class="fc" id="L457">        }</span>
-<span class="fc" id="L458">        return productosRecomendados;</span>
+<span class="fc" id="L450">        }</span>
+<span class="fc" id="L451">        return productosRecomendados;</span>
     }
 
-    public boolean venderAlimento(String udi){
-<span class="pc bpc" id="L462" title="1 of 2 branches missed.">        if (!obtenerAlimento(udi).productoCaducado()) {</span>
-<span class="nc" id="L463">            return eliminarAlimento(udi);</span>
+    public boolean venderAlimento(String udi)throws ParseException{
+<span class="pc bpc" id="L455" title="1 of 2 branches missed.">        if (!obtenerAlimento(udi).productoCaducado()) {</span>
+<span class="fc" id="L456">            return eliminarAlimento(udi);</span>
         }
-<span class="fc" id="L465">        return true;</span>
+<span class="nc" id="L458">        return false;</span>
     }
 
     public List&lt;Alimento&gt; obtenerAlimentos()throws IOException,ParseException{
-<span class="fc" id="L469">        List&lt;Alimento&gt; alimentosObtener = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L470" title="All 2 branches covered.">        for (Producto producto : ficheros.leer(Ficheros.RUTA_ALIMENTOS_CSV,Ficheros.ALIMENTO)) {</span>
-<span class="fc" id="L471">                alimentosObtener.add((Alimento)producto);</span>
-<span class="fc" id="L472">        }</span>
-<span class="fc" id="L473">        return alimentosObtener;</span>
+<span class="fc" id="L462">        List&lt;Alimento&gt; alimentosObtener = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L463" title="All 2 branches covered.">        for (Producto producto : ficheros.leer(Ficheros.RUTA_ALIMENTOS_CSV,Ficheros.ALIMENTO)) {</span>
+<span class="fc" id="L464">                alimentosObtener.add((Alimento)producto);</span>
+<span class="fc" id="L465">        }</span>
+<span class="fc" id="L466">        return alimentosObtener;</span>
     }
     public Map&lt;String, Aparato&gt; obtenerAparatos()throws IOException,ParseException{
-<span class="fc" id="L476">        Map&lt;String, Aparato&gt; aparatosObtener = new HashMap&lt;&gt;();</span>
-<span class="fc bfc" id="L477" title="All 2 branches covered.">        for (Producto producto : ficheros.leer(Ficheros.RUTA_APARATOS_CSV,Ficheros.APARATO)) {</span>
-<span class="fc" id="L478">                aparatosObtener.put(producto.getUdi(),(Aparato)producto);</span>
-<span class="fc" id="L479">        }</span>
-<span class="fc" id="L480">        return aparatosObtener;</span>
+<span class="fc" id="L469">        Map&lt;String, Aparato&gt; aparatosObtener = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L470" title="All 2 branches covered.">        for (Producto producto : ficheros.leer(Ficheros.RUTA_APARATOS_CSV,Ficheros.APARATO)) {</span>
+<span class="fc" id="L471">                aparatosObtener.put(producto.getUdi(),(Aparato)producto);</span>
+<span class="fc" id="L472">        }</span>
+<span class="fc" id="L473">        return aparatosObtener;</span>
     }
     public Set&lt;CuidadoPersonal&gt; obtenerCuidadoPersonal()throws IOException,ParseException{
-<span class="fc" id="L483">        Set&lt;CuidadoPersonal&gt; cuidadosPersonalesObtener = new HashSet&lt;&gt;();</span>
-<span class="fc bfc" id="L484" title="All 2 branches covered.">        for (Producto producto : ficheros.leer(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,Ficheros.CUIDADO_PERSONAL)) {</span>
-<span class="fc" id="L485">                cuidadosPersonalesObtener.add((CuidadoPersonal)producto);</span>
-<span class="fc" id="L486">        }</span>
-<span class="fc" id="L487">        return cuidadosPersonalesObtener;</span>
+<span class="fc" id="L476">        Set&lt;CuidadoPersonal&gt; cuidadosPersonalesObtener = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L477" title="All 2 branches covered.">        for (Producto producto : ficheros.leer(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,Ficheros.CUIDADO_PERSONAL)) {</span>
+<span class="fc" id="L478">                cuidadosPersonalesObtener.add((CuidadoPersonal)producto);</span>
+<span class="fc" id="L479">        }</span>
+<span class="fc" id="L480">        return cuidadosPersonalesObtener;</span>
     }
     public Set&lt;Souvenir&gt; obtenerSouvenirs()throws IOException,ParseException{
-<span class="fc" id="L490">        Set&lt;Souvenir&gt; souvenirsObtener = new HashSet&lt;&gt;();</span>
-<span class="fc bfc" id="L491" title="All 2 branches covered.">        for (Producto producto : ficheros.leer(Ficheros.RUTA_SOUVENIRS_CSV,Ficheros.SOUVENIR)) {</span>
-<span class="fc" id="L492">                souvenirsObtener.add((Souvenir)producto);</span>
-<span class="fc" id="L493">        }</span>
-<span class="fc" id="L494">        return souvenirsObtener;</span>
+<span class="fc" id="L483">        Set&lt;Souvenir&gt; souvenirsObtener = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L484" title="All 2 branches covered.">        for (Producto producto : ficheros.leer(Ficheros.RUTA_SOUVENIRS_CSV,Ficheros.SOUVENIR)) {</span>
+<span class="fc" id="L485">                souvenirsObtener.add((Souvenir)producto);</span>
+<span class="fc" id="L486">        }</span>
+<span class="fc" id="L487">        return souvenirsObtener;</span>
     }
     public Set&lt;Producto&gt; obtenerProductos()throws ParseException,IOException{
         
-<span class="fc" id="L498">        Set&lt;Producto&gt; productosObtener = new HashSet&lt;&gt;();</span>
-<span class="fc" id="L499">        productosObtener.addAll(ficheros.leer(Ficheros.RUTA_ALIMENTOS_CSV,Ficheros.ALIMENTO));</span>
-<span class="fc" id="L500">        productosObtener.addAll(ficheros.leer(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,Ficheros.CUIDADO_PERSONAL));</span>
-<span class="fc" id="L501">        productosObtener.addAll(ficheros.leer(Ficheros.RUTA_APARATOS_CSV,Ficheros.APARATO));</span>
-<span class="fc" id="L502">        productosObtener.addAll(ficheros.leer(Ficheros.RUTA_SOUVENIRS_CSV,Ficheros.SOUVENIR));</span>
-<span class="fc" id="L503">        return productosObtener;</span>
+<span class="fc" id="L491">        Set&lt;Producto&gt; productosObtener = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L492">        productosObtener.addAll(ficheros.leer(Ficheros.RUTA_ALIMENTOS_CSV,Ficheros.ALIMENTO));</span>
+<span class="fc" id="L493">        productosObtener.addAll(ficheros.leer(Ficheros.RUTA_CUIDADOSPERSONALES_CSV,Ficheros.CUIDADO_PERSONAL));</span>
+<span class="fc" id="L494">        productosObtener.addAll(ficheros.leer(Ficheros.RUTA_APARATOS_CSV,Ficheros.APARATO));</span>
+<span class="fc" id="L495">        productosObtener.addAll(ficheros.leer(Ficheros.RUTA_SOUVENIRS_CSV,Ficheros.SOUVENIR));</span>
+<span class="fc" id="L496">        return productosObtener;</span>
     }
 
 
 
     @Override
     public String toString() {
-<span class="fc" id="L510">        return &quot;{&quot; +</span>
-<span class="fc" id="L511">            &quot; alimentos='&quot; + getAlimentos() + &quot;'&quot; +</span>
-<span class="fc" id="L512">            &quot;, aparatos='&quot; + getAparatos() + &quot;'&quot; +</span>
-<span class="fc" id="L513">            &quot;, cuidadoPersonales='&quot; + getCuidadoPersonales() + &quot;'&quot; +</span>
-<span class="fc" id="L514">            &quot;, souvenirs='&quot; + getSouvenirs() + &quot;'&quot; +</span>
+<span class="fc" id="L503">        return &quot;{&quot; +</span>
+<span class="fc" id="L504">            &quot; alimentos='&quot; + getAlimentos() + &quot;'&quot; +</span>
+<span class="fc" id="L505">            &quot;, aparatos='&quot; + getAparatos() + &quot;'&quot; +</span>
+<span class="fc" id="L506">            &quot;, cuidadoPersonales='&quot; + getCuidadoPersonales() + &quot;'&quot; +</span>
+<span class="fc" id="L507">            &quot;, souvenirs='&quot; + getSouvenirs() + &quot;'&quot; +</span>
             &quot;}&quot;;
     }
 
