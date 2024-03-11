@@ -28,7 +28,6 @@ public class FileCsv extends Ficheros{
             try ( BufferedReader br = new BufferedReader(new FileReader(fichero))) {
                 String linea;
                 while ((linea=br.readLine()) != null) {
-    
                         String[] array = linea.split(",");
                         switch (tipo) {
                             case ALIMENTO:
