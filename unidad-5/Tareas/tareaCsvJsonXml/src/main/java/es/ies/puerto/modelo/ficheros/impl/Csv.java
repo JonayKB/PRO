@@ -20,17 +20,16 @@ public class Csv extends Ficheros{
     private static final int COLUMNA_NOMBRE = 0;
 
     @Override
-    public boolean eliminarEscribir( String textoNuevo) {
-        return escribir(textoNuevo) && eliminar(RUTA_CSV);
+    public boolean eliminarEscribir(List<Personaje> personas) {
+        return eliminar(RUTA_CSV)&&escribir(personas);
     }
 
     @Override
-    public boolean escribir( String textoNuevo) {
+    public boolean escribir(List<Personaje> personas) {
         if (existe(RUTA_CSV)) {
             File file = new File(RUTA_CSV);
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
-                bw.write(textoNuevo);
-                bw.newLine();
+                bw.write(toFile(personas));
                 return true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -48,7 +47,11 @@ public class Csv extends Ficheros{
                 String linea;
                 while ((linea=br.readLine()) != null) {
                     String[] datos = linea.split(SEPARADOR);
-                    Personaje personaNueva = new Personaje(datos[COLUMNA_NOMBRE], datos[COLUMNA_ALIAS], datos[COLUMNA_GENERO], datos[COLUMNA_PODERES]);
+                    List<String> poderes = new ArrayList<>();
+                    for (int i = COLUMNA_PODERES; i < datos.length; i++) {
+                        poderes.add(datos[i]);
+                    }
+                    Personaje personaNueva = new Personaje(datos[COLUMNA_NOMBRE], datos[COLUMNA_ALIAS], datos[COLUMNA_GENERO], poderes);
                     personas.add(personaNueva);
                 }
             } catch (IOException e) {
@@ -60,8 +63,8 @@ public class Csv extends Ficheros{
     }
 
     @Override
-    public boolean modificar( String textoNuevo) {
-        return eliminarEscribir(textoNuevo);
+    public boolean modificar(List<Personaje> personas) {
+        return eliminarEscribir(personas);
     }
 
     @Override

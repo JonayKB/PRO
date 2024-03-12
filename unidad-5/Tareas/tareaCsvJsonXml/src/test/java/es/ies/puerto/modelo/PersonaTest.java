@@ -1,5 +1,7 @@
 package es.ies.puerto.modelo;
 
+import java.util.Arrays;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +17,7 @@ public class PersonaTest {
     Personaje persona;
     @BeforeEach
     public void beforeEach(){
-        persona = new Personaje(NOMBRE, ALIAS, GENERO, PODERES);
+        persona = new Personaje(NOMBRE, ALIAS, GENERO, Arrays.asList(PODERES.split(Ficheros.SEPARADOR)));
     }
     @Test
     public void personaNotNull(){

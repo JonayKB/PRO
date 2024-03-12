@@ -33,12 +33,6 @@ public class Personaje {
         this.genero = genero;
         this.poderes = poderes;
     }
-    public Personaje(String nombre, String alias, String genero, String poderes) {
-        this.nombre = nombre;
-        this.alias = alias;
-        this.genero = genero;
-        this.poderes = Arrays.asList(poderes.split(Ficheros.SEPARADOR));
-    }
 
     public String getNombre() {
         return this.nombre;
@@ -80,7 +74,7 @@ public class Personaje {
         StringBuilder stringBuilder = new StringBuilder();
         int i = 0;
         while (i<poderes.size()-1) {
-            stringBuilder.append(poderes.get(i));
+            stringBuilder.append(poderes.get(i)).append(Ficheros.SEPARADOR);
             i++;
         }
         stringBuilder.append(poderes.get(i));

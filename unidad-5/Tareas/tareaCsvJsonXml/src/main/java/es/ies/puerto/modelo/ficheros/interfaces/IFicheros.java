@@ -8,9 +8,9 @@ public interface IFicheros {
     public List<Personaje> leer();
     public boolean eliminar(String path);
     public boolean existe(String path);
-    public boolean eliminarEscribir( String textoNuevo);
-    public boolean escribir( String textoNuevo);
-    public boolean modificar( String textoNuevo);
+    public boolean eliminarEscribir(List<Personaje> personas);
+    public boolean escribir(List<Personaje> personas);
+    public boolean modificar(List<Personaje> personas);
     public String toFile(List<Personaje> personas);
 
 }

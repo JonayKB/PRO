@@ -14,19 +14,19 @@ public class Json extends Ficheros{
     }
 
     @Override
-    public boolean eliminarEscribir(String textoNuevo) {
+    public boolean eliminarEscribir(List<Personaje> personas) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'eliminarEscribir'");
     }
 
     @Override
-    public boolean escribir(String textoNuevo) {
+    public boolean escribir(List<Personaje> personas) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'escribir'");
     }
 
     @Override
-    public boolean modificar(String textoNuevo) {
+    public boolean modificar(List<Personaje> personas) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'modificar'");
     }
@@ -36,6 +36,8 @@ public class Json extends Ficheros{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'toFile'");
     }
+
+
 
     
     

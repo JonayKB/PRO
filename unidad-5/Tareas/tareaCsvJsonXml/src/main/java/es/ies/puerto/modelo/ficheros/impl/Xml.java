@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.core.Persister;
@@ -18,22 +19,14 @@ public class Xml extends Ficheros{
         System.out.println();
         
     }
-    @Override
-    public boolean eliminarEscribir(String textoNuevo) {
-        return false;
-    }
+
     public boolean eliminarEscribir(List<Personaje> personajes) {
         return escribir(personajes);
     }
 
-    @Override
-    public boolean escribir(String textoNuevo) {
-        return false;
-    }
     public boolean escribir(List<Personaje> personajes) {
         PersonajeContainer personajeContainer = new PersonajeContainer();
-        personajeContainer.setPersonajes(personajes);
-        
+        personajeContainer.setPersonajes(personajes.stream().map(Personaje::toDto).collect(Collectors.toList()));
         try  {
             Persister persister = new Persister();
             persister.write(personajeContainer, new File(RUTA_XML));
@@ -61,9 +54,8 @@ public class Xml extends Ficheros{
     }
 
     @Override
-    public boolean modificar(String textoNuevo) {
-        // TODO Auto-generated method stub
-        return false;
+    public boolean modificar(List<Personaje> personas) {
+        return eliminarEscribir(personas);
     }
 
     @Override
