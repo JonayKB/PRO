@@ -1,5 +1,6 @@
 package es.ies.puerto.modelo.ficheros;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.ficheros.impl.Xml;
 import es.ies.puerto.modelo.impl.Personaje;
+import es.ies.puerto.modelo.impl.PoderContainer;
 
 public class XmlTest {
     private static final String NOMBRE = "Nombre";
@@ -20,25 +22,27 @@ public class XmlTest {
     Xml xml;
     List<Personaje> personajes;
     Personaje personajeEscribir;
+    List<Personaje> personajesEscribir;
     @BeforeEach
     public void beforeEach(){
         xml = new Xml();
-        System.out.println(personajes = xml.leer());
-        List<String> poderes = Arrays.asList("poder1,poder2,poder3".split(Ficheros.SEPARADOR));
+        personajes = xml.leer();
+        List<String> poderes = Arrays.asList("Poder1","Poder2","Poder3");
         personajeEscribir = new Personaje(NOMBRE, ALIAS, GENERO, poderes);
-        List<Personaje> personajesEscribir = Arrays.asList(personajeEscribir);
+        personajesEscribir = new ArrayList<>();
+        personajesEscribir.add(personajeEscribir);
         xml.escribir(personajesEscribir);
     }
     @AfterEach
     public void afterEach(){
-        //xml.escribir(personajes);
+        xml.escribir(personajes);
     }
     @Test
-    public void XmlNotNull(){
+    public void XmlNotNullTest(){
         Assertions.assertNotNull(xml);
     }
     @Test
-    public void XmlLeerEscribir(){
-        Assertions.assertEquals(personajeEscribir, xml.leer());
+    public void XmlLeerEscribirTest(){
+        Assertions.assertEquals(personajesEscribir.toString(),xml.leer().toString());
     }
 }

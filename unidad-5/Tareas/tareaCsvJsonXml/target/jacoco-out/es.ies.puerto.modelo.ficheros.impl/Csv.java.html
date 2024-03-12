@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Csv.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">tareacsvjsonxml</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.modelo.ficheros.impl</a> &gt; <span class="el_source">Csv.java</span></div><h1>Csv.java</h1><pre class="source lang-java linenums">package es.ies.puerto.modelo.ficheros.impl;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
+import es.ies.puerto.modelo.impl.Personaje;
+import es.ies.puerto.modelo.impl.PoderContainer;
+
+<span class="fc" id="L16">public class Csv extends Ficheros{</span>
+
+    private static final int COLUMNA_PODERES = 3;
+    private static final int COLUMNA_GENERO = 2;
+    private static final int COLUMNA_ALIAS = 1;
+    private static final int COLUMNA_NOMBRE = 0;
+
+    @Override
+    public boolean actualizar(List&lt;Personaje&gt; personas) {
+<span class="pc bpc" id="L25" title="2 of 4 branches missed.">        return eliminar(RUTA_CSV)&amp;&amp;escribir(personas);</span>
+    }
+
+    @Override
+    public boolean escribir(List&lt;Personaje&gt; personas) {
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        if (existe(RUTA_CSV)) {</span>
+<span class="fc" id="L31">            File file = new File(RUTA_CSV);</span>
+<span class="fc" id="L32">            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {</span>
+<span class="fc" id="L33">                bw.write(toFile(personas));</span>
+<span class="fc" id="L34">                return true;</span>
+<span class="nc" id="L35">            } catch (IOException e) {</span>
+<span class="nc" id="L36">                e.printStackTrace();</span>
+            }
+        }
+<span class="nc" id="L39">        return false;</span>
+    }
+
+    @Override
+    public List&lt;Personaje&gt; leer() {
+<span class="fc" id="L44">        List&lt;Personaje&gt; personas = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        if (existe(RUTA_CSV)) {</span>
+<span class="fc" id="L46">            File file = new File(RUTA_CSV);</span>
+<span class="fc" id="L47">            try (BufferedReader br = new BufferedReader(new FileReader(file))) {</span>
+                String linea;
+<span class="fc bfc" id="L49" title="All 2 branches covered.">                while ((linea=br.readLine()) != null) {</span>
+<span class="fc" id="L50">                    String[] datos = linea.split(SEPARADOR);</span>
+<span class="fc" id="L51">                    List&lt;String&gt; poderes = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">                    for (int i = COLUMNA_PODERES; i &lt; datos.length; i++) {</span>
+<span class="fc" id="L53">                        poderes.add(datos[i]);</span>
+                    }
+<span class="fc" id="L55">                    Personaje personaNueva = new Personaje(datos[COLUMNA_NOMBRE], datos[COLUMNA_ALIAS], datos[COLUMNA_GENERO], poderes);</span>
+<span class="fc" id="L56">                    personas.add(personaNueva);</span>
+<span class="fc" id="L57">                }</span>
+<span class="nc" id="L58">            } catch (IOException e) {</span>
+<span class="nc" id="L59">                e.printStackTrace();</span>
+<span class="fc" id="L60">            }</span>
+            
+        }
+<span class="fc" id="L63">        return personas;</span>
+    }
+
+    @Override
+    public boolean modificar(List&lt;Personaje&gt; personas) {
+<span class="nc" id="L68">        return actualizar(personas);</span>
+    }
+
+    @Override
+    public String toFile(List&lt;Personaje&gt; personas) {
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">        if (personas.isEmpty()) {</span>
+<span class="nc" id="L74">            return null;</span>
+        }
+<span class="fc" id="L76">        StringBuilder contenidoBuilder = new StringBuilder();</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        for (Personaje persona : personas) {</span>
+<span class="fc" id="L78">            contenidoBuilder.append(persona.toCsv()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L79">        }</span>
+<span class="fc" id="L80">        return contenidoBuilder.toString();</span>
+    }
+
+
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

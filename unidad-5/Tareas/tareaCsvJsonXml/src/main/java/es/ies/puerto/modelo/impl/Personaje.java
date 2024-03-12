@@ -1,27 +1,38 @@
 package es.ies.puerto.modelo.impl;
 
 
+
+
 import java.util.Arrays;
 import java.util.List;
 
 import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Path;
+
 import org.simpleframework.xml.Root;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 @Root(name = "personaje")
 public class Personaje {
     @Element(name = "nombre")
+    @Expose
     private String nombre;
+
     @Element(name = "alias")
+    @Expose
     private String alias;
 
     @Element(name = "genero")
+    @Expose
     private String genero;
 
-    @ElementList(name = "poderes")
+    @Expose
     private List<String> poderes;
+
+    @Element(name = "poderes")
+    private PoderContainer poderContainer;
 
 
     public Personaje() {
@@ -32,7 +43,11 @@ public class Personaje {
         this.alias = alias;
         this.genero = genero;
         this.poderes = poderes;
+        poderContainer = new PoderContainer(poderes);
     }
+    
+    
+
 
     public String getNombre() {
         return this.nombre;
@@ -58,12 +73,12 @@ public class Personaje {
         this.genero = genero;
     }
 
-    public List<String> getPoderes() {
-        return this.poderes;
+    public PoderContainer getPoderContainer() {
+        return this.poderContainer;
     }
 
-    public void setPoderes(List<String> poderes) {
-        this.poderes = poderes;
+    public void setPoderContainer(PoderContainer poderes) {
+        this.poderContainer = poderes;
     }
 
 
@@ -82,6 +97,14 @@ public class Personaje {
     }
     @Override
     public String toString() {
+        if (poderes == null) {
+            return "{" +
+            " nombre='" + nombre + "'" +
+            ", alias='" + alias + "'" +
+            ", genero='" + genero + "'" +
+            ", poderes='" + poderContainer.getPoderes() + "'" +
+            "}";
+        }
         return "{" +
             " nombre='" + nombre + "'" +
             ", alias='" + alias + "'" +

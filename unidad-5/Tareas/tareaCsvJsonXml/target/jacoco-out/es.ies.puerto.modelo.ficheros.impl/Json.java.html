@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Json.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">tareacsvjsonxml</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.modelo.ficheros.impl</a> &gt; <span class="el_source">Json.java</span></div><h1>Json.java</h1><pre class="source lang-java linenums">package es.ies.puerto.modelo.ficheros.impl;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
+import es.ies.puerto.modelo.impl.Personaje;
+import es.ies.puerto.modelo.impl.PersonajeContainer;
+
+<span class="fc" id="L19">public class Json extends Ficheros{</span>
+
+    @Override
+    public List&lt;Personaje&gt; leer() {
+<span class="fc" id="L23">        List&lt;Personaje&gt; personajes = new ArrayList&lt;&gt;();</span>
+        try {
+<span class="fc" id="L25">            String json = new String(Files.readAllBytes(Paths.get(RUTA_JSON)));</span>
+<span class="fc" id="L26">            Type listType = new TypeToken&lt;ArrayList&lt;Personaje&gt;&gt;(){}.getType();</span>
+<span class="fc" id="L27">            personajes = new Gson().fromJson(json, listType);</span>
+<span class="nc" id="L28">        } catch (IOException e) {</span>
+<span class="nc" id="L29">            e.printStackTrace();</span>
+<span class="fc" id="L30">        }</span>
+<span class="fc" id="L31">        return personajes;</span>
+
+    }
+
+    @Override
+    public boolean actualizar(List&lt;Personaje&gt; personas) {
+<span class="nc" id="L37">        return escribir(personas);</span>
+    }
+
+    @Override
+    public boolean escribir(List&lt;Personaje&gt; personas) {
+<span class="fc" id="L42">        try (FileWriter writer = new FileWriter(RUTA_JSON)) {</span>
+<span class="fc" id="L43">            new GsonBuilder().setPrettyPrinting().create().toJson(personas, writer);</span>
+<span class="fc" id="L44">            return true;</span>
+<span class="nc" id="L45">        } catch (IOException e) {</span>
+<span class="nc" id="L46">            e.printStackTrace();</span>
+        }
+<span class="nc" id="L48">        return false;</span>
+    }
+
+    @Override
+    public boolean modificar(List&lt;Personaje&gt; personas) {
+<span class="nc" id="L53">        return escribir(personas);</span>
+    }
+
+    @Override
+    public String toFile(List&lt;Personaje&gt; personas) {
+<span class="nc" id="L58">        return null;</span>
+    }
+
+
+
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.ficheros.impl.Csv;
 import es.ies.puerto.modelo.impl.Personaje;
+import es.ies.puerto.modelo.impl.PoderContainer;
 
 public class CsvTest {
     private Csv csv;
@@ -33,22 +34,22 @@ public class CsvTest {
     }
 
     @Test
-    public void CsvNotNull(){
+    public void CsvNotNullTest(){
         Assertions.assertNotNull(csv);
     }
 
     @Test
-    public void CsvLeerEscribir(){
+    public void CsvLeerEscribirTest(){
         csv.escribir(personasEscribir);
         Assertions.assertEquals(csv.leer().toString(), personasEscribir.toString());;
     }
     @Test
-    public void CsvEliminar(){
+    public void CsvEliminarTest(){
         csv.eliminar(Ficheros.RUTA_CSV);
         Assertions.assertEquals("[]", csv.leer().toString());
     }
     @Test
-    public void CsvActualizar(){
+    public void CsvActualizarTest(){
         csv.actualizar(personasEscribir);
         Assertions.assertEquals(csv.leer().toString(), personasEscribir.toString());;
     }

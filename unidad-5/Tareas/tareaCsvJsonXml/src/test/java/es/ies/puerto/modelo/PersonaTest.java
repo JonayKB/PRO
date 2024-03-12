@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.impl.Personaje;
+import es.ies.puerto.modelo.impl.PoderContainer;
 
 public class PersonaTest {
     private static final String PODERES = "poder1,poder2,poder3";

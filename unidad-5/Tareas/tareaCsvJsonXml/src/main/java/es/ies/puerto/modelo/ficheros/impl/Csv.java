@@ -11,6 +11,7 @@ import java.util.List;
 
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.impl.Personaje;
+import es.ies.puerto.modelo.impl.PoderContainer;
 
 public class Csv extends Ficheros{
 

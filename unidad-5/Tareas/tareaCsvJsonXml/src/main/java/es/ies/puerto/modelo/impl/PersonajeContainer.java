@@ -5,6 +5,8 @@ import java.util.List;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
+import com.google.gson.annotations.SerializedName;
+
 @Root(name = "personajes")
 public class PersonajeContainer {
     @ElementList(inline = true)
