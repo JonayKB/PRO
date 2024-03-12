@@ -20,7 +20,7 @@ public class Csv extends Ficheros{
     private static final int COLUMNA_NOMBRE = 0;
 
     @Override
-    public boolean eliminarEscribir(List<Personaje> personas) {
+    public boolean actualizar(List<Personaje> personas) {
         return eliminar(RUTA_CSV)&&escribir(personas);
     }
 
@@ -64,7 +64,7 @@ public class Csv extends Ficheros{
 
     @Override
     public boolean modificar(List<Personaje> personas) {
-        return eliminarEscribir(personas);
+        return actualizar(personas);
     }
 
     @Override

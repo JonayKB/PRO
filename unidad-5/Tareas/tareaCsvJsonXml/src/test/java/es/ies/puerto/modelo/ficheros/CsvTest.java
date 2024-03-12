@@ -29,7 +29,7 @@ public class CsvTest {
     }
     @AfterEach
     public void afterEach(){
-        csv.eliminarEscribir(personas);
+        csv.actualizar(personas);
     }
 
     @Test
@@ -48,8 +48,8 @@ public class CsvTest {
         Assertions.assertEquals("[]", csv.leer().toString());
     }
     @Test
-    public void CsvEliminarEscribir(){
-        csv.eliminarEscribir(personasEscribir);
+    public void CsvActualizar(){
+        csv.actualizar(personasEscribir);
         Assertions.assertEquals(csv.leer().toString(), personasEscribir.toString());;
     }
 }

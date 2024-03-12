@@ -23,15 +23,15 @@ public class XmlTest {
     @BeforeEach
     public void beforeEach(){
         xml = new Xml();
-        personajes = xml.leer();
+        System.out.println(personajes = xml.leer());
         List<String> poderes = Arrays.asList("poder1,poder2,poder3".split(Ficheros.SEPARADOR));
         personajeEscribir = new Personaje(NOMBRE, ALIAS, GENERO, poderes);
         List<Personaje> personajesEscribir = Arrays.asList(personajeEscribir);
-        xml.eliminarEscribir(personajesEscribir);
+        xml.escribir(personajesEscribir);
     }
     @AfterEach
     public void afterEach(){
-        xml.eliminarEscribir(personajes);
+        //xml.escribir(personajes);
     }
     @Test
     public void XmlNotNull(){
@@ -39,6 +39,6 @@ public class XmlTest {
     }
     @Test
     public void XmlLeerEscribir(){
-        Assertions.assertEquals("a",xml.leer().toString() );
+        Assertions.assertEquals(personajeEscribir, xml.leer());
     }
 }

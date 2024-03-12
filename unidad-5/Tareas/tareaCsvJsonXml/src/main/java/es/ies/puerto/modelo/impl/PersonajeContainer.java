@@ -17,5 +17,13 @@ public class PersonajeContainer {
     public void setPersonajes(List<Personaje> personajes) {
         this.personajes = personajes;
     }
+    public PersonajeContainer(List<Personaje> personajes) {
+        this.personajes = personajes;
+    }
+    public PersonajeContainer() {
+    }
+    
 
 }
+
+    

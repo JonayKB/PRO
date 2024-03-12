@@ -14,7 +14,7 @@ public class Json extends Ficheros{
     }
 
     @Override
-    public boolean eliminarEscribir(List<Personaje> personas) {
+    public boolean actualizar(List<Personaje> personas) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'eliminarEscribir'");
     }
