@@ -11,11 +11,71 @@ import es.ies.puerto.negocio.interfaces.INegocio;
 
 public class Negocio implements INegocio {
     IFicheros ficheros;
+    List&lt;Personaje&gt; personas;
+<span class="fc" id="L15">    public Negocio() {</span>
+<span class="fc" id="L16">        ficheros = new Xml();</span>
+<span class="fc" id="L17">        personas = ficheros.leer();</span>
+<span class="fc" id="L18">    }</span>
+    public Personaje obtenerPersonaje(String alias){
+<span class="nc bnc" id="L20" title="All 2 branches missed.">        if (personas.isEmpty()) {</span>
+<span class="nc" id="L21">            return null;</span>
+        }
+<span class="nc" id="L23">        Personaje personajeBuscar = new Personaje(null, alias, null, null);</span>
+<span class="nc" id="L24">        int index = personas.indexOf(personajeBuscar);</span>
+<span class="nc" id="L25">        return personas.get(index);</span>
+    }
+    public boolean agregarPersona(String nombre,String alias, String genero, List&lt;String&gt; poderes){
+<span class="nc" id="L28">        Personaje personaje = new Personaje(nombre, alias, genero, poderes);</span>
+<span class="nc bnc" id="L29" title="All 4 branches missed.">        if (personas.contains(personaje) || personas.isEmpty()) {</span>
+<span class="nc" id="L30">            return true;</span>
+        }
+<span class="nc" id="L32">        personas.add(personaje);</span>
+<span class="nc" id="L33">        return ficheros.actualizar(personas);</span>
+    }
+    public boolean actualizarPersona(String nombre,String alias, String genero, List&lt;String&gt; poderes){
+<span class="nc" id="L36">        Personaje personaje = new Personaje(nombre, alias, genero, poderes);</span>
+<span class="nc bnc" id="L37" title="All 4 branches missed.">        if (!personas.contains(personaje) || personas.isEmpty()) {</span>
+<span class="nc" id="L38">            return false;</span>
+        }
+<span class="nc" id="L40">        personas.remove(personaje);</span>
+<span class="nc" id="L41">        personas.add(personaje);</span>
+<span class="nc" id="L42">        return ficheros.actualizar(personas);</span>
+    }
+    public boolean eliminarPersona(String alias){
+<span class="nc" id="L45">        Personaje personaje = obtenerPersonaje(alias);</span>
+<span class="nc bnc" id="L46" title="All 4 branches missed.">        if (!personas.contains(personaje) || personas.isEmpty()) {</span>
+<span class="nc" id="L47">            return true;</span>
+        }
+<span class="nc" id="L49">        personas.remove(personaje);</span>
+<span class="nc" id="L50">        return ficheros.actualizar(personas);</span>
+    }
+    public String mostrarPersonajesTodosFormatos(){
+<span class="fc" id="L53">        StringBuilder stringBuilder = new StringBuilder();</span>
+<span class="fc" id="L54">        IFicheros ficherosMostrar = new Xml();</span>
+<span class="fc" id="L55">        stringBuilder.append(&quot;XML:\n&quot;).append(ficherosMostrar.leer()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L56">        ficherosMostrar = new Json();</span>
+<span class="fc" id="L57">        stringBuilder.append(&quot;JSON:\n&quot;).append(ficherosMostrar.leer()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L58">        ficherosMostrar = new Csv();</span>
+<span class="fc" id="L59">        stringBuilder.append(&quot;CSV:\n&quot;).append(ficherosMostrar.leer()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L60">        return stringBuilder.toString();</span>
+    }
 
-<span class="nc" id="L15">    public Negocio() {</span>
-<span class="nc" id="L16">        ficheros = new Xml();</span>
-<span class="nc" id="L17">        List&lt;Personaje&gt; personas = ficheros.leer();</span>
-<span class="nc" id="L18">    }</span>
+    public IFicheros getFicheros() {
+<span class="nc" id="L64">        return this.ficheros;</span>
+    }
+
+    public void setFicheros(IFicheros ficheros) {
+<span class="nc" id="L68">        this.ficheros = ficheros;</span>
+<span class="nc" id="L69">    }</span>
+
+    public List&lt;Personaje&gt; getPersonas() {
+<span class="fc" id="L72">        return this.personas;</span>
+    }
+
+    public void setPersonas(List&lt;Personaje&gt; personas) {
+<span class="fc" id="L76">        this.personas = personas;</span>
+<span class="fc" id="L77">        ficheros.actualizar(personas);</span>
+<span class="fc" id="L78">    }</span>
     
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

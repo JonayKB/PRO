@@ -5,6 +5,7 @@ package es.ies.puerto.modelo.impl;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import org.simpleframework.xml.Element;
 
@@ -111,6 +112,22 @@ public class Personaje {
             ", genero='" + genero + "'" +
             ", poderes='" + poderes + "'" +
             "}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Personaje)) {
+            return false;
+        }
+        Personaje personaje = (Personaje) o;
+        return Objects.equals(alias, personaje.alias);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(alias);
     }
 
 }
