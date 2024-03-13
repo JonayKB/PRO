@@ -1,15 +1,10 @@
 package es.ies.puerto.modelo.ficheros.impl;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.convert.AnnotationStrategy;
 import org.simpleframework.xml.core.Persister;
-
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.impl.Personaje;
 import es.ies.puerto.modelo.impl.PersonajeContainer;

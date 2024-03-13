@@ -1,7 +1,6 @@
 package es.ies.puerto.modelo.ficheros.interfaces;
 
 import java.util.List;
-
 import es.ies.puerto.modelo.impl.Personaje;
 
 public interface IFicheros {

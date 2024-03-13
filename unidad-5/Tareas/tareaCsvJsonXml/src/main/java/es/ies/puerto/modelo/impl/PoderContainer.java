@@ -1,8 +1,6 @@
 package es.ies.puerto.modelo.impl;
 
 import java.util.List;
-
-
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 

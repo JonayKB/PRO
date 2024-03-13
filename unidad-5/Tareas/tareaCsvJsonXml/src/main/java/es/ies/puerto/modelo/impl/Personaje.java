@@ -1,20 +1,12 @@
 package es.ies.puerto.modelo.impl;
 
-
-
-
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-
 import org.simpleframework.xml.Element;
-
 import org.simpleframework.xml.Root;
-
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
+
 @Root(name = "personaje")
 public class Personaje {
     @Element(name = "nombre")

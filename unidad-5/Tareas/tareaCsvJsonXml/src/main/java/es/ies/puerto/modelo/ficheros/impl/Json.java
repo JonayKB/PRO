@@ -7,14 +7,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.impl.Personaje;
-import es.ies.puerto.modelo.impl.PersonajeContainer;
 
 public class Json extends Ficheros{
 

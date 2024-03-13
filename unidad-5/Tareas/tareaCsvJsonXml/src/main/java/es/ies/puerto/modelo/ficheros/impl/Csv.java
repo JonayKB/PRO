@@ -7,11 +7,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.impl.Personaje;
-import es.ies.puerto.modelo.impl.PoderContainer;
 
 public class Csv extends Ficheros{
 
@@ -49,9 +48,7 @@ public class Csv extends Ficheros{
                 while ((linea=br.readLine()) != null) {
                     String[] datos = linea.split(SEPARADOR);
                     List<String> poderes = new ArrayList<>();
-                    for (int i = COLUMNA_PODERES; i < datos.length; i++) {
-                        poderes.add(datos[i]);
-                    }
+                    poderes.addAll(Arrays.asList(Arrays.copyOfRange(datos, COLUMNA_PODERES, datos.length)));
                     Personaje personaNueva = new Personaje(datos[COLUMNA_NOMBRE], datos[COLUMNA_ALIAS], datos[COLUMNA_GENERO], poderes);
                     personas.add(personaNueva);
                 }
