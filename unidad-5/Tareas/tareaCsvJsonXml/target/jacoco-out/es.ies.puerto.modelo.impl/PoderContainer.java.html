@@ -5,28 +5,31 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 @Root(name = &quot;poderes&quot;)
+/**
+ * Clase que contiene los poderes
+ */
 public class PoderContainer {
     @ElementList(inline = true, entry = &quot;poder&quot;)
     List&lt;String&gt; poderes;
 
     public List&lt;String&gt; getPoderes() {
-<span class="fc" id="L13">        return this.poderes;</span>
+<span class="fc" id="L16">        return this.poderes;</span>
     }
 
     public void setPoderes(List&lt;String&gt; poderes) {
-<span class="nc" id="L17">        this.poderes = poderes;</span>
-<span class="nc" id="L18">    }</span>
+<span class="nc" id="L20">        this.poderes = poderes;</span>
+<span class="nc" id="L21">    }</span>
 
-<span class="fc" id="L20">    public PoderContainer() {</span>
-<span class="fc" id="L21">    }</span>
+<span class="fc" id="L23">    public PoderContainer() {</span>
+<span class="fc" id="L24">    }</span>
 
-<span class="fc" id="L23">    public PoderContainer(List&lt;String&gt; poderes) {</span>
-<span class="fc" id="L24">        this.poderes = poderes;</span>
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L26">    public PoderContainer(List&lt;String&gt; poderes) {</span>
+<span class="fc" id="L27">        this.poderes = poderes;</span>
+<span class="fc" id="L28">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L29">        return poderes.toString();</span>
+<span class="nc" id="L32">        return poderes.toString();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

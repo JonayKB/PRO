@@ -5,22 +5,25 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 @Root(name = &quot;personajes&quot;)
+/**
+ * Clase que contiene varios personajes
+ */
 public class PersonajeContainer {
     @ElementList(inline = true)
     private List&lt;Personaje&gt; personajes;
 
     public List&lt;Personaje&gt; getPersonajes() {
-<span class="fc" id="L13">        return this.personajes;</span>
+<span class="fc" id="L16">        return this.personajes;</span>
     }
 
     public void setPersonajes(List&lt;Personaje&gt; personajes) {
-<span class="nc" id="L17">        this.personajes = personajes;</span>
-<span class="nc" id="L18">    }</span>
-<span class="fc" id="L19">    public PersonajeContainer(List&lt;Personaje&gt; personajes) {</span>
-<span class="fc" id="L20">        this.personajes = personajes;</span>
-<span class="fc" id="L21">    }</span>
-<span class="fc" id="L22">    public PersonajeContainer() {</span>
-<span class="fc" id="L23">    }</span>
+<span class="nc" id="L20">        this.personajes = personajes;</span>
+<span class="nc" id="L21">    }</span>
+<span class="fc" id="L22">    public PersonajeContainer(List&lt;Personaje&gt; personajes) {</span>
+<span class="fc" id="L23">        this.personajes = personajes;</span>
+<span class="fc" id="L24">    }</span>
+<span class="fc" id="L25">    public PersonajeContainer() {</span>
+<span class="fc" id="L26">    }</span>
     
 
 }

@@ -1,5 +1,6 @@
 package es.ies.puerto.modelo.ficheros;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -46,11 +47,11 @@ public class CsvTest {
     @Test
     public void CsvEliminarTest(){
         csv.eliminar(Ficheros.RUTA_CSV);
-        Assertions.assertEquals("[]", csv.leer().toString());
+        Assertions.assertEquals(Arrays.asList(), csv.leer());
     }
     @Test
-    public void CsvActualizarTest(){
-        csv.actualizar(personasEscribir);
+    public void CsvModificarTest(){
+        csv.modificar(personasEscribir);
         Assertions.assertEquals(csv.leer().toString(), personasEscribir.toString());;
     }
 }

@@ -5,6 +5,9 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 @Root(name = "poderes")
+/**
+ * Clase que contiene los poderes
+ */
 public class PoderContainer {
     @ElementList(inline = true, entry = "poder")
     List<String> poderes;

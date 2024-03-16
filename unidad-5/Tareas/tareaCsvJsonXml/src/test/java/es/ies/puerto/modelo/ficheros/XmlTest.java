@@ -43,6 +43,11 @@ public class XmlTest {
     }
     @Test
     public void XmlLeerEscribirTest(){
-        Assertions.assertEquals(personajesEscribir.toString(),xml.leer().toString());
+        Assertions.assertEquals(personajesEscribir,xml.leer());
+    }
+    @Test
+    public void XmlModificarTest(){
+        xml.modificar(personajes);
+        Assertions.assertEquals(personajes, xml.leer());
     }
 }

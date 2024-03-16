@@ -9,8 +9,11 @@ import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.impl.Personaje;
 import es.ies.puerto.modelo.impl.PersonajeContainer;
 
+/**
+ * Contiene toda las funciones del interfaz necesaria para la administracion de ficheros con XML
+ */
 public class Xml extends Ficheros{
-
+    @Override
     public boolean actualizar(List<Personaje> personajes) {
         PersonajeContainer personajeContainer = new PersonajeContainer(personajes);
         try  {
@@ -47,10 +50,4 @@ public class Xml extends Ficheros{
     public boolean modificar(List<Personaje> personas) {
         return actualizar(personas);
     }
-
-    @Override
-    public String toFile(List<Personaje> personas) {
-        return null;
-    }
-    
 }

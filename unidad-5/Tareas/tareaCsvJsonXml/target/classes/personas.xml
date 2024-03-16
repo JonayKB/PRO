@@ -19,4 +19,14 @@
          <poder>Sentido arácnido</poder>
       </poderes>
    </personaje>
+   <personaje>
+      <nombre>Nombre</nombre>
+      <alias>Alias</alias>
+      <genero>Genero</genero>
+      <poderes>
+         <poder>poder1</poder>
+         <poder>poder2</poder>
+         <poder>poder3</poder>
+      </poderes>
+   </personaje>
 </personajes>

@@ -1,10 +1,10 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-tareacsvjsonxml,es.ies.puerto.modelo.ficheros.impl,Json,18,50,0,0,8,10,3,3,3,3
+tareacsvjsonxml,es.ies.puerto.modelo.ficheros.impl,Json,8,58,0,0,5,12,0,5,0,5
 tareacsvjsonxml,es.ies.puerto.modelo.ficheros.impl,Json.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
-tareacsvjsonxml,es.ies.puerto.modelo.ficheros.impl,Xml,14,57,1,1,7,14,3,4,2,4
-tareacsvjsonxml,es.ies.puerto.modelo.ficheros.impl,Csv,15,134,5,9,7,26,6,7,1,5
+tareacsvjsonxml,es.ies.puerto.modelo.ficheros.impl,Xml,8,61,1,1,5,15,1,5,0,5
+tareacsvjsonxml,es.ies.puerto.modelo.ficheros.impl,Csv,11,138,5,9,6,27,5,8,0,6
 tareacsvjsonxml,es.ies.puerto.modelo.ficheros.abstrac,Ficheros,8,44,4,4,4,10,4,3,0,3
-tareacsvjsonxml,es.ies.puerto.modelo.impl,Personaje,56,94,4,4,19,21,12,7,10,5
+tareacsvjsonxml,es.ies.puerto.modelo.impl,Personaje,9,148,1,7,4,39,3,18,2,15
 tareacsvjsonxml,es.ies.puerto.modelo.impl,PersonajeContainer,4,12,0,0,2,6,1,3,1,3
 tareacsvjsonxml,es.ies.puerto.modelo.impl,PoderContainer,8,12,0,0,3,6,2,3,2,3
-tareacsvjsonxml,es.ies.puerto.negocio.impl,Negocio,123,71,14,0,24,16,13,4,6,4
+tareacsvjsonxml,es.ies.puerto.negocio.impl,Negocio,0,180,4,12,0,36,4,13,0,9

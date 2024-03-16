@@ -11,7 +11,9 @@ import java.util.Arrays;
 import java.util.List;
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.impl.Personaje;
-
+/**
+ * Contiene toda las funciones del interfaz necesaria para la administracion de ficheros con CSV
+ */
 public class Csv extends Ficheros{
 
     private static final int COLUMNA_PODERES = 3;
@@ -21,7 +23,7 @@ public class Csv extends Ficheros{
 
     @Override
     public boolean actualizar(List<Personaje> personas) {
-        return eliminar(RUTA_CSV)&&escribir(personas);
+        return eliminar(RUTA_CSV) && escribir(personas);
     }
 
     @Override
@@ -65,7 +67,11 @@ public class Csv extends Ficheros{
         return actualizar(personas);
     }
 
-    @Override
+    /**
+     * Formatea una lista a CSV
+     * @param personas lista a formatear
+     * @return lista formateada
+     */
     public String toFile(List<Personaje> personas) {
         if (personas.isEmpty()) {
             return null;

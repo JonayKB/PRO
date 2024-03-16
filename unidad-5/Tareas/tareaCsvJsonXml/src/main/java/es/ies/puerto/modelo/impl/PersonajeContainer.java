@@ -5,6 +5,9 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 @Root(name = "personajes")
+/**
+ * Clase que contiene varios personajes
+ */
 public class PersonajeContainer {
     @ElementList(inline = true)
     private List<Personaje> personajes;

@@ -13,6 +13,9 @@ import com.google.gson.reflect.TypeToken;
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.impl.Personaje;
 
+/**
+ * Contiene toda las funciones del interfaz necesaria para la administracion de ficheros con JSON
+ */
 public class Json extends Ficheros{
 
     @Override
@@ -50,10 +53,7 @@ public class Json extends Ficheros{
         return escribir(personas);
     }
 
-    @Override
-    public String toFile(List<Personaje> personas) {
-        return null;
-    }
+
 
 
 

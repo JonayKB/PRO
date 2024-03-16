@@ -11,8 +11,10 @@ import java.util.Arrays;
 import java.util.List;
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.impl.Personaje;
-
-<span class="fc" id="L15">public class Csv extends Ficheros{</span>
+/**
+ * Contiene toda las funciones del interfaz necesaria para la administracion de ficheros con CSV
+ */
+<span class="fc" id="L17">public class Csv extends Ficheros{</span>
 
     private static final int COLUMNA_PODERES = 3;
     private static final int COLUMNA_GENERO = 2;
@@ -21,60 +23,64 @@ import es.ies.puerto.modelo.impl.Personaje;
 
     @Override
     public boolean actualizar(List&lt;Personaje&gt; personas) {
-<span class="pc bpc" id="L24" title="2 of 4 branches missed.">        return eliminar(RUTA_CSV)&amp;&amp;escribir(personas);</span>
+<span class="pc bpc" id="L26" title="2 of 4 branches missed.">        return eliminar(RUTA_CSV) &amp;&amp; escribir(personas);</span>
     }
 
     @Override
     public boolean escribir(List&lt;Personaje&gt; personas) {
-<span class="pc bpc" id="L29" title="1 of 2 branches missed.">        if (existe(RUTA_CSV)) {</span>
-<span class="fc" id="L30">            File file = new File(RUTA_CSV);</span>
-<span class="fc" id="L31">            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {</span>
-<span class="fc" id="L32">                bw.write(toFile(personas));</span>
-<span class="fc" id="L33">                return true;</span>
-<span class="nc" id="L34">            } catch (IOException e) {</span>
-<span class="nc" id="L35">                e.printStackTrace();</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        if (existe(RUTA_CSV)) {</span>
+<span class="fc" id="L32">            File file = new File(RUTA_CSV);</span>
+<span class="fc" id="L33">            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {</span>
+<span class="fc" id="L34">                bw.write(toFile(personas));</span>
+<span class="fc" id="L35">                return true;</span>
+<span class="nc" id="L36">            } catch (IOException e) {</span>
+<span class="nc" id="L37">                e.printStackTrace();</span>
             }
         }
-<span class="nc" id="L38">        return false;</span>
+<span class="nc" id="L40">        return false;</span>
     }
 
     @Override
     public List&lt;Personaje&gt; leer() {
-<span class="fc" id="L43">        List&lt;Personaje&gt; personas = new ArrayList&lt;&gt;();</span>
-<span class="pc bpc" id="L44" title="1 of 2 branches missed.">        if (existe(RUTA_CSV)) {</span>
-<span class="fc" id="L45">            File file = new File(RUTA_CSV);</span>
-<span class="fc" id="L46">            try (BufferedReader br = new BufferedReader(new FileReader(file))) {</span>
+<span class="fc" id="L45">        List&lt;Personaje&gt; personas = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        if (existe(RUTA_CSV)) {</span>
+<span class="fc" id="L47">            File file = new File(RUTA_CSV);</span>
+<span class="fc" id="L48">            try (BufferedReader br = new BufferedReader(new FileReader(file))) {</span>
                 String linea;
-<span class="fc bfc" id="L48" title="All 2 branches covered.">                while ((linea=br.readLine()) != null) {</span>
-<span class="fc" id="L49">                    String[] datos = linea.split(SEPARADOR);</span>
-<span class="fc" id="L50">                    List&lt;String&gt; poderes = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L51">                    poderes.addAll(Arrays.asList(Arrays.copyOfRange(datos, COLUMNA_PODERES, datos.length)));</span>
-<span class="fc" id="L52">                    Personaje personaNueva = new Personaje(datos[COLUMNA_NOMBRE], datos[COLUMNA_ALIAS], datos[COLUMNA_GENERO], poderes);</span>
-<span class="fc" id="L53">                    personas.add(personaNueva);</span>
-<span class="fc" id="L54">                }</span>
-<span class="nc" id="L55">            } catch (IOException e) {</span>
-<span class="nc" id="L56">                e.printStackTrace();</span>
-<span class="fc" id="L57">            }</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">                while ((linea=br.readLine()) != null) {</span>
+<span class="fc" id="L51">                    String[] datos = linea.split(SEPARADOR);</span>
+<span class="fc" id="L52">                    List&lt;String&gt; poderes = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L53">                    poderes.addAll(Arrays.asList(Arrays.copyOfRange(datos, COLUMNA_PODERES, datos.length)));</span>
+<span class="fc" id="L54">                    Personaje personaNueva = new Personaje(datos[COLUMNA_NOMBRE], datos[COLUMNA_ALIAS], datos[COLUMNA_GENERO], poderes);</span>
+<span class="fc" id="L55">                    personas.add(personaNueva);</span>
+<span class="fc" id="L56">                }</span>
+<span class="nc" id="L57">            } catch (IOException e) {</span>
+<span class="nc" id="L58">                e.printStackTrace();</span>
+<span class="fc" id="L59">            }</span>
             
         }
-<span class="fc" id="L60">        return personas;</span>
+<span class="fc" id="L62">        return personas;</span>
     }
 
     @Override
     public boolean modificar(List&lt;Personaje&gt; personas) {
-<span class="nc" id="L65">        return actualizar(personas);</span>
+<span class="fc" id="L67">        return actualizar(personas);</span>
     }
 
-    @Override
+    /**
+     * Formatea una lista a CSV
+     * @param personas lista a formatear
+     * @return lista formateada
+     */
     public String toFile(List&lt;Personaje&gt; personas) {
-<span class="pc bpc" id="L70" title="1 of 2 branches missed.">        if (personas.isEmpty()) {</span>
-<span class="nc" id="L71">            return null;</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        if (personas.isEmpty()) {</span>
+<span class="nc" id="L77">            return null;</span>
         }
-<span class="fc" id="L73">        StringBuilder contenidoBuilder = new StringBuilder();</span>
-<span class="fc bfc" id="L74" title="All 2 branches covered.">        for (Personaje persona : personas) {</span>
-<span class="fc" id="L75">            contenidoBuilder.append(persona.toCsv()).append(&quot;\n&quot;);</span>
-<span class="fc" id="L76">        }</span>
-<span class="fc" id="L77">        return contenidoBuilder.toString();</span>
+<span class="fc" id="L79">        StringBuilder contenidoBuilder = new StringBuilder();</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        for (Personaje persona : personas) {</span>
+<span class="fc" id="L81">            contenidoBuilder.append(persona.toCsv()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L82">        }</span>
+<span class="fc" id="L83">        return contenidoBuilder.toString();</span>
     }
 
 

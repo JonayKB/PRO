@@ -5,8 +5,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import es.ies.puerto.modelo.ficheros.interfaces.IFicheros;
-
-<span class="fc" id="L9">public abstract class Ficheros implements IFicheros{</span>
+/**
+ * Contiene la base de archivos que usa la mayoria de gestores de ficheros
+ */
+<span class="fc" id="L11">public abstract class Ficheros implements IFicheros{</span>
     public static final String RUTA_CSV=&quot;src/main/resources/personas.csv&quot;;
     public static final String RUTA_XML=&quot;src/main/resources/personas.xml&quot;;
     public static final String RUTA_JSON=&quot;src/main/resources/personas.json&quot;;
@@ -15,26 +17,26 @@ import es.ies.puerto.modelo.ficheros.interfaces.IFicheros;
 
     @Override
     public boolean existe(String path){
-<span class="pc bpc" id="L18" title="1 of 2 branches missed.">        if (path.isEmpty()) {</span>
-<span class="nc" id="L19">            return false;</span>
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">        if (path.isEmpty()) {</span>
+<span class="nc" id="L21">            return false;</span>
         }
-<span class="fc" id="L21">        File file = new File(path);</span>
-<span class="pc bpc" id="L22" title="2 of 4 branches missed.">        return file.exists() &amp;&amp; file.isFile();</span>
+<span class="fc" id="L23">        File file = new File(path);</span>
+<span class="pc bpc" id="L24" title="2 of 4 branches missed.">        return file.exists() &amp;&amp; file.isFile();</span>
     }
 
     @Override
     public boolean eliminar(String path){
-<span class="pc bpc" id="L27" title="1 of 2 branches missed.">        if (existe(path)) {</span>
-<span class="fc" id="L28">            File file = new File(path);</span>
-<span class="fc" id="L29">            try (FileOutputStream fileOutputStream = new FileOutputStream(file)) {</span>
-<span class="fc" id="L30">                byte[] vacio = {};</span>
-<span class="fc" id="L31">                fileOutputStream.write(vacio);</span>
-<span class="fc" id="L32">                return true;</span>
-<span class="nc" id="L33">            } catch (IOException e) {</span>
-<span class="nc" id="L34">                e.printStackTrace();</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">        if (existe(path)) {</span>
+<span class="fc" id="L30">            File file = new File(path);</span>
+<span class="fc" id="L31">            try (FileOutputStream fileOutputStream = new FileOutputStream(file)) {</span>
+<span class="fc" id="L32">                byte[] vacio = {};</span>
+<span class="fc" id="L33">                fileOutputStream.write(vacio);</span>
+<span class="fc" id="L34">                return true;</span>
+<span class="nc" id="L35">            } catch (IOException e) {</span>
+<span class="nc" id="L36">                e.printStackTrace();</span>
             }
         }
-<span class="nc" id="L37">        return false;</span>
+<span class="nc" id="L39">        return false;</span>
     }
 
 

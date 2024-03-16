@@ -5,7 +5,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import es.ies.puerto.modelo.ficheros.interfaces.IFicheros;
-
+/**
+ * Contiene la base de archivos que usa la mayoria de gestores de ficheros
+ */
 public abstract class Ficheros implements IFicheros{
     public static final String RUTA_CSV="src/main/resources/personas.csv";
     public static final String RUTA_XML="src/main/resources/personas.xml";

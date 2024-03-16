@@ -8,6 +8,9 @@ import com.google.gson.annotations.Expose;
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 
 @Root(name = "personaje")
+/**
+ * Clase base que contiene toda la informacion del personaje
+ */
 public class Personaje {
     @Element(name = "nombre")
     @Expose
@@ -66,6 +69,14 @@ public class Personaje {
         this.genero = genero;
     }
 
+    public List<String> getPoderes() {
+        return this.poderes;
+    }
+
+    public void setPoderes(List<String> poderes) {
+        this.poderes = poderes;
+    }
+
     public PoderContainer getPoderContainer() {
         return this.poderContainer;
     }
@@ -74,10 +85,17 @@ public class Personaje {
         this.poderContainer = poderes;
     }
 
-
+    /**
+     * Transforma el objeto a un texto formateado a csv
+     * @return el texto formateado
+     */
     public String toCsv(){
         return nombre+Ficheros.SEPARADOR+alias+Ficheros.SEPARADOR+genero+Ficheros.SEPARADOR+poderesToCsv();
     }
+    /**
+     * Enseña los poderes en formato CSv
+     * @return los poderes formateados
+    */
     public String poderesToCsv(){
         StringBuilder stringBuilder = new StringBuilder();
         int i = 0;

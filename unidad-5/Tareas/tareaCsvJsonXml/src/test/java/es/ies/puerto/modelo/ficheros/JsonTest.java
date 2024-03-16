@@ -36,7 +36,17 @@ public class JsonTest {
     }
     @Test
     public void JsonLeerEscribirTest(){
-        Assertions.assertEquals(personajesEscribir.toString(),json.leer().toString());
+        Assertions.assertEquals(personajesEscribir,json.leer());
+    }
+    @Test
+    public void JsonActualizarTest(){
+        json.actualizar(personajes);
+        Assertions.assertEquals(personajes, json.leer());
+    }
+    @Test
+    public void JsonModificarTest(){
+        json.modificar(personajes);
+        Assertions.assertEquals(personajes, json.leer());
     }
     
 }
