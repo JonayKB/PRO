@@ -13,18 +13,15 @@ import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
  */
 public class Personaje {
     @Element(name = "nombre")
-    @Expose
     private String nombre;
 
     @Element(name = "alias")
-    @Expose
     private String alias;
 
     @Element(name = "genero")
-    @Expose
     private String genero;
 
-    @Expose
+
     private List<String> poderes;
 
     @Element(name = "poderes")
@@ -42,9 +39,6 @@ public class Personaje {
         poderContainer = new PoderContainer(poderes);
     }
     
-    
-
-
     public String getNombre() {
         return this.nombre;
     }
