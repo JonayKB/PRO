@@ -3,24 +3,20 @@
     "nombre": "Iron Man",
     "alias": "Tony Stark",
     "genero": "Masculino",
-    "poderContainer": {
-      "poderes": [
-        "Vuelo",
-        "Armadura tecnológica avanzada",
-        "Rayos láser"
-      ]
-    }
+    "poderes": [
+      "Vuelo",
+      "Armadura tecnológica avanzada",
+      "Rayos láser"
+    ]
   },
   {
     "nombre": "Spider-Man",
     "alias": "Peter Parker",
     "genero": "Masculino",
-    "poderContainer": {
-      "poderes": [
-        "Agilidad sobrehumana",
-        "Trepamuros",
-        "Sentido arácnido"
-      ]
-    }
+    "poderes": [
+      "Agilidad sobrehumana",
+      "Trepamuros",
+      "Sentido arácnido"
+    ]
   }
 ]

@@ -1,5 +1,6 @@
 package es.ies.puerto.negocio;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,7 +25,10 @@ public class NegocioTest {
     public void beforeEach(){
         negocio = new Negocio();
         personajes = negocio.getPersonas();
-        poderes = Arrays.asList("poder1","poder2","poder3");
+        poderes = new ArrayList<>();
+        poderes.add("poder1");
+        poderes.add("poder2");
+        poderes.add("poder3");
         personajeNuevo = new Personaje(NOMBRE, ALIAS, GENERO, poderes);
         negocio.agregarPersona(personajeNuevo);
     }

@@ -10,45 +10,46 @@ import es.ies.puerto.modelo.impl.Personaje;
 import es.ies.puerto.modelo.impl.PersonajeContainer;
 
 /**
- * Contiene toda las funciones del interfaz necesaria para la administracion de ficheros con XML
+ * Contiene toda las funciones del interfaz necesaria para la administracion de
+ * ficheros con XML
  */
-<span class="fc" id="L15">public class Xml extends Ficheros{</span>
+<span class="fc" id="L16">public class Xml extends Ficheros {</span>
     @Override
     public boolean actualizar(List&lt;Personaje&gt; personajes) {
-<span class="fc" id="L18">        PersonajeContainer personajeContainer = new PersonajeContainer(personajes);</span>
-        try  {
-<span class="fc" id="L20">            Persister persister = new Persister();</span>
-<span class="fc" id="L21">            persister.write(personajeContainer, new File(RUTA_XML));</span>
-<span class="fc" id="L22">            return true;</span>
-<span class="nc" id="L23">        } catch (Exception e) {</span>
-<span class="nc" id="L24">            e.printStackTrace();</span>
+<span class="fc" id="L19">        PersonajeContainer personajeContainer = new PersonajeContainer(personajes);</span>
+        try {
+<span class="fc" id="L21">            Persister persister = new Persister();</span>
+<span class="fc" id="L22">            persister.write(personajeContainer, new File(RUTA_XML));</span>
+<span class="fc" id="L23">            return true;</span>
+<span class="nc" id="L24">        } catch (Exception e) {</span>
+<span class="nc" id="L25">            e.printStackTrace();</span>
         }
-<span class="nc" id="L26">        return false;</span>
+<span class="nc" id="L27">        return false;</span>
     }
 
     public boolean escribir(List&lt;Personaje&gt; personajes) {
-<span class="fc" id="L30">        return actualizar(personajes);</span>
+<span class="fc" id="L31">        return actualizar(personajes);</span>
     }
 
     @Override
     public List&lt;Personaje&gt; leer() {
-<span class="fc" id="L35">        List&lt;Personaje&gt; personajes = new ArrayList&lt;&gt;();</span>
-<span class="pc bpc" id="L36" title="1 of 2 branches missed.">        if (existe(RUTA_XML)) {</span>
-<span class="fc" id="L37">            Persister persister = new Persister(new AnnotationStrategy());</span>
-<span class="fc" id="L38">            File file = new File(Ficheros.RUTA_XML);</span>
+<span class="fc" id="L36">        List&lt;Personaje&gt; personajes = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if (existe(RUTA_XML)) {</span>
+<span class="fc" id="L38">            Persister persister = new Persister(new AnnotationStrategy());</span>
+<span class="fc" id="L39">            File file = new File(Ficheros.RUTA_XML);</span>
             try {
-<span class="fc" id="L40">                PersonajeContainer personajeContainer = persister.read(PersonajeContainer.class, file);</span>
-<span class="fc" id="L41">                personajes = personajeContainer.getPersonajes();</span>
-<span class="nc" id="L42">            } catch (Exception e) {</span>
-<span class="nc" id="L43">                e.printStackTrace();</span>
-<span class="fc" id="L44">            }</span>
+<span class="fc" id="L41">                PersonajeContainer personajeContainer = persister.read(PersonajeContainer.class, file);</span>
+<span class="fc" id="L42">                personajes = personajeContainer.getPersonajes();</span>
+<span class="nc" id="L43">            } catch (Exception e) {</span>
+<span class="nc" id="L44">                e.printStackTrace();</span>
+<span class="fc" id="L45">            }</span>
         }
-<span class="fc" id="L46">        return personajes;</span>
+<span class="fc" id="L47">        return personajes;</span>
     }
 
     @Override
     public boolean modificar(List&lt;Personaje&gt; personas) {
-<span class="fc" id="L51">        return actualizar(personas);</span>
+<span class="fc" id="L52">        return actualizar(personas);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

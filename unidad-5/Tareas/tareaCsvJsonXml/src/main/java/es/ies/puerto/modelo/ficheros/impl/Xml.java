@@ -10,13 +10,14 @@ import es.ies.puerto.modelo.impl.Personaje;
 import es.ies.puerto.modelo.impl.PersonajeContainer;
 
 /**
- * Contiene toda las funciones del interfaz necesaria para la administracion de ficheros con XML
+ * Contiene toda las funciones del interfaz necesaria para la administracion de
+ * ficheros con XML
  */
-public class Xml extends Ficheros{
+public class Xml extends Ficheros {
     @Override
     public boolean actualizar(List<Personaje> personajes) {
         PersonajeContainer personajeContainer = new PersonajeContainer(personajes);
-        try  {
+        try {
             Persister persister = new Persister();
             persister.write(personajeContainer, new File(RUTA_XML));
             return true;

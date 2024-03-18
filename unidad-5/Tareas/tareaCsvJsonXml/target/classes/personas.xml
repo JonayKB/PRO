@@ -3,7 +3,7 @@
       <nombre>Iron Man</nombre>
       <alias>Tony Stark</alias>
       <genero>Masculino</genero>
-      <poderes>
+      <poderes class="java.util.ArrayList">
          <poder>Vuelo</poder>
          <poder>Armadura tecnológica avanzada</poder>
          <poder>Rayos láser</poder>
@@ -13,7 +13,7 @@
       <nombre>Spider-Man</nombre>
       <alias>Peter Parker</alias>
       <genero>Masculino</genero>
-      <poderes>
+      <poderes class="java.util.ArrayList">
          <poder>Agilidad sobrehumana</poder>
          <poder>Trepamuros</poder>
          <poder>Sentido arácnido</poder>
@@ -23,7 +23,7 @@
       <nombre>Nombre</nombre>
       <alias>Alias</alias>
       <genero>Genero</genero>
-      <poderes>
+      <poderes class="java.util.ArrayList">
          <poder>poder1</poder>
          <poder>poder2</poder>
          <poder>poder3</poder>

@@ -4,7 +4,6 @@
 /home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/src/main/java/es/ies/puerto/modelo/impl/PersonajeContainer.java
 /home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/src/main/java/es/ies/puerto/modelo/ficheros/impl/Json.java
 /home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/src/main/java/es/ies/puerto/modelo/ficheros/impl/Xml.java
-/home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/src/main/java/es/ies/puerto/modelo/impl/PoderContainer.java
 /home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/src/main/java/es/ies/puerto/modelo/ficheros/interfaces/IFicheros.java
 /home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/src/main/java/es/ies/puerto/negocio/impl/Negocio.java
 /home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/src/main/java/es/ies/puerto/negocio/interfaces/INegocio.java

@@ -11,10 +11,12 @@ import java.util.Arrays;
 import java.util.List;
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.impl.Personaje;
+
 /**
- * Contiene toda las funciones del interfaz necesaria para la administracion de ficheros con CSV
+ * Contiene toda las funciones del interfaz necesaria para la administracion de
+ * ficheros con CSV
  */
-public class Csv extends Ficheros{
+public class Csv extends Ficheros {
 
     private static final int COLUMNA_PODERES = 3;
     private static final int COLUMNA_GENERO = 2;
@@ -47,17 +49,18 @@ public class Csv extends Ficheros{
             File file = new File(RUTA_CSV);
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String linea;
-                while ((linea=br.readLine()) != null) {
+                while ((linea = br.readLine()) != null) {
                     String[] datos = linea.split(SEPARADOR);
                     List<String> poderes = new ArrayList<>();
                     poderes.addAll(Arrays.asList(Arrays.copyOfRange(datos, COLUMNA_PODERES, datos.length)));
-                    Personaje personaNueva = new Personaje(datos[COLUMNA_NOMBRE], datos[COLUMNA_ALIAS], datos[COLUMNA_GENERO], poderes);
+                    Personaje personaNueva = new Personaje(datos[COLUMNA_NOMBRE], datos[COLUMNA_ALIAS],
+                            datos[COLUMNA_GENERO], poderes);
                     personas.add(personaNueva);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            
+
         }
         return personas;
     }
@@ -69,6 +72,7 @@ public class Csv extends Ficheros{
 
     /**
      * Formatea una lista a CSV
+     * 
      * @param personas lista a formatear
      * @return lista formateada
      */
@@ -83,6 +87,4 @@ public class Csv extends Ficheros{
         return contenidoBuilder.toString();
     }
 
-
-    
 }

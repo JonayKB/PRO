@@ -6,6 +6,5 @@ es/ies/puerto/negocio/interfaces/INegocio.class
 es/ies/puerto/modelo/impl/Personaje.class
 es/ies/puerto/modelo/ficheros/impl/Json.class
 es/ies/puerto/modelo/ficheros/impl/Xml.class
-es/ies/puerto/modelo/impl/PoderContainer.class
 es/ies/puerto/modelo/ficheros/impl/Csv.class
 es/ies/puerto/negocio/impl/Negocio.class

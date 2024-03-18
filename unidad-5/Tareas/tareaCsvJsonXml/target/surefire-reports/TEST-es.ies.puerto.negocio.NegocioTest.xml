@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="es.ies.puerto.negocio.NegocioTest" time="0.527" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="es.ies.puerto.negocio.NegocioTest" time="0.533" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/target/surefire/surefirebooter1190709730653246337.jar /home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/target/surefire 2024-03-16T14-26-14_136-jvmRun1 surefire1089102413724976174tmp surefire_010703385853531431555tmp"/>
+    <property name="sun.java.command" value="/home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/target/surefire/surefirebooter248107140141042163.jar /home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/target/surefire 2024-03-18T16-06-23_205-jvmRun1 surefire17630008597127213481tmp surefire_012931396946500194395tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/target/test-classes:/home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/target/classes:/home/jonaykb/.m2/repository/org/simpleframework/simple-xml/2.7.1/simple-xml-2.7.1.jar:/home/jonaykb/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/home/jonaykb/.m2/repository/stax/stax/1.2.0/stax-1.2.0.jar:/home/jonaykb/.m2/repository/xpp3/xpp3/1.1.3.3/xpp3-1.1.3.3.jar:/home/jonaykb/.m2/repository/com/google/code/gson/gson/2.8.8/gson-2.8.8.jar:/home/jonaykb/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/home/jonaykb/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/jonaykb/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/jonaykb/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/home/jonaykb/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.6.0/junit-jupiter-params-5.6.0.jar:/home/jonaykb/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/home/jonaykb/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -32,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/target/surefire/surefirebooter1190709730653246337.jar"/>
+    <property name="surefire.real.class.path" value="/home/jonaykb/Repositorios/pro/unidad-5/Tareas/tareaCsvJsonXml/target/surefire/surefirebooter248107140141042163.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.20.1+1-post-Ubuntu-0ubuntu122.04"/>
     <property name="user.name" value="jonaykb"/>
@@ -58,12 +58,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="actualizarPersona" classname="es.ies.puerto.negocio.NegocioTest" time="0.265"/>
-  <testcase name="eliminarPersona" classname="es.ies.puerto.negocio.NegocioTest" time="0.035"/>
-  <testcase name="agregarPersona" classname="es.ies.puerto.negocio.NegocioTest" time="0.02"/>
+  <testcase name="actualizarPersona" classname="es.ies.puerto.negocio.NegocioTest" time="0.248"/>
+  <testcase name="eliminarPersona" classname="es.ies.puerto.negocio.NegocioTest" time="0.018"/>
+  <testcase name="agregarPersona" classname="es.ies.puerto.negocio.NegocioTest" time="0.015"/>
   <testcase name="NegocioNotNull" classname="es.ies.puerto.negocio.NegocioTest" time="0.012"/>
-  <testcase name="actualizarPersonaNoExiste" classname="es.ies.puerto.negocio.NegocioTest" time="0.013"/>
-  <testcase name="NegocioMostrarPersonajesTodosFormatosTest" classname="es.ies.puerto.negocio.NegocioTest" time="0.12"/>
-  <testcase name="eliminarPersonaNoExiste" classname="es.ies.puerto.negocio.NegocioTest" time="0.012"/>
-  <testcase name="obtenerPersonajeNull" classname="es.ies.puerto.negocio.NegocioTest" time="0.013"/>
+  <testcase name="actualizarPersonaNoExiste" classname="es.ies.puerto.negocio.NegocioTest" time="0.01"/>
+  <testcase name="NegocioMostrarPersonajesTodosFormatosTest" classname="es.ies.puerto.negocio.NegocioTest" time="0.153"/>
+  <testcase name="eliminarPersonaNoExiste" classname="es.ies.puerto.negocio.NegocioTest" time="0.009"/>
+  <testcase name="obtenerPersonajeNull" classname="es.ies.puerto.negocio.NegocioTest" time="0.026"/>
 </testsuite>

@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 import es.ies.puerto.modelo.ficheros.impl.Csv;
 import es.ies.puerto.modelo.impl.Personaje;
-import es.ies.puerto.modelo.impl.PoderContainer;
 
 public class CsvTest {
     private Csv csv;

@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import es.ies.puerto.modelo.ficheros.impl.Json;
 import es.ies.puerto.modelo.impl.Personaje;
-import es.ies.puerto.modelo.impl.PoderContainer;
 
 public class JsonTest {
     Json json;
