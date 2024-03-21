@@ -86,7 +86,7 @@ public class Negocio implements INegocio {
      */
     public String mostrarPersonajesTodosFormatos(){
         StringBuilder stringBuilder = new StringBuilder();
-        IFicheros ficherosMostrar = new Xml();
+        IFicheros ficherosMostrar = new Xml(); 
         stringBuilder.append("XML:\n").append(ficherosMostrar.leer()).append("\n");
         ficherosMostrar = new Json();
         stringBuilder.append("JSON:\n").append(ficherosMostrar.leer()).append("\n");

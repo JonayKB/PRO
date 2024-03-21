@@ -26,7 +26,7 @@ public class Xml extends Ficheros {
         }
         return false;
     }
-
+    @Override
     public boolean escribir(List<Personaje> personajes) {
         return actualizar(personajes);
     }
