@@ -28,7 +28,7 @@ public class CsvTest {
         personajeEscribir = new Personaje(null, null, null, poderes);
         personasEscribir.add(personajeEscribir);
     }
-    @AfterEach
+    //@AfterEach
     public void afterEach(){
         csv.actualizar(personas);
     }

@@ -26,10 +26,8 @@ public class XmlTest {
     public void beforeEach() {
         xml = new Xml();
         personajes = xml.leer();
-        List<String> poderes = new ArrayList<>();
-        poderes.add("poder1");
-        poderes.add("poder2");
-        poderes.add("poder3");
+        List<String> poderes = new ArrayList<>(Arrays.asList("poder1","poder2","poder3"));
+        
         personajeEscribir = new Personaje(NOMBRE, ALIAS, GENERO, poderes);
         personajesEscribir = new ArrayList<>();
         personajesEscribir.add(personajeEscribir);

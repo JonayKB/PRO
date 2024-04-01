@@ -1,11 +1,23 @@
 package es.ies.puerto.modelo.impl;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
+
+import com.google.gson.Gson;
+
+import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 
 import es.ies.puerto.modelo.ficheros.abstrac.Ficheros;
 

@@ -23,7 +23,7 @@ public class Json extends Ficheros{
         List<Personaje> personajes = new ArrayList<>();
         try {
             String json = new String(Files.readAllBytes(Paths.get(RUTA_JSON)));
-            Type listType = new TypeToken<ArrayList<Personaje>>(){}.getType();
+            Type listType = new TypeToken<List<Personaje>>(){}.getType();
             personajes = new Gson().fromJson(json, listType);
         } catch (IOException e) {
             e.printStackTrace();

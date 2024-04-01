@@ -31,8 +31,7 @@ public class Csv extends Ficheros {
     @Override
     public boolean escribir(List<Personaje> personas) {
         if (existe(RUTA_CSV)) {
-            File file = new File(RUTA_CSV);
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(RUTA_CSV))) {
                 bw.write(toFile(personas));
                 return true;
             } catch (IOException e) {
@@ -46,8 +45,7 @@ public class Csv extends Ficheros {
     public List<Personaje> leer() {
         List<Personaje> personas = new ArrayList<>();
         if (existe(RUTA_CSV)) {
-            File file = new File(RUTA_CSV);
-            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            try (BufferedReader br = new BufferedReader(new FileReader(RUTA_CSV))) {
                 String linea;
                 while ((linea = br.readLine()) != null) {
                     String[] datos = linea.split(SEPARADOR);
