@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: es.ies.puerto.modelo.db.ConexionTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.119 s <<< FAILURE! - in es.ies.puerto.modelo.db.ConexionTest
+conectarTest  Time elapsed: 0.065 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: No se ha podido establecer la conexiom
+	at es.ies.puerto.modelo.db.ConexionTest.conectarTest(ConexionTest.java:26)
+

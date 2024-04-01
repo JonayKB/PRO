@@ -1,0 +1,5 @@
+es/ies/puerto/modelo/abstrac/Persona.class
+es/ies/puerto/exception/UsuarioException.class
+es/ies/puerto/modelo/impl/Usuario.class
+es/ies/puerto/modelo/db/Conexion.class
+es/ies/puerto/modelo/db/CrudDb.class
