@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Conexion.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">crudbase</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.modelo.db</a> &gt; <span class="el_source">Conexion.java</span></div><h1>Conexion.java</h1><pre class="source lang-java linenums">package es.ies.puerto.modelo.db;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import es.ies.puerto.exception.UsuarioException;
+
+public class Conexion {
+    private String url;
+    private String user;
+    private String password;
+    private Connection connection;
+
+
+<span class="fc" id="L15">    public Conexion(String url) {</span>
+<span class="fc" id="L16">        this.url = &quot;jdbc:sqlite:&quot;+url;</span>
+<span class="fc" id="L17">    }</span>
+<span class="nc" id="L18">    public Conexion(String url, String user, String password) {</span>
+<span class="nc" id="L19">        this.url = url;</span>
+<span class="nc" id="L20">        this.user = user;</span>
+<span class="nc" id="L21">        this.password = password;</span>
+<span class="nc" id="L22">    }</span>
+
+    public Connection getConnection()throws UsuarioException{
+        try {
+<span class="fc" id="L26">            Class.forName(&quot;org.sqlite.JDBC&quot;);</span>
+<span class="fc" id="L27">            this.connection = DriverManager.getConnection(url);</span>
+<span class="nc" id="L28">        } catch (Exception e) {</span>
+<span class="nc" id="L29">            System.out.println(e.getMessage());</span>
+<span class="nc" id="L30">            throw new UsuarioException(&quot;No se ha podido establecer la conexiom&quot;,e);</span>
+<span class="fc" id="L31">        }</span>
+<span class="fc" id="L32">        return connection;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
