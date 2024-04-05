@@ -5,12 +5,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ConexionTest {
-    private static final String URL = "src/main/resources/usuarios.db";
     Conexion conexion;
     
     @BeforeEach
     public void beforeEach(){
-        conexion = new Conexion(URL);
+        conexion = new Conexion();
     }
 
     @Test

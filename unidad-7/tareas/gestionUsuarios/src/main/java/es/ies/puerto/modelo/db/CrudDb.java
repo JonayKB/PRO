@@ -12,8 +12,7 @@ import es.ies.puerto.modelo.impl.Usuario;
 
 public class CrudDb extends Conexion{
 
-    public CrudDb(String url) {
-        super(url);
+    public CrudDb() {
     }
 
     public Set<Usuario> obtenerUsuarios() throws UsuarioException{
@@ -84,7 +83,7 @@ public class CrudDb extends Conexion{
         if(usuarios.isEmpty()){
             return null;
         }
-        return obtener(sql).iterator().next();
+        return usuarios.iterator().next();
     }
 
     public void insertarUsuario(Usuario usuario)throws UsuarioException{
@@ -92,11 +91,13 @@ public class CrudDb extends Conexion{
         actualizar(sql);
     }
 
-    public void actualizarUsuario(Usuario usuario){
-
+    public void actualizarUsuario(Usuario usuario)throws UsuarioException{
+        String sql = "UPDATE usuarios SET nombre='"+usuario.getNombre()+"',edad="+usuario.getEdad()+",ciudad='"+usuario.getCiudad()+"' WHERE id='"+usuario.getId()+"'";
+        actualizar(sql);
     }
 
-    public void eliminarUsuario(Usuario usuario){
-
+    public void eliminarUsuario(Usuario usuario) throws UsuarioException{
+        String sql = "DELETE FROM usuarios as u WHERE u.id='"+usuario.getId()+"'";
+        actualizar(sql);
     }
 }
