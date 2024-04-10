@@ -29,9 +29,6 @@ public class Personaje {
         return this.id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return this.nombre;

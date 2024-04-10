@@ -20,9 +20,6 @@ public class AppConfig {
         return this.url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
     
 }

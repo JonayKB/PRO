@@ -29,67 +29,64 @@ public class Personaje {
 <span class="fc" id="L29">        return this.id;</span>
     }
 
-    public void setId(int id) {
-<span class="nc" id="L33">        this.id = id;</span>
-<span class="nc" id="L34">    }</span>
 
     public String getNombre() {
-<span class="fc" id="L37">        return this.nombre;</span>
+<span class="fc" id="L34">        return this.nombre;</span>
     }
 
     public void setNombre(String nombre) {
-<span class="nc" id="L41">        this.nombre = nombre;</span>
-<span class="nc" id="L42">    }</span>
+<span class="fc" id="L38">        this.nombre = nombre;</span>
+<span class="fc" id="L39">    }</span>
 
     public String getAlias() {
-<span class="fc" id="L45">        return this.alias;</span>
+<span class="fc" id="L42">        return this.alias;</span>
     }
 
     public void setAlias(String alias) {
-<span class="nc" id="L49">        this.alias = alias;</span>
-<span class="nc" id="L50">    }</span>
+<span class="fc" id="L46">        this.alias = alias;</span>
+<span class="fc" id="L47">    }</span>
 
     public String getGenero() {
-<span class="fc" id="L53">        return this.genero;</span>
+<span class="fc" id="L50">        return this.genero;</span>
     }
 
     public void setGenero(String genero) {
-<span class="nc" id="L57">        this.genero = genero;</span>
-<span class="nc" id="L58">    }</span>
+<span class="fc" id="L54">        this.genero = genero;</span>
+<span class="fc" id="L55">    }</span>
 
     public Set&lt;String&gt; getPoderes() {
-<span class="nc" id="L61">        return this.poderes;</span>
+<span class="fc" id="L58">        return this.poderes;</span>
     }
 
     public void setPoderes(Set&lt;String&gt; poderes) {
-<span class="nc" id="L65">        this.poderes = poderes;</span>
-<span class="nc" id="L66">    }</span>
+<span class="fc" id="L62">        this.poderes = poderes;</span>
+<span class="fc" id="L63">    }</span>
 
     @Override
     public boolean equals(Object o) {
-<span class="pc bpc" id="L70" title="1 of 2 branches missed.">        if (o == this)</span>
-<span class="nc" id="L71">            return true;</span>
-<span class="pc bpc" id="L72" title="1 of 2 branches missed.">        if (!(o instanceof Personaje)) {</span>
-<span class="nc" id="L73">            return false;</span>
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L68">            return true;</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        if (!(o instanceof Personaje)) {</span>
+<span class="nc" id="L70">            return false;</span>
         }
-<span class="fc" id="L75">        Personaje personaje = (Personaje) o;</span>
-<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        return id == personaje.id;</span>
+<span class="fc" id="L72">        Personaje personaje = (Personaje) o;</span>
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">        return id == personaje.id;</span>
     }
 
     @Override
     public String toString() {
-<span class="nc" id="L81">        return &quot;{&quot; +</span>
-<span class="nc" id="L82">            &quot; id='&quot; + getId() + &quot;'&quot; +</span>
-<span class="nc" id="L83">            &quot;, nombre='&quot; + getNombre() + &quot;'&quot; +</span>
-<span class="nc" id="L84">            &quot;, alias='&quot; + getAlias() + &quot;'&quot; +</span>
-<span class="nc" id="L85">            &quot;, genero='&quot; + getGenero() + &quot;'&quot; +</span>
-<span class="nc" id="L86">            &quot;, poderes='&quot; + getPoderes() + &quot;'&quot; +</span>
+<span class="nc" id="L78">        return &quot;{&quot; +</span>
+<span class="nc" id="L79">            &quot; id='&quot; + getId() + &quot;'&quot; +</span>
+<span class="nc" id="L80">            &quot;, nombre='&quot; + getNombre() + &quot;'&quot; +</span>
+<span class="nc" id="L81">            &quot;, alias='&quot; + getAlias() + &quot;'&quot; +</span>
+<span class="nc" id="L82">            &quot;, genero='&quot; + getGenero() + &quot;'&quot; +</span>
+<span class="nc" id="L83">            &quot;, poderes='&quot; + getPoderes() + &quot;'&quot; +</span>
             &quot;}&quot;;
     }
 
     @Override
     public int hashCode() {
-<span class="fc" id="L92">        return Objects.hash(id, nombre, alias, genero, poderes);</span>
+<span class="fc" id="L89">        return Objects.hash(id, nombre, alias, genero, poderes);</span>
     }
     
 }

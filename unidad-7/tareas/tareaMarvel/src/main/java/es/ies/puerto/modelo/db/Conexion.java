@@ -14,6 +14,11 @@ public class Conexion extends AppConfig{
     }
 
     Connection con;
+    /**
+     * Crea una conexion
+     * @return
+     * @throws UsuarioException
+     */
     public Connection getConnection() throws UsuarioException{
         try {
             Class.forName("org.sqlite.JDBC");
@@ -23,6 +28,10 @@ public class Conexion extends AppConfig{
         }
         return con;
     }
+    /**
+     * Cierra una conexion
+     * @throws UsuarioException
+     */
     public void cerrar()throws UsuarioException{
         try {
             if (con != null && !con.isClosed()) {

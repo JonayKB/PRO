@@ -1,5 +1,7 @@
 package es.ies.puerto.modelo.db;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.jupiter.api.Assertions;
@@ -13,26 +15,78 @@ public class CrudDbTest {
     CrudDb crudDb;
     Personaje personajeAgregarEliminar;
     @BeforeEach
-    public void beforeEach()throws UsuarioException{
-        crudDb = new CrudDb();
-        personajeAgregarEliminar = new Personaje(10);
-    }
-    @Test
-    public void obtenerPersonajesTest()throws UsuarioException{
-        Set<Personaje> personajes = crudDb.obtenerPersonajes();
-        Assertions.assertEquals(2, personajes.size());
-    }
-    @Test
-    public void agregarEliminarObtenerPersonajeTest()throws UsuarioException{
-        Set<Personaje> personajesInicial = crudDb.obtenerPersonajes();
-
-        crudDb.agregarPersonaje(personajeAgregarEliminar);
-        Personaje personajeObtenido = crudDb.obtenerPersonaje(personajeAgregarEliminar);
-        Assertions.assertEquals(personajeAgregarEliminar, personajeObtenido);
-        crudDb.eliminarPersonaje(personajeAgregarEliminar);
-
-        Set<Personaje> personajesFinal = crudDb.obtenerPersonajes();
+    public void beforeEach(){
+        try {
+            crudDb = new CrudDb();
+            personajeAgregarEliminar = new Personaje(10);  
+        } catch (UsuarioException e) {
+            Assertions.fail();
+        }
         
-        Assertions.assertEquals(personajesInicial.size(), personajesFinal.size());
+    }
+    @Test
+    public void obtenerPersonajeTest(){
+        try {
+            Personaje personajeObtener = new Personaje(1);
+            personajeObtener = crudDb.obtenerPersonaje(personajeObtener);
+            Assertions.assertEquals("Iron Man", personajeObtener.getNombre());
+            Assertions.assertEquals("Tony Stark", personajeObtener.getAlias());
+            Assertions.assertEquals("Masculino", personajeObtener.getGenero());
+            Assertions.assertEquals(new HashSet<String>(Arrays.asList("Armadura tecnológica avanzada", "Rayos láser", "Vuelo")), personajeObtener.getPoderes());
+        } catch (UsuarioException e) {
+            Assertions.fail();
+        }
+
+    }
+    @Test
+    public void obtenerPersonajesTest(){
+        try {
+            Set<Personaje> personajes = crudDb.obtenerPersonajes();
+            Assertions.assertEquals(2, personajes.size());
+        } catch (UsuarioException e) {
+            Assertions.fail();
+        }
+        
+    }
+    @Test
+    public void agregarEliminarPersonajeTest(){
+        try {
+            Set<Personaje> personajesInicial = crudDb.obtenerPersonajes();
+
+            crudDb.agregarPersonaje(personajeAgregarEliminar);
+            Personaje personajeObtenido = crudDb.obtenerPersonaje(personajeAgregarEliminar);
+            Assertions.assertEquals(personajeAgregarEliminar, personajeObtenido);
+            crudDb.eliminarPersonaje(personajeAgregarEliminar);
+
+            Set<Personaje> personajesFinal = crudDb.obtenerPersonajes();
+            
+            Assertions.assertEquals(personajesInicial.size(), personajesFinal.size());
+        } catch (UsuarioException e) {
+            Assertions.fail();
+        }
+    }
+    @Test
+    public void actualizarPersonajeTest(){
+        String aliasUpdate = "AliasUpdate";
+        String generoUpdate = "GeneroUpdate";
+        String nombreUpdate = "NombreUpdate";
+        Set<String> poderesUpdate = new HashSet<>(Arrays.asList("PoderTest1","PoderTest2"));
+        try {
+            Personaje personajeActualizar= new Personaje(20);
+            crudDb.agregarPersonaje(personajeActualizar);
+            personajeActualizar.setAlias(aliasUpdate);
+            personajeActualizar.setGenero(generoUpdate);
+            personajeActualizar.setNombre(nombreUpdate);
+            personajeActualizar.setPoderes(poderesUpdate);
+            crudDb.modificarPersonaje(personajeActualizar);
+
+            Assertions.assertEquals(aliasUpdate, personajeActualizar.getAlias());
+            Assertions.assertEquals(generoUpdate, personajeActualizar.getGenero());
+            Assertions.assertEquals(nombreUpdate, personajeActualizar.getNombre());
+            Assertions.assertEquals(poderesUpdate, personajeActualizar.getPoderes());
+            crudDb.eliminarPersonaje(personajeActualizar);
+        } catch (UsuarioException e) {
+            Assertions.fail();
+        }
     }
 }

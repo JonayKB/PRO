@@ -1,0 +1,62 @@
+@options
+@packages
+-classpath
+'/home/jonaykb/.m2/repository/org/simpleframework/simple-xml/2.7.1/simple-xml-2.7.1.jar:/home/jonaykb/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/home/jonaykb/.m2/repository/stax/stax/1.2.0/stax-1.2.0.jar:/home/jonaykb/.m2/repository/xpp3/xpp3/1.1.3.3/xpp3-1.1.3.3.jar:/home/jonaykb/.m2/repository/org/xerial/sqlite-jdbc/3.45.2.0/sqlite-jdbc-3.45.2.0.jar:/home/jonaykb/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/home/jonaykb/.m2/repository/com/google/code/gson/gson/2.8.8/gson-2.8.8.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'tarea1 1.0 API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'tarea1 1.0 API'
+es.ies.puerto.config
+es.ies.puerto.excepcion
+es.ies.puerto.modelo.impl
+es.ies.puerto.modelo.db
+/home/jonaykb/.m2/repository/org/simpleframework/simple-xml/2.7.1/simple-xml-2.7.1.jar = 1373288881000
+/home/jonaykb/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar = 1142314290000
+/home/jonaykb/.m2/repository/stax/stax/1.2.0/stax-1.2.0.jar = 1153193755000
+/home/jonaykb/.m2/repository/xpp3/xpp3/1.1.3.3/xpp3-1.1.3.3.jar = 1122889981000
+/home/jonaykb/.m2/repository/org/xerial/sqlite-jdbc/3.45.2.0/sqlite-jdbc-3.45.2.0.jar = 1710296435000
+/home/jonaykb/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar = 1697880715427
+/home/jonaykb/.m2/repository/com/google/code/gson/gson/2.8.8/gson-2.8.8.jar = 1629475731000
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/src/main/java = 1712584832894
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/package-search-index.zip = 1712770594854
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/serialized-form.html = 1712770594802
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/help-doc.html = 1712770594878
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/script.js = 1712770594882
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/allpackages-index.html = 1712770594862
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/stylesheet.css = 1712770594882
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/search.js = 1712770594882
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/index-all.html = 1712770594858
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/allclasses.html = 1712770594870
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/element-list = 1712770594770
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/type-search-index.js = 1712770594854
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/index.html = 1712770594874
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/package-search-index.js = 1712770594854
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/constant-values.html = 1712770594798
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/allclasses-index.html = 1712770594862
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/overview-summary.html = 1712770594878
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/type-search-index.zip = 1712770594854
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/member-search-index.js = 1712770594854
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/member-search-index.zip = 1712770594854
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/deprecated-list.html = 1712770594866
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/overview-tree.html = 1712770594838
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/tareaMarvel/target/site/apidocs/jquery-ui.overrides.css = 1712770594890

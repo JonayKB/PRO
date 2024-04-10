@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"es.ies.puerto.config","l":"AppConfig"},{"p":"es.ies.puerto.modelo.db","l":"Conexion"},{"p":"es.ies.puerto.modelo.db","l":"CrudDb"},{"p":"es.ies.puerto.modelo.impl","l":"Personaje"},{"p":"es.ies.puerto.excepcion","l":"UsuarioException"}]
