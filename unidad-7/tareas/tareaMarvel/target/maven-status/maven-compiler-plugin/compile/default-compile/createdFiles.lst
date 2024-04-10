@@ -2,3 +2,4 @@ es/ies/puerto/excepcion/UsuarioException.class
 es/ies/puerto/config/AppConfig.class
 es/ies/puerto/modelo/db/Conexion.class
 es/ies/puerto/modelo/db/CrudDb.class
+es/ies/puerto/modelo/impl/Personaje.class

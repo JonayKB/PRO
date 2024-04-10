@@ -18,24 +18,12 @@ public class CrudDbTest {
         personajeAgregarEliminar = new Personaje(10);
     }
     @Test
-    public void obtenerPersonajeTest(){
-        Personaje personajeBuscar = new Personaje(0);
-        Personaje personajeObtenido = crudDb.obtenerPersonaje(personajeBuscar);
-
-        Assertions.assertEquals(personajeBuscar, personajeObtenido);
-        Assertions.assertEquals(personajeBuscar.getAlias(), personajeObtenido.getAlias());
-        Assertions.assertEquals(personajeBuscar.getAlias(), personajeObtenido.getAlias());
-        Assertions.assertEquals(personajeBuscar.getGenero(), personajeObtenido.getNombre());
-        Assertions.assertEquals(personajeBuscar.getPoderes(), personajeObtenido.getPoderes());
-
-    }
-    @Test
     public void obtenerPersonajesTest()throws UsuarioException{
         Set<Personaje> personajes = crudDb.obtenerPersonajes();
         Assertions.assertEquals(2, personajes.size());
     }
     @Test
-    public void agregarEliminarPersonajeTest()throws UsuarioException{
+    public void agregarEliminarObtenerPersonajeTest()throws UsuarioException{
         Set<Personaje> personajesInicial = crudDb.obtenerPersonajes();
 
         crudDb.agregarPersonaje(personajeAgregarEliminar);

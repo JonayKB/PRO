@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Personaje.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">tarea1</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.modelo.impl</a> &gt; <span class="el_source">Personaje.java</span></div><h1>Personaje.java</h1><pre class="source lang-java linenums">package es.ies.puerto.modelo.impl;
+
+import java.util.Set;
+import java.util.Objects;
+
+public class Personaje {
+    private int id;
+    private String nombre;
+    private String alias;
+    private String genero;
+    private Set&lt;String&gt; poderes;
+
+
+<span class="fc" id="L14">    public Personaje(int id, String nombre, String alias, String genero, Set&lt;String&gt; poderes) {</span>
+<span class="fc" id="L15">        this.id = id;</span>
+<span class="fc" id="L16">        this.nombre = nombre;</span>
+<span class="fc" id="L17">        this.alias = alias;</span>
+<span class="fc" id="L18">        this.genero = genero;</span>
+<span class="fc" id="L19">        this.poderes = poderes;</span>
+<span class="fc" id="L20">    }</span>
+
+
+<span class="fc" id="L23">    public Personaje(int id) {</span>
+<span class="fc" id="L24">        this.id=id;</span>
+<span class="fc" id="L25">    }</span>
+
+
+    public int getId() {
+<span class="fc" id="L29">        return this.id;</span>
+    }
+
+    public void setId(int id) {
+<span class="nc" id="L33">        this.id = id;</span>
+<span class="nc" id="L34">    }</span>
+
+    public String getNombre() {
+<span class="fc" id="L37">        return this.nombre;</span>
+    }
+
+    public void setNombre(String nombre) {
+<span class="nc" id="L41">        this.nombre = nombre;</span>
+<span class="nc" id="L42">    }</span>
+
+    public String getAlias() {
+<span class="fc" id="L45">        return this.alias;</span>
+    }
+
+    public void setAlias(String alias) {
+<span class="nc" id="L49">        this.alias = alias;</span>
+<span class="nc" id="L50">    }</span>
+
+    public String getGenero() {
+<span class="fc" id="L53">        return this.genero;</span>
+    }
+
+    public void setGenero(String genero) {
+<span class="nc" id="L57">        this.genero = genero;</span>
+<span class="nc" id="L58">    }</span>
+
+    public Set&lt;String&gt; getPoderes() {
+<span class="nc" id="L61">        return this.poderes;</span>
+    }
+
+    public void setPoderes(Set&lt;String&gt; poderes) {
+<span class="nc" id="L65">        this.poderes = poderes;</span>
+<span class="nc" id="L66">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L71">            return true;</span>
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">        if (!(o instanceof Personaje)) {</span>
+<span class="nc" id="L73">            return false;</span>
+        }
+<span class="fc" id="L75">        Personaje personaje = (Personaje) o;</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        return id == personaje.id;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L81">        return &quot;{&quot; +</span>
+<span class="nc" id="L82">            &quot; id='&quot; + getId() + &quot;'&quot; +</span>
+<span class="nc" id="L83">            &quot;, nombre='&quot; + getNombre() + &quot;'&quot; +</span>
+<span class="nc" id="L84">            &quot;, alias='&quot; + getAlias() + &quot;'&quot; +</span>
+<span class="nc" id="L85">            &quot;, genero='&quot; + getGenero() + &quot;'&quot; +</span>
+<span class="nc" id="L86">            &quot;, poderes='&quot; + getPoderes() + &quot;'&quot; +</span>
+            &quot;}&quot;;
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L92">        return Objects.hash(id, nombre, alias, genero, poderes);</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -11,32 +11,28 @@ import es.ies.puerto.excepcion.UsuarioException;
 public class Conexion extends AppConfig{
 
 <span class="fc" id="L13">    public Conexion() throws UsuarioException {</span>
-<span class="fc" id="L14">        setUrl(&quot;jdbc:sqlite:&quot;+getUrl());</span>
-<span class="fc" id="L15">    }</span>
+<span class="fc" id="L14">    }</span>
 
     Connection con;
-    public void getConnection() throws UsuarioException{
+    public Connection getConnection() throws UsuarioException{
         try {
-<span class="fc" id="L20">            Class.forName(&quot;org.sqlite.JDBC&quot;);</span>
-<span class="fc" id="L21">            con = DriverManager.getConnection(getUrl());</span>
-<span class="nc" id="L22">        } catch (Exception e) {</span>
-<span class="nc" id="L23">            throw new UsuarioException(e.getMessage(), e);</span>
-<span class="fc" id="L24">        }</span>
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L19">            Class.forName(&quot;org.sqlite.JDBC&quot;);</span>
+<span class="fc" id="L20">            con = DriverManager.getConnection(&quot;jdbc:sqlite:&quot;+getUrl());</span>
+<span class="nc" id="L21">        } catch (Exception e) {</span>
+<span class="nc" id="L22">            throw new UsuarioException(e.getMessage(), e);</span>
+<span class="fc" id="L23">        }</span>
+<span class="fc" id="L24">        return con;</span>
+    }
     public void cerrar()throws UsuarioException{
         try {
-<span class="nc bnc" id="L28" title="All 4 branches missed.">            if (con != null &amp;&amp; !con.isClosed()) {</span>
-<span class="nc" id="L29">                con.close();</span>
+<span class="pc bpc" id="L28" title="1 of 4 branches missed.">            if (con != null &amp;&amp; !con.isClosed()) {</span>
+<span class="fc" id="L29">                con.close();</span>
             }
 <span class="nc" id="L31">        } catch (SQLException e) {</span>
 <span class="nc" id="L32">            throw new UsuarioException(e.getMessage(), e);</span>
-<span class="nc" id="L33">        }</span>
-<span class="nc" id="L34">    }</span>
+<span class="fc" id="L33">        }</span>
+<span class="fc" id="L34">    }</span>
 
-
-    public Connection getCon() {
-<span class="nc" id="L38">        return this.con;</span>
-    }
 
 
 }

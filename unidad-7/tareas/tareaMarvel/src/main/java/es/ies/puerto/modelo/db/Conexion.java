@@ -34,9 +34,5 @@ public class Conexion extends AppConfig{
     }
 
 
-    public Connection getCon() {
-        return this.con;
-    }
-
 
 }

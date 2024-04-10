@@ -10,7 +10,25 @@ import es.ies.puerto.modelo.impl.Personaje;
 
 public class CrudDb extends Conexion{
     public CrudDb() throws UsuarioException {}
-    public Set obtener(String sql) throws UsuarioException{
+    public void ejecutar(String sql) throws UsuarioException{
+        Statement statement = null;
+        try {
+            statement = getConnection().createStatement();
+            statement.executeUpdate(sql);
+        } catch (Exception e) {
+            throw new UsuarioException(e.getMessage(), e);
+        }finally{
+            try {
+                if (statement != null && !statement.isClosed()) {
+                    statement.close();
+                }
+                cerrar();
+            } catch (Exception e) {
+                throw new UsuarioException(sql, e);
+            }
+        }
+    }
+    public Set<Personaje> obtener(String sql) throws UsuarioException{
         Set<Personaje> personajes = null;
         Set<String> poderes = null;
 
@@ -46,12 +64,22 @@ public class CrudDb extends Conexion{
         }
         return personajes;
     }
-	public void agregarPersonaje(Personaje personaje){}
-    public void eliminarPersonaje(Personaje personaje){}
-    public void modificarPersonaje(Personaje personaje){}
+	public void agregarPersonaje(Personaje personaje) throws UsuarioException{
+        String sql = "INSERT INTO Personajes (id,nombre,alias,genero) "+
+        "VALUES ("+personaje.getId()+",'"+personaje.getNombre()+"','"+personaje.getAlias()+"','"+personaje.getGenero()+"')";
+        ejecutar(sql);
+    }
+    public void eliminarPersonaje(Personaje personaje)throws UsuarioException{
+        String sql = "DELETE FROM Personajes WHERE id="+personaje.getId();
+        ejecutar(sql);
+    }
+    public void modificarPersonaje(Personaje personaje)throws UsuarioException{
+        String sql = "UPDATE FROM Personajes SET id="+personaje.getId()+",nombre='"+
+        personaje.getNombre()+"',alias='"+personaje.getAlias()+"',genero='"+personaje.getGenero()+"' WHERE id="+personaje.getId();
+        ejecutar(sql);
+    }
     public Set<String> obtenerPoderes(int id)throws UsuarioException{
         Set<String> poderes = null;
-
         Statement statement = null;
         ResultSet resultSet = null;
         try {
@@ -81,8 +109,8 @@ public class CrudDb extends Conexion{
         }
         return poderes;
     }
-    public Personaje obtenerPersonaje(Personaje personaje){
-        return new Personaje(0);
+    public Personaje obtenerPersonaje(Personaje personaje)throws UsuarioException{
+        return obtener("SELECT id,nombre,alias,genero from Personajes WHERE id="+personaje.getId()).iterator().next();
     }
     public Set<Personaje> obtenerPersonajes()throws UsuarioException{
         Set<Personaje> personajes= obtener("SELECT id,nombre,alias,genero from Personajes");
