@@ -9,7 +9,9 @@ import es.ies.puerto.excepcion.UsuarioException;
 import es.ies.puerto.modelo.impl.Personaje;
 
 public class CrudDb extends Conexion{
-    public CrudDb() throws UsuarioException {}
+    public CrudDb() throws UsuarioException {
+
+    }
     public void ejecutar(String sql) throws UsuarioException{
         Statement statement = null;
         try {
@@ -113,7 +115,6 @@ public class CrudDb extends Conexion{
         return obtener("SELECT id,nombre,alias,genero from Personajes WHERE id="+personaje.getId()).iterator().next();
     }
     public Set<Personaje> obtenerPersonajes()throws UsuarioException{
-        Set<Personaje> personajes= obtener("SELECT id,nombre,alias,genero from Personajes");
-        return personajes;
+        return obtener("SELECT id,nombre,alias,genero from Personajes");
     }
 }
