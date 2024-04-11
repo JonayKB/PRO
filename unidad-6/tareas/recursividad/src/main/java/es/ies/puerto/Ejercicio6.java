@@ -6,7 +6,6 @@ public class Ejercicio6 {
             return n;
         }
         if (potencia%2!=0) {
-
             return potencia(n,potencia-1)*n;
         }
         n=n*n;

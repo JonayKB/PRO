@@ -14,10 +14,7 @@ public class Ejercicio4Test {
 
     @Test
     public void ejercicio1Test() {
-        Assertions.assertEquals(34, ejercicio.fibonacciTradiciona(10));
+        Assertions.assertEquals(34, ejercicio.fibonacci(10));
     }
-    @Test
-    public void ejercicio4Test() {
-        Assertions.assertEquals(ejercicio.fibonacciTradiciona(5), ejercicio.fibonacci(5));
-    }
+
 }
