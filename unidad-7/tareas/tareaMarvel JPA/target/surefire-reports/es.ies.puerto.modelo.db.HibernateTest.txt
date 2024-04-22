@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: es.ies.puerto.modelo.db.HibernateTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.43 s - in es.ies.puerto.modelo.db.HibernateTest

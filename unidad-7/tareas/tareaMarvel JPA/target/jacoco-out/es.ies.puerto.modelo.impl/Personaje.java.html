@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Personaje.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">tarea1</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.modelo.impl</a> &gt; <span class="el_source">Personaje.java</span></div><h1>Personaje.java</h1><pre class="source lang-java linenums">package es.ies.puerto.modelo.impl;
+
+import java.util.Set;
+
+import javax.persistence.*;
+
+import java.io.Serializable;
+import java.util.Objects;
+@Entity
+@Table(name = &quot;Personajes&quot;)
+public class Personaje implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+    Integer id;
+    @Column(name = &quot;nombre&quot;)
+    private String nombre;
+
+    @OneToOne(mappedBy = &quot;personaje&quot;,orphanRemoval = true,cascade = CascadeType.ALL)
+    private Alias alias;
+    
+    @Column(name = &quot;genero&quot;)
+    private String genero;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = &quot;Personajes_Poderes&quot;,joinColumns = 
+    @JoinColumn(name=&quot;personaje_id&quot;,referencedColumnName = &quot;id&quot;),
+    inverseJoinColumns = @JoinColumn(name=&quot;poder_id&quot;,referencedColumnName = &quot;id&quot;))
+    private Set&lt;Poder&gt; poderes;
+
+
+<span class="fc" id="L32">    public Personaje() {</span>
+<span class="fc" id="L33">    }</span>
+
+
+<span class="nc" id="L36">    public Personaje(Integer id, String nombre, Alias alias, String genero) {</span>
+<span class="nc" id="L37">        this.id = id;</span>
+<span class="nc" id="L38">        this.nombre = nombre;</span>
+<span class="nc" id="L39">        this.alias = alias;</span>
+<span class="nc" id="L40">        this.genero = genero;</span>
+<span class="nc" id="L41">    }</span>
+
+
+
+<span class="nc" id="L45">    public Personaje(int id) {</span>
+<span class="nc" id="L46">        this.id=id;</span>
+<span class="nc" id="L47">    }</span>
+
+
+    public Integer getId() {
+<span class="fc" id="L51">        return this.id;</span>
+    }
+
+    public void setId(Integer id) {
+<span class="nc" id="L55">        this.id = id;</span>
+<span class="nc" id="L56">    }</span>
+
+    public String getNombre() {
+<span class="fc" id="L59">        return this.nombre;</span>
+    }
+
+    public void setNombre(String nombre) {
+<span class="fc" id="L63">        this.nombre = nombre;</span>
+<span class="fc" id="L64">    }</span>
+
+    public Alias getAlias() {
+<span class="nc" id="L67">        return this.alias;</span>
+    }
+
+    public void setAlias(Alias alias) {
+<span class="fc" id="L71">        this.alias = alias;</span>
+<span class="fc" id="L72">    }</span>
+
+    public String getGenero() {
+<span class="nc" id="L75">        return this.genero;</span>
+    }
+
+    public void setGenero(String genero) {
+<span class="fc" id="L79">        this.genero = genero;</span>
+<span class="fc" id="L80">    }</span>
+
+    public Set&lt;Poder&gt; getPoderes() {
+<span class="nc" id="L83">        return this.poderes;</span>
+    }
+
+    public void setPoderes(Set&lt;Poder&gt; poderes) {
+<span class="fc" id="L87">        this.poderes = poderes;</span>
+<span class="fc" id="L88">    }</span>
+    
+    
+
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L96">            return true;</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">        if (!(o instanceof Personaje)) {</span>
+<span class="nc" id="L98">            return false;</span>
+        }
+<span class="fc" id="L100">        Personaje personaje = (Personaje) o;</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">        return id == personaje.id;</span>
+    }
+
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L107">        return Objects.hash(id);</span>
+    }
+
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

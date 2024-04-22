@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Crud.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">tarea1</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.modelo.db</a> &gt; <span class="el_source">Crud.java</span></div><h1>Crud.java</h1><pre class="source lang-java linenums">package es.ies.puerto.modelo.db;
+
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import es.ies.puerto.excepcion.UsuarioException;
+import es.ies.puerto.modelo.impl.Alias;
+import es.ies.puerto.modelo.impl.Personaje;
+//import es.ies.puerto.modelo.impl.Poder;
+
+<span class="nc" id="L13">public class Crud extends Conexion{</span>
+    public ResultSet obtener(String sql)throws UsuarioException{
+<span class="nc" id="L15">        ResultSet resultSet = null;</span>
+<span class="nc" id="L16">        Statement statement = null;</span>
+        try {
+<span class="nc" id="L18">            statement = getConnection().createStatement();</span>
+<span class="nc" id="L19">            resultSet = statement.executeQuery(sql);</span>
+<span class="nc" id="L20">        } catch (Exception e) {</span>
+            try {
+<span class="nc bnc" id="L22" title="All 4 branches missed.">                if (getConnection()!=null &amp;&amp; !getConnection().isClosed()) {</span>
+<span class="nc" id="L23">                    getConnection().close();</span>
+                }
+<span class="nc bnc" id="L25" title="All 4 branches missed.">                if (statement!=null &amp;&amp; !statement.isClosed()) {</span>
+<span class="nc" id="L26">                    statement.close();</span>
+                }
+<span class="nc" id="L28">            } catch (Exception p) {</span>
+<span class="nc" id="L29">                throw new UsuarioException(p.getMessage(), p);</span>
+<span class="nc" id="L30">            }</span>
+<span class="nc" id="L31">        }</span>
+<span class="nc" id="L32">        return resultSet;</span>
+    }
+    public Set&lt;Personaje&gt; obtenerPersonajes()throws UsuarioException{
+<span class="nc" id="L35">        ResultSet resultSet = obtener(&quot;SELECT id,genero,nombre FROM Personajes&quot;);</span>
+<span class="nc" id="L36">        Set&lt;Personaje&gt; personajes = new HashSet&lt;&gt;();</span>
+        try {
+<span class="nc bnc" id="L38" title="All 2 branches missed.">            while (resultSet.next()) {</span>
+<span class="nc" id="L39">                Integer id = resultSet.getInt(&quot;id&quot;);</span>
+<span class="nc" id="L40">                String genero = resultSet.getString(&quot;genero&quot;);</span>
+<span class="nc" id="L41">                String nombre = resultSet.getString(&quot;nombre&quot;);</span>
+                //Set&lt;Poder&gt; poderes = obtenerPoderes(id);
+<span class="nc" id="L43">                Alias alias = obtenerAlias(id);</span>
+                //personajes.add(new Personaje(id, nombre, alias, genero, poderes));
+<span class="nc" id="L45">            }</span>
+<span class="nc" id="L46">        } catch (Exception e) {</span>
+<span class="nc" id="L47">            throw new UsuarioException(e.getMessage(), e);</span>
+<span class="nc" id="L48">        }</span>
+<span class="nc" id="L49">        return personajes;</span>
+    }
+    private Alias obtenerAlias(Integer id) throws UsuarioException{
+        try {
+<span class="nc" id="L53">            ResultSet resultSet = obtener(&quot;&quot;);</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">            while (resultSet.next()) {</span>
+<span class="nc" id="L55">                return new Alias(id, new Personaje(id), resultSet.getString(&quot;alias&quot;));</span>
+            }
+<span class="nc" id="L57">        } catch (Exception e) {</span>
+<span class="nc" id="L58">            throw new UsuarioException(e.getMessage(), e);</span>
+<span class="nc" id="L59">        }</span>
+<span class="nc" id="L60">        return null;</span>
+    }
+    /*public Set&lt;Poder&gt; obtenerPoderes(Integer id)throws UsuarioException{
+        ResultSet resultSet = obtener(&quot;&quot;);
+        Set&lt;Poder&gt; poderes = new HashSet&lt;&gt;();
+        try {
+            while (resultSet.next()) {
+                Integer idPoder = resultSet.getInt(&quot;id&quot;);
+                String poder = resultSet.getString(&quot;poder&quot;);
+                poderes.add(new Poder(idPoder, poder, new HashSet&lt;&gt;(Arrays.asList(new Personaje(id)))));
+            }
+        } catch (Exception e) {
+            throw new UsuarioException(e.getMessage(), e);
+        }
+        return poderes;
+    }*/
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

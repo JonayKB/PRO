@@ -1,0 +1,9 @@
+es/ies/puerto/modelo/impl/Poder.class
+es/ies/puerto/modelo/db/Conexion.class
+es/ies/puerto/modelo/impl/Personaje.class
+es/ies/puerto/modelo/db/SQLiteDialect.class
+es/ies/puerto/modelo/db/CrudHibernate.class
+es/ies/puerto/modelo/db/Crud.class
+es/ies/puerto/modelo/impl/Alias.class
+es/ies/puerto/excepcion/UsuarioException.class
+es/ies/puerto/config/AppConfig.class
