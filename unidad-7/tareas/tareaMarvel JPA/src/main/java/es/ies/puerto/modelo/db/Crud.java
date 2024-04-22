@@ -10,8 +10,9 @@ import es.ies.puerto.modelo.impl.Alias;
 import es.ies.puerto.modelo.impl.Personaje;
 //import es.ies.puerto.modelo.impl.Poder;
 import es.ies.puerto.modelo.impl.Poder;
+import es.ies.puerto.modelo.interfaces.ICrud;
 
-public class Crud extends Conexion{
+public class Crud extends Conexion implements ICrud{
     public ResultSet obtener(String sql)throws UsuarioException{
         ResultSet resultSet = null;
         Statement statement = null;
@@ -91,6 +92,37 @@ public class Crud extends Conexion{
         }
         cerrar();
         return poderes;
+    }
+    @Override
+    public Personaje obtenerPersonaje(Personaje personaje) throws UsuarioException {
+        ResultSet resultSet = obtener("SELECT id,genero,nombre FROM Personajes WHERE id="+personaje.getId());
+        try {
+                Integer id = resultSet.getInt("id");
+                String genero = resultSet.getString("genero");
+                String nombre = resultSet.getString("nombre");
+                Set<Poder> poderes = obtenerPoderes(id);
+                Alias alias = obtenerAlias(id);
+                personaje = new Personaje(id, nombre, alias, genero, poderes);
+        } catch (Exception e) {
+            throw new UsuarioException(e.getMessage(), e);
+        }
+        cerrar();
+        return personaje;
+    }
+    @Override
+    public void agregarPersonaje(Personaje personaje) throws UsuarioException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'agregarPersonaje'");
+    }
+    @Override
+    public void actualizarPersonaje(Personaje personaje) throws UsuarioException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'actualizarPersonaje'");
+    }
+    @Override
+    public void eliminarPersonaje(Personaje personaje) throws UsuarioException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'eliminarPersonaje'");
     }
 }
 

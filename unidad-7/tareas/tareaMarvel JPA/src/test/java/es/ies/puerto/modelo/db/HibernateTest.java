@@ -33,8 +33,9 @@ public class HibernateTest {
         alias.setPersonaje(personaje);
         alias.setAlias("AliasTest");
 
-        //poder.setPersonaje(new HashSet<>(Arrays.asList(personaje)));
+        poder.setPersonaje(new HashSet<>(Arrays.asList(personaje)));
         poder.setPoder("PoderTest");
+
 
         personaje.setNombre("NombreTest");
         personaje.setAlias(alias);
@@ -45,7 +46,7 @@ public class HibernateTest {
         personaje.setNombre("nombreUpdate");
         crudHibernate.actualizarPersonaje(personaje);
 
-        Personaje personajeObtener= crudHibernate.buscarPersonaje(personaje);
+        Personaje personajeObtener= crudHibernate.obtenerPersonaje(personaje);
 
         crudHibernate.eliminarPersonaje(personaje);
 
