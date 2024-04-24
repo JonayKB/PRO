@@ -8,18 +8,16 @@ import es.ies.puerto.excepcion.UsuarioException;
 
     
 
-public class Conexion extends AppConfig{
-<span class="nc" id="L12">    public Conexion() {</span>
-<span class="nc" id="L13">        setUrl(&quot;jbc:sqlite&quot;+getUrl());</span>
-<span class="nc" id="L14">    }</span>
-    public Connection getConnection()throws UsuarioException{
-        Connection con;
+<span class="fc" id="L11">public class Conexion extends AppConfig{</span>
+    Connection con;
+    public  Connection getConnection()throws UsuarioException{    
         try {
-<span class="nc" id="L18">            con=DriverManager.getConnection(getUrl());</span>
-<span class="nc" id="L19">        } catch (Exception e) {</span>
-<span class="nc" id="L20">            throw new UsuarioException(e.getMessage(), e);</span>
-<span class="nc" id="L21">        }</span>
-<span class="nc" id="L22">        return con;</span>
+<span class="fc" id="L15">            con=DriverManager.getConnection(&quot;jdbc:sqlite:&quot;+getUrl());</span>
+<span class="nc" id="L16">        } catch (Exception e) {</span>
+<span class="nc" id="L17">            throw new UsuarioException(e.getMessage(), e);</span>
+<span class="fc" id="L18">        }</span>
+<span class="fc" id="L19">        return con;</span>
     }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

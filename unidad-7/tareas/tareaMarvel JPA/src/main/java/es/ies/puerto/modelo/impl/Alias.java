@@ -70,15 +70,17 @@ public class Alias implements Serializable{
         return Objects.hash(id);
     }
 
+    
 
     @Override
     public String toString() {
         return "{" +
-            " id='" + getId() + "'" +
-            ", personaje='" + getPersonaje() + "'" +
-            ", alias='" + getAlias() + "'" +
+            " id='" + id + "'" +
+            ", personaje='" + personaje.getId() + "'" +
+            ", alias='" + alias + "'" +
             "}";
     }
+
 
     
 

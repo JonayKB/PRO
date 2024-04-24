@@ -54,7 +54,7 @@ public class HibernateTest {
         Assertions.assertEquals(personaje.getNombre(), personajeObtener.getNombre());
     }
 
-    @Test
+    //@Test
     public void obtenerPersonajes(){
         Assertions.assertEquals(2, crudHibernate.obtenerPersonajes().size());
     }

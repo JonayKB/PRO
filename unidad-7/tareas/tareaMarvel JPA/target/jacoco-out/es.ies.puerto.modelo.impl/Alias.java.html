@@ -2,6 +2,7 @@
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = &quot;Alias&quot;)
@@ -13,42 +14,75 @@ public class Alias implements Serializable{
     @Column(name = &quot;id&quot;)
     Integer id;
     @JoinColumn(name = &quot;personaje_id&quot;)
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     Personaje personaje;
     @Column(name = &quot;alias&quot;)
     String alias;
-<span class="nc" id="L20">    public Alias(Integer id, Personaje personaje, String alias) {</span>
-<span class="nc" id="L21">        this.id = id;</span>
-<span class="nc" id="L22">        this.personaje = personaje;</span>
-<span class="nc" id="L23">        this.alias = alias;</span>
-<span class="nc" id="L24">    }</span>
 
-<span class="fc" id="L26">    public Alias() {</span>
+
+<span class="fc" id="L23">    public Alias(Integer id, Personaje personaje, String alias) {</span>
+<span class="fc" id="L24">        this.id = id;</span>
+<span class="fc" id="L25">        this.personaje = personaje;</span>
+<span class="fc" id="L26">        this.alias = alias;</span>
 <span class="fc" id="L27">    }</span>
 
+<span class="fc" id="L29">    public Alias() {</span>
+<span class="fc" id="L30">    }</span>
+
     public Integer getId() {
-<span class="nc" id="L30">        return this.id;</span>
+<span class="fc" id="L33">        return this.id;</span>
     }
 
     public void setId(Integer id) {
-<span class="nc" id="L34">        this.id = id;</span>
-<span class="nc" id="L35">    }</span>
+<span class="fc" id="L37">        this.id = id;</span>
+<span class="fc" id="L38">    }</span>
 
     public Personaje getPersonaje() {
-<span class="nc" id="L38">        return this.personaje;</span>
+<span class="fc" id="L41">        return this.personaje;</span>
     }
 
     public void setPersonaje(Personaje personaje) {
-<span class="fc" id="L42">        this.personaje = personaje;</span>
-<span class="fc" id="L43">    }</span>
+<span class="fc" id="L45">        this.personaje = personaje;</span>
+<span class="fc" id="L46">    }</span>
 
     public String getAlias() {
-<span class="nc" id="L46">        return this.alias;</span>
+<span class="fc" id="L49">        return this.alias;</span>
     }
 
     public void setAlias(String alias) {
-<span class="fc" id="L50">        this.alias = alias;</span>
-<span class="fc" id="L51">    }</span>
+<span class="fc" id="L53">        this.alias = alias;</span>
+<span class="fc" id="L54">    }</span>
+
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L60">            return true;</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">        if (!(o instanceof Alias)) {</span>
+<span class="nc" id="L62">            return false;</span>
+        }
+<span class="fc" id="L64">        Alias alias = (Alias) o;</span>
+<span class="fc" id="L65">        return Objects.equals(id, alias.id);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L70">        return Objects.hash(id);</span>
+    }
+
+    
+
+    @Override
+    public String toString() {
+<span class="fc" id="L77">        return &quot;{&quot; +</span>
+            &quot; id='&quot; + id + &quot;'&quot; +
+<span class="fc" id="L79">            &quot;, personaje='&quot; + personaje.getId() + &quot;'&quot; +</span>
+            &quot;, alias='&quot; + alias + &quot;'&quot; +
+            &quot;}&quot;;
+    }
+
+
+    
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

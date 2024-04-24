@@ -98,7 +98,6 @@ public class Personaje implements Serializable{
     
     
 
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -107,7 +106,7 @@ public class Personaje implements Serializable{
             return false;
         }
         Personaje personaje = (Personaje) o;
-        return id == personaje.id;
+        return Objects.equals(id, personaje.id);
     }
 
 
@@ -116,5 +115,16 @@ public class Personaje implements Serializable{
         return Objects.hash(id);
     }
 
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + id + "'" +
+            ", nombre='" + nombre + "'" +
+            ", alias='" + alias + "'" +
+            ", genero='" + genero + "'" +
+            ", poderes='" + poderes + "'" +
+            "}";
+    }
     
 }

@@ -4,13 +4,14 @@ import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 
 
 @Entity
 @Table(name = &quot;Poderes&quot;)
-<span class="fc" id="L13">public class Poder implements Serializable{</span>
+public class Poder implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = &quot;id&quot;)
@@ -18,33 +19,70 @@ import javax.persistence.*;
     String poder;
     @ManyToMany(mappedBy = &quot;poderes&quot;,cascade = CascadeType.ALL)
     Set&lt;Personaje&gt; personaje;
+
+
+<span class="fc" id="L24">    public Poder() {</span>
+<span class="fc" id="L25">    }</span>
+
+<span class="fc" id="L27">    public Poder(Integer id, String poder, Set&lt;Personaje&gt; personaje) {</span>
+<span class="fc" id="L28">        this.id = id;</span>
+<span class="fc" id="L29">        this.poder = poder;</span>
+<span class="fc" id="L30">        this.personaje = personaje;</span>
+<span class="fc" id="L31">    }</span>
+
     public Set&lt;Personaje&gt; getPersonaje() {
-<span class="nc" id="L22">        return this.personaje;</span>
+<span class="nc" id="L34">        return this.personaje;</span>
     }
 
     public void setPersonaje(Set&lt;Personaje&gt; personaje) {
-<span class="nc" id="L26">        this.personaje = personaje;</span>
-<span class="nc" id="L27">    }</span>
+<span class="fc" id="L38">        this.personaje = personaje;</span>
+<span class="fc" id="L39">    }</span>
 
     public Integer getId() {
-<span class="nc" id="L30">        return this.id;</span>
+<span class="fc" id="L42">        return this.id;</span>
     }
 
     public void setId(Integer id) {
-<span class="nc" id="L34">        this.id = id;</span>
-<span class="nc" id="L35">    }</span>
+<span class="fc" id="L46">        this.id = id;</span>
+<span class="fc" id="L47">    }</span>
 
 
 
     public String getPoder() {
-<span class="nc" id="L40">        return this.poder;</span>
+<span class="fc" id="L52">        return this.poder;</span>
     }
 
     public void setPoder(String poder) {
-<span class="fc" id="L44">        this.poder = poder;</span>
-<span class="fc" id="L45">    }</span>
+<span class="fc" id="L56">        this.poder = poder;</span>
+<span class="fc" id="L57">    }</span>
 
 
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L64">            return true;</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">        if (!(o instanceof Poder)) {</span>
+<span class="nc" id="L66">            return false;</span>
+        }
+<span class="fc" id="L68">        Poder poder = (Poder) o;</span>
+<span class="fc" id="L69">        return Objects.equals(id, poder.id) ;</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L74">        return Objects.hash(id);</span>
+    }
+
+
+
+    @Override
+    public String toString() {
+<span class="fc" id="L81">        return &quot;{&quot; +</span>
+<span class="fc" id="L82">            &quot; id='&quot; + getId() + &quot;'&quot; +</span>
+<span class="fc" id="L83">            &quot;, poder='&quot; + getPoder() + &quot;'&quot; +</span>
+            &quot;}&quot;;
+    }
 
 
 

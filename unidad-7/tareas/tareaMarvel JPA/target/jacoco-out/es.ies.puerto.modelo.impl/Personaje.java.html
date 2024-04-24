@@ -9,6 +9,7 @@ import java.util.Objects;
 @Entity
 @Table(name = &quot;Personajes&quot;)
 public class Personaje implements Serializable{
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = &quot;id&quot;)
@@ -29,84 +30,102 @@ public class Personaje implements Serializable{
     private Set&lt;Poder&gt; poderes;
 
 
-<span class="fc" id="L32">    public Personaje() {</span>
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L33">    public Personaje() {</span>
+<span class="fc" id="L34">    }</span>
 
 
-<span class="nc" id="L36">    public Personaje(Integer id, String nombre, Alias alias, String genero) {</span>
-<span class="nc" id="L37">        this.id = id;</span>
-<span class="nc" id="L38">        this.nombre = nombre;</span>
-<span class="nc" id="L39">        this.alias = alias;</span>
-<span class="nc" id="L40">        this.genero = genero;</span>
-<span class="nc" id="L41">    }</span>
+<span class="nc" id="L37">    public Personaje(Integer id, String nombre, Alias alias, String genero) {</span>
+<span class="nc" id="L38">        this.id = id;</span>
+<span class="nc" id="L39">        this.nombre = nombre;</span>
+<span class="nc" id="L40">        this.alias = alias;</span>
+<span class="nc" id="L41">        this.genero = genero;</span>
+<span class="nc" id="L42">    }</span>
 
 
+<span class="fc" id="L45">    public Personaje(Integer id, String nombre, Alias alias, String genero, Set&lt;Poder&gt; poderes) {</span>
+<span class="fc" id="L46">        this.id = id;</span>
+<span class="fc" id="L47">        this.nombre = nombre;</span>
+<span class="fc" id="L48">        this.alias = alias;</span>
+<span class="fc" id="L49">        this.genero = genero;</span>
+<span class="fc" id="L50">        this.poderes = poderes;</span>
+<span class="fc" id="L51">    }</span>
 
-<span class="nc" id="L45">    public Personaje(int id) {</span>
-<span class="nc" id="L46">        this.id=id;</span>
-<span class="nc" id="L47">    }</span>
+
+<span class="fc" id="L54">    public Personaje(int id) {</span>
+<span class="fc" id="L55">        this.id=id;</span>
+<span class="fc" id="L56">    }</span>
 
 
     public Integer getId() {
-<span class="fc" id="L51">        return this.id;</span>
+<span class="fc" id="L60">        return this.id;</span>
     }
 
     public void setId(Integer id) {
-<span class="nc" id="L55">        this.id = id;</span>
-<span class="nc" id="L56">    }</span>
+<span class="fc" id="L64">        this.id = id;</span>
+<span class="fc" id="L65">    }</span>
 
     public String getNombre() {
-<span class="fc" id="L59">        return this.nombre;</span>
+<span class="fc" id="L68">        return this.nombre;</span>
     }
 
     public void setNombre(String nombre) {
-<span class="fc" id="L63">        this.nombre = nombre;</span>
-<span class="fc" id="L64">    }</span>
+<span class="fc" id="L72">        this.nombre = nombre;</span>
+<span class="fc" id="L73">    }</span>
 
     public Alias getAlias() {
-<span class="nc" id="L67">        return this.alias;</span>
+<span class="fc" id="L76">        return this.alias;</span>
     }
 
     public void setAlias(Alias alias) {
-<span class="fc" id="L71">        this.alias = alias;</span>
-<span class="fc" id="L72">    }</span>
+<span class="fc" id="L80">        this.alias = alias;</span>
+<span class="fc" id="L81">    }</span>
 
     public String getGenero() {
-<span class="nc" id="L75">        return this.genero;</span>
+<span class="fc" id="L84">        return this.genero;</span>
     }
 
     public void setGenero(String genero) {
-<span class="fc" id="L79">        this.genero = genero;</span>
-<span class="fc" id="L80">    }</span>
+<span class="fc" id="L88">        this.genero = genero;</span>
+<span class="fc" id="L89">    }</span>
 
     public Set&lt;Poder&gt; getPoderes() {
-<span class="nc" id="L83">        return this.poderes;</span>
+<span class="fc" id="L92">        return this.poderes;</span>
     }
 
     public void setPoderes(Set&lt;Poder&gt; poderes) {
-<span class="fc" id="L87">        this.poderes = poderes;</span>
-<span class="fc" id="L88">    }</span>
+<span class="fc" id="L96">        this.poderes = poderes;</span>
+<span class="fc" id="L97">    }</span>
     
     
-
 
     @Override
     public boolean equals(Object o) {
-<span class="pc bpc" id="L95" title="1 of 2 branches missed.">        if (o == this)</span>
-<span class="nc" id="L96">            return true;</span>
-<span class="pc bpc" id="L97" title="1 of 2 branches missed.">        if (!(o instanceof Personaje)) {</span>
-<span class="nc" id="L98">            return false;</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L104">            return true;</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">        if (!(o instanceof Personaje)) {</span>
+<span class="nc" id="L106">            return false;</span>
         }
-<span class="fc" id="L100">        Personaje personaje = (Personaje) o;</span>
-<span class="pc bpc" id="L101" title="1 of 2 branches missed.">        return id == personaje.id;</span>
+<span class="fc" id="L108">        Personaje personaje = (Personaje) o;</span>
+<span class="fc" id="L109">        return Objects.equals(id, personaje.id);</span>
     }
 
 
     @Override
     public int hashCode() {
-<span class="nc" id="L107">        return Objects.hash(id);</span>
+<span class="fc" id="L115">        return Objects.hash(id);</span>
     }
 
+
+    @Override
+    public String toString() {
+<span class="fc" id="L121">        return &quot;{&quot; +</span>
+            &quot; id='&quot; + id + &quot;'&quot; +
+            &quot;, nombre='&quot; + nombre + &quot;'&quot; +
+            &quot;, alias='&quot; + alias + &quot;'&quot; +
+            &quot;, genero='&quot; + genero + &quot;'&quot; +
+            &quot;, poderes='&quot; + poderes + &quot;'&quot; +
+            &quot;}&quot;;
+    }
     
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

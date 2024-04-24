@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 
@@ -56,6 +57,32 @@ public class Poder implements Serializable{
     }
 
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Poder)) {
+            return false;
+        }
+        Poder poder = (Poder) o;
+        return Objects.equals(id, poder.id) ;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", poder='" + getPoder() + "'" +
+            "}";
+    }
 
 
 

@@ -10,9 +10,7 @@ import es.ies.puerto.excepcion.UsuarioException;
 
 public class Conexion extends AppConfig{
     Connection con;
-    public Conexion() {
-    }
-    public Connection getConnection()throws UsuarioException{    
+    public  Connection getConnection()throws UsuarioException{    
         try {
             con=DriverManager.getConnection("jdbc:sqlite:"+getUrl());
         } catch (Exception e) {
@@ -20,4 +18,5 @@ public class Conexion extends AppConfig{
         }
         return con;
     }
+
 }
