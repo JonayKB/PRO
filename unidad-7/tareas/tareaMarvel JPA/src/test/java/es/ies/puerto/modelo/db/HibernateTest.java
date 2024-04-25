@@ -2,17 +2,9 @@ package es.ies.puerto.modelo.db;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import es.ies.puerto.modelo.impl.Alias;
 import es.ies.puerto.modelo.impl.Personaje;
 import es.ies.puerto.modelo.impl.Poder;
@@ -54,7 +46,7 @@ public class HibernateTest {
         Assertions.assertEquals(personaje.getNombre(), personajeObtener.getNombre());
     }
 
-    //@Test
+    @Test
     public void obtenerPersonajes(){
         Assertions.assertEquals(2, crudHibernate.obtenerPersonajes().size());
     }

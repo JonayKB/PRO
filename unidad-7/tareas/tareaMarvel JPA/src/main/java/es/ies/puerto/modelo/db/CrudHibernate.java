@@ -1,6 +1,7 @@
 package es.ies.puerto.modelo.db;
 
 import java.sql.ResultSet;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -48,11 +49,15 @@ public class CrudHibernate implements ICrud{
         cerrarEntityManager(em);
         return personaje;
     }
-    //TODO
+    
     public Set<Personaje> obtenerPersonajes(){
         EntityManager em = emf.createEntityManager();
-        List<Personaje> lista= ((List<Personaje>)em.createQuery("SELECT p FROM personajes as p").getResultList());
+        List<Personaje> lista= (em.createQuery("SELECT p FROM Personaje as p").getResultList());
         cerrarEntityManager(em);
-        return null;
+        Set<Personaje> resultado = new HashSet<>();
+        for (Personaje personaje : lista) {
+            resultado.add(personaje);
+        }
+        return resultado;
     }
 }
