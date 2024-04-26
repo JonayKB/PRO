@@ -44,7 +44,6 @@ public class CrudDb extends Conexion{
     public Set<Personaje> obtener(String sql) throws UsuarioException{
         Set<Personaje> personajes = null;
         Set<String> poderes = null;
-
         Statement statement = null;
         ResultSet resultSet = null;
         try {
@@ -77,6 +76,7 @@ public class CrudDb extends Conexion{
         }
         return personajes;
     }
+    
     /**
      * Funcion para agregar personajes
      * @param personaje a agregar
@@ -85,6 +85,18 @@ public class CrudDb extends Conexion{
 	public void agregarPersonaje(Personaje personaje) throws UsuarioException{
         String sql = "INSERT INTO Personajes (id,nombre,alias,genero) "+
         "VALUES ("+personaje.getId()+",'"+personaje.getNombre()+"','"+personaje.getAlias()+"','"+personaje.getGenero()+"')";
+        ejecutar(sql);
+    }
+
+    /**
+     * Agrega un poder
+     * @param personaje que va a tener el poder
+     * @param poder a agregar
+     * @throws UsuarioException
+     */
+    public void agregarPoder(Personaje personaje, String poder) throws UsuarioException{
+        String sql = "INSERT INTO Poderes (personaje_id,poder) VALUES "+
+        "("+personaje.getId()+",'"+poder+"') ";
         ejecutar(sql);
     }
     /**
@@ -97,6 +109,15 @@ public class CrudDb extends Conexion{
         ejecutar(sql);
     }
     /**
+     * Elimina un poder
+     * @param poder a eliminar
+     * @throws UsuarioException
+     */
+    public void eliminarPoder(String poder) throws UsuarioException{
+        String sql = "DELETE FROM Poderes WHERE poder='"+poder+"'";
+        ejecutar(sql);
+    }
+    /**
      * Funcion para modificar un personaje
      * @param personaje a modficar
      * @throws UsuarioException
@@ -105,6 +126,21 @@ public class CrudDb extends Conexion{
         String sql = "UPDATE Personajes SET id="+personaje.getId()+",nombre='"+
         personaje.getNombre()+"',alias='"+personaje.getAlias()+"',genero='"+personaje.getGenero()+"' WHERE id="+personaje.getId();
         ejecutar(sql);
+        modificarPoderes(personaje, personaje.getPoderes());
+    }
+    /**
+     * Funcion para modificar los poderesde un personaje
+     * @param personaje de los poderes
+     * @param poderes del personaje
+     * @throws UsuarioException
+     */
+    public void modificarPoderes(Personaje personaje, Set<String> poderes)throws UsuarioException{
+        for (String string : obtenerPoderes(personaje.getId())) {
+            eliminarPoder(string);
+        }
+        for (String poder : poderes) {
+            agregarPoder(personaje, poder);
+        }
     }
     /**
      * Obtiene los poderes de la tabla

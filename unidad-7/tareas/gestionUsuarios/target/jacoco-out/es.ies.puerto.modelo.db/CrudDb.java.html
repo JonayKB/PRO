@@ -12,70 +12,93 @@ import es.ies.puerto.modelo.impl.Usuario;
 
 public class CrudDb extends Conexion{
 
-    public CrudDb(String url) {
-<span class="fc" id="L16">        super(url);</span>
-<span class="fc" id="L17">    }</span>
+<span class="fc" id="L15">    public CrudDb() {</span>
+<span class="fc" id="L16">    }</span>
 
     public Set&lt;Usuario&gt; obtenerUsuarios() throws UsuarioException{
-<span class="fc" id="L20">        String sql = &quot;SELECT u.id, u.nombre, u.edad, u.ciudad FROM usuarios as u&quot;;     </span>
-<span class="fc" id="L21">        return obtener(sql);</span>
+<span class="fc" id="L19">        String sql = &quot;SELECT u.id, u.nombre, u.edad, u.ciudad FROM usuarios as u&quot;;     </span>
+<span class="fc" id="L20">        return obtener(sql);</span>
     }
-
-    private Set&lt;Usuario&gt; obtener(String sql) throws UsuarioException{
-<span class="fc" id="L25">        Set&lt;Usuario&gt; usuarios = new HashSet&lt;&gt;();</span>
-<span class="fc" id="L26">        Statement statement = null;</span>
-<span class="fc" id="L27">        ResultSet resulSet = null;</span>
+    private void  actualizar(String sql) throws UsuarioException{
+<span class="fc" id="L23">        Statement statement = null;</span>
         try {
-<span class="fc" id="L29">            statement = getConnection().createStatement();</span>
-<span class="fc" id="L30">            resulSet=statement.executeQuery(sql);</span>
-<span class="fc bfc" id="L31" title="All 2 branches covered.">            while (resulSet.next()) {</span>
-<span class="fc" id="L32">                String id = resulSet.getString(&quot;id&quot;);</span>
-<span class="fc" id="L33">                String nombre = resulSet.getString(&quot;nombre&quot;);</span>
-<span class="fc" id="L34">                int edad = resulSet.getInt(&quot;edad&quot;);</span>
-<span class="fc" id="L35">                String ciudad = resulSet.getString(&quot;ciudad&quot;);</span>
-<span class="fc" id="L36">                Usuario usuario = new Usuario(id, nombre, edad, ciudad);</span>
-<span class="fc" id="L37">                usuarios.add(usuario);</span>
-<span class="fc" id="L38">            }</span>
-<span class="nc" id="L39">        } catch (SQLException e) {</span>
-<span class="nc" id="L40">            throw new UsuarioException(e.getMessage(),e);</span>
+<span class="fc" id="L25">            statement = getConnection().createStatement();</span>
+<span class="fc" id="L26">            statement.executeUpdate(sql);</span>
+<span class="nc" id="L27">        } catch (SQLException e) {</span>
+<span class="nc" id="L28">            throw new UsuarioException(e.getMessage(),e);</span>
         }finally{
             try {
-<span class="pc bpc" id="L43" title="1 of 2 branches missed.">                if(!resulSet.isClosed()){</span>
-<span class="fc" id="L44">                    resulSet.close();</span>
+<span class="pc bpc" id="L31" title="2 of 4 branches missed.">                if(statement != null &amp;&amp; !statement.isClosed()){</span>
+<span class="fc" id="L32">                    statement.close();</span>
                 }
-<span class="pc bpc" id="L46" title="1 of 2 branches missed.">                if(!statement.isClosed()){</span>
-<span class="fc" id="L47">                    statement.close();</span>
+<span class="pc bpc" id="L34" title="2 of 4 branches missed.">                if (getConnection() != null &amp;&amp; !getConnection().isClosed()) {</span>
+<span class="fc" id="L35">                    getConnection().close();</span>
                 }
-<span class="pc bpc" id="L49" title="1 of 2 branches missed.">                if (!getConnection().isClosed()) {</span>
-<span class="fc" id="L50">                    getConnection().close();</span>
-                }
-<span class="nc" id="L52">            } catch (SQLException e) {</span>
-<span class="nc" id="L53">                throw new UsuarioException(e.getMessage(),e);</span>
-<span class="fc" id="L54">            }</span>
+<span class="nc" id="L37">            } catch (SQLException e) {</span>
+<span class="nc" id="L38">                throw new UsuarioException(e.getMessage(),e);</span>
+<span class="fc" id="L39">            }</span>
 
         }
-<span class="fc" id="L57">        return usuarios;</span>
+<span class="fc" id="L42">    }</span>
+
+    private Set&lt;Usuario&gt; obtener(String sql) throws UsuarioException{
+<span class="fc" id="L45">        Set&lt;Usuario&gt; usuarios = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L46">        Statement statement = null;</span>
+<span class="fc" id="L47">        ResultSet resulSet = null;</span>
+        try {
+<span class="fc" id="L49">            statement = getConnection().createStatement();</span>
+<span class="fc" id="L50">            resulSet=statement.executeQuery(sql);</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">            while (resulSet.next()) {</span>
+<span class="fc" id="L52">                String id = resulSet.getString(&quot;id&quot;);</span>
+<span class="fc" id="L53">                String nombre = resulSet.getString(&quot;nombre&quot;);</span>
+<span class="fc" id="L54">                int edad = resulSet.getInt(&quot;edad&quot;);</span>
+<span class="fc" id="L55">                String ciudad = resulSet.getString(&quot;ciudad&quot;);</span>
+<span class="fc" id="L56">                Usuario usuario = new Usuario(id, nombre, edad, ciudad);</span>
+<span class="fc" id="L57">                usuarios.add(usuario);</span>
+<span class="fc" id="L58">            }</span>
+<span class="nc" id="L59">        } catch (SQLException e) {</span>
+<span class="nc" id="L60">            throw new UsuarioException(e.getMessage(),e);</span>
+        }finally{
+            try {
+<span class="pc bpc" id="L63" title="2 of 4 branches missed.">                if(resulSet != null &amp;&amp; !resulSet.isClosed()){</span>
+<span class="fc" id="L64">                    resulSet.close();</span>
+                }
+<span class="pc bpc" id="L66" title="2 of 4 branches missed.">                if(statement != null &amp;&amp; !statement.isClosed()){</span>
+<span class="fc" id="L67">                    statement.close();</span>
+                }
+<span class="pc bpc" id="L69" title="2 of 4 branches missed.">                if (getConnection() != null &amp;&amp; !getConnection().isClosed()) {</span>
+<span class="fc" id="L70">                    getConnection().close();</span>
+                }
+<span class="nc" id="L72">            } catch (SQLException e) {</span>
+<span class="nc" id="L73">                throw new UsuarioException(e.getMessage(),e);</span>
+<span class="fc" id="L74">            }</span>
+
+        }
+<span class="fc" id="L77">        return usuarios;</span>
     }
 
     public Usuario obtenerUsuario(Usuario usuario)throws UsuarioException{
-<span class="fc" id="L61">        String sql = &quot;SELECT u.id, u.nombre, u.edad, u.ciudad FROM usuarios as u WHERE u.id='&quot;+usuario.getId()+&quot;'&quot;;     </span>
-<span class="fc" id="L62">        Set&lt;Usuario&gt; usuarios = obtener(sql);</span>
-<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        if(usuarios.isEmpty()){</span>
-<span class="nc" id="L64">            return null;</span>
+<span class="fc" id="L81">        String sql = &quot;SELECT u.id, u.nombre, u.edad, u.ciudad FROM usuarios as u WHERE u.id='&quot;+usuario.getId()+&quot;'&quot;;     </span>
+<span class="fc" id="L82">        Set&lt;Usuario&gt; usuarios = obtener(sql);</span>
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">        if(usuarios.isEmpty()){</span>
+<span class="nc" id="L84">            return null;</span>
         }
-<span class="fc" id="L66">        return obtener(sql).iterator().next();</span>
+<span class="fc" id="L86">        return usuarios.iterator().next();</span>
     }
 
-    public void insertarUsuario(Usuario usuario){
+    public void insertarUsuario(Usuario usuario)throws UsuarioException{
+<span class="fc" id="L90">        String sql = &quot;INSERT INTO usuarios (nombre,edad,ciudad) VALUES ('&quot;+usuario.getNombre()+&quot;',&quot;+usuario.getEdad()+&quot;,'&quot;+usuario.getCiudad()+&quot;')&quot;;</span>
+<span class="fc" id="L91">        actualizar(sql);</span>
+<span class="fc" id="L92">    }</span>
 
-<span class="nc" id="L71">    }</span>
+    public void actualizarUsuario(Usuario usuario)throws UsuarioException{
+<span class="fc" id="L95">        String sql = &quot;UPDATE usuarios SET nombre='&quot;+usuario.getNombre()+&quot;',edad=&quot;+usuario.getEdad()+&quot;,ciudad='&quot;+usuario.getCiudad()+&quot;' WHERE id='&quot;+usuario.getId()+&quot;'&quot;;</span>
+<span class="fc" id="L96">        actualizar(sql);</span>
+<span class="fc" id="L97">    }</span>
 
-    public void actualizarUsuario(Usuario usuario){
-
-<span class="nc" id="L75">    }</span>
-
-    public void eliminarUsuario(Usuario usuario){
-
-<span class="nc" id="L79">    }</span>
+    public void eliminarUsuario(Usuario usuario) throws UsuarioException{
+<span class="fc" id="L100">        String sql = &quot;DELETE FROM usuarios as u WHERE u.id='&quot;+usuario.getId()+&quot;'&quot;;</span>
+<span class="fc" id="L101">        actualizar(sql);</span>
+<span class="fc" id="L102">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

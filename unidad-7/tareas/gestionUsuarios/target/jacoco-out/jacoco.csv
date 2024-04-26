@@ -1,6 +1,7 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+crudbase,es.ies.puerto.config,AppConfig,3,31,0,0,2,12,0,4,0,4
 crudbase,es.ies.puerto.exception,UsuarioException,9,0,0,0,4,0,2,0,2,0
-crudbase,es.ies.puerto.modelo.abstrac,Persona,45,58,4,0,18,14,8,7,6,7
-crudbase,es.ies.puerto.modelo.db,CrudDb,21,96,4,6,8,29,7,5,3,4
-crudbase,es.ies.puerto.modelo.db,Conexion,23,19,0,0,8,7,1,2,1,2
+crudbase,es.ies.puerto.modelo.abstrac,Persona,18,85,2,2,8,24,4,11,2,11
+crudbase,es.ies.puerto.modelo.db,CrudDb,34,163,11,13,9,47,11,9,0,8
+crudbase,es.ies.puerto.modelo.db,Conexion,25,22,0,0,8,8,1,2,1,2
 crudbase,es.ies.puerto.modelo.impl,Usuario,0,11,0,0,0,4,0,2,0,2

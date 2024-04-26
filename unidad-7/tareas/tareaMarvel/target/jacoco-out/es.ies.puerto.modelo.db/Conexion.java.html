@@ -14,24 +14,33 @@ public class Conexion extends AppConfig{
 <span class="fc" id="L14">    }</span>
 
     Connection con;
+    /**
+     * Crea una conexion
+     * @return
+     * @throws UsuarioException
+     */
     public Connection getConnection() throws UsuarioException{
         try {
-<span class="fc" id="L19">            Class.forName(&quot;org.sqlite.JDBC&quot;);</span>
-<span class="fc" id="L20">            con = DriverManager.getConnection(&quot;jdbc:sqlite:&quot;+getUrl());</span>
-<span class="nc" id="L21">        } catch (Exception e) {</span>
-<span class="nc" id="L22">            throw new UsuarioException(e.getMessage(), e);</span>
-<span class="fc" id="L23">        }</span>
-<span class="fc" id="L24">        return con;</span>
+<span class="fc" id="L24">            Class.forName(&quot;org.sqlite.JDBC&quot;);</span>
+<span class="fc" id="L25">            con = DriverManager.getConnection(&quot;jdbc:sqlite:&quot;+getUrl());</span>
+<span class="nc" id="L26">        } catch (Exception e) {</span>
+<span class="nc" id="L27">            throw new UsuarioException(e.getMessage(), e);</span>
+<span class="fc" id="L28">        }</span>
+<span class="fc" id="L29">        return con;</span>
     }
+    /**
+     * Cierra una conexion
+     * @throws UsuarioException
+     */
     public void cerrar()throws UsuarioException{
         try {
-<span class="pc bpc" id="L28" title="1 of 4 branches missed.">            if (con != null &amp;&amp; !con.isClosed()) {</span>
-<span class="fc" id="L29">                con.close();</span>
+<span class="pc bpc" id="L37" title="1 of 4 branches missed.">            if (con != null &amp;&amp; !con.isClosed()) {</span>
+<span class="fc" id="L38">                con.close();</span>
             }
-<span class="nc" id="L31">        } catch (SQLException e) {</span>
-<span class="nc" id="L32">            throw new UsuarioException(e.getMessage(), e);</span>
-<span class="fc" id="L33">        }</span>
-<span class="fc" id="L34">    }</span>
+<span class="nc" id="L40">        } catch (SQLException e) {</span>
+<span class="nc" id="L41">            throw new UsuarioException(e.getMessage(), e);</span>
+<span class="fc" id="L42">        }</span>
+<span class="fc" id="L43">    }</span>
 
 
 

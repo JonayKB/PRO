@@ -66,27 +66,44 @@ public class CrudDbTest {
         }
     }
     @Test
+    public void agregarEliminarPoderTest(){
+        try {
+            Personaje personajeAgregarEliminarPoder = new Personaje(20);
+            crudDb.agregarPoder(personajeAgregarEliminarPoder, "poderTest");
+            Assertions.assertNotNull(crudDb.obtenerPoderes(personajeAgregarEliminarPoder.getId()));
+            crudDb.eliminarPoder("poderTest");
+            Assertions.assertEquals(new HashSet<>(),crudDb.obtenerPoderes(personajeAgregarEliminarPoder.getId()));
+        } catch (UsuarioException e) {
+            Assertions.fail();
+        }
+    }
+    @Test
     public void actualizarPersonajeTest(){
+        Personaje personajeActualizar= new Personaje(20);
         String aliasUpdate = "AliasUpdate";
         String generoUpdate = "GeneroUpdate";
         String nombreUpdate = "NombreUpdate";
         Set<String> poderesUpdate = new HashSet<>(Arrays.asList("PoderTest1","PoderTest2"));
         try {
-            Personaje personajeActualizar= new Personaje(20);
             crudDb.agregarPersonaje(personajeActualizar);
             personajeActualizar.setAlias(aliasUpdate);
             personajeActualizar.setGenero(generoUpdate);
             personajeActualizar.setNombre(nombreUpdate);
             personajeActualizar.setPoderes(poderesUpdate);
             crudDb.modificarPersonaje(personajeActualizar);
-
+            personajeActualizar = crudDb.obtenerPersonaje(personajeActualizar);
             Assertions.assertEquals(aliasUpdate, personajeActualizar.getAlias());
             Assertions.assertEquals(generoUpdate, personajeActualizar.getGenero());
             Assertions.assertEquals(nombreUpdate, personajeActualizar.getNombre());
             Assertions.assertEquals(poderesUpdate, personajeActualizar.getPoderes());
-            crudDb.eliminarPersonaje(personajeActualizar);
         } catch (UsuarioException e) {
             Assertions.fail();
+        }finally{
+            try {
+            crudDb.eliminarPersonaje(personajeActualizar);
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
         }
     }
 }

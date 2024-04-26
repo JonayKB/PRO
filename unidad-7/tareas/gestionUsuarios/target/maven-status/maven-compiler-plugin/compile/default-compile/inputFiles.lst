@@ -3,3 +3,4 @@
 /home/jonaykb/Repositorios/pro/unidad-7/tareas/gestionUsuarios/src/main/java/es/ies/puerto/modelo/abstrac/Persona.java
 /home/jonaykb/Repositorios/pro/unidad-7/tareas/gestionUsuarios/src/main/java/es/ies/puerto/modelo/impl/Usuario.java
 /home/jonaykb/Repositorios/pro/unidad-7/tareas/gestionUsuarios/src/main/java/es/ies/puerto/modelo/db/CrudDb.java
+/home/jonaykb/Repositorios/pro/unidad-7/tareas/gestionUsuarios/src/main/java/es/ies/puerto/config/AppConfig.java

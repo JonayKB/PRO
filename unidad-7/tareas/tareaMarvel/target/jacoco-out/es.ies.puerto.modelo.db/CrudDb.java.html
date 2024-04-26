@@ -44,39 +44,39 @@ public class CrudDb extends Conexion{
     public Set&lt;Personaje&gt; obtener(String sql) throws UsuarioException{
 <span class="fc" id="L45">        Set&lt;Personaje&gt; personajes = null;</span>
 <span class="fc" id="L46">        Set&lt;String&gt; poderes = null;</span>
-
-<span class="fc" id="L48">        Statement statement = null;</span>
-<span class="fc" id="L49">        ResultSet resultSet = null;</span>
+<span class="fc" id="L47">        Statement statement = null;</span>
+<span class="fc" id="L48">        ResultSet resultSet = null;</span>
         try {
-<span class="fc" id="L51">            statement = getConnection().createStatement();</span>
-<span class="fc" id="L52">            resultSet = statement.executeQuery(sql);</span>
-<span class="fc" id="L53">            personajes = new HashSet&lt;&gt;();</span>
-<span class="fc bfc" id="L54" title="All 2 branches covered.">            while (resultSet.next()) {</span>
-<span class="fc" id="L55">                int id = resultSet.getInt(&quot;id&quot;);</span>
-<span class="fc" id="L56">                String nombre = resultSet.getString(&quot;nombre&quot;);</span>
-<span class="fc" id="L57">                String alias = resultSet.getString(&quot;alias&quot;);</span>
-<span class="fc" id="L58">                String genero = resultSet.getString(&quot;genero&quot;);</span>
-<span class="fc" id="L59">                poderes = obtenerPoderes(id);</span>
-<span class="fc" id="L60">                Personaje personajeNuevo = new Personaje(id, nombre, alias, genero, poderes);</span>
-<span class="fc" id="L61">                personajes.add(personajeNuevo);</span>
-<span class="fc" id="L62">            }</span>
-<span class="nc" id="L63">        } catch (Exception e) {</span>
-<span class="nc" id="L64">            throw new UsuarioException(e.getMessage(), e);</span>
+<span class="fc" id="L50">            statement = getConnection().createStatement();</span>
+<span class="fc" id="L51">            resultSet = statement.executeQuery(sql);</span>
+<span class="fc" id="L52">            personajes = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">            while (resultSet.next()) {</span>
+<span class="fc" id="L54">                int id = resultSet.getInt(&quot;id&quot;);</span>
+<span class="fc" id="L55">                String nombre = resultSet.getString(&quot;nombre&quot;);</span>
+<span class="fc" id="L56">                String alias = resultSet.getString(&quot;alias&quot;);</span>
+<span class="fc" id="L57">                String genero = resultSet.getString(&quot;genero&quot;);</span>
+<span class="fc" id="L58">                poderes = obtenerPoderes(id);</span>
+<span class="fc" id="L59">                Personaje personajeNuevo = new Personaje(id, nombre, alias, genero, poderes);</span>
+<span class="fc" id="L60">                personajes.add(personajeNuevo);</span>
+<span class="fc" id="L61">            }</span>
+<span class="nc" id="L62">        } catch (Exception e) {</span>
+<span class="nc" id="L63">            throw new UsuarioException(e.getMessage(), e);</span>
         }finally{
             try {
-<span class="pc bpc" id="L67" title="2 of 4 branches missed.">                if (statement != null &amp;&amp; !statement.isClosed()) {</span>
-<span class="fc" id="L68">                    statement.close();</span>
+<span class="pc bpc" id="L66" title="2 of 4 branches missed.">                if (statement != null &amp;&amp; !statement.isClosed()) {</span>
+<span class="fc" id="L67">                    statement.close();</span>
                 }
-<span class="fc" id="L70">                cerrar();</span>
-<span class="pc bpc" id="L71" title="2 of 4 branches missed.">                if (resultSet != null &amp;&amp; !resultSet.isClosed()) {</span>
-<span class="nc" id="L72">                    resultSet.close();</span>
+<span class="fc" id="L69">                cerrar();</span>
+<span class="pc bpc" id="L70" title="2 of 4 branches missed.">                if (resultSet != null &amp;&amp; !resultSet.isClosed()) {</span>
+<span class="nc" id="L71">                    resultSet.close();</span>
                 }
-<span class="nc" id="L74">            } catch (Exception e) {</span>
-<span class="nc" id="L75">                throw new UsuarioException(sql, e);</span>
-<span class="fc" id="L76">            }</span>
+<span class="nc" id="L73">            } catch (Exception e) {</span>
+<span class="nc" id="L74">                throw new UsuarioException(sql, e);</span>
+<span class="fc" id="L75">            }</span>
         }
-<span class="fc" id="L78">        return personajes;</span>
+<span class="fc" id="L77">        return personajes;</span>
     }
+    
     /**
      * Funcion para agregar personajes
      * @param personaje a agregar
@@ -87,25 +87,61 @@ public class CrudDb extends Conexion{
 <span class="fc" id="L87">        &quot;VALUES (&quot;+personaje.getId()+&quot;,'&quot;+personaje.getNombre()+&quot;','&quot;+personaje.getAlias()+&quot;','&quot;+personaje.getGenero()+&quot;')&quot;;</span>
 <span class="fc" id="L88">        ejecutar(sql);</span>
 <span class="fc" id="L89">    }</span>
+
+    /**
+     * Agrega un poder
+     * @param personaje que va a tener el poder
+     * @param poder a agregar
+     * @throws UsuarioException
+     */
+    public void agregarPoder(Personaje personaje, String poder) throws UsuarioException{
+<span class="fc" id="L98">        String sql = &quot;INSERT INTO Poderes (personaje_id,poder) VALUES &quot;+</span>
+<span class="fc" id="L99">        &quot;(&quot;+personaje.getId()+&quot;,'&quot;+poder+&quot;') &quot;;</span>
+<span class="fc" id="L100">        ejecutar(sql);</span>
+<span class="fc" id="L101">    }</span>
     /**
      * Funcion para eliminar un personaje
      * @param personaje a eliminar
      * @throws UsuarioException
      */
     public void eliminarPersonaje(Personaje personaje)throws UsuarioException{
-<span class="fc" id="L96">        String sql = &quot;DELETE FROM Personajes WHERE id=&quot;+personaje.getId();</span>
-<span class="fc" id="L97">        ejecutar(sql);</span>
-<span class="fc" id="L98">    }</span>
+<span class="fc" id="L108">        String sql = &quot;DELETE FROM Personajes WHERE id=&quot;+personaje.getId();</span>
+<span class="fc" id="L109">        ejecutar(sql);</span>
+<span class="fc" id="L110">    }</span>
+    /**
+     * Elimina un poder
+     * @param poder a eliminar
+     * @throws UsuarioException
+     */
+    public void eliminarPoder(String poder) throws UsuarioException{
+<span class="fc" id="L117">        String sql = &quot;DELETE FROM Poderes WHERE poder='&quot;+poder+&quot;'&quot;;</span>
+<span class="fc" id="L118">        ejecutar(sql);</span>
+<span class="fc" id="L119">    }</span>
     /**
      * Funcion para modificar un personaje
      * @param personaje a modficar
      * @throws UsuarioException
      */
     public void modificarPersonaje(Personaje personaje)throws UsuarioException{
-<span class="fc" id="L105">        String sql = &quot;UPDATE Personajes SET id=&quot;+personaje.getId()+&quot;,nombre='&quot;+</span>
-<span class="fc" id="L106">        personaje.getNombre()+&quot;',alias='&quot;+personaje.getAlias()+&quot;',genero='&quot;+personaje.getGenero()+&quot;' WHERE id=&quot;+personaje.getId();</span>
-<span class="fc" id="L107">        ejecutar(sql);</span>
-<span class="fc" id="L108">    }</span>
+<span class="fc" id="L126">        String sql = &quot;UPDATE Personajes SET id=&quot;+personaje.getId()+&quot;,nombre='&quot;+</span>
+<span class="fc" id="L127">        personaje.getNombre()+&quot;',alias='&quot;+personaje.getAlias()+&quot;',genero='&quot;+personaje.getGenero()+&quot;' WHERE id=&quot;+personaje.getId();</span>
+<span class="fc" id="L128">        ejecutar(sql);</span>
+<span class="fc" id="L129">        modificarPoderes(personaje, personaje.getPoderes());</span>
+<span class="fc" id="L130">    }</span>
+    /**
+     * Funcion para modificar los poderesde un personaje
+     * @param personaje de los poderes
+     * @param poderes del personaje
+     * @throws UsuarioException
+     */
+    public void modificarPoderes(Personaje personaje, Set&lt;String&gt; poderes)throws UsuarioException{
+<span class="fc bfc" id="L138" title="All 2 branches covered.">        for (String string : obtenerPoderes(personaje.getId())) {</span>
+<span class="fc" id="L139">            eliminarPoder(string);</span>
+<span class="fc" id="L140">        }</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">        for (String poder : poderes) {</span>
+<span class="fc" id="L142">            agregarPoder(personaje, poder);</span>
+<span class="fc" id="L143">        }</span>
+<span class="fc" id="L144">    }</span>
     /**
      * Obtiene los poderes de la tabla
      * @param id de los poderes
@@ -113,35 +149,35 @@ public class CrudDb extends Conexion{
      * @throws UsuarioException
      */
     public Set&lt;String&gt; obtenerPoderes(int id)throws UsuarioException{
-<span class="fc" id="L116">        Set&lt;String&gt; poderes = null;</span>
-<span class="fc" id="L117">        Statement statement = null;</span>
-<span class="fc" id="L118">        ResultSet resultSet = null;</span>
+<span class="fc" id="L152">        Set&lt;String&gt; poderes = null;</span>
+<span class="fc" id="L153">        Statement statement = null;</span>
+<span class="fc" id="L154">        ResultSet resultSet = null;</span>
         try {
-<span class="fc" id="L120">            statement = getConnection().createStatement();</span>
-<span class="fc" id="L121">            String sql = &quot;SELECT poder FROM poderes WHERE personaje_id=&quot;+id;</span>
-<span class="fc" id="L122">            resultSet = statement.executeQuery(sql);</span>
-<span class="fc" id="L123">            poderes = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L156">            statement = getConnection().createStatement();</span>
+<span class="fc" id="L157">            String sql = &quot;SELECT poder FROM poderes WHERE personaje_id=&quot;+id;</span>
+<span class="fc" id="L158">            resultSet = statement.executeQuery(sql);</span>
+<span class="fc" id="L159">            poderes = new HashSet&lt;&gt;();</span>
 
-<span class="fc bfc" id="L125" title="All 2 branches covered.">            while (resultSet.next()) {</span>
+<span class="fc bfc" id="L161" title="All 2 branches covered.">            while (resultSet.next()) {</span>
                 
-<span class="fc" id="L127">                poderes.add(resultSet.getString(&quot;poder&quot;));</span>
+<span class="fc" id="L163">                poderes.add(resultSet.getString(&quot;poder&quot;));</span>
             }
-<span class="nc" id="L129">        } catch (Exception e) {</span>
-<span class="nc" id="L130">            throw new UsuarioException(e.getMessage(), e);</span>
+<span class="nc" id="L165">        } catch (Exception e) {</span>
+<span class="nc" id="L166">            throw new UsuarioException(e.getMessage(), e);</span>
         }finally{
             try {
-<span class="pc bpc" id="L133" title="2 of 4 branches missed.">                if (statement != null &amp;&amp; !statement.isClosed()) {</span>
-<span class="fc" id="L134">                    statement.close();</span>
+<span class="pc bpc" id="L169" title="2 of 4 branches missed.">                if (statement != null &amp;&amp; !statement.isClosed()) {</span>
+<span class="fc" id="L170">                    statement.close();</span>
                 }
-<span class="fc" id="L136">                cerrar();</span>
-<span class="pc bpc" id="L137" title="2 of 4 branches missed.">                if (resultSet != null &amp;&amp; !resultSet.isClosed()) {</span>
-<span class="nc" id="L138">                    resultSet.close();</span>
+<span class="fc" id="L172">                cerrar();</span>
+<span class="pc bpc" id="L173" title="2 of 4 branches missed.">                if (resultSet != null &amp;&amp; !resultSet.isClosed()) {</span>
+<span class="nc" id="L174">                    resultSet.close();</span>
                 }
-<span class="nc" id="L140">            } catch (Exception e) {</span>
-<span class="nc" id="L141">                throw new UsuarioException(e.getMessage(), e);</span>
-<span class="fc" id="L142">            }</span>
+<span class="nc" id="L176">            } catch (Exception e) {</span>
+<span class="nc" id="L177">                throw new UsuarioException(e.getMessage(), e);</span>
+<span class="fc" id="L178">            }</span>
         }
-<span class="fc" id="L144">        return poderes;</span>
+<span class="fc" id="L180">        return poderes;</span>
     }
     /**
      * Obtiene un personaje
@@ -150,7 +186,7 @@ public class CrudDb extends Conexion{
      * @throws UsuarioException
      */
     public Personaje obtenerPersonaje(Personaje personaje)throws UsuarioException{
-<span class="fc" id="L153">        return obtener(&quot;SELECT id,nombre,alias,genero from Personajes WHERE id=&quot;+personaje.getId()).iterator().next();</span>
+<span class="fc" id="L189">        return obtener(&quot;SELECT id,nombre,alias,genero from Personajes WHERE id=&quot;+personaje.getId()).iterator().next();</span>
     }
     /**
      * Funcion para obtener personajes
@@ -158,7 +194,7 @@ public class CrudDb extends Conexion{
      * @throws UsuarioException
      */
     public Set&lt;Personaje&gt; obtenerPersonajes()throws UsuarioException{
-<span class="fc" id="L161">        return obtener(&quot;SELECT id,nombre,alias,genero from Personajes&quot;);</span>
+<span class="fc" id="L197">        return obtener(&quot;SELECT id,nombre,alias,genero from Personajes&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
