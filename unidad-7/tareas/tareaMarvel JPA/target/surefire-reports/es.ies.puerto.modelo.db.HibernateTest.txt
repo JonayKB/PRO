@@ -1,4 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: es.ies.puerto.modelo.db.HibernateTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.683 s - in es.ies.puerto.modelo.db.HibernateTest
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 4.127 s <<< FAILURE! - in es.ies.puerto.modelo.db.HibernateTest
+obtenerPersonajes  Time elapsed: 3.906 s  <<< ERROR!
+javax.persistence.PersistenceException: [PersistenceUnit: sqlite-jpa] Unable to build Hibernate SessionFactory
+	at es.ies.puerto.modelo.db.HibernateTest.beforeEach(HibernateTest.java:17)
+Caused by: org.hibernate.MappingException: org.hibernate.dialect.identity.IdentityColumnSupportImpl does not support identity key generation
+	at es.ies.puerto.modelo.db.HibernateTest.beforeEach(HibernateTest.java:17)
+
+agregarObtenerActualizarEliminarPersonajeTest  Time elapsed: 0.22 s  <<< ERROR!
+javax.persistence.PersistenceException: [PersistenceUnit: sqlite-jpa] Unable to build Hibernate SessionFactory
+	at es.ies.puerto.modelo.db.HibernateTest.beforeEach(HibernateTest.java:17)
+Caused by: org.hibernate.MappingException: org.hibernate.dialect.identity.IdentityColumnSupportImpl does not support identity key generation
+	at es.ies.puerto.modelo.db.HibernateTest.beforeEach(HibernateTest.java:17)
+

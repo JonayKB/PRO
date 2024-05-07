@@ -1,4 +1,24 @@
 -------------------------------------------------------------------------------
 Test set: es.ies.puerto.modelo.db.JdbcTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.925 s - in es.ies.puerto.modelo.db.JdbcTest
+Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.45 s <<< FAILURE! - in es.ies.puerto.modelo.db.JdbcTest
+agregarEliminarPersonajeTest  Time elapsed: 0.312 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Se ha producido un error en la insercion:[SQLITE_ERROR] SQL error or missing database (no such table: personajes)
+	at es.ies.puerto.modelo.db.JdbcTest.beforeEach(JdbcTest.java:48)
+
+obtenerPoderesTest  Time elapsed: 0.039 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Se ha producido un error en la insercion:[SQLITE_ERROR] SQL error or missing database (no such table: personajes)
+	at es.ies.puerto.modelo.db.JdbcTest.beforeEach(JdbcTest.java:48)
+
+actualizarPersonajeTest  Time elapsed: 0.028 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Se ha producido un error en la insercion:[SQLITE_ERROR] SQL error or missing database (no such table: personajes)
+	at es.ies.puerto.modelo.db.JdbcTest.beforeEach(JdbcTest.java:48)
+
+obtenerPersonajesTest  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Se ha producido un error en la insercion:[SQLITE_ERROR] SQL error or missing database (no such table: personajes)
+	at es.ies.puerto.modelo.db.JdbcTest.beforeEach(JdbcTest.java:48)
+
+obtenerAliasTest  Time elapsed: 0.041 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Se ha producido un error en la insercion:[SQLITE_ERROR] SQL error or missing database (no such table: personajes)
+	at es.ies.puerto.modelo.db.JdbcTest.beforeEach(JdbcTest.java:48)
+

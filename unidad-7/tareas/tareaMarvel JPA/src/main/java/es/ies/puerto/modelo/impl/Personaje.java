@@ -14,6 +14,7 @@ public class Personaje implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Integer id;
+
     @Column(name = "nombre")
     private String nombre;
 
