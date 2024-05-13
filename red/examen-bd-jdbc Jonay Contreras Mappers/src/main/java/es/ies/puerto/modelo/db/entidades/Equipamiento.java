@@ -79,15 +79,6 @@ public class Equipamiento implements Serializable {
         return Objects.hash(id);
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", nombre='" + getNombre() + "'" +
-            ", descripcion='" + getDescripcion() + "'" +
-            ", personaje_id='" + getPersonaje() + "'" +
-            "}";
-    }
 
 }
 

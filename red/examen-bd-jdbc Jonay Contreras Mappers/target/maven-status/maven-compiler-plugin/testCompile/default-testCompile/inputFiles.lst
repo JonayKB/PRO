@@ -1,4 +1,6 @@
-/home/dam/Descargas/examen-bd-jdbc/src/test/java/es/ies/puerto/modelo/db/dao/DaoPoderTest.java
-/home/dam/Descargas/examen-bd-jdbc/src/test/java/es/ies/puerto/modelo/db/dao/DaoPersonajeTest.java
-/home/dam/Descargas/examen-bd-jdbc/src/test/java/es/ies/puerto/modelo/db/dao/DaoEquipamientoTest.java
-/home/dam/Descargas/examen-bd-jdbc/src/test/java/es/ies/puerto/modelo/db/dao/DaoAliasTest.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/test/java/es/ies/puerto/mappers/IMapperPersonajeTest.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/test/java/es/ies/puerto/mappers/IMapperAliasTest.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/test/java/es/ies/puerto/mappers/IMapperEquipamientoTest.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/test/java/es/ies/puerto/modelo/db/DbTest.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/test/java/es/ies/puerto/mappers/IMapperPoderTest.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/test/java/es/ies/puerto/mappers/MapperUtils.java

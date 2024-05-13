@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: es.ies.puerto.mappers.IMapperAliasTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.125 s <<< FAILURE! - in es.ies.puerto.mappers.IMapperAliasTest
+es.ies.puerto.mappers.IMapperAliasTest.aliasTOAliasDTOTest  Time elapsed: 0.068 s  <<< ERROR!
+java.lang.StackOverflowError
+
+es.ies.puerto.mappers.IMapperAliasTest.aliasDTOTOAliasTest  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.StackOverflowError
+

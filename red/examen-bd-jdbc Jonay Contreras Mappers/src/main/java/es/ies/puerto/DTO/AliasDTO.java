@@ -1,20 +1,20 @@
 package es.ies.puerto.DTO;
 
+import java.util.Objects;
+
 import es.ies.puerto.modelo.db.entidades.Personaje;
 
 public class AliasDTO {
     String id;
     String descripcion;
-    PersonajeDTO personaje;
 
 
     public AliasDTO() {
     }
 
-    public AliasDTO(String id, String descripcion, PersonajeDTO personaje) {
+    public AliasDTO(String id, String descripcion) {
         this.id = id;
         this.descripcion = descripcion;
-        this.personaje = personaje;
     }
 
     public String getId() {
@@ -33,12 +33,22 @@ public class AliasDTO {
         this.descripcion = descripcion;
     }
 
-    public PersonajeDTO getPersonaje() {
-        return this.personaje;
-    }
 
-    public void setPersonaje(PersonajeDTO personaje) {
-        this.personaje = personaje;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof AliasDTO)) {
+            return false;
+        }
+        AliasDTO aliasDTO = (AliasDTO) o;
+        return Objects.equals(id, aliasDTO.id);
+     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
 }

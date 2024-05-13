@@ -1,22 +1,21 @@
 package es.ies.puerto.DTO;
 
 import es.ies.puerto.modelo.db.entidades.Personaje;
+import java.util.Objects;
 
 public class EquipamientoDTO {
     String id;
     String nombre;
     String descripcion;
-    PersonajeDTO personaje;
 
 
     public EquipamientoDTO() {
     }
 
-    public EquipamientoDTO(String id, String nombre, String descripcion, PersonajeDTO personaje) {
+    public EquipamientoDTO(String id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.personaje = personaje;
     }
 
     public String getId() {
@@ -43,12 +42,21 @@ public class EquipamientoDTO {
         this.descripcion = descripcion;
     }
 
-    public PersonajeDTO getPersonaje() {
-        return this.personaje;
-    }
 
-    public void setPersonaje(PersonajeDTO personaje) {
-        this.personaje = personaje;
-    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof EquipamientoDTO)) {
+            return false;
+        }
+        EquipamientoDTO equipamientoDTO = (EquipamientoDTO) o;
+        return Objects.equals(id, equipamientoDTO.id);}
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+    
 }

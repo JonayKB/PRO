@@ -1,12 +1,16 @@
-/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/config/AppConfig.java
-/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/entidades/Alias.java
-/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/dao/DaoEquipamiento.java
-/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/dao/DaoPoder.java
-/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/Conexion.java
-/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/entidades/Poder.java
-/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/dao/abstrac/DaoUtilities.java
-/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/dao/DaoPersonaje.java
-/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/exception/MarvelException.java
-/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/entidades/Equipamiento.java
-/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/entidades/Personaje.java
-/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/dao/DaoAlias.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/config/AppConfig.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/modelo/db/Db.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/exception/MarvelException.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/modelo/db/entidades/Equipamiento.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/DTO/AliasDTO.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/mappers/IMapperEquipamiento.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/modelo/db/entidades/Personaje.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/mappers/IMapperAlias.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/modelo/db/SQLiteDialect.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/DTO/PersonajeDTO.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/mappers/IMapperPersonaje.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/mappers/IMapperPoder.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/DTO/PoderDTO.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/modelo/db/entidades/Alias.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/DTO/EquipamientoDTO.java
+/home/jonaykb/Repositorios/pro/red/examen-bd-jdbc Jonay Contreras Mappers/src/main/java/es/ies/puerto/modelo/db/entidades/Poder.java

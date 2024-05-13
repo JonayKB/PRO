@@ -3,14 +3,19 @@ package es.ies.puerto.DTO;
 import java.util.Set;
 
 import es.ies.puerto.modelo.db.entidades.Personaje;
+import java.util.Objects;
 
 public class PoderDTO {
     String id;
     String nombre;
-    Set<PersonajeDTO> personajes;
 
 
     public PoderDTO() {
+    }
+
+    public PoderDTO(String id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
     }
 
     public String getId() {
@@ -29,12 +34,21 @@ public class PoderDTO {
         this.nombre = nombre;
     }
 
-    public Set<PersonajeDTO> getPersonajes() {
-        return this.personajes;
-    }
 
-    public void setPersonajes(Set<PersonajeDTO> personajes) {
-        this.personajes = personajes;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof PoderDTO)) {
+            return false;
+        }
+        PoderDTO poderDTO = (PoderDTO) o;
+        return Objects.equals(id, poderDTO.id);}
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
 }

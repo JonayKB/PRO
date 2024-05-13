@@ -100,17 +100,6 @@ public class Personaje implements Serializable {
     }
 
 
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", nombre='" + getNombre() + "'" +
-            ", genero='" + getGenero() + "'" +
-            ", alias='" + getAlias() + "'" +
-            ", equipamientos='" + getEquipamientos() + "'" +
-            ", poderes='" + getPoderes() + "'" +
-            "}";
-    }
 
 }
 

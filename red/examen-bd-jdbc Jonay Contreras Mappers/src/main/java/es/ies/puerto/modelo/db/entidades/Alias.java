@@ -74,13 +74,5 @@ public class Alias implements Serializable {
     }
 
 
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", descripcion='" + getDescripcion() + "'" +
-            ", personaje_id='" + getPersonaje() + "'" +
-            "}";
-    }
 
 }

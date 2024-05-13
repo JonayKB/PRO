@@ -27,6 +27,12 @@ public class Poder implements Serializable {
         this.nombre = nombre;
     }
 
+    public Poder(String id, String nombre, Set<Personaje> personaje) {
+        this.id = id;
+        this.nombre = nombre;
+        this.personaje = personaje;
+    }
+
     public String getId() {
         return id;
     }
@@ -41,6 +47,14 @@ public class Poder implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Set<Personaje> getPersonaje() {
+        return this.personaje;
+    }
+
+    public void setPersonaje(Set<Personaje> personaje) {
+        this.personaje = personaje;
     }
 
 
@@ -61,12 +75,6 @@ public class Poder implements Serializable {
     }
 
 
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", nombre='" + getNombre() + "'" +
-            "}";
-    }
+
 
 }

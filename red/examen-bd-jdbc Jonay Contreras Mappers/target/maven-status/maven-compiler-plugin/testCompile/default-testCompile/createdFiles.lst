@@ -1,4 +1,6 @@
-es/ies/puerto/modelo/db/dao/DaoEquipamientoTest.class
-es/ies/puerto/modelo/db/dao/DaoPersonajeTest.class
-es/ies/puerto/modelo/db/dao/DaoAliasTest.class
-es/ies/puerto/modelo/db/dao/DaoPoderTest.class
+es/ies/puerto/mappers/IMapperEquipamientoTest.class
+es/ies/puerto/mappers/MapperUtils.class
+es/ies/puerto/mappers/IMapperPoderTest.class
+es/ies/puerto/modelo/db/DbTest.class
+es/ies/puerto/mappers/IMapperAliasTest.class
+es/ies/puerto/mappers/IMapperPersonajeTest.class
