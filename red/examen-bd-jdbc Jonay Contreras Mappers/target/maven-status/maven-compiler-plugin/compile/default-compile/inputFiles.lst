@@ -1,0 +1,12 @@
+/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/config/AppConfig.java
+/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/entidades/Alias.java
+/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/dao/DaoEquipamiento.java
+/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/dao/DaoPoder.java
+/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/Conexion.java
+/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/entidades/Poder.java
+/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/dao/abstrac/DaoUtilities.java
+/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/dao/DaoPersonaje.java
+/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/exception/MarvelException.java
+/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/entidades/Equipamiento.java
+/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/entidades/Personaje.java
+/home/dam/Descargas/examen-bd-jdbc/src/main/java/es/ies/puerto/modelo/db/dao/DaoAlias.java

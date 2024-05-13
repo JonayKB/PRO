@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DaoEquipamiento.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examen-bd-jdbc</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.modelo.db.dao</a> &gt; <span class="el_source">DaoEquipamiento.java</span></div><h1>DaoEquipamiento.java</h1><pre class="source lang-java linenums">package es.ies.puerto.modelo.db.dao;
+
+import es.ies.puerto.exception.MarvelException;
+import es.ies.puerto.modelo.db.dao.abstrac.DaoUtilities;
+import es.ies.puerto.modelo.db.entidades.Equipamiento;
+import es.ies.puerto.modelo.db.entidades.Personaje;
+
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.HashSet;
+import java.util.Set;
+
+public class DaoEquipamiento extends DaoUtilities {
+
+
+    private static final String ID = &quot;id&quot;;
+    private static final String PERSONAJE_ID = &quot;personaje_id&quot;;
+    private static final String DESCRIPCION = &quot;descripcion&quot;;
+    private static final String NOMBRE = &quot;nombre&quot;;
+
+<span class="fc" id="L21">    public DaoEquipamiento() throws MarvelException {</span>
+
+<span class="fc" id="L23">    }</span>
+
+    public Set&lt;Equipamiento&gt; findAllEquipamiento() throws MarvelException {
+<span class="fc" id="L26">        Statement statement = null;</span>
+<span class="fc" id="L27">            ResultSet resultSet = null;</span>
+<span class="fc" id="L28">            Set&lt;Equipamiento&gt; equipamientos = new HashSet&lt;&gt;();</span>
+            try {
+<span class="fc" id="L30">                statement=getConexion().createStatement();</span>
+<span class="fc" id="L31">                resultSet=statement.executeQuery(&quot;SELECT id,nombre,descripcion,personaje_id FROM Equipamiento&quot;);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">                while (resultSet.next()) {</span>
+<span class="fc" id="L33">                    String id=resultSet.getString(ID);</span>
+<span class="fc" id="L34">                    String nombre=resultSet.getString(NOMBRE);</span>
+<span class="fc" id="L35">                    String descripcion=resultSet.getString(DESCRIPCION);</span>
+<span class="fc" id="L36">                    String personajeId=resultSet.getString(PERSONAJE_ID);</span>
+<span class="fc" id="L37">                    equipamientos.add(new Equipamiento(id, nombre, descripcion, personajeId));</span>
+<span class="fc" id="L38">                }</span>
+<span class="nc" id="L39">            } catch (Exception e) {</span>
+<span class="nc" id="L40">                throw new MarvelException(e.getMessage(),e);</span>
+            }finally{
+<span class="fc" id="L42">                cerrar(statement, resultSet);</span>
+            }
+<span class="fc" id="L44">            return equipamientos;</span>
+    }
+
+    public Equipamiento findEquipamiento(Equipamiento equipamiento) throws MarvelException {
+<span class="fc" id="L48">        Statement statement = null;</span>
+<span class="fc" id="L49">            ResultSet resultSet = null;</span>
+            try {
+<span class="fc" id="L51">                statement=getConexion().createStatement();</span>
+<span class="fc" id="L52">                resultSet=statement.executeQuery(&quot;SELECT id,nombre,descripcion,personaje_id FROM Equipamiento WHERE id='&quot;+equipamiento.getId()+&quot;'&quot;);</span>
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">                while (resultSet.next()) {</span>
+<span class="fc" id="L54">                    String id=resultSet.getString(ID);</span>
+<span class="fc" id="L55">                    String nombre=resultSet.getString(NOMBRE);</span>
+<span class="fc" id="L56">                    String descripcion=resultSet.getString(DESCRIPCION);</span>
+<span class="fc" id="L57">                    String personajeId=resultSet.getString(PERSONAJE_ID);</span>
+<span class="fc" id="L58">                    return new Equipamiento(id, nombre, descripcion, personajeId);</span>
+                }
+<span class="nc" id="L60">            } catch (Exception e) {</span>
+<span class="nc" id="L61">                throw new MarvelException(e.getMessage(),e);</span>
+            }finally{
+<span class="fc" id="L63">                cerrar(statement, resultSet);</span>
+            }
+<span class="nc" id="L65">            return null;</span>
+    }
+
+    public boolean updateEquipamiento(Equipamiento equipamiento) throws MarvelException {
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        if (equipamiento==null) {</span>
+<span class="nc" id="L70">            return false;</span>
+        }
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        if (findAllEquipamiento().contains(equipamiento)) {</span>
+            try {
+<span class="fc" id="L74">                ejecutar(&quot;UPDATE equipamiento SET personaje_id='&quot;+equipamiento.getPersonaje_id()+&quot;', nombre='&quot;+equipamiento.getNombre()+&quot;', descripcion='&quot;+equipamiento.getDescripcion()+&quot;' WHERE id='&quot;+equipamiento.getId()+&quot;'&quot;);</span>
+<span class="fc" id="L75">                return true;</span>
+<span class="nc" id="L76">            } catch (Exception e) {</span>
+<span class="nc" id="L77">                throw new MarvelException(e.getMessage(),e);</span>
+            }
+        }
+        try {
+<span class="fc" id="L81">            String agregarEquipamientoQuery= &quot;INSERT INTO Equipamiento (id,nombre,descripcion,personaje_id) VALUES ('&quot;+equipamiento.getId()+&quot;','&quot;+equipamiento.getNombre()+&quot;','&quot;+equipamiento.getDescripcion()+&quot;','&quot;+equipamiento.getPersonaje_id()+&quot;')&quot;;</span>
+<span class="fc" id="L82">            ejecutar(agregarEquipamientoQuery);</span>
+<span class="fc" id="L83">            return true;</span>
+<span class="nc" id="L84">        } catch (Exception e) {</span>
+<span class="nc" id="L85">            throw new MarvelException(e.getMessage(),e);</span>
+        }
+    }
+
+    public void deleteEquipamiento(Equipamiento equipamiento) throws MarvelException {
+<span class="pc bpc" id="L90" title="1 of 2 branches missed.">        if (findAllEquipamiento().contains(equipamiento)) {</span>
+<span class="fc" id="L91">            ejecutar(&quot;DELETE FROM equipamiento WHERE id='&quot;+equipamiento.getId()+&quot;'&quot;);</span>
+        }
+<span class="fc" id="L93">    }</span>
+
+    public Set&lt;Equipamiento&gt; findEquipamientosPersonaje(Personaje personaje)throws MarvelException{
+<span class="fc" id="L96">        Statement statement = null;</span>
+<span class="fc" id="L97">            ResultSet resultSet = null;</span>
+<span class="fc" id="L98">            Set&lt;Equipamiento&gt; equipamientos = new HashSet&lt;&gt;();</span>
+            try {
+<span class="fc" id="L100">                statement=getConexion().createStatement();</span>
+<span class="fc" id="L101">                resultSet=statement.executeQuery(&quot;SELECT id,nombre,descripcion,personaje_id FROM Equipamiento WHERE personaje_id='&quot;+personaje.getId()+&quot;'&quot;);</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">                while (resultSet.next()) {</span>
+<span class="fc" id="L103">                    String id=resultSet.getString(ID);</span>
+<span class="fc" id="L104">                    String nombre=resultSet.getString(NOMBRE);</span>
+<span class="fc" id="L105">                    String descripcion=resultSet.getString(DESCRIPCION);</span>
+<span class="fc" id="L106">                    String personajeId=resultSet.getString(PERSONAJE_ID);</span>
+<span class="fc" id="L107">                    equipamientos.add(new Equipamiento(id, nombre, descripcion, personajeId));</span>
+<span class="fc" id="L108">                }</span>
+<span class="nc" id="L109">            } catch (Exception e) {</span>
+<span class="nc" id="L110">                throw new MarvelException(e.getMessage(),e);</span>
+            }finally{
+<span class="fc" id="L112">                cerrar(statement, resultSet);</span>
+            }
+<span class="fc" id="L114">            return equipamientos;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

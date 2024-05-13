@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DaoPersonaje.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examen-bd-jdbc</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.modelo.db.dao</a> &gt; <span class="el_source">DaoPersonaje.java</span></div><h1>DaoPersonaje.java</h1><pre class="source lang-java linenums">package es.ies.puerto.modelo.db.dao;
+
+import es.ies.puerto.exception.MarvelException;
+import es.ies.puerto.modelo.db.dao.abstrac.DaoUtilities;
+import es.ies.puerto.modelo.db.entidades.Equipamiento;
+import es.ies.puerto.modelo.db.entidades.Personaje;
+import es.ies.puerto.modelo.db.entidades.Poder;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.HashSet;
+import java.util.Set;
+
+public class DaoPersonaje  extends DaoUtilities{
+    private static final String PERSONAJE_ID = &quot;personaje_id&quot;;
+    private static final String PODER_ID = &quot;poder_id&quot;;
+    private static final String GENERO = &quot;genero&quot;;
+    private static final String NOMBRE = &quot;nombre&quot;;
+    private static final String ID = &quot;id&quot;;
+    DaoAlias daoAlias;
+    DaoEquipamiento daoEquipamiento;
+    DaoPoder daoPoder;
+<span class="fc" id="L22">    public DaoPersonaje() throws MarvelException {</span>
+<span class="fc" id="L23">        daoAlias = new DaoAlias();</span>
+<span class="fc" id="L24">        daoEquipamiento = new DaoEquipamiento();</span>
+<span class="fc" id="L25">        daoPoder = new DaoPoder();</span>
+<span class="fc" id="L26">    }</span>
+
+    public Set&lt;Personaje&gt; findAllPersonaje() throws MarvelException {
+<span class="fc" id="L29">        Statement statement = null;</span>
+<span class="fc" id="L30">            ResultSet resultSet = null;</span>
+<span class="fc" id="L31">            Set&lt;Personaje&gt; personajes = new HashSet&lt;&gt;();</span>
+            try {
+<span class="fc" id="L33">                statement=getConexion().createStatement();</span>
+<span class="fc" id="L34">                resultSet=statement.executeQuery(&quot;SELECT id,nombre,genero FROM personaje&quot;);</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">                while (resultSet.next()) {</span>
+<span class="fc" id="L36">                    String id=resultSet.getString(ID);</span>
+<span class="fc" id="L37">                    String nombre=resultSet.getString(NOMBRE);</span>
+<span class="fc" id="L38">                    String genero=resultSet.getString(GENERO);</span>
+<span class="fc" id="L39">                    Personaje personaje = new Personaje(id, nombre, genero, null, null, null);</span>
+<span class="fc" id="L40">                    personaje.setAlias(daoAlias.findAliasPersonaje(personaje));</span>
+<span class="fc" id="L41">                    personaje.setEquipamientos(daoEquipamiento.findEquipamientosPersonaje(personaje));</span>
+<span class="fc" id="L42">                    personaje.setPoderes(daoPoder.findPoderesPersonaje(personaje));</span>
+<span class="fc" id="L43">                    personajes.add(personaje);</span>
+<span class="fc" id="L44">                }</span>
+<span class="nc" id="L45">            } catch (Exception e) {</span>
+<span class="nc" id="L46">                throw new MarvelException(e.getMessage(),e);</span>
+            }finally{
+<span class="fc" id="L48">                cerrar(statement, resultSet);</span>
+            }
+<span class="fc" id="L50">            return personajes;</span>
+    }
+
+    public Personaje findPersonaje(Personaje personaje) throws MarvelException {
+<span class="fc" id="L54">        Statement statement = null;</span>
+<span class="fc" id="L55">            ResultSet resultSet = null;</span>
+            try {
+<span class="fc" id="L57">                statement=getConexion().createStatement();</span>
+<span class="fc" id="L58">                resultSet=statement.executeQuery(&quot;SELECT id,nombre,genero FROM personaje WHERE id='&quot;+personaje.getId()+&quot;'&quot;);</span>
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">                while (resultSet.next()) {</span>
+<span class="fc" id="L60">                    String id=resultSet.getString(ID);</span>
+<span class="fc" id="L61">                    String nombre=resultSet.getString(NOMBRE);</span>
+<span class="fc" id="L62">                    String genero=resultSet.getString(GENERO);</span>
+<span class="fc" id="L63">                    personaje = new Personaje(id, nombre, genero, null, null, null);</span>
+<span class="fc" id="L64">                    personaje.setAlias(daoAlias.findAliasPersonaje(personaje));</span>
+<span class="fc" id="L65">                    personaje.setEquipamientos(daoEquipamiento.findEquipamientosPersonaje(personaje));</span>
+<span class="fc" id="L66">                    personaje.setPoderes(daoPoder.findPoderesPersonaje(personaje));</span>
+<span class="fc" id="L67">                    return personaje;</span>
+                }
+<span class="nc" id="L69">            } catch (Exception e) {</span>
+<span class="nc" id="L70">                throw new MarvelException(e.getMessage(),e);</span>
+            }finally{
+<span class="fc" id="L72">                cerrar(statement, resultSet);</span>
+            }
+<span class="nc" id="L74">            return null;</span>
+    }
+
+    public boolean updatePersonaje(Personaje personaje) throws MarvelException {
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">        if (personaje==null) {</span>
+<span class="nc" id="L79">            return false;</span>
+        }
+<span class="fc" id="L81">        String qrry =&quot;INSERT INTO Personaje (id,nombre,genero) VALUES ('&quot;+personaje.getId()+&quot;','&quot;+personaje.getNombre()+&quot;','&quot;+personaje.getGenero()+&quot;')&quot;;</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">        if (findAllPersonaje().contains(personaje)) {</span>
+<span class="fc" id="L83">            qrry=&quot;UPDATE personaje SET nombre='&quot;+personaje.getNombre()+&quot;', genero='&quot;+personaje.getGenero()+&quot;' WHERE id='&quot;+personaje.getId()+&quot;'&quot;;</span>
+        }
+            try {
+<span class="fc" id="L86">                ejecutar(qrry);</span>
+<span class="fc" id="L87">                daoAlias.updateAlias(personaje.getAlias());</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">                if (personaje.getPoderes()!=null) {</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">                    for (Poder poder : personaje.getPoderes()) {</span>
+<span class="fc" id="L90">                        daoPoder.updatePoder(poder);</span>
+<span class="fc" id="L91">                        updatePersonajePoder(personaje, poder);</span>
+<span class="fc" id="L92">                    }</span>
+                }
+<span class="fc bfc" id="L94" title="All 2 branches covered.">                if (personaje.getEquipamientos()!=null) {</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">                    for (Equipamiento equipamiento : personaje.getEquipamientos()) {</span>
+<span class="fc" id="L96">                        daoEquipamiento.updateEquipamiento(equipamiento);</span>
+<span class="fc" id="L97">                    }</span>
+                }
+                
+                
+<span class="fc" id="L101">                return true;</span>
+<span class="nc" id="L102">            } catch (Exception e) {</span>
+<span class="nc" id="L103">                throw new MarvelException(e.getMessage(),e);</span>
+            }
+    }
+
+    public void deletePersonaje(Personaje personaje) throws MarvelException {
+<span class="fc bfc" id="L108" title="All 2 branches covered.">        if (findAllPersonaje().contains(personaje)) {</span>
+<span class="fc" id="L109">            ejecutar(&quot;DELETE FROM personaje WHERE id='&quot;+personaje.getId()+&quot;'&quot;);</span>
+<span class="fc bfc" id="L110" title="All 2 branches covered.">            if (personaje.getEquipamientos()!=null) {</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">                for (Equipamiento equipamiento : personaje.getEquipamientos()) {</span>
+<span class="fc" id="L112">                    daoEquipamiento.deleteEquipamiento(equipamiento);</span>
+<span class="fc" id="L113">                }</span>
+            }
+<span class="fc bfc" id="L115" title="All 2 branches covered.">            if (personaje.getPoderes()!=null) {</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">                for (Poder poder : personaje.getPoderes()) {</span>
+<span class="fc" id="L117">                    deletePersonajePoder(personaje, poder);</span>
+<span class="fc" id="L118">                }</span>
+            }
+<span class="fc" id="L120">            daoAlias.deleteAlias(personaje.getAlias());</span>
+<span class="fc" id="L121">            deletePoderNoPersonaje();</span>
+            
+        }
+<span class="fc" id="L124">    }</span>
+
+
+    public Set&lt;String&gt; findAllPersonajePoder() throws MarvelException{
+<span class="fc" id="L128">        Statement statement = null;</span>
+<span class="fc" id="L129">            ResultSet resultSet = null;</span>
+<span class="fc" id="L130">            Set&lt;String&gt; personajePoder = new HashSet&lt;&gt;();</span>
+            try {
+<span class="fc" id="L132">                statement=getConexion().createStatement();</span>
+<span class="fc" id="L133">                resultSet=statement.executeQuery(&quot;SELECT personaje_id,poder_id FROM Personaje_poder&quot;);</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">                while (resultSet.next()) {</span>
+<span class="fc" id="L135">                    String poderId=resultSet.getString(PODER_ID);</span>
+<span class="fc" id="L136">                    String personajeId=resultSet.getString(PERSONAJE_ID);</span>
+<span class="fc" id="L137">                    personajePoder.add(personajeId+&quot; &quot;+poderId);</span>
+<span class="fc" id="L138">                }</span>
+<span class="nc" id="L139">            } catch (Exception e) {</span>
+<span class="nc" id="L140">                throw new MarvelException(e.getMessage(),e);</span>
+            }finally{
+<span class="fc" id="L142">                cerrar(statement, resultSet);</span>
+            }
+<span class="fc" id="L144">            return personajePoder;</span>
+    }
+
+    public boolean updatePersonajePoder(Personaje personaje, Poder poder)throws MarvelException{
+<span class="pc bpc" id="L148" title="1 of 2 branches missed.">        if (findAllPersonajePoder().contains(personaje.getId()+&quot; &quot;+poder.getId())) {</span>
+<span class="nc" id="L149">            return true;</span>
+        }
+        try {
+<span class="fc" id="L152">            String agregarPersonajePoder= &quot;INSERT INTO personaje_poder (personaje_id,poder_id) VALUES ('&quot;+personaje.getId()+&quot;','&quot;+poder.getId()+&quot;')&quot;;</span>
+<span class="fc" id="L153">            ejecutar(agregarPersonajePoder);</span>
+<span class="fc" id="L154">            return true;</span>
+<span class="nc" id="L155">        } catch (Exception e) {</span>
+<span class="nc" id="L156">            throw new MarvelException(e.getMessage(),e);</span>
+        }
+    }
+
+    public void deletePersonajePoder(Personaje personaje, Poder poder) throws MarvelException{
+<span class="pc bpc" id="L161" title="1 of 2 branches missed.">        if (findAllPersonajePoder().contains(personaje.getId()+&quot; &quot;+poder.getId())) {</span>
+<span class="fc" id="L162">            ejecutar(&quot;DELETE FROM personaje_poder WHERE personaje_id='&quot;+personaje.getId()+&quot;' AND poder_id='&quot;+poder.getId()+&quot;'&quot;);</span>
+        }
+<span class="fc" id="L164">    }</span>
+
+    
+
+    public void deletePoderNoPersonaje()throws MarvelException{
+<span class="fc" id="L169">        String selecion = &quot;SELECT p.id FROM poder as p LEFT JOIN personaje_poder pp ON p.id=pp.poder_id WHERE pp.personaje_id IS NULL&quot;;</span>
+<span class="fc" id="L170">        ejecutar(&quot;DELETE FROM poder WHERE id IN(&quot;+selecion+&quot;)&quot;);</span>
+<span class="fc" id="L171">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,0 +1,12 @@
+es/ies/puerto/modelo/db/entidades/Personaje.class
+es/ies/puerto/modelo/db/entidades/Poder.class
+es/ies/puerto/modelo/db/dao/abstrac/DaoUtilities.class
+es/ies/puerto/exception/MarvelException.class
+es/ies/puerto/modelo/db/Conexion.class
+es/ies/puerto/modelo/db/dao/DaoEquipamiento.class
+es/ies/puerto/modelo/db/dao/DaoAlias.class
+es/ies/puerto/modelo/db/dao/DaoPersonaje.class
+es/ies/puerto/config/AppConfig.class
+es/ies/puerto/modelo/db/entidades/Alias.class
+es/ies/puerto/modelo/db/dao/DaoPoder.class
+es/ies/puerto/modelo/db/entidades/Equipamiento.class

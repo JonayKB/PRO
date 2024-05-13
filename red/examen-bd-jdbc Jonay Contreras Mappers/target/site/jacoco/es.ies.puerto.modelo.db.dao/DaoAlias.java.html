@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DaoAlias.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examen-bd-jdbc</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.modelo.db.dao</a> &gt; <span class="el_source">DaoAlias.java</span></div><h1>DaoAlias.java</h1><pre class="source lang-java linenums">package es.ies.puerto.modelo.db.dao;
+
+import es.ies.puerto.exception.MarvelException;
+import es.ies.puerto.modelo.db.dao.abstrac.DaoUtilities;
+import es.ies.puerto.modelo.db.entidades.Alias;
+import es.ies.puerto.modelo.db.entidades.Personaje;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.HashSet;
+import java.util.Set;
+
+public class DaoAlias  extends DaoUtilities{
+
+
+    private static final String ALIAS = &quot;alias&quot;;
+    private static final String ID = &quot;id&quot;;
+    private static final String PERSONAJE_ID = &quot;personaje_id&quot;;
+
+<span class="fc" id="L19">    public DaoAlias() throws MarvelException {</span>
+
+<span class="fc" id="L21">        }</span>
+
+        
+
+        public Set&lt;Alias&gt; findAllAlias() throws MarvelException {
+<span class="fc" id="L26">            Statement statement = null;</span>
+<span class="fc" id="L27">            ResultSet resultSet = null;</span>
+<span class="fc" id="L28">            Set&lt;Alias&gt; alias = new HashSet&lt;&gt;();</span>
+            try {
+<span class="fc" id="L30">                statement=getConexion().createStatement();</span>
+<span class="fc" id="L31">                resultSet=statement.executeQuery(&quot;SELECT id,personaje_id,alias FROM Alias&quot;);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">                while (resultSet.next()) {</span>
+<span class="fc" id="L33">                    String id=resultSet.getString(ID);</span>
+<span class="fc" id="L34">                    String personajeId=resultSet.getString(PERSONAJE_ID);</span>
+<span class="fc" id="L35">                    String descipcion=resultSet.getString(ALIAS);</span>
+<span class="fc" id="L36">                    alias.add(new Alias(id, descipcion, personajeId));</span>
+<span class="fc" id="L37">                }</span>
+<span class="nc" id="L38">            } catch (Exception e) {</span>
+<span class="nc" id="L39">                throw new MarvelException(e.getMessage(),e);</span>
+            }finally{
+<span class="fc" id="L41">                cerrar(statement, resultSet);</span>
+            }
+<span class="fc" id="L43">            return alias;</span>
+        }
+
+        public Alias findAlias(Alias alias) throws MarvelException {
+<span class="fc" id="L47">            Statement statement = null;</span>
+<span class="fc" id="L48">            ResultSet resultSet = null;</span>
+            try {
+<span class="fc" id="L50">                statement=getConexion().createStatement();</span>
+<span class="fc" id="L51">                resultSet=statement.executeQuery(&quot;SELECT id,personaje_id,alias FROM alias WHERE id='&quot;+alias.getId()+&quot;'&quot;);</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">                while (resultSet.next()) {</span>
+<span class="fc" id="L53">                    String id=resultSet.getString(ID);</span>
+<span class="fc" id="L54">                    String personajeId=resultSet.getString(PERSONAJE_ID);</span>
+<span class="fc" id="L55">                    String descripcion=resultSet.getString(ALIAS);</span>
+<span class="fc" id="L56">                    return new Alias(id, descripcion, personajeId);</span>
+                }
+<span class="nc" id="L58">            } catch (Exception e) {</span>
+<span class="nc" id="L59">                throw new MarvelException(e.getMessage(),e);</span>
+            }finally{
+<span class="fc" id="L61">                cerrar(statement, resultSet);</span>
+            }
+<span class="nc" id="L63">            return null;</span>
+        }
+
+        public boolean updateAlias(Alias alias) throws MarvelException {
+<span class="fc bfc" id="L67" title="All 2 branches covered.">            if (alias==null) {</span>
+<span class="fc" id="L68">                return false;</span>
+            }
+<span class="fc bfc" id="L70" title="All 2 branches covered.">            if (findAllAlias().contains(alias)) {</span>
+                try {
+<span class="fc" id="L72">                    ejecutar(&quot;UPDATE alias SET personaje_id='&quot;+alias.getPersonaje_id()+&quot;', alias='&quot;+alias.getDescripcion()+&quot;' WHERE id='&quot;+alias.getId()+&quot;'&quot;);</span>
+<span class="fc" id="L73">                    return true;</span>
+<span class="nc" id="L74">                } catch (Exception e) {</span>
+<span class="nc" id="L75">                    throw new MarvelException(e.getMessage(),e);</span>
+                }
+            }
+            try {
+<span class="fc" id="L79">                String agregarAliasQuery= &quot;INSERT INTO Alias (id,alias,personaje_id) VALUES ('&quot;+alias.getId()+&quot;','&quot;+alias.getDescripcion()+&quot;','&quot;+alias.getPersonaje_id()+&quot;')&quot;;</span>
+<span class="fc" id="L80">                ejecutar(agregarAliasQuery);</span>
+<span class="fc" id="L81">                return true;</span>
+<span class="nc" id="L82">            } catch (Exception e) {</span>
+<span class="nc" id="L83">                throw new MarvelException(e.getMessage(),e);</span>
+            }
+            
+        }
+
+        public void deleteAlias(Alias alias) throws MarvelException {
+<span class="fc bfc" id="L89" title="All 2 branches covered.">            if (findAllAlias().contains(alias)) {</span>
+<span class="fc" id="L90">                ejecutar(&quot;DELETE FROM alias WHERE id='&quot;+alias.getId()+&quot;'&quot;);</span>
+            }
+<span class="fc" id="L92">        }</span>
+
+        public Alias findAliasPersonaje(Personaje personaje)throws MarvelException{
+<span class="fc" id="L95">            Statement statement = null;</span>
+<span class="fc" id="L96">            ResultSet resultSet = null;</span>
+            try {
+<span class="fc" id="L98">                statement=getConexion().createStatement();</span>
+<span class="fc" id="L99">                resultSet=statement.executeQuery(&quot;SELECT id,personaje_id,alias FROM alias WHERE personaje_id='&quot;+personaje.getId()+&quot;'&quot;);</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">                while (resultSet.next()) {</span>
+<span class="fc" id="L101">                    String id=resultSet.getString(ID);</span>
+<span class="fc" id="L102">                    String personajeId=resultSet.getString(PERSONAJE_ID);</span>
+<span class="fc" id="L103">                    String alias=resultSet.getString(ALIAS);</span>
+<span class="fc" id="L104">                    return new Alias(id, alias, personajeId);</span>
+                }
+<span class="nc" id="L106">            } catch (Exception e) {</span>
+<span class="nc" id="L107">                throw new MarvelException(e.getMessage(),e);</span>
+            }finally{
+<span class="fc" id="L109">                cerrar(statement, resultSet);</span>
+            }
+<span class="fc" id="L111">            return null;</span>
+        }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
