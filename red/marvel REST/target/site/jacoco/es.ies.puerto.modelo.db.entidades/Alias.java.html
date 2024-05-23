@@ -17,7 +17,7 @@ public class Alias implements Serializable {
 
     String id;
     String descripcion;
-    @OneToOne(mappedBy = &quot;alias&quot;,cascade = CascadeType.ALL)
+    @OneToOne
     Personaje personaje;
 
 <span class="fc" id="L23">    public Alias() {}</span>

@@ -12,11 +12,11 @@ examen-bd-jdbc,es.ies.puerto.DTO,EquipamientoDTO,4,60,2,2,2,21,2,10,0,10
 examen-bd-jdbc,es.ies.puerto.DTO,PersonajeDTO,4,90,2,2,2,33,2,16,0,16
 examen-bd-jdbc,es.ies.puerto.DTO,AliasDTO,13,41,2,2,3,16,3,7,1,7
 examen-bd-jdbc,es.ies.puerto.exception,MarvelException,9,0,0,0,4,0,2,0,2,0
-examen-bd-jdbc,es.ies.puerto.negocio,MarvelNegocio,74,34,8,0,18,9,7,4,3,4
+examen-bd-jdbc,es.ies.puerto.negocio,MarvelNegocio,96,34,8,0,22,9,9,4,5,4
 examen-bd-jdbc,es.ies.puerto.modelo.db.entidades,Equipamiento,10,70,2,2,5,25,3,12,1,12
 examen-bd-jdbc,es.ies.puerto.modelo.db.entidades,Poder,19,60,2,2,9,21,4,10,2,10
 examen-bd-jdbc,es.ies.puerto.modelo.db.entidades,Personaje,2,98,1,3,1,37,1,18,0,17
 examen-bd-jdbc,es.ies.puerto.modelo.db.entidades,Alias,19,51,2,2,6,19,4,9,2,9
 examen-bd-jdbc,es.ies.puerto.modelo.db,SQLiteDialect,64,131,2,0,21,31,21,4,20,4
-examen-bd-jdbc,es.ies.puerto.modelo.db,Db,50,66,0,2,12,16,3,5,3,4
-examen-bd-jdbc,es.ies.puerto.services,MarvelService,62,0,8,0,19,0,9,0,5,0
+examen-bd-jdbc,es.ies.puerto.modelo.db,Db,128,70,4,2,30,18,8,5,6,4
+examen-bd-jdbc,es.ies.puerto.services,MarvelService,42,64,4,8,11,19,5,9,3,5

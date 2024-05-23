@@ -12,7 +12,7 @@ public class Equipamiento implements Serializable {
     String id;
     String nombre;
     String descripcion;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     Personaje personaje;
 
 <span class="fc" id="L18">    public Equipamiento() {</span>

@@ -20,6 +20,18 @@ public class MarvelService {
     public MarvelService(){
         marvelNegocio = new MarvelNegocio();
     }
+    public MarvelService(MarvelNegocio marvelNegocio){
+        this.marvelNegocio = marvelNegocio;
+    }
+    @POST
+    @Path("/personaje/")
+    public Response agregarPersonaje(PersonajeDTO personajeDTO){
+        marvelNegocio.eliminarPersonaje(personajeDTO);
+        if (obtenerPersonajeById(personajeDTO.getId())!=null) {
+            return Response.status(Response.Status.CREATED).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
     @GET
     @Path("/personaje/{id}")
     public Response obtenerPersonajeById(@PathParam("id") String id){
@@ -27,7 +39,7 @@ public class MarvelService {
         if (personajeDTOObtenido != null) {
             return Response.ok(personajeDTOObtenido).build();
         }
-        return Response.noContent().build();
+        return Response.status(Response.Status.NOT_FOUND).build();
     }
 
     @GET
@@ -37,9 +49,18 @@ public class MarvelService {
         if (personajesDTOObtenido != null) {
             return Response.ok(personajesDTOObtenido).build();
         }
-        return Response.noContent().build();
-    }
+        return Response.status(Response.Status.NOT_FOUND).build();
 
+    }
+    @POST
+    @Path("/poder/")
+    public Response agregarPoder(PoderDTO poderDTO){
+        marvelNegocio.agregarPoder(poderDTO);
+        if (obtenerPoderById(poderDTO.getId())!=null) {
+            return Response.status(Response.Status.CREATED).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
     @GET
     @Path("/poder/{id}")
     public Response obtenerPoderById(@PathParam("id") String id){
@@ -47,7 +68,8 @@ public class MarvelService {
         if (poderDTO != null) {
             return Response.ok(poderDTO).build();
         }
-        return Response.noContent().build();
+        return Response.status(Response.Status.NOT_FOUND).build();
+
     }
 
     @GET
@@ -57,6 +79,7 @@ public class MarvelService {
         if (poderDTOobtenido != null) {
             return Response.ok(poderDTOobtenido).build();
         }
-        return Response.noContent().build();
+        return Response.status(Response.Status.NOT_FOUND).build();
+
     }
 }

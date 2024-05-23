@@ -19,6 +19,9 @@ public class MarvelNegocio {
     public void agregarPersonaje(PersonajeDTO personajeDTO){
         db.agregarPersonaje(IMapperPersonaje.INSTANCE.personajeDTOTOPersonaje(personajeDTO));
     }
+    public void agregarPoder(PoderDTO poderDTO){
+        db.agregarPoder(IMapperPoder.INSTANCE.poderDTOTOpoder(poderDTO,db.obtenerPersonajesByPoderDTO(poderDTO)));
+    }
     public PersonajeDTO obtenerPersonajeById(String id){
         Personaje personaje = new Personaje(id);
         return IMapperPersonaje.INSTANCE.personajeTOPersonajeDTO(db.obtenerPersonaje(personaje));
@@ -57,5 +60,8 @@ public class MarvelNegocio {
 
     public void eliminarPersonaje(PersonajeDTO personajeDTO){
         db.eliminarPersonaje(IMapperPersonaje.INSTANCE.personajeDTOTOPersonaje(personajeDTO));
+    }
+    public void eliminarPoder(PoderDTO poderDTO){
+        db.eliminarPoder(IMapperPoder.INSTANCE.poderDTOTOpoder(poderDTO, db.obtenerPersonajesByPoderDTO(poderDTO)));
     }
 }

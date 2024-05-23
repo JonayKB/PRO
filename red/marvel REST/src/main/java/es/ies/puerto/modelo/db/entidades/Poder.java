@@ -11,7 +11,7 @@ public class Poder implements Serializable {
     @Id
     String id;
     String nombre;
-    @ManyToMany(mappedBy = "poderes",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "poderes")
     Set<Personaje> personaje;
 
     public Poder() {

@@ -14,7 +14,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-05-23T16:57:28+0100",
+    date = "2024-05-23T21:08:27+0100",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 11.0.20.1 (Ubuntu)"
 )
 public class IMapperPersonajeImpl implements IMapperPersonaje {

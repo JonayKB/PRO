@@ -20,44 +20,67 @@ public class MarvelService {
 <span class="nc" id="L20">    public MarvelService(){</span>
 <span class="nc" id="L21">        marvelNegocio = new MarvelNegocio();</span>
 <span class="nc" id="L22">    }</span>
+<span class="fc" id="L23">    public MarvelService(MarvelNegocio marvelNegocio){</span>
+<span class="fc" id="L24">        this.marvelNegocio = marvelNegocio;</span>
+<span class="fc" id="L25">    }</span>
+    @POST
+    @Path(&quot;/personaje/&quot;)
+    public Response agregarPersonaje(PersonajeDTO personajeDTO){
+<span class="nc" id="L29">        marvelNegocio.eliminarPersonaje(personajeDTO);</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (obtenerPersonajeById(personajeDTO.getId())!=null) {</span>
+<span class="nc" id="L31">            return Response.status(Response.Status.CREATED).build();</span>
+        }
+<span class="nc" id="L33">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+    }
     @GET
     @Path(&quot;/personaje/{id}&quot;)
     public Response obtenerPersonajeById(@PathParam(&quot;id&quot;) String id){
-<span class="nc" id="L26">        PersonajeDTO personajeDTOObtenido = marvelNegocio.obtenerPersonajeById(id);</span>
-<span class="nc bnc" id="L27" title="All 2 branches missed.">        if (personajeDTOObtenido != null) {</span>
-<span class="nc" id="L28">            return Response.ok(personajeDTOObtenido).build();</span>
+<span class="fc" id="L38">        PersonajeDTO personajeDTOObtenido = marvelNegocio.obtenerPersonajeById(id);</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (personajeDTOObtenido != null) {</span>
+<span class="fc" id="L40">            return Response.ok(personajeDTOObtenido).build();</span>
         }
-<span class="nc" id="L30">        return Response.noContent().build();</span>
+<span class="fc" id="L42">        return Response.status(Response.Status.NOT_FOUND).build();</span>
     }
 
     @GET
     @Path(&quot;/personaje/&quot;)
     public Response obtenerPersonajes(){
-<span class="nc" id="L36">        List&lt;PersonajeDTO&gt; personajesDTOObtenido = marvelNegocio.obtenerPersonajes();</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (personajesDTOObtenido != null) {</span>
-<span class="nc" id="L38">            return Response.ok(personajesDTOObtenido).build();</span>
+<span class="fc" id="L48">        List&lt;PersonajeDTO&gt; personajesDTOObtenido = marvelNegocio.obtenerPersonajes();</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (personajesDTOObtenido != null) {</span>
+<span class="fc" id="L50">            return Response.ok(personajesDTOObtenido).build();</span>
         }
-<span class="nc" id="L40">        return Response.noContent().build();</span>
-    }
+<span class="fc" id="L52">        return Response.status(Response.Status.NOT_FOUND).build();</span>
 
+    }
+    @POST
+    @Path(&quot;/poder/&quot;)
+    public Response agregarPoder(PoderDTO poderDTO){
+<span class="nc" id="L58">        marvelNegocio.agregarPoder(poderDTO);</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        if (obtenerPoderById(poderDTO.getId())!=null) {</span>
+<span class="nc" id="L60">            return Response.status(Response.Status.CREATED).build();</span>
+        }
+<span class="nc" id="L62">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+    }
     @GET
     @Path(&quot;/poder/{id}&quot;)
     public Response obtenerPoderById(@PathParam(&quot;id&quot;) String id){
-<span class="nc" id="L46">        PoderDTO poderDTO = marvelNegocio.obtenerPoderById(id);</span>
-<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (poderDTO != null) {</span>
-<span class="nc" id="L48">            return Response.ok(poderDTO).build();</span>
+<span class="fc" id="L67">        PoderDTO poderDTO = marvelNegocio.obtenerPoderById(id);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (poderDTO != null) {</span>
+<span class="fc" id="L69">            return Response.ok(poderDTO).build();</span>
         }
-<span class="nc" id="L50">        return Response.noContent().build();</span>
+<span class="fc" id="L71">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+
     }
 
     @GET
     @Path(&quot;/poder/&quot;)
     public Response obtenerPoderes(){
-<span class="nc" id="L56">        List&lt;PoderDTO&gt; poderDTOobtenido = marvelNegocio.obtenerPoderes();</span>
-<span class="nc bnc" id="L57" title="All 2 branches missed.">        if (poderDTOobtenido != null) {</span>
-<span class="nc" id="L58">            return Response.ok(poderDTOobtenido).build();</span>
+<span class="fc" id="L78">        List&lt;PoderDTO&gt; poderDTOobtenido = marvelNegocio.obtenerPoderes();</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        if (poderDTOobtenido != null) {</span>
+<span class="fc" id="L80">            return Response.ok(poderDTOobtenido).build();</span>
         }
-<span class="nc" id="L60">        return Response.noContent().build();</span>
+<span class="fc" id="L82">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
