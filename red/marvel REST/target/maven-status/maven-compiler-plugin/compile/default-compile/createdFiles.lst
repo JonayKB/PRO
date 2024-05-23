@@ -7,7 +7,6 @@ es/ies/puerto/mappers/IMapperAliasImpl.class
 es/ies/puerto/modelo/db/SQLiteDialect.class
 es/ies/puerto/mappers/IMapperAlias.class
 es/ies/puerto/services/MarvelService.class
-es/ies/puerto/config/AppConfig.class
 es/ies/puerto/modelo/db/entidades/Equipamiento.class
 es/ies/puerto/mappers/IMapperPoderImpl.class
 es/ies/puerto/modelo/db/entidades/Personaje.class
@@ -18,5 +17,6 @@ es/ies/puerto/mappers/IMapperPersonaje.class
 es/ies/puerto/exception/MarvelException.class
 es/ies/puerto/mappers/IMapperEquipamientoImpl.class
 es/ies/puerto/mappers/IMapperPersonajeImpl.class
+es/ies/puerto/modelo/db/interfaces/IGuardado.class
 es/ies/puerto/modelo/db/entidades/Alias.class
 es/ies/puerto/DTO/EquipamientoDTO.class

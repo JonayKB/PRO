@@ -10,11 +10,11 @@ import es.ies.puerto.modelo.db.entidades.Equipamiento;
 public class IMapperEquipamientoTest extends MapperUtils {
     @Test
     public void equipamientoDTOTOEquipamientoTest(){
-        Equipamiento equipamientoObtenido = IMapperEquipamiento.INSTANCE.equipamientoDTOTOEquipamiento(equipamientoDTO);
+        Equipamiento equipamientoObtenido = IMapperEquipamiento.INSTANCE.equipamientoDTOTOEquipamiento(equipamientoDTO,personajeDTO);
         Assertions.assertEquals(equipamientoObtenido, equipamiento);
         Assertions.assertEquals(equipamientoObtenido.getNombre(), equipamiento.getNombre());
         Assertions.assertEquals(equipamientoObtenido.getDescripcion(), equipamiento.getDescripcion());
-        //Assertions.assertEquals(equipamientoObtenido.getPersonaje(), equipamiento.getPersonaje());
+        Assertions.assertEquals(equipamientoObtenido.getPersonaje(), equipamiento.getPersonaje());
 
     }
 

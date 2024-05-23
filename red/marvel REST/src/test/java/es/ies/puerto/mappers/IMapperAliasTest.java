@@ -9,10 +9,10 @@ import es.ies.puerto.modelo.db.entidades.Alias;
 public class IMapperAliasTest extends MapperUtils{
     @Test
     public void aliasDTOTOAliasTest(){
-        Alias aliasObtenido = IMapperAlias.INSTANCE.aliasDTOTOAlias(aliasDTO);
+        Alias aliasObtenido = IMapperAlias.INSTANCE.aliasDTOTOAlias(aliasDTO,personajeDTO);
         Assertions.assertEquals(aliasObtenido, alias);
         Assertions.assertEquals(aliasObtenido.getDescripcion(), alias.getDescripcion());
-        //Assertions.assertEquals(aliasObtenido.getPersonaje(), alias.getPersonaje());
+        Assertions.assertEquals(aliasObtenido.getPersonaje(), alias.getPersonaje());
     }
 
     @Test

@@ -1,5 +1,8 @@
 package es.ies.puerto.mappers;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,10 +13,10 @@ import es.ies.puerto.modelo.db.entidades.Poder;
 public class IMapperPoderTest extends MapperUtils {
     @Test
     public void poderDTOTOPoderTest(){
-        Poder poderObtenido = IMapperPoder.INSTANCE.poderDTOTOpoder(poderDTO);
+        Poder poderObtenido = IMapperPoder.INSTANCE.poderDTOTOpoder(poderDTO, new HashSet<>(Arrays.asList(personajeDTO)));
         Assertions.assertEquals(poderObtenido, poder);
         Assertions.assertEquals(poderObtenido.getNombre(), poder.getNombre());
-        //Assertions.assertEquals(poderObtenido.getPersonaje(), poder.getPersonaje());
+        Assertions.assertEquals(poderObtenido.getPersonaje(), poder.getPersonaje());
 
     }
 

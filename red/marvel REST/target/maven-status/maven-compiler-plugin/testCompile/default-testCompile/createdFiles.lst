@@ -1,6 +1,8 @@
+es/ies/puerto/mappers/IMapperPoderTest.class
+es/ies/puerto/mappers/IMapperPersonajeTest.class
+es/ies/puerto/services/MarvelServiceTest.class
+es/ies/puerto/negocio/MarvelNegocioTest.class
 es/ies/puerto/mappers/IMapperEquipamientoTest.class
 es/ies/puerto/mappers/MapperUtils.class
-es/ies/puerto/mappers/IMapperPoderTest.class
 es/ies/puerto/modelo/db/DbTest.class
 es/ies/puerto/mappers/IMapperAliasTest.class
-es/ies/puerto/mappers/IMapperPersonajeTest.class

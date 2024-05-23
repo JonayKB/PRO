@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>IMapperPoder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examen-bd-jdbc</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.mappers</a> &gt; <span class="el_source">IMapperPoder.java</span></div><h1>IMapperPoder.java</h1><pre class="source lang-java linenums">package es.ies.puerto.mappers;
+
+import java.util.Set;
+
+import javax.ws.rs.core.Context;
+
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
+
+import es.ies.puerto.DTO.EquipamientoDTO;
+import es.ies.puerto.DTO.PersonajeDTO;
+import es.ies.puerto.DTO.PoderDTO;
+import es.ies.puerto.modelo.db.entidades.Equipamiento;
+import es.ies.puerto.modelo.db.entidades.Poder;
+
+@Mapper
+public interface IMapperPoder {
+<span class="fc" id="L19">    IMapperPoder INSTANCE = Mappers.getMapper(IMapperPoder.class);</span>
+    @Mapping(source = &quot;personajes&quot;, target = &quot;personaje&quot;)
+    Poder poderDTOTOpoder(PoderDTO poderDTO,@Context Set&lt;PersonajeDTO&gt; personajes);
+    
+    PoderDTO poderTOpoderDTO(Poder poder);
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

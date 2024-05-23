@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PersonajeDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examen-bd-jdbc</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.DTO</a> &gt; <span class="el_source">PersonajeDTO.java</span></div><h1>PersonajeDTO.java</h1><pre class="source lang-java linenums">package es.ies.puerto.DTO;
+
+import java.util.Set;
+
+import es.ies.puerto.modelo.db.entidades.Alias;
+import es.ies.puerto.modelo.db.entidades.Equipamiento;
+import es.ies.puerto.modelo.db.entidades.Poder;
+import java.util.Objects;
+
+public class PersonajeDTO {
+    String id;
+    String nombre;
+    String genero;
+    AliasDTO alias;
+    Set&lt;PoderDTO&gt; poderes;
+    Set&lt;EquipamientoDTO&gt; equipamientos;
+
+
+
+<span class="fc" id="L20">    public PersonajeDTO() {</span>
+<span class="fc" id="L21">    }</span>
+
+
+<span class="fc" id="L24">    public PersonajeDTO(String id, String nombre, String genero, AliasDTO alias, Set&lt;PoderDTO&gt; poderes, Set&lt;EquipamientoDTO&gt; equipamientos) {</span>
+<span class="fc" id="L25">        this.id = id;</span>
+<span class="fc" id="L26">        this.nombre = nombre;</span>
+<span class="fc" id="L27">        this.genero = genero;</span>
+<span class="fc" id="L28">        this.alias = alias;</span>
+<span class="fc" id="L29">        this.poderes = poderes;</span>
+<span class="fc" id="L30">        this.equipamientos = equipamientos;</span>
+<span class="fc" id="L31">    }</span>
+    
+
+    public String getId() {
+<span class="fc" id="L35">        return this.id;</span>
+    }
+
+    public void setId(String id) {
+<span class="fc" id="L39">        this.id = id;</span>
+<span class="fc" id="L40">    }</span>
+
+    public String getNombre() {
+<span class="fc" id="L43">        return this.nombre;</span>
+    }
+
+    public void setNombre(String nombre) {
+<span class="fc" id="L47">        this.nombre = nombre;</span>
+<span class="fc" id="L48">    }</span>
+
+    public String getGenero() {
+<span class="fc" id="L51">        return this.genero;</span>
+    }
+
+    public void setGenero(String genero) {
+<span class="fc" id="L55">        this.genero = genero;</span>
+<span class="fc" id="L56">    }</span>
+
+    public AliasDTO getAlias() {
+<span class="fc" id="L59">        return this.alias;</span>
+    }
+
+    public void setAlias(AliasDTO alias) {
+<span class="fc" id="L63">        this.alias = alias;</span>
+<span class="fc" id="L64">    }</span>
+
+    public Set&lt;PoderDTO&gt; getPoderes() {
+<span class="fc" id="L67">        return this.poderes;</span>
+    }
+
+    public void setPoderes(Set&lt;PoderDTO&gt; poderes) {
+<span class="fc" id="L71">        this.poderes = poderes;</span>
+<span class="fc" id="L72">    }</span>
+
+    public Set&lt;EquipamientoDTO&gt; getEquipamientos() {
+<span class="fc" id="L75">        return this.equipamientos;</span>
+    }
+
+    public void setEquipamientos(Set&lt;EquipamientoDTO&gt; equipamientos) {
+<span class="fc" id="L79">        this.equipamientos = equipamientos;</span>
+<span class="fc" id="L80">    }</span>
+
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L86">            return true;</span>
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">        if (!(o instanceof PersonajeDTO)) {</span>
+<span class="nc" id="L88">            return false;</span>
+        }
+<span class="fc" id="L90">        PersonajeDTO personajeDTO = (PersonajeDTO) o;</span>
+<span class="fc" id="L91">        return Objects.equals(id, personajeDTO.id);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L96">        return Objects.hash(id);</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

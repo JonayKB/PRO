@@ -8,8 +8,10 @@ import javax.persistence.Persistence;
 
 
 import es.ies.puerto.modelo.db.entidades.Personaje;
+import es.ies.puerto.modelo.db.entidades.Poder;
+import es.ies.puerto.modelo.db.interfaces.IGuardado;
 
-public class Db {
+public class Db implements IGuardado {
     EntityManagerFactory emf;
     EntityManager em;
     public Db(){
@@ -33,6 +35,20 @@ public class Db {
     public List<Personaje> obtenerPersonajes(){
         em.getTransaction().begin();
         List<Personaje> personajesObtenidos = em.createQuery("SELECT p Personaje AS p").getResultList();
+        em.getTransaction().commit();
+        return personajesObtenidos;
+    }
+
+    public Poder obtenerPoder(Poder poder){
+        em.getTransaction().begin();
+        Poder poderObtenido = em.find(Poder.class, poder.getId());
+        em.getTransaction().commit();
+        return poderObtenido;
+    }
+
+    public List<Poder> obtenerPoderes(){
+        em.getTransaction().begin();
+        List<Poder> personajesObtenidos = em.createQuery("SELECT p Poder AS p").getResultList();
         em.getTransaction().commit();
         return personajesObtenidos;
     }

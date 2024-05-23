@@ -4,10 +4,10 @@
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/main/java/es/ies/puerto/modelo/db/Db.java
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/main/java/es/ies/puerto/modelo/db/entidades/Poder.java
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/main/java/es/ies/puerto/DTO/PoderDTO.java
-/home/jonaykb/Repositorios/pro/red/marvel REST/src/main/java/es/ies/puerto/config/AppConfig.java
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/main/java/es/ies/puerto/mappers/IMapperEquipamiento.java
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/main/java/es/ies/puerto/DTO/EquipamientoDTO.java
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/main/java/es/ies/puerto/mappers/IMapperAlias.java
+/home/jonaykb/Repositorios/pro/red/marvel REST/src/main/java/es/ies/puerto/modelo/db/interfaces/IGuardado.java
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/main/java/es/ies/puerto/services/MarvelService.java
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/main/java/es/ies/puerto/DTO/PersonajeDTO.java
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/main/java/es/ies/puerto/modelo/db/entidades/Equipamiento.java

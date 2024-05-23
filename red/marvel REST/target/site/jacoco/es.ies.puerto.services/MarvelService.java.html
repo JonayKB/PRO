@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MarvelService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examen-bd-jdbc</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.services</a> &gt; <span class="el_source">MarvelService.java</span></div><h1>MarvelService.java</h1><pre class="source lang-java linenums">package es.ies.puerto.services;
+
+import java.util.List;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
+
+import es.ies.puerto.DTO.PersonajeDTO;
+import es.ies.puerto.DTO.PoderDTO;
+import es.ies.puerto.mappers.IMapperPersonaje;
+import es.ies.puerto.modelo.db.Db;
+import es.ies.puerto.modelo.db.entidades.Personaje;
+import es.ies.puerto.negocio.MarvelNegocio;
+
+@Path(&quot;/&quot;)
+@Consumes({ &quot;application/json&quot; })
+@Produces({ &quot;application/json&quot; })
+public class MarvelService {
+    MarvelNegocio marvelNegocio;
+<span class="nc" id="L20">    public MarvelService(){</span>
+<span class="nc" id="L21">        marvelNegocio = new MarvelNegocio();</span>
+<span class="nc" id="L22">    }</span>
+    @GET
+    @Path(&quot;/personaje/{id}&quot;)
+    public Response obtenerPersonajeById(@PathParam(&quot;id&quot;) String id){
+<span class="nc" id="L26">        PersonajeDTO personajeDTOObtenido = marvelNegocio.obtenerPersonajeById(id);</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        if (personajeDTOObtenido != null) {</span>
+<span class="nc" id="L28">            return Response.ok(personajeDTOObtenido).build();</span>
+        }
+<span class="nc" id="L30">        return Response.noContent().build();</span>
+    }
+
+    @GET
+    @Path(&quot;/personaje/&quot;)
+    public Response obtenerPersonajes(){
+<span class="nc" id="L36">        List&lt;PersonajeDTO&gt; personajesDTOObtenido = marvelNegocio.obtenerPersonajes();</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (personajesDTOObtenido != null) {</span>
+<span class="nc" id="L38">            return Response.ok(personajesDTOObtenido).build();</span>
+        }
+<span class="nc" id="L40">        return Response.noContent().build();</span>
+    }
+
+    @GET
+    @Path(&quot;/poder/{id}&quot;)
+    public Response obtenerPoderById(@PathParam(&quot;id&quot;) String id){
+<span class="nc" id="L46">        PoderDTO poderDTO = marvelNegocio.obtenerPoderById(id);</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (poderDTO != null) {</span>
+<span class="nc" id="L48">            return Response.ok(poderDTO).build();</span>
+        }
+<span class="nc" id="L50">        return Response.noContent().build();</span>
+    }
+
+    @GET
+    @Path(&quot;/poder/&quot;)
+    public Response obtenerPoderes(){
+<span class="nc" id="L56">        List&lt;PoderDTO&gt; poderDTOobtenido = marvelNegocio.obtenerPoderes();</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">        if (poderDTOobtenido != null) {</span>
+<span class="nc" id="L58">            return Response.ok(poderDTOobtenido).build();</span>
+        }
+<span class="nc" id="L60">        return Response.noContent().build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

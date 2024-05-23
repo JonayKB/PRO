@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>IMapperPersonajeImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examen-bd-jdbc</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.mappers</a> &gt; <span class="el_source">IMapperPersonajeImpl.java</span></div><h1>IMapperPersonajeImpl.java</h1><pre class="source lang-java linenums">package es.ies.puerto.mappers;
+
+import es.ies.puerto.DTO.AliasDTO;
+import es.ies.puerto.DTO.EquipamientoDTO;
+import es.ies.puerto.DTO.PersonajeDTO;
+import es.ies.puerto.DTO.PoderDTO;
+import es.ies.puerto.modelo.db.entidades.Alias;
+import es.ies.puerto.modelo.db.entidades.Equipamiento;
+import es.ies.puerto.modelo.db.entidades.Personaje;
+import es.ies.puerto.modelo.db.entidades.Poder;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import javax.annotation.processing.Generated;
+
+@Generated(
+    value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
+    date = &quot;2024-05-23T16:57:28+0100&quot;,
+    comments = &quot;version: 1.5.5.Final, compiler: javac, environment: Java 11.0.20.1 (Ubuntu)&quot;
+)
+<span class="fc" id="L20">public class IMapperPersonajeImpl implements IMapperPersonaje {</span>
+
+<span class="fc" id="L22">    private final IMapperAlias iMapperAlias = IMapperAlias.INSTANCE;</span>
+<span class="fc" id="L23">    private final IMapperEquipamiento iMapperEquipamiento = IMapperEquipamiento.INSTANCE;</span>
+<span class="fc" id="L24">    private final IMapperPoder iMapperPoder = IMapperPoder.INSTANCE;</span>
+
+    @Override
+    public Personaje personajeDTOTOPersonaje(PersonajeDTO personajeDTODTO) {
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if ( personajeDTODTO == null ) {</span>
+<span class="nc" id="L29">            return null;</span>
+        }
+
+<span class="fc" id="L32">        Personaje personaje = new Personaje();</span>
+
+<span class="fc" id="L34">        personaje.setId( personajeDTODTO.getId() );</span>
+<span class="fc" id="L35">        personaje.setNombre( personajeDTODTO.getNombre() );</span>
+<span class="fc" id="L36">        personaje.setGenero( personajeDTODTO.getGenero() );</span>
+<span class="fc" id="L37">        personaje.setAlias( aliasDTOToAlias( personajeDTODTO.getAlias() ) );</span>
+<span class="fc" id="L38">        personaje.setEquipamientos( equipamientoDTOSetToEquipamientoSet( personajeDTODTO.getEquipamientos() ) );</span>
+<span class="fc" id="L39">        personaje.setPoderes( poderDTOSetToPoderSet( personajeDTODTO.getPoderes() ) );</span>
+
+<span class="fc" id="L41">        return personaje;</span>
+    }
+
+    @Override
+    public PersonajeDTO personajeTOPersonajeDTO(Personaje personaje) {
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if ( personaje == null ) {</span>
+<span class="fc" id="L47">            return null;</span>
+        }
+
+<span class="fc" id="L50">        PersonajeDTO personajeDTO = new PersonajeDTO();</span>
+
+<span class="fc" id="L52">        personajeDTO.setId( personaje.getId() );</span>
+<span class="fc" id="L53">        personajeDTO.setNombre( personaje.getNombre() );</span>
+<span class="fc" id="L54">        personajeDTO.setGenero( personaje.getGenero() );</span>
+<span class="fc" id="L55">        personajeDTO.setAlias( iMapperAlias.aliasTOAliasDTO( personaje.getAlias() ) );</span>
+<span class="fc" id="L56">        personajeDTO.setPoderes( poderSetToPoderDTOSet( personaje.getPoderes() ) );</span>
+<span class="fc" id="L57">        personajeDTO.setEquipamientos( equipamientoSetToEquipamientoDTOSet( personaje.getEquipamientos() ) );</span>
+
+<span class="fc" id="L59">        return personajeDTO;</span>
+    }
+
+    protected Alias aliasDTOToAlias(AliasDTO aliasDTO) {
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        if ( aliasDTO == null ) {</span>
+<span class="nc" id="L64">            return null;</span>
+        }
+
+<span class="fc" id="L67">        Alias alias = new Alias();</span>
+
+<span class="fc" id="L69">        alias.setId( aliasDTO.getId() );</span>
+<span class="fc" id="L70">        alias.setDescripcion( aliasDTO.getDescripcion() );</span>
+
+<span class="fc" id="L72">        return alias;</span>
+    }
+
+    protected Equipamiento equipamientoDTOToEquipamiento(EquipamientoDTO equipamientoDTO) {
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        if ( equipamientoDTO == null ) {</span>
+<span class="nc" id="L77">            return null;</span>
+        }
+
+<span class="fc" id="L80">        Equipamiento equipamiento = new Equipamiento();</span>
+
+<span class="fc" id="L82">        equipamiento.setId( equipamientoDTO.getId() );</span>
+<span class="fc" id="L83">        equipamiento.setNombre( equipamientoDTO.getNombre() );</span>
+<span class="fc" id="L84">        equipamiento.setDescripcion( equipamientoDTO.getDescripcion() );</span>
+
+<span class="fc" id="L86">        return equipamiento;</span>
+    }
+
+    protected Set&lt;Equipamiento&gt; equipamientoDTOSetToEquipamientoSet(Set&lt;EquipamientoDTO&gt; set) {
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        if ( set == null ) {</span>
+<span class="fc" id="L91">            return null;</span>
+        }
+
+<span class="fc" id="L94">        Set&lt;Equipamiento&gt; set1 = new LinkedHashSet&lt;Equipamiento&gt;( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        for ( EquipamientoDTO equipamientoDTO : set ) {</span>
+<span class="fc" id="L96">            set1.add( equipamientoDTOToEquipamiento( equipamientoDTO ) );</span>
+<span class="fc" id="L97">        }</span>
+
+<span class="fc" id="L99">        return set1;</span>
+    }
+
+    protected Poder poderDTOToPoder(PoderDTO poderDTO) {
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">        if ( poderDTO == null ) {</span>
+<span class="nc" id="L104">            return null;</span>
+        }
+
+<span class="fc" id="L107">        Poder poder = new Poder();</span>
+
+<span class="fc" id="L109">        poder.setId( poderDTO.getId() );</span>
+<span class="fc" id="L110">        poder.setNombre( poderDTO.getNombre() );</span>
+
+<span class="fc" id="L112">        return poder;</span>
+    }
+
+    protected Set&lt;Poder&gt; poderDTOSetToPoderSet(Set&lt;PoderDTO&gt; set) {
+<span class="fc bfc" id="L116" title="All 2 branches covered.">        if ( set == null ) {</span>
+<span class="fc" id="L117">            return null;</span>
+        }
+
+<span class="fc" id="L120">        Set&lt;Poder&gt; set1 = new LinkedHashSet&lt;Poder&gt;( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">        for ( PoderDTO poderDTO : set ) {</span>
+<span class="fc" id="L122">            set1.add( poderDTOToPoder( poderDTO ) );</span>
+<span class="fc" id="L123">        }</span>
+
+<span class="fc" id="L125">        return set1;</span>
+    }
+
+    protected Set&lt;PoderDTO&gt; poderSetToPoderDTOSet(Set&lt;Poder&gt; set) {
+<span class="fc bfc" id="L129" title="All 2 branches covered.">        if ( set == null ) {</span>
+<span class="fc" id="L130">            return null;</span>
+        }
+
+<span class="fc" id="L133">        Set&lt;PoderDTO&gt; set1 = new LinkedHashSet&lt;PoderDTO&gt;( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">        for ( Poder poder : set ) {</span>
+<span class="fc" id="L135">            set1.add( iMapperPoder.poderTOpoderDTO( poder ) );</span>
+<span class="fc" id="L136">        }</span>
+
+<span class="fc" id="L138">        return set1;</span>
+    }
+
+    protected Set&lt;EquipamientoDTO&gt; equipamientoSetToEquipamientoDTOSet(Set&lt;Equipamiento&gt; set) {
+<span class="fc bfc" id="L142" title="All 2 branches covered.">        if ( set == null ) {</span>
+<span class="fc" id="L143">            return null;</span>
+        }
+
+<span class="fc" id="L146">        Set&lt;EquipamientoDTO&gt; set1 = new LinkedHashSet&lt;EquipamientoDTO&gt;( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">        for ( Equipamiento equipamiento : set ) {</span>
+<span class="fc" id="L148">            set1.add( iMapperEquipamiento.equipamientoTOEquipamientoDTO( equipamiento ) );</span>
+<span class="fc" id="L149">        }</span>
+
+<span class="fc" id="L151">        return set1;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

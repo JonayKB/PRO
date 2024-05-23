@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>IMapperPoderImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examen-bd-jdbc</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.mappers</a> &gt; <span class="el_source">IMapperPoderImpl.java</span></div><h1>IMapperPoderImpl.java</h1><pre class="source lang-java linenums">package es.ies.puerto.mappers;
+
+import es.ies.puerto.DTO.AliasDTO;
+import es.ies.puerto.DTO.EquipamientoDTO;
+import es.ies.puerto.DTO.PersonajeDTO;
+import es.ies.puerto.DTO.PoderDTO;
+import es.ies.puerto.modelo.db.entidades.Alias;
+import es.ies.puerto.modelo.db.entidades.Equipamiento;
+import es.ies.puerto.modelo.db.entidades.Personaje;
+import es.ies.puerto.modelo.db.entidades.Poder;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import javax.annotation.processing.Generated;
+
+@Generated(
+    value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
+    date = &quot;2024-05-23T16:57:28+0100&quot;,
+    comments = &quot;version: 1.5.5.Final, compiler: javac, environment: Java 11.0.20.1 (Ubuntu)&quot;
+)
+<span class="fc" id="L20">public class IMapperPoderImpl implements IMapperPoder {</span>
+
+    @Override
+    public Poder poderDTOTOpoder(PoderDTO poderDTO, Set&lt;PersonajeDTO&gt; personajes) {
+<span class="pc bpc" id="L24" title="3 of 4 branches missed.">        if ( poderDTO == null &amp;&amp; personajes == null ) {</span>
+<span class="nc" id="L25">            return null;</span>
+        }
+
+<span class="fc" id="L28">        Poder poder = new Poder();</span>
+
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        if ( poderDTO != null ) {</span>
+<span class="fc" id="L31">            poder.setId( poderDTO.getId() );</span>
+<span class="fc" id="L32">            poder.setNombre( poderDTO.getNombre() );</span>
+        }
+<span class="fc" id="L34">        poder.setPersonaje( personajeDTOSetToPersonajeSet( personajes ) );</span>
+
+<span class="fc" id="L36">        return poder;</span>
+    }
+
+    @Override
+    public PoderDTO poderTOpoderDTO(Poder poder) {
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if ( poder == null ) {</span>
+<span class="nc" id="L42">            return null;</span>
+        }
+
+<span class="fc" id="L45">        PoderDTO poderDTO = new PoderDTO();</span>
+
+<span class="fc" id="L47">        poderDTO.setId( poder.getId() );</span>
+<span class="fc" id="L48">        poderDTO.setNombre( poder.getNombre() );</span>
+
+<span class="fc" id="L50">        return poderDTO;</span>
+    }
+
+    protected Alias aliasDTOToAlias(AliasDTO aliasDTO) {
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        if ( aliasDTO == null ) {</span>
+<span class="nc" id="L55">            return null;</span>
+        }
+
+<span class="fc" id="L58">        Alias alias = new Alias();</span>
+
+<span class="fc" id="L60">        alias.setId( aliasDTO.getId() );</span>
+<span class="fc" id="L61">        alias.setDescripcion( aliasDTO.getDescripcion() );</span>
+
+<span class="fc" id="L63">        return alias;</span>
+    }
+
+    protected Equipamiento equipamientoDTOToEquipamiento(EquipamientoDTO equipamientoDTO) {
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        if ( equipamientoDTO == null ) {</span>
+<span class="nc" id="L68">            return null;</span>
+        }
+
+<span class="nc" id="L71">        Equipamiento equipamiento = new Equipamiento();</span>
+
+<span class="nc" id="L73">        equipamiento.setId( equipamientoDTO.getId() );</span>
+<span class="nc" id="L74">        equipamiento.setNombre( equipamientoDTO.getNombre() );</span>
+<span class="nc" id="L75">        equipamiento.setDescripcion( equipamientoDTO.getDescripcion() );</span>
+
+<span class="nc" id="L77">        return equipamiento;</span>
+    }
+
+    protected Set&lt;Equipamiento&gt; equipamientoDTOSetToEquipamientoSet(Set&lt;EquipamientoDTO&gt; set) {
+<span class="pc bpc" id="L81" title="1 of 2 branches missed.">        if ( set == null ) {</span>
+<span class="fc" id="L82">            return null;</span>
+        }
+
+<span class="nc" id="L85">        Set&lt;Equipamiento&gt; set1 = new LinkedHashSet&lt;Equipamiento&gt;( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">        for ( EquipamientoDTO equipamientoDTO : set ) {</span>
+<span class="nc" id="L87">            set1.add( equipamientoDTOToEquipamiento( equipamientoDTO ) );</span>
+<span class="nc" id="L88">        }</span>
+
+<span class="nc" id="L90">        return set1;</span>
+    }
+
+    protected Poder poderDTOToPoder(PoderDTO poderDTO) {
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        if ( poderDTO == null ) {</span>
+<span class="nc" id="L95">            return null;</span>
+        }
+
+<span class="nc" id="L98">        Poder poder = new Poder();</span>
+
+<span class="nc" id="L100">        poder.setId( poderDTO.getId() );</span>
+<span class="nc" id="L101">        poder.setNombre( poderDTO.getNombre() );</span>
+
+<span class="nc" id="L103">        return poder;</span>
+    }
+
+    protected Set&lt;Poder&gt; poderDTOSetToPoderSet(Set&lt;PoderDTO&gt; set) {
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">        if ( set == null ) {</span>
+<span class="fc" id="L108">            return null;</span>
+        }
+
+<span class="nc" id="L111">        Set&lt;Poder&gt; set1 = new LinkedHashSet&lt;Poder&gt;( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">        for ( PoderDTO poderDTO : set ) {</span>
+<span class="nc" id="L113">            set1.add( poderDTOToPoder( poderDTO ) );</span>
+<span class="nc" id="L114">        }</span>
+
+<span class="nc" id="L116">        return set1;</span>
+    }
+
+    protected Personaje personajeDTOToPersonaje(PersonajeDTO personajeDTO) {
+<span class="pc bpc" id="L120" title="1 of 2 branches missed.">        if ( personajeDTO == null ) {</span>
+<span class="nc" id="L121">            return null;</span>
+        }
+
+<span class="fc" id="L124">        Personaje personaje = new Personaje();</span>
+
+<span class="fc" id="L126">        personaje.setId( personajeDTO.getId() );</span>
+<span class="fc" id="L127">        personaje.setNombre( personajeDTO.getNombre() );</span>
+<span class="fc" id="L128">        personaje.setGenero( personajeDTO.getGenero() );</span>
+<span class="fc" id="L129">        personaje.setAlias( aliasDTOToAlias( personajeDTO.getAlias() ) );</span>
+<span class="fc" id="L130">        personaje.setEquipamientos( equipamientoDTOSetToEquipamientoSet( personajeDTO.getEquipamientos() ) );</span>
+<span class="fc" id="L131">        personaje.setPoderes( poderDTOSetToPoderSet( personajeDTO.getPoderes() ) );</span>
+
+<span class="fc" id="L133">        return personaje;</span>
+    }
+
+    protected Set&lt;Personaje&gt; personajeDTOSetToPersonajeSet(Set&lt;PersonajeDTO&gt; set) {
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">        if ( set == null ) {</span>
+<span class="nc" id="L138">            return null;</span>
+        }
+
+<span class="fc" id="L141">        Set&lt;Personaje&gt; set1 = new LinkedHashSet&lt;Personaje&gt;( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">        for ( PersonajeDTO personajeDTO : set ) {</span>
+<span class="fc" id="L143">            set1.add( personajeDTOToPersonaje( personajeDTO ) );</span>
+<span class="fc" id="L144">        }</span>
+
+<span class="fc" id="L146">        return set1;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

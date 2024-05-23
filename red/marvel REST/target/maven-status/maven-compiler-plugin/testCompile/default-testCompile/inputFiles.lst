@@ -1,5 +1,7 @@
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/test/java/es/ies/puerto/mappers/IMapperPoderTest.java
+/home/jonaykb/Repositorios/pro/red/marvel REST/src/test/java/es/ies/puerto/services/MarvelServiceTest.java
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/test/java/es/ies/puerto/modelo/db/DbTest.java
+/home/jonaykb/Repositorios/pro/red/marvel REST/src/test/java/es/ies/puerto/negocio/MarvelNegocioTest.java
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/test/java/es/ies/puerto/mappers/MapperUtils.java
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/test/java/es/ies/puerto/mappers/IMapperAliasTest.java
 /home/jonaykb/Repositorios/pro/red/marvel REST/src/test/java/es/ies/puerto/mappers/IMapperEquipamientoTest.java

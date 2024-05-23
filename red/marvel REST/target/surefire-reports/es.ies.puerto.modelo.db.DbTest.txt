@@ -1,10 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: es.ies.puerto.modelo.db.DbTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.922 s <<< FAILURE! - in es.ies.puerto.modelo.db.DbTest
-es.ies.puerto.modelo.db.DbTest  Time elapsed: 1.922 s  <<< ERROR!
-javax.persistence.PersistenceException: [PersistenceUnit: sqlite] Unable to build Hibernate SessionFactory
-	at es.ies.puerto.modelo.db.DbTest.beforeAll(DbTest.java:10)
-Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [descripcion] in table [Alias]
-	at es.ies.puerto.modelo.db.DbTest.beforeAll(DbTest.java:10)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.204 s - in es.ies.puerto.modelo.db.DbTest
