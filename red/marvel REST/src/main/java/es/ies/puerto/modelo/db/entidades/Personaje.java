@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 import javax.persistence.*;
+
 @Entity
 @Table(name = "Personajes")
 public class Personaje implements Serializable {
@@ -14,7 +15,7 @@ public class Personaje implements Serializable {
     private String genero;
     @OneToOne(cascade = CascadeType.ALL)
     private Alias alias;
-    @OneToMany(mappedBy = "personaje",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "personaje", cascade = CascadeType.ALL)
     private Set<Equipamiento> equipamientos;
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Poder> poderes;
@@ -26,7 +27,8 @@ public class Personaje implements Serializable {
         this.id = id;
     }
 
-    public Personaje(String id, String nombre, String genero, Alias alias, Set<Equipamiento> equipamientos, Set<Poder> poderes) {
+    public Personaje(String id, String nombre, String genero, Alias alias, Set<Equipamiento> equipamientos,
+            Set<Poder> poderes) {
         this.id = id;
         this.nombre = nombre;
         this.genero = genero;
@@ -99,7 +101,4 @@ public class Personaje implements Serializable {
         return Objects.hash(id);
     }
 
-
-
 }
-

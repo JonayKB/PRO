@@ -12,8 +12,9 @@ import es.ies.puerto.modelo.db.entidades.Poder;
 
 public class IMapperPoderTest extends MapperUtils {
     @Test
-    public void poderDTOTOPoderTest(){
-        Poder poderObtenido = IMapperPoder.INSTANCE.poderDTOTOpoder(poderDTO, new HashSet<>(Arrays.asList(personajeDTO)));
+    public void poderDTOTOPoderTest() {
+        Poder poderObtenido = IMapperPoder.INSTANCE.poderDTOTOpoder(poderDTO,
+                new HashSet<>(Arrays.asList(personajeDTO)));
         Assertions.assertEquals(poderObtenido, poder);
         Assertions.assertEquals(poderObtenido.getNombre(), poder.getNombre());
         Assertions.assertEquals(poderObtenido.getPersonaje(), poder.getPersonaje());
@@ -21,7 +22,7 @@ public class IMapperPoderTest extends MapperUtils {
     }
 
     @Test
-    public void poderTOPoderDTOTest(){
+    public void poderTOPoderDTOTest() {
         PoderDTO poderDTOObtenido = IMapperPoder.INSTANCE.poderTOpoderDTO(poder);
         Assertions.assertEquals(poderDTOObtenido, poderDTO);
         Assertions.assertEquals(poderDTOObtenido.getNombre(), poderDTO.getNombre());

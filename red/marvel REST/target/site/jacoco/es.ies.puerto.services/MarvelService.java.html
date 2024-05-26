@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MarvelService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examen-bd-jdbc</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.services</a> &gt; <span class="el_source">MarvelService.java</span></div><h1>MarvelService.java</h1><pre class="source lang-java linenums">package es.ies.puerto.services;
 
+import java.util.HashSet;
 import java.util.List;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
+import es.ies.puerto.DTO.AliasDTO;
+import es.ies.puerto.DTO.EquipamientoDTO;
 import es.ies.puerto.DTO.PersonajeDTO;
 import es.ies.puerto.DTO.PoderDTO;
 import es.ies.puerto.mappers.IMapperPersonaje;
@@ -17,70 +20,162 @@ import es.ies.puerto.negocio.MarvelNegocio;
 @Produces({ &quot;application/json&quot; })
 public class MarvelService {
     MarvelNegocio marvelNegocio;
-<span class="nc" id="L20">    public MarvelService(){</span>
-<span class="nc" id="L21">        marvelNegocio = new MarvelNegocio();</span>
-<span class="nc" id="L22">    }</span>
-<span class="fc" id="L23">    public MarvelService(MarvelNegocio marvelNegocio){</span>
-<span class="fc" id="L24">        this.marvelNegocio = marvelNegocio;</span>
-<span class="fc" id="L25">    }</span>
+
+<span class="fc" id="L24">    public MarvelService() {</span>
+<span class="fc" id="L25">        marvelNegocio = new MarvelNegocio();</span>
+<span class="fc" id="L26">    }</span>
+
+<span class="fc" id="L28">    public MarvelService(MarvelNegocio marvelNegocio) {</span>
+<span class="fc" id="L29">        this.marvelNegocio = marvelNegocio;</span>
+<span class="fc" id="L30">    }</span>
+
     @POST
     @Path(&quot;/personaje/&quot;)
-    public Response agregarPersonaje(PersonajeDTO personajeDTO){
-<span class="nc" id="L29">        marvelNegocio.eliminarPersonaje(personajeDTO);</span>
-<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (obtenerPersonajeById(personajeDTO.getId())!=null) {</span>
-<span class="nc" id="L31">            return Response.status(Response.Status.CREATED).build();</span>
-        }
-<span class="nc" id="L33">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+    public Response agregarPersonaje(PersonajeDTO personajeDTO) {
+<span class="fc" id="L35">        marvelNegocio.agregarPersonaje(personajeDTO);</span>
+<span class="fc" id="L36">        return Response.status(Response.Status.CREATED).build();</span>
+
     }
+
     @GET
     @Path(&quot;/personaje/{id}&quot;)
-    public Response obtenerPersonajeById(@PathParam(&quot;id&quot;) String id){
-<span class="fc" id="L38">        PersonajeDTO personajeDTOObtenido = marvelNegocio.obtenerPersonajeById(id);</span>
-<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (personajeDTOObtenido != null) {</span>
-<span class="fc" id="L40">            return Response.ok(personajeDTOObtenido).build();</span>
+    public Response obtenerPersonajeById(@PathParam(&quot;id&quot;) String id) {
+<span class="fc" id="L43">        PersonajeDTO personajeDTOObtenido = marvelNegocio.obtenerPersonajeById(id);</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (personajeDTOObtenido != null) {</span>
+<span class="fc" id="L45">            return Response.ok(personajeDTOObtenido).build();</span>
         }
-<span class="fc" id="L42">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+<span class="fc" id="L47">        return Response.status(Response.Status.NOT_FOUND).build();</span>
     }
 
     @GET
     @Path(&quot;/personaje/&quot;)
-    public Response obtenerPersonajes(){
-<span class="fc" id="L48">        List&lt;PersonajeDTO&gt; personajesDTOObtenido = marvelNegocio.obtenerPersonajes();</span>
-<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (personajesDTOObtenido != null) {</span>
-<span class="fc" id="L50">            return Response.ok(personajesDTOObtenido).build();</span>
+    public Response obtenerPersonajes() {
+<span class="fc" id="L53">        List&lt;PersonajeDTO&gt; personajesDTOObtenido = marvelNegocio.obtenerPersonajes();</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (personajesDTOObtenido != null) {</span>
+<span class="fc" id="L55">            return Response.ok(personajesDTOObtenido).build();</span>
         }
-<span class="fc" id="L52">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+<span class="fc" id="L57">        return Response.status(Response.Status.NOT_FOUND).build();</span>
 
     }
+    @DELETE
+    @Path(&quot;/personaje/&quot;)
+    public Response eliminarPersonaje(PersonajeDTO personajeDTO) {
+<span class="fc" id="L63">        marvelNegocio.eliminarPersonaje(personajeDTO);</span>
+<span class="fc" id="L64">        return Response.status(Response.Status.OK).build();</span>
+
+    }
+
     @POST
     @Path(&quot;/poder/&quot;)
-    public Response agregarPoder(PoderDTO poderDTO){
-<span class="nc" id="L58">        marvelNegocio.agregarPoder(poderDTO);</span>
-<span class="nc bnc" id="L59" title="All 2 branches missed.">        if (obtenerPoderById(poderDTO.getId())!=null) {</span>
-<span class="nc" id="L60">            return Response.status(Response.Status.CREATED).build();</span>
-        }
-<span class="nc" id="L62">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+    public Response agregarPoder(PoderDTO poderDTO, List&lt;String&gt; ids) {
+<span class="fc" id="L71">        HashSet&lt;PersonajeDTO&gt; personajeDTOs = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        for (String id : ids) {</span>
+<span class="fc" id="L73">            personajeDTOs.add(marvelNegocio.obtenerPersonajeById(id));</span>
+<span class="fc" id="L74">        }</span>
+<span class="fc" id="L75">        marvelNegocio.agregarPoder(poderDTO, personajeDTOs);</span>
+<span class="fc" id="L76">        return Response.status(Response.Status.CREATED).build();</span>
     }
+
     @GET
     @Path(&quot;/poder/{id}&quot;)
-    public Response obtenerPoderById(@PathParam(&quot;id&quot;) String id){
-<span class="fc" id="L67">        PoderDTO poderDTO = marvelNegocio.obtenerPoderById(id);</span>
-<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (poderDTO != null) {</span>
-<span class="fc" id="L69">            return Response.ok(poderDTO).build();</span>
+    public Response obtenerPoderById(@PathParam(&quot;id&quot;) String id) {
+<span class="fc" id="L82">        PoderDTO poderDTO = marvelNegocio.obtenerPoderById(id);</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        if (poderDTO != null) {</span>
+<span class="fc" id="L84">            return Response.ok(poderDTO).build();</span>
         }
-<span class="fc" id="L71">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+<span class="fc" id="L86">        return Response.status(Response.Status.NOT_FOUND).build();</span>
 
     }
 
     @GET
     @Path(&quot;/poder/&quot;)
-    public Response obtenerPoderes(){
-<span class="fc" id="L78">        List&lt;PoderDTO&gt; poderDTOobtenido = marvelNegocio.obtenerPoderes();</span>
-<span class="fc bfc" id="L79" title="All 2 branches covered.">        if (poderDTOobtenido != null) {</span>
-<span class="fc" id="L80">            return Response.ok(poderDTOobtenido).build();</span>
+    public Response obtenerPoderes() {
+<span class="fc" id="L93">        List&lt;PoderDTO&gt; poderDTOobtenido = marvelNegocio.obtenerPoderes();</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        if (poderDTOobtenido != null) {</span>
+<span class="fc" id="L95">            return Response.ok(poderDTOobtenido).build();</span>
         }
-<span class="fc" id="L82">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+<span class="fc" id="L97">        return Response.status(Response.Status.NOT_FOUND).build();</span>
 
+    }
+    @DELETE
+    @Path(&quot;/poder/&quot;)
+    public Response eliminarPoder(PoderDTO poderDTO, List&lt;String&gt; ids) {
+<span class="fc" id="L103">        HashSet&lt;PersonajeDTO&gt; personajeDTOs = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">        for (String id : ids) {</span>
+<span class="fc" id="L105">            personajeDTOs.add(marvelNegocio.obtenerPersonajeById(id));</span>
+<span class="fc" id="L106">        }</span>
+<span class="fc" id="L107">        marvelNegocio.eliminarPoder(poderDTO, personajeDTOs);</span>
+<span class="fc" id="L108">        return Response.status(Response.Status.OK).build();</span>
+    }
+
+    @POST
+    @Path(&quot;/equipamiento/&quot;)
+    public Response agregarEquipamiento(EquipamientoDTO equipamientoDTO, String personajeID) {
+<span class="fc" id="L114">        marvelNegocio.agregarEquipamiento(equipamientoDTO, new PersonajeDTO(personajeID));</span>
+<span class="fc" id="L115">        return Response.status(Response.Status.CREATED).build();</span>
+    }
+
+    @GET
+    @Path(&quot;/equipamiento/{id}&quot;)
+    public Response obtenerEquipamientoById(@PathParam(&quot;id&quot;) String id) {
+<span class="fc" id="L121">        EquipamientoDTO equipamientoDTO = marvelNegocio.obtenerEquipamientoById(id);</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">        if (equipamientoDTO != null) {</span>
+<span class="fc" id="L123">            return Response.ok(equipamientoDTO).build();</span>
+        }
+<span class="fc" id="L125">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+
+    }
+
+    @GET
+    @Path(&quot;/equipamiento/&quot;)
+    public Response obtenerEquipamientos() {
+<span class="fc" id="L132">        List&lt;EquipamientoDTO&gt; equipamientosDTOObtenidos = marvelNegocio.obtenerEquipamientos();</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">        if (equipamientosDTOObtenidos != null) {</span>
+<span class="fc" id="L134">            return Response.ok(equipamientosDTOObtenidos).build();</span>
+        }
+<span class="fc" id="L136">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+
+    }
+    @DELETE
+    @Path(&quot;/equipamiento/&quot;)
+    public Response eliminarEquipamiento(EquipamientoDTO equipamientoDTO, String personajeID) {
+<span class="fc" id="L142">        marvelNegocio.eliminarEquipamiento(equipamientoDTO, new PersonajeDTO(personajeID));</span>
+<span class="fc" id="L143">        return Response.status(Response.Status.OK).build();</span>
+    }
+
+    @POST
+    @Path(&quot;/alias/&quot;)
+    public Response agregarAlias(AliasDTO aliasDTO, String personajeID) {
+<span class="fc" id="L149">        marvelNegocio.agregarAlias(aliasDTO, new PersonajeDTO(personajeID));</span>
+<span class="fc" id="L150">        return Response.status(Response.Status.CREATED).build();</span>
+    }
+
+    @GET
+    @Path(&quot;/alias/{id}&quot;)
+    public Response obtenerAliasById(@PathParam(&quot;id&quot;) String id) {
+<span class="fc" id="L156">        AliasDTO aliasDTO = marvelNegocio.obtenerAliasById(id);</span>
+<span class="fc bfc" id="L157" title="All 2 branches covered.">        if (aliasDTO != null) {</span>
+<span class="fc" id="L158">            return Response.ok(aliasDTO).build();</span>
+        }
+<span class="fc" id="L160">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+
+    }
+
+    @GET
+    @Path(&quot;/alias/&quot;)
+    public Response obtenerAlias() {
+<span class="fc" id="L167">        List&lt;AliasDTO&gt; aliasDTOObtenidos = marvelNegocio.obtenerAlias();</span>
+<span class="fc bfc" id="L168" title="All 2 branches covered.">        if (aliasDTOObtenidos != null) {</span>
+<span class="fc" id="L169">            return Response.ok(aliasDTOObtenidos).build();</span>
+        }
+<span class="fc" id="L171">        return Response.status(Response.Status.NOT_FOUND).build();</span>
+    }
+
+    @DELETE
+    @Path(&quot;/alias/&quot;)
+    public Response eliminarAlias(AliasDTO aliasDTO, String personajeID) {
+<span class="fc" id="L177">        marvelNegocio.eliminarAlias(aliasDTO, new PersonajeDTO(personajeID));</span>
+<span class="fc" id="L178">        return Response.status(Response.Status.OK).build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

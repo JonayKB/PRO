@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 @Entity
 @Table(name = &quot;Alias&quot;)
 public class Alias implements Serializable {
@@ -20,19 +21,18 @@ public class Alias implements Serializable {
     @OneToOne
     Personaje personaje;
 
-<span class="fc" id="L23">    public Alias() {}</span>
+<span class="fc" id="L24">    public Alias() {</span>
+<span class="fc" id="L25">    }</span>
 
-<span class="nc" id="L25">    public Alias(String id) {</span>
-<span class="nc" id="L26">        this.id = id;</span>
-<span class="nc" id="L27">    }</span>
+<span class="fc" id="L27">    public Alias(String id) {</span>
+<span class="fc" id="L28">        this.id = id;</span>
+<span class="fc" id="L29">    }</span>
 
-
-<span class="fc" id="L30">    public Alias(String id, String descripcion, Personaje personaje) {</span>
-<span class="fc" id="L31">        this.id = id;</span>
-<span class="fc" id="L32">        this.descripcion = descripcion;</span>
-<span class="fc" id="L33">        this.personaje = personaje;</span>
-<span class="fc" id="L34">    }</span>
-    
+<span class="fc" id="L31">    public Alias(String id, String descripcion, Personaje personaje) {</span>
+<span class="fc" id="L32">        this.id = id;</span>
+<span class="fc" id="L33">        this.descripcion = descripcion;</span>
+<span class="fc" id="L34">        this.personaje = personaje;</span>
+<span class="fc" id="L35">    }</span>
 
     public String getId() {
 <span class="fc" id="L38">        return id;</span>
@@ -73,8 +73,6 @@ public class Alias implements Serializable {
     public int hashCode() {
 <span class="nc" id="L74">        return Objects.hash(id);</span>
     }
-
-
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

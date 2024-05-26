@@ -17,9 +17,10 @@ import es.ies.puerto.modelo.db.entidades.Poder;
 @Mapper
 public interface IMapperPoder {
     IMapperPoder INSTANCE = Mappers.getMapper(IMapperPoder.class);
+
     @Mapping(source = "personajes", target = "personaje")
-    Poder poderDTOTOpoder(PoderDTO poderDTO,@Context Set<PersonajeDTO> personajes);
-    
+    Poder poderDTOTOpoder(PoderDTO poderDTO, @Context Set<PersonajeDTO> personajes);
+
     PoderDTO poderTOpoderDTO(Poder poder);
 
 }

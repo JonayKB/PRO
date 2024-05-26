@@ -15,13 +15,15 @@ public class PersonajeDTO {
     Set<PoderDTO> poderes;
     Set<EquipamientoDTO> equipamientos;
 
-
-
     public PersonajeDTO() {
     }
 
+    public PersonajeDTO(String id) {
+        this.id = id;
+    }
 
-    public PersonajeDTO(String id, String nombre, String genero, AliasDTO alias, Set<PoderDTO> poderes, Set<EquipamientoDTO> equipamientos) {
+    public PersonajeDTO(String id, String nombre, String genero, AliasDTO alias, Set<PoderDTO> poderes,
+            Set<EquipamientoDTO> equipamientos) {
         this.id = id;
         this.nombre = nombre;
         this.genero = genero;
@@ -29,7 +31,6 @@ public class PersonajeDTO {
         this.poderes = poderes;
         this.equipamientos = equipamientos;
     }
-    
 
     public String getId() {
         return this.id;
@@ -79,7 +80,6 @@ public class PersonajeDTO {
         this.equipamientos = equipamientos;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -95,5 +95,5 @@ public class PersonajeDTO {
     public int hashCode() {
         return Objects.hash(id);
     }
-    
+
 }

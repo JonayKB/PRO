@@ -1,4 +1,5 @@
 package es.ies.puerto.modelo.db;
+
 import java.sql.Types;
 
 import org.hibernate.dialect.Dialect;
@@ -34,7 +35,7 @@ public class SQLiteDialect extends Dialect {
 		registerColumnType(Types.BINARY, "blob");
 		registerColumnType(Types.VARBINARY, "blob");
 		registerColumnType(Types.LONGVARBINARY, "blob");
-//		 registerColumnType(Types.NULL, "null");
+		// registerColumnType(Types.NULL, "null");
 		registerColumnType(Types.BLOB, "blob");
 		registerColumnType(Types.CLOB, "clob");
 		registerColumnType(Types.BOOLEAN, "integer");
@@ -43,7 +44,7 @@ public class SQLiteDialect extends Dialect {
 		registerFunction("mod", new SQLFunctionTemplate(IntegerType.INSTANCE, "?1 % ?2"));
 		registerFunction("substr", new StandardSQLFunction("substr", StringType.INSTANCE));
 		registerFunction("substring", new StandardSQLFunction("substr", StringType.INSTANCE));
-		
+
 	}
 
 	public boolean supportsIdentityColumns() {

@@ -9,7 +9,6 @@ public class PoderDTO {
     String id;
     String nombre;
 
-
     public PoderDTO() {
     }
 
@@ -34,8 +33,6 @@ public class PoderDTO {
         this.nombre = nombre;
     }
 
-
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -44,7 +41,8 @@ public class PoderDTO {
             return false;
         }
         PoderDTO poderDTO = (PoderDTO) o;
-        return Objects.equals(id, poderDTO.id);}
+        return Objects.equals(id, poderDTO.id);
+    }
 
     @Override
     public int hashCode() {

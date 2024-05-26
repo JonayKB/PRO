@@ -5,6 +5,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.*;
+
 @Entity
 @Table(name = "Poderes")
 public class Poder implements Serializable {
@@ -56,7 +57,6 @@ public class Poder implements Serializable {
         this.personaje = personaje;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -72,8 +72,5 @@ public class Poder implements Serializable {
     public int hashCode() {
         return Objects.hash(id);
     }
-
-
-
 
 }

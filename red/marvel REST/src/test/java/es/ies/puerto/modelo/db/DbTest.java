@@ -9,6 +9,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import es.ies.puerto.mappers.IMapperAlias;
+import es.ies.puerto.mappers.IMapperPoder;
 import es.ies.puerto.modelo.db.entidades.Alias;
 import es.ies.puerto.modelo.db.entidades.Equipamiento;
 import es.ies.puerto.modelo.db.entidades.Personaje;
@@ -20,13 +22,14 @@ public class DbTest {
     Personaje personaje;
     Poder poder;
     Equipamiento equipamiento;
+
     @BeforeAll
-    public static void beforeAll(){
+    public static void beforeAll() {
         db = new Db();
     }
 
     @BeforeEach
-    public void beforeEach(){
+    public void beforeEach() {
         alias = new Alias("idAlias", "descripcion", null);
         personaje = new Personaje("idPersonaje", "nombrePersonaje", "generoPersonaje", null, null, null);
         poder = new Poder("idPoder", "nombrePoder", null);
@@ -46,12 +49,17 @@ public class DbTest {
     }
 
     @Test
-    public void obtenerPersonaje(){
+    public void obtenerPersonajeTest() {
         Assertions.assertEquals(personaje, db.obtenerPersonaje(personaje));
     }
 
+    @Test
+    public void obtenerPersonajesTest() {
+        Assertions.assertNotNull(db.obtenerPersonajes());
+    }
+
     @AfterEach
-    void afterEach(){
+    void afterEach() {
         db.eliminarPersonaje(personaje);
     }
 }

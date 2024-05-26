@@ -7,9 +7,9 @@ import es.ies.puerto.DTO.PersonajeDTO;
 import es.ies.puerto.modelo.db.entidades.Equipamiento;
 import es.ies.puerto.modelo.db.entidades.Personaje;
 
-public class IMapperPersonajeTest extends MapperUtils{
+public class IMapperPersonajeTest extends MapperUtils {
     @Test
-    public void personajeDTOTOPersonajeTest(){
+    public void personajeDTOTOPersonajeTest() {
         Personaje personajeObtenido = IMapperPersonaje.INSTANCE.personajeDTOTOPersonaje(personajeDTO);
         Assertions.assertEquals(personajeObtenido, personaje);
         Assertions.assertEquals(personajeObtenido.getNombre(), personaje.getNombre());
@@ -20,7 +20,7 @@ public class IMapperPersonajeTest extends MapperUtils{
     }
 
     @Test
-    public void personajeTOPersonajeDTOTest(){
+    public void personajeTOPersonajeDTOTest() {
         PersonajeDTO personajeDTOObtenido = IMapperPersonaje.INSTANCE.personajeTOPersonajeDTO(personaje);
         Assertions.assertEquals(personajeDTOObtenido, personajeDTO);
         Assertions.assertEquals(personajeDTOObtenido.getNombre(), personajeDTO.getNombre());

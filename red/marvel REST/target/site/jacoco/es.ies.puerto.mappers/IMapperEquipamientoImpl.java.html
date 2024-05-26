@@ -14,7 +14,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
-    date = &quot;2024-05-23T21:08:27+0100&quot;,
+    date = &quot;2024-05-26T18:30:39+0100&quot;,
     comments = &quot;version: 1.5.5.Final, compiler: javac, environment: Java 11.0.20.1 (Ubuntu)&quot;
 )
 <span class="fc" id="L20">public class IMapperEquipamientoImpl implements IMapperEquipamiento {</span>
@@ -39,8 +39,8 @@ import javax.annotation.processing.Generated;
 
     @Override
     public EquipamientoDTO equipamientoTOEquipamientoDTO(Equipamiento equipamiento) {
-<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        if ( equipamiento == null ) {</span>
-<span class="nc" id="L43">            return null;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if ( equipamiento == null ) {</span>
+<span class="fc" id="L43">            return null;</span>
         }
 
 <span class="fc" id="L46">        EquipamientoDTO equipamientoDTO = new EquipamientoDTO();</span>
@@ -53,8 +53,8 @@ import javax.annotation.processing.Generated;
     }
 
     protected Alias aliasDTOToAlias(AliasDTO aliasDTO) {
-<span class="pc bpc" id="L56" title="1 of 2 branches missed.">        if ( aliasDTO == null ) {</span>
-<span class="nc" id="L57">            return null;</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if ( aliasDTO == null ) {</span>
+<span class="fc" id="L57">            return null;</span>
         }
 
 <span class="fc" id="L60">        Alias alias = new Alias();</span>
@@ -66,56 +66,56 @@ import javax.annotation.processing.Generated;
     }
 
     protected Equipamiento equipamientoDTOToEquipamiento(EquipamientoDTO equipamientoDTO) {
-<span class="nc bnc" id="L69" title="All 2 branches missed.">        if ( equipamientoDTO == null ) {</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        if ( equipamientoDTO == null ) {</span>
 <span class="nc" id="L70">            return null;</span>
         }
 
-<span class="nc" id="L73">        Equipamiento equipamiento = new Equipamiento();</span>
+<span class="fc" id="L73">        Equipamiento equipamiento = new Equipamiento();</span>
 
-<span class="nc" id="L75">        equipamiento.setId( equipamientoDTO.getId() );</span>
-<span class="nc" id="L76">        equipamiento.setNombre( equipamientoDTO.getNombre() );</span>
-<span class="nc" id="L77">        equipamiento.setDescripcion( equipamientoDTO.getDescripcion() );</span>
+<span class="fc" id="L75">        equipamiento.setId( equipamientoDTO.getId() );</span>
+<span class="fc" id="L76">        equipamiento.setNombre( equipamientoDTO.getNombre() );</span>
+<span class="fc" id="L77">        equipamiento.setDescripcion( equipamientoDTO.getDescripcion() );</span>
 
-<span class="nc" id="L79">        return equipamiento;</span>
+<span class="fc" id="L79">        return equipamiento;</span>
     }
 
     protected Set&lt;Equipamiento&gt; equipamientoDTOSetToEquipamientoSet(Set&lt;EquipamientoDTO&gt; set) {
-<span class="pc bpc" id="L83" title="1 of 2 branches missed.">        if ( set == null ) {</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        if ( set == null ) {</span>
 <span class="fc" id="L84">            return null;</span>
         }
 
-<span class="nc" id="L87">        Set&lt;Equipamiento&gt; set1 = new LinkedHashSet&lt;Equipamiento&gt;( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );</span>
-<span class="nc bnc" id="L88" title="All 2 branches missed.">        for ( EquipamientoDTO equipamientoDTO : set ) {</span>
-<span class="nc" id="L89">            set1.add( equipamientoDTOToEquipamiento( equipamientoDTO ) );</span>
-<span class="nc" id="L90">        }</span>
+<span class="fc" id="L87">        Set&lt;Equipamiento&gt; set1 = new LinkedHashSet&lt;Equipamiento&gt;( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">        for ( EquipamientoDTO equipamientoDTO : set ) {</span>
+<span class="fc" id="L89">            set1.add( equipamientoDTOToEquipamiento( equipamientoDTO ) );</span>
+<span class="fc" id="L90">        }</span>
 
-<span class="nc" id="L92">        return set1;</span>
+<span class="fc" id="L92">        return set1;</span>
     }
 
     protected Poder poderDTOToPoder(PoderDTO poderDTO) {
-<span class="nc bnc" id="L96" title="All 2 branches missed.">        if ( poderDTO == null ) {</span>
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">        if ( poderDTO == null ) {</span>
 <span class="nc" id="L97">            return null;</span>
         }
 
-<span class="nc" id="L100">        Poder poder = new Poder();</span>
+<span class="fc" id="L100">        Poder poder = new Poder();</span>
 
-<span class="nc" id="L102">        poder.setId( poderDTO.getId() );</span>
-<span class="nc" id="L103">        poder.setNombre( poderDTO.getNombre() );</span>
+<span class="fc" id="L102">        poder.setId( poderDTO.getId() );</span>
+<span class="fc" id="L103">        poder.setNombre( poderDTO.getNombre() );</span>
 
-<span class="nc" id="L105">        return poder;</span>
+<span class="fc" id="L105">        return poder;</span>
     }
 
     protected Set&lt;Poder&gt; poderDTOSetToPoderSet(Set&lt;PoderDTO&gt; set) {
-<span class="pc bpc" id="L109" title="1 of 2 branches missed.">        if ( set == null ) {</span>
+<span class="fc bfc" id="L109" title="All 2 branches covered.">        if ( set == null ) {</span>
 <span class="fc" id="L110">            return null;</span>
         }
 
-<span class="nc" id="L113">        Set&lt;Poder&gt; set1 = new LinkedHashSet&lt;Poder&gt;( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );</span>
-<span class="nc bnc" id="L114" title="All 2 branches missed.">        for ( PoderDTO poderDTO : set ) {</span>
-<span class="nc" id="L115">            set1.add( poderDTOToPoder( poderDTO ) );</span>
-<span class="nc" id="L116">        }</span>
+<span class="fc" id="L113">        Set&lt;Poder&gt; set1 = new LinkedHashSet&lt;Poder&gt;( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        for ( PoderDTO poderDTO : set ) {</span>
+<span class="fc" id="L115">            set1.add( poderDTOToPoder( poderDTO ) );</span>
+<span class="fc" id="L116">        }</span>
 
-<span class="nc" id="L118">        return set1;</span>
+<span class="fc" id="L118">        return set1;</span>
     }
 
     protected Personaje personajeDTOToPersonaje(PersonajeDTO personajeDTO) {

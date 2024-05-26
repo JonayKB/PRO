@@ -15,70 +15,70 @@ public class PersonajeDTO {
     Set&lt;PoderDTO&gt; poderes;
     Set&lt;EquipamientoDTO&gt; equipamientos;
 
+<span class="fc" id="L18">    public PersonajeDTO() {</span>
+<span class="fc" id="L19">    }</span>
 
+<span class="fc" id="L21">    public PersonajeDTO(String id) {</span>
+<span class="fc" id="L22">        this.id = id;</span>
+<span class="fc" id="L23">    }</span>
 
-<span class="fc" id="L20">    public PersonajeDTO() {</span>
-<span class="fc" id="L21">    }</span>
-
-
-<span class="fc" id="L24">    public PersonajeDTO(String id, String nombre, String genero, AliasDTO alias, Set&lt;PoderDTO&gt; poderes, Set&lt;EquipamientoDTO&gt; equipamientos) {</span>
-<span class="fc" id="L25">        this.id = id;</span>
-<span class="fc" id="L26">        this.nombre = nombre;</span>
-<span class="fc" id="L27">        this.genero = genero;</span>
-<span class="fc" id="L28">        this.alias = alias;</span>
-<span class="fc" id="L29">        this.poderes = poderes;</span>
-<span class="fc" id="L30">        this.equipamientos = equipamientos;</span>
-<span class="fc" id="L31">    }</span>
-    
+    public PersonajeDTO(String id, String nombre, String genero, AliasDTO alias, Set&lt;PoderDTO&gt; poderes,
+<span class="fc" id="L26">            Set&lt;EquipamientoDTO&gt; equipamientos) {</span>
+<span class="fc" id="L27">        this.id = id;</span>
+<span class="fc" id="L28">        this.nombre = nombre;</span>
+<span class="fc" id="L29">        this.genero = genero;</span>
+<span class="fc" id="L30">        this.alias = alias;</span>
+<span class="fc" id="L31">        this.poderes = poderes;</span>
+<span class="fc" id="L32">        this.equipamientos = equipamientos;</span>
+<span class="fc" id="L33">    }</span>
 
     public String getId() {
-<span class="fc" id="L35">        return this.id;</span>
+<span class="fc" id="L36">        return this.id;</span>
     }
 
     public void setId(String id) {
-<span class="fc" id="L39">        this.id = id;</span>
-<span class="fc" id="L40">    }</span>
+<span class="fc" id="L40">        this.id = id;</span>
+<span class="fc" id="L41">    }</span>
 
     public String getNombre() {
-<span class="fc" id="L43">        return this.nombre;</span>
+<span class="fc" id="L44">        return this.nombre;</span>
     }
 
     public void setNombre(String nombre) {
-<span class="fc" id="L47">        this.nombre = nombre;</span>
-<span class="fc" id="L48">    }</span>
+<span class="fc" id="L48">        this.nombre = nombre;</span>
+<span class="fc" id="L49">    }</span>
 
     public String getGenero() {
-<span class="fc" id="L51">        return this.genero;</span>
+<span class="fc" id="L52">        return this.genero;</span>
     }
 
     public void setGenero(String genero) {
-<span class="fc" id="L55">        this.genero = genero;</span>
-<span class="fc" id="L56">    }</span>
+<span class="fc" id="L56">        this.genero = genero;</span>
+<span class="fc" id="L57">    }</span>
 
     public AliasDTO getAlias() {
-<span class="fc" id="L59">        return this.alias;</span>
+<span class="fc" id="L60">        return this.alias;</span>
     }
 
     public void setAlias(AliasDTO alias) {
-<span class="fc" id="L63">        this.alias = alias;</span>
-<span class="fc" id="L64">    }</span>
+<span class="fc" id="L64">        this.alias = alias;</span>
+<span class="fc" id="L65">    }</span>
 
     public Set&lt;PoderDTO&gt; getPoderes() {
-<span class="fc" id="L67">        return this.poderes;</span>
+<span class="fc" id="L68">        return this.poderes;</span>
     }
 
     public void setPoderes(Set&lt;PoderDTO&gt; poderes) {
-<span class="fc" id="L71">        this.poderes = poderes;</span>
-<span class="fc" id="L72">    }</span>
+<span class="fc" id="L72">        this.poderes = poderes;</span>
+<span class="fc" id="L73">    }</span>
 
     public Set&lt;EquipamientoDTO&gt; getEquipamientos() {
-<span class="fc" id="L75">        return this.equipamientos;</span>
+<span class="fc" id="L76">        return this.equipamientos;</span>
     }
 
     public void setEquipamientos(Set&lt;EquipamientoDTO&gt; equipamientos) {
-<span class="fc" id="L79">        this.equipamientos = equipamientos;</span>
-<span class="fc" id="L80">    }</span>
-
+<span class="fc" id="L80">        this.equipamientos = equipamientos;</span>
+<span class="fc" id="L81">    }</span>
 
     @Override
     public boolean equals(Object o) {
@@ -95,6 +95,6 @@ public class PersonajeDTO {
     public int hashCode() {
 <span class="fc" id="L96">        return Objects.hash(id);</span>
     }
-    
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

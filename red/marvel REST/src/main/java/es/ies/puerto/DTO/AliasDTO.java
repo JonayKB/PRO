@@ -8,7 +8,6 @@ public class AliasDTO {
     String id;
     String descripcion;
 
-
     public AliasDTO() {
     }
 
@@ -33,8 +32,6 @@ public class AliasDTO {
         this.descripcion = descripcion;
     }
 
-
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -44,7 +41,7 @@ public class AliasDTO {
         }
         AliasDTO aliasDTO = (AliasDTO) o;
         return Objects.equals(id, aliasDTO.id);
-     }
+    }
 
     @Override
     public int hashCode() {

@@ -8,7 +8,6 @@ public class EquipamientoDTO {
     String nombre;
     String descripcion;
 
-
     public EquipamientoDTO() {
     }
 
@@ -42,8 +41,6 @@ public class EquipamientoDTO {
         this.descripcion = descripcion;
     }
 
-
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -52,11 +49,12 @@ public class EquipamientoDTO {
             return false;
         }
         EquipamientoDTO equipamientoDTO = (EquipamientoDTO) o;
-        return Objects.equals(id, equipamientoDTO.id);}
+        return Objects.equals(id, equipamientoDTO.id);
+    }
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
     }
-    
+
 }

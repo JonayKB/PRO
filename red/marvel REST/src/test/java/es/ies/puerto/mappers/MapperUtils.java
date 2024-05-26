@@ -36,20 +36,21 @@ public class MapperUtils {
     EquipamientoDTO equipamientoDTO;
     PersonajeDTO personajeDTO;
     PoderDTO poderDTO;
+
     @BeforeEach
-    public void beforeEach(){
+    public void beforeEach() {
         alias = new Alias(ID_ALIAS, DESCRIPCION_ALIAS, null);
         aliasDTO = new AliasDTO(ID_ALIAS, DESCRIPCION_ALIAS);
 
         equipamiento = new Equipamiento(ID_EQUI, NOMBRE_EQUI, DESCRIPCION_EQUI, null);
         equipamientoDTO = new EquipamientoDTO(ID_EQUI, NOMBRE_EQUI, DESCRIPCION_EQUI);
 
-        poder = new Poder(ID_PODER, NOMBRE_PODER,null);
-        poderDTO = new PoderDTO(ID_PODER,NOMBRE_PODER);
+        poder = new Poder(ID_PODER, NOMBRE_PODER, null);
+        poderDTO = new PoderDTO(ID_PODER, NOMBRE_PODER);
 
         personaje = new Personaje(ID_PERSONAJE, NOMBRE_PERSONAJE, GENERO, null, null, null);
-        personajeDTO = new PersonajeDTO(ID_PERSONAJE, NOMBRE_PERSONAJE, GENERO, null, null,null);
-        
+        personajeDTO = new PersonajeDTO(ID_PERSONAJE, NOMBRE_PERSONAJE, GENERO, null, null, null);
+
         alias.setPersonaje(personaje);
 
         equipamiento.setPersonaje(personaje);

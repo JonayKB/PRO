@@ -8,10 +8,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import es.ies.puerto.DTO.AliasDTO;
+import es.ies.puerto.DTO.EquipamientoDTO;
 import es.ies.puerto.DTO.PersonajeDTO;
 import es.ies.puerto.DTO.PoderDTO;
 import es.ies.puerto.mappers.IMapperPersonaje;
 import es.ies.puerto.mappers.IMapperPoder;
+import es.ies.puerto.modelo.db.entidades.Alias;
+import es.ies.puerto.modelo.db.entidades.Equipamiento;
 import es.ies.puerto.modelo.db.entidades.Personaje;
 import es.ies.puerto.modelo.db.entidades.Poder;
 import es.ies.puerto.modelo.db.interfaces.IGuardado;
@@ -19,77 +23,134 @@ import es.ies.puerto.modelo.db.interfaces.IGuardado;
 public class Db implements IGuardado {
     EntityManagerFactory emf;
     EntityManager em;
-<span class="fc" id="L22">    public Db(){</span>
+
+<span class="fc" id="L27">    public Db() {</span>
         try {
-<span class="fc" id="L24">            Class.forName(&quot;org.sqlite.JDBC&quot;);</span>
-<span class="nc" id="L25">        } catch (Exception e) {</span>
-<span class="nc" id="L26">            e.printStackTrace();</span>
-<span class="fc" id="L27">        }</span>
-<span class="fc" id="L28">        emf = Persistence.createEntityManagerFactory(&quot;sqlite&quot;);</span>
-<span class="fc" id="L29">        em = emf.createEntityManager();</span>
-<span class="fc" id="L30">    }</span>
+<span class="fc" id="L29">            Class.forName(&quot;org.sqlite.JDBC&quot;);</span>
+<span class="nc" id="L30">        } catch (Exception e) {</span>
+<span class="nc" id="L31">            e.printStackTrace();</span>
+<span class="fc" id="L32">        }</span>
+<span class="fc" id="L33">        emf = Persistence.createEntityManagerFactory(&quot;sqlite&quot;);</span>
+<span class="fc" id="L34">        em = emf.createEntityManager();</span>
+<span class="fc" id="L35">    }</span>
 
-    public void agregarPersonaje(Personaje personaje){
-<span class="fc" id="L33">        em.getTransaction().begin();</span>
-<span class="fc" id="L34">        em.persist(personaje);</span>
-<span class="fc" id="L35">        em.getTransaction().commit();</span>
-<span class="fc" id="L36">    }</span>
+    public boolean agregarPersonaje(Personaje personaje) {
+<span class="fc" id="L38">        em.getTransaction().begin();</span>
+<span class="fc" id="L39">        em.persist(personaje);</span>
+<span class="fc" id="L40">        em.getTransaction().commit();</span>
+<span class="fc" id="L41">        return true;</span>
+    }
 
-    public void agregarPoder(Poder poder){
-<span class="nc" id="L39">        em.getTransaction().begin();</span>
-<span class="nc" id="L40">        em.persist(poder);</span>
-<span class="nc" id="L41">        em.getTransaction().commit();</span>
-<span class="nc" id="L42">    }</span>
-
-    public Personaje obtenerPersonaje(Personaje personaje){
+    public boolean agregarPoder(Poder poder) {
 <span class="fc" id="L45">        em.getTransaction().begin();</span>
-<span class="fc" id="L46">        Personaje personajeObtenido = em.find(Personaje.class, personaje.getId());</span>
+<span class="fc" id="L46">        em.persist(poder);</span>
 <span class="fc" id="L47">        em.getTransaction().commit();</span>
-<span class="fc" id="L48">        return personajeObtenido;</span>
+<span class="fc" id="L48">        return true;</span>
+    }
+
+    public boolean agregarAlias(Alias alias) {
+<span class="fc" id="L52">        em.getTransaction().begin();</span>
+<span class="fc" id="L53">        em.persist(alias);</span>
+<span class="fc" id="L54">        em.getTransaction().commit();</span>
+<span class="fc" id="L55">        return true;</span>
+    }
+
+    public boolean agregarEquipamiento(Equipamiento equipamiento) {
+<span class="fc" id="L59">        em.getTransaction().begin();</span>
+<span class="fc" id="L60">        em.persist(equipamiento);</span>
+<span class="fc" id="L61">        em.getTransaction().commit();</span>
+<span class="fc" id="L62">        return true;</span>
+    }
+
+    public Personaje obtenerPersonaje(Personaje personaje) {
+<span class="fc" id="L66">        em.getTransaction().begin();</span>
+<span class="fc" id="L67">        Personaje personajeObtenido = em.find(Personaje.class, personaje.getId());</span>
+<span class="fc" id="L68">        em.getTransaction().commit();</span>
+<span class="fc" id="L69">        return personajeObtenido;</span>
+    }
+
+    public List&lt;Personaje&gt; obtenerPersonajes() {
+<span class="fc" id="L73">        em.getTransaction().begin();</span>
+<span class="fc" id="L74">        List&lt;Personaje&gt; personajesObtenidos = em.createQuery(&quot;SELECT p FROM Personaje AS p&quot;, Personaje.class)</span>
+<span class="fc" id="L75">                .getResultList();</span>
+<span class="fc" id="L76">        em.getTransaction().commit();</span>
+<span class="fc" id="L77">        return personajesObtenidos;</span>
+    }
+
+    public Poder obtenerPoder(Poder poder) {
+<span class="fc" id="L81">        em.getTransaction().begin();</span>
+<span class="fc" id="L82">        Poder poderObtenido = em.find(Poder.class, poder.getId());</span>
+<span class="fc" id="L83">        em.getTransaction().commit();</span>
+<span class="fc" id="L84">        return poderObtenido;</span>
+    }
+
+    public List&lt;Poder&gt; obtenerPoderes() {
+<span class="fc" id="L88">        em.getTransaction().begin();</span>
+<span class="fc" id="L89">        List&lt;Poder&gt; personajesObtenidos = em.createQuery(&quot;SELECT p FROM Poder AS p&quot;, Poder.class).getResultList();</span>
+<span class="fc" id="L90">        em.getTransaction().commit();</span>
+<span class="fc" id="L91">        return personajesObtenidos;</span>
+    }
+
+    public Alias obtenerAlias(Alias alias) {
+<span class="fc" id="L95">        em.getTransaction().begin();</span>
+<span class="fc" id="L96">        Alias aliasObtenido = em.find(Alias.class, alias.getId());</span>
+<span class="fc" id="L97">        em.getTransaction().commit();</span>
+<span class="fc" id="L98">        return aliasObtenido;</span>
+    }
+
+    public List&lt;Alias&gt; obtenerAliasPlural() {
+<span class="fc" id="L102">        em.getTransaction().begin();</span>
+<span class="fc" id="L103">        List&lt;Alias&gt; personajesObtenidos = em.createQuery(&quot;SELECT p FROM Alias AS p&quot;, Alias.class).getResultList();</span>
+<span class="fc" id="L104">        em.getTransaction().commit();</span>
+<span class="fc" id="L105">        return personajesObtenidos;</span>
+    }
+
+    public Equipamiento obtenerEquipamiento(Equipamiento equipamiento) {
+<span class="fc" id="L109">        em.getTransaction().begin();</span>
+<span class="fc" id="L110">        Equipamiento equipamientoObtenido = em.find(Equipamiento.class, equipamiento.getId());</span>
+<span class="fc" id="L111">        em.getTransaction().commit();</span>
+<span class="fc" id="L112">        return equipamientoObtenido;</span>
+    }
+
+    public List&lt;Equipamiento&gt; obtenerEquipamientos() {
+<span class="fc" id="L116">        em.getTransaction().begin();</span>
+<span class="fc" id="L117">        List&lt;Equipamiento&gt; personajesObtenidos = em.createQuery(&quot;SELECT p FROM Equipamiento AS p&quot;, Equipamiento.class)</span>
+<span class="fc" id="L118">                .getResultList();</span>
+<span class="fc" id="L119">        em.getTransaction().commit();</span>
+<span class="fc" id="L120">        return personajesObtenidos;</span>
+    }
+
+    public boolean eliminarPersonaje(Personaje personaje) {
+<span class="fc" id="L124">        em.getTransaction().begin();</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">        em.remove(em.contains(personaje) ? personaje : em.merge(personaje));</span>
+<span class="fc" id="L126">        em.getTransaction().commit();</span>
+<span class="fc" id="L127">        return true;</span>
+
+    }
+
+    public boolean eliminarPoder(Poder poder) {
+<span class="fc" id="L132">        em.getTransaction().begin();</span>
+<span class="pc bpc" id="L133" title="1 of 2 branches missed.">        em.remove(em.contains(poder) ? poder : em.merge(poder));</span>
+<span class="fc" id="L134">        em.getTransaction().commit();</span>
+<span class="fc" id="L135">        return true;</span>
+
     }
 
 
-    public List&lt;Personaje&gt; obtenerPersonajes(){
-<span class="nc" id="L53">        em.getTransaction().begin();</span>
-<span class="nc" id="L54">        List&lt;Personaje&gt; personajesObtenidos = em.createQuery(&quot;SELECT p Personaje AS p&quot;).getResultList();</span>
-<span class="nc" id="L55">        em.getTransaction().commit();</span>
-<span class="nc" id="L56">        return personajesObtenidos;</span>
-    }
-    public Set&lt;PersonajeDTO&gt; obtenerPersonajesByPoderDTO(PoderDTO poderDTO){
-<span class="nc" id="L59">        em.getTransaction().begin();</span>
-<span class="nc" id="L60">        List&lt;Personaje&gt; personajesObtenidos = em.createQuery(&quot;SELECT pe Personaje AS p JOIN Personajes_Poderes AS pp ON pp.personaje_id=p.id WHERE pp.poderes_id='&quot;+poderDTO.getId()+&quot;'&quot;).getResultList();</span>
-<span class="nc" id="L61">        em.getTransaction().commit();</span>
-<span class="nc" id="L62">        Set&lt;PersonajeDTO&gt; personajesDTOSet= new HashSet&lt;&gt;();</span>
-<span class="nc bnc" id="L63" title="All 2 branches missed.">        for (Personaje personaje : personajesObtenidos) {</span>
-<span class="nc" id="L64">            personajesDTOSet.add(IMapperPersonaje.INSTANCE.personajeTOPersonajeDTO(personaje));</span>
-<span class="nc" id="L65">        }</span>
-<span class="nc" id="L66">        return personajesDTOSet;</span>
+    public boolean eliminarAlias(Alias alias) {
+<span class="fc" id="L141">        em.getTransaction().begin();</span>
+<span class="pc bpc" id="L142" title="1 of 2 branches missed.">        em.remove(em.contains(alias) ? alias : em.merge(alias));</span>
+<span class="fc" id="L143">        em.getTransaction().commit();</span>
+<span class="fc" id="L144">        return true;</span>
     }
 
-    public Poder obtenerPoder(Poder poder){
-<span class="nc" id="L70">        em.getTransaction().begin();</span>
-<span class="nc" id="L71">        Poder poderObtenido = em.find(Poder.class, poder.getId());</span>
-<span class="nc" id="L72">        em.getTransaction().commit();</span>
-<span class="nc" id="L73">        return poderObtenido;</span>
+    public boolean eliminarEquipamiento(Equipamiento equipamiento) {
+<span class="fc" id="L148">        em.getTransaction().begin();</span>
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">        em.remove(em.contains(equipamiento) ? equipamiento : em.merge(equipamiento));</span>
+<span class="fc" id="L150">        em.getTransaction().commit();</span>
+<span class="fc" id="L151">        return true;</span>
+
     }
 
-    public List&lt;Poder&gt; obtenerPoderes(){
-<span class="nc" id="L77">        em.getTransaction().begin();</span>
-<span class="nc" id="L78">        List&lt;Poder&gt; personajesObtenidos = em.createQuery(&quot;SELECT p Poder AS p&quot;).getResultList();</span>
-<span class="nc" id="L79">        em.getTransaction().commit();</span>
-<span class="nc" id="L80">        return personajesObtenidos;</span>
-    }
-
-    public void eliminarPersonaje(Personaje personaje){
-<span class="fc" id="L84">        em.getTransaction().begin();</span>
-<span class="fc bfc" id="L85" title="All 2 branches covered.">        em.remove(em.contains(personaje) ? personaje : em.merge(personaje));</span>
-<span class="fc" id="L86">        em.getTransaction().commit();</span>
-<span class="fc" id="L87">    }</span>
-
-    public void eliminarPoder(Poder poder){
-<span class="nc" id="L90">        em.getTransaction().begin();</span>
-<span class="nc bnc" id="L91" title="All 2 branches missed.">        em.remove(em.contains(poder) ? poder : em.merge(poder));</span>
-<span class="nc" id="L92">        em.getTransaction().commit();</span>
-<span class="nc" id="L93">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.*;
+
 @Entity
 @Table(name = "Equipamientos")
 public class Equipamiento implements Serializable {
@@ -22,14 +23,12 @@ public class Equipamiento implements Serializable {
         this.id = id;
     }
 
-
     public Equipamiento(String id, String nombre, String descripcion, Personaje personaje) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.personaje = personaje;
     }
-
 
     public Personaje getPersonaje() {
         return this.personaje;
@@ -79,9 +78,4 @@ public class Equipamiento implements Serializable {
         return Objects.hash(id);
     }
 
-
 }
-
-    
-
-

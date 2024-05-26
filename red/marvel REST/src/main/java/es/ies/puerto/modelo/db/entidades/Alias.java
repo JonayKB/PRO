@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 @Entity
 @Table(name = "Alias")
 public class Alias implements Serializable {
@@ -20,19 +21,18 @@ public class Alias implements Serializable {
     @OneToOne
     Personaje personaje;
 
-    public Alias() {}
+    public Alias() {
+    }
 
     public Alias(String id) {
         this.id = id;
     }
-
 
     public Alias(String id, String descripcion, Personaje personaje) {
         this.id = id;
         this.descripcion = descripcion;
         this.personaje = personaje;
     }
-    
 
     public String getId() {
         return id;
@@ -73,7 +73,5 @@ public class Alias implements Serializable {
     public int hashCode() {
         return Objects.hash(id);
     }
-
-
 
 }

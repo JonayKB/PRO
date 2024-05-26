@@ -11,7 +11,7 @@
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="false"/>
 			<property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:src/main/resources/marvel.db"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:marvel.db"/>
         </properties>
         
     </persistence-unit>

@@ -1,68 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MarvelNegocio.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examen-bd-jdbc</a> &gt; <a href="index.source.html" class="el_package">es.ies.puerto.negocio</a> &gt; <span class="el_source">MarvelNegocio.java</span></div><h1>MarvelNegocio.java</h1><pre class="source lang-java linenums">package es.ies.puerto.negocio;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import es.ies.puerto.DTO.AliasDTO;
+import es.ies.puerto.DTO.EquipamientoDTO;
 import es.ies.puerto.DTO.PersonajeDTO;
 import es.ies.puerto.DTO.PoderDTO;
+import es.ies.puerto.mappers.IMapperAlias;
+import es.ies.puerto.mappers.IMapperEquipamiento;
 import es.ies.puerto.mappers.IMapperPersonaje;
 import es.ies.puerto.mappers.IMapperPoder;
 import es.ies.puerto.modelo.db.Db;
+import es.ies.puerto.modelo.db.entidades.Alias;
+import es.ies.puerto.modelo.db.entidades.Equipamiento;
 import es.ies.puerto.modelo.db.entidades.Personaje;
 import es.ies.puerto.modelo.db.entidades.Poder;
 
 public class MarvelNegocio {
     Db db;
-<span class="fc" id="L16">    public MarvelNegocio(){</span>
-<span class="fc" id="L17">        db = new Db();</span>
-<span class="fc" id="L18">    }</span>
-    public void agregarPersonaje(PersonajeDTO personajeDTO){
-<span class="fc" id="L20">        db.agregarPersonaje(IMapperPersonaje.INSTANCE.personajeDTOTOPersonaje(personajeDTO));</span>
-<span class="fc" id="L21">    }</span>
-    public void agregarPoder(PoderDTO poderDTO){
-<span class="nc" id="L23">        db.agregarPoder(IMapperPoder.INSTANCE.poderDTOTOpoder(poderDTO,db.obtenerPersonajesByPoderDTO(poderDTO)));</span>
-<span class="nc" id="L24">    }</span>
-    public PersonajeDTO obtenerPersonajeById(String id){
-<span class="fc" id="L26">        Personaje personaje = new Personaje(id);</span>
-<span class="fc" id="L27">        return IMapperPersonaje.INSTANCE.personajeTOPersonajeDTO(db.obtenerPersonaje(personaje));</span>
+
+<span class="fc" id="L26">    public MarvelNegocio() {</span>
+<span class="fc" id="L27">        db = new Db();</span>
+<span class="fc" id="L28">    }</span>
+
+    public boolean agregarPersonaje(PersonajeDTO personajeDTO) {
+<span class="fc" id="L31">        return db.agregarPersonaje(IMapperPersonaje.INSTANCE.personajeDTOTOPersonaje(personajeDTO));</span>
     }
 
-    public List&lt;PersonajeDTO&gt; obtenerPersonajes(){
-<span class="nc" id="L31">        List&lt;PersonajeDTO&gt; personajeDTOs = null;</span>
-<span class="nc" id="L32">        List&lt;Personaje&gt; personajes = db.obtenerPersonajes();</span>
-
-<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (personajes!=null) {</span>
-<span class="nc" id="L35">            personajeDTOs = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">            for (Personaje personaje : personajes) {</span>
-<span class="nc" id="L37">                personajeDTOs.add(IMapperPersonaje.INSTANCE.personajeTOPersonajeDTO(personaje));</span>
-<span class="nc" id="L38">            }</span>
-        }   
-<span class="nc" id="L40">        return personajeDTOs;</span>
+    public boolean agregarPoder(PoderDTO poderDTO, Set&lt;PersonajeDTO&gt; personajeDTO) {
+<span class="fc" id="L35">        return db.agregarPoder(IMapperPoder.INSTANCE.poderDTOTOpoder(poderDTO, personajeDTO));</span>
     }
 
-    public PoderDTO obtenerPoderById(String id){
-<span class="nc" id="L44">        Poder poder = new Poder(id);</span>
-<span class="nc" id="L45">        return IMapperPoder.INSTANCE.poderTOpoderDTO(db.obtenerPoder(poder));</span>
+    public boolean agregarAlias(AliasDTO aliasDTO, PersonajeDTO personajeDTO) {
+<span class="fc" id="L39">        return db.agregarAlias(IMapperAlias.INSTANCE.aliasDTOTOAlias(aliasDTO, personajeDTO));</span>
     }
 
-    public List&lt;PoderDTO&gt; obtenerPoderes(){
-<span class="nc" id="L49">        List&lt;PoderDTO&gt; poderDTOs = null;</span>
-<span class="nc" id="L50">        List&lt;Poder&gt; poders = db.obtenerPoderes();</span>
-
-<span class="nc bnc" id="L52" title="All 2 branches missed.">        if (poders!=null) {</span>
-<span class="nc" id="L53">            poderDTOs = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L54" title="All 2 branches missed.">            for (Poder poder : poders) {</span>
-<span class="nc" id="L55">                poderDTOs.add(IMapperPoder.INSTANCE.poderTOpoderDTO(poder));</span>
-<span class="nc" id="L56">            }</span>
-        }   
-<span class="nc" id="L58">        return poderDTOs;</span>
+    public boolean agregarEquipamiento(EquipamientoDTO equipamientoDTO, PersonajeDTO personajeDTO) {
+<span class="fc" id="L43">        return db.agregarEquipamiento(</span>
+<span class="fc" id="L44">                IMapperEquipamiento.INSTANCE.equipamientoDTOTOEquipamiento(equipamientoDTO, personajeDTO));</span>
     }
 
-    public void eliminarPersonaje(PersonajeDTO personajeDTO){
-<span class="fc" id="L62">        db.eliminarPersonaje(IMapperPersonaje.INSTANCE.personajeDTOTOPersonaje(personajeDTO));</span>
-<span class="fc" id="L63">    }</span>
-    public void eliminarPoder(PoderDTO poderDTO){
-<span class="nc" id="L65">        db.eliminarPoder(IMapperPoder.INSTANCE.poderDTOTOpoder(poderDTO, db.obtenerPersonajesByPoderDTO(poderDTO)));</span>
-<span class="nc" id="L66">    }</span>
+    public PersonajeDTO obtenerPersonajeById(String id) {
+<span class="fc" id="L48">        Personaje personaje = new Personaje(id);</span>
+<span class="fc" id="L49">        return IMapperPersonaje.INSTANCE.personajeTOPersonajeDTO(db.obtenerPersonaje(personaje));</span>
+    }
+
+    public List&lt;PersonajeDTO&gt; obtenerPersonajes() {
+<span class="fc" id="L53">        List&lt;PersonajeDTO&gt; personajeDTOs = null;</span>
+<span class="fc" id="L54">        List&lt;Personaje&gt; personajes = db.obtenerPersonajes();</span>
+
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">        if (personajes != null) {</span>
+<span class="fc" id="L57">            personajeDTOs = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">            for (Personaje personaje : personajes) {</span>
+<span class="fc" id="L59">                personajeDTOs.add(IMapperPersonaje.INSTANCE.personajeTOPersonajeDTO(personaje));</span>
+<span class="fc" id="L60">            }</span>
+        }
+<span class="fc" id="L62">        return personajeDTOs;</span>
+    }
+
+    public PoderDTO obtenerPoderById(String id) {
+<span class="fc" id="L66">        Poder poder = new Poder(id);</span>
+<span class="fc" id="L67">        return IMapperPoder.INSTANCE.poderTOpoderDTO(db.obtenerPoder(poder));</span>
+    }
+
+    public List&lt;PoderDTO&gt; obtenerPoderes() {
+<span class="fc" id="L71">        List&lt;PoderDTO&gt; poderDTOs = null;</span>
+<span class="fc" id="L72">        List&lt;Poder&gt; poders = db.obtenerPoderes();</span>
+
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">        if (poders != null) {</span>
+<span class="fc" id="L75">            poderDTOs = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">            for (Poder poder : poders) {</span>
+<span class="fc" id="L77">                poderDTOs.add(IMapperPoder.INSTANCE.poderTOpoderDTO(poder));</span>
+<span class="fc" id="L78">            }</span>
+        }
+<span class="fc" id="L80">        return poderDTOs;</span>
+    }
+
+    public AliasDTO obtenerAliasById(String id) {
+<span class="fc" id="L84">        Alias alias = new Alias(id);</span>
+<span class="fc" id="L85">        return IMapperAlias.INSTANCE.aliasTOAliasDTO(db.obtenerAlias(alias));</span>
+    }
+
+    public List&lt;AliasDTO&gt; obtenerAlias() {
+<span class="fc" id="L89">        List&lt;AliasDTO&gt; aliasDTOs = null;</span>
+<span class="fc" id="L90">        List&lt;Alias&gt; aliass = db.obtenerAliasPlural();</span>
+
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">        if (aliass != null) {</span>
+<span class="fc" id="L93">            aliasDTOs = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">            for (Alias alias : aliass) {</span>
+<span class="fc" id="L95">                aliasDTOs.add(IMapperAlias.INSTANCE.aliasTOAliasDTO(alias));</span>
+<span class="fc" id="L96">            }</span>
+        }
+<span class="fc" id="L98">        return aliasDTOs;</span>
+    }
+
+    public EquipamientoDTO obtenerEquipamientoById(String id) {
+<span class="fc" id="L102">        Equipamiento equipamiento = new Equipamiento(id);</span>
+<span class="fc" id="L103">        return IMapperEquipamiento.INSTANCE.equipamientoTOEquipamientoDTO(db.obtenerEquipamiento(equipamiento));</span>
+    }
+
+    public List&lt;EquipamientoDTO&gt; obtenerEquipamientos() {
+<span class="fc" id="L107">        List&lt;EquipamientoDTO&gt; equipamientosDTOs = null;</span>
+<span class="fc" id="L108">        List&lt;Equipamiento&gt; equipamientos = db.obtenerEquipamientos();</span>
+
+<span class="pc bpc" id="L110" title="1 of 2 branches missed.">        if (equipamientos != null) {</span>
+<span class="fc" id="L111">            equipamientosDTOs = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">            for (Equipamiento equipamiento : equipamientos) {</span>
+<span class="fc" id="L113">                equipamientosDTOs.add(IMapperEquipamiento.INSTANCE.equipamientoTOEquipamientoDTO(equipamiento));</span>
+<span class="fc" id="L114">            }</span>
+        }
+<span class="fc" id="L116">        return equipamientosDTOs;</span>
+    }
+
+    public boolean eliminarPersonaje(PersonajeDTO personajeDTO) {
+<span class="fc" id="L120">        return db.eliminarPersonaje(IMapperPersonaje.INSTANCE.personajeDTOTOPersonaje(personajeDTO));</span>
+    }
+
+    public boolean eliminarPoder(PoderDTO poderDTO, Set&lt;PersonajeDTO&gt; personajeDTO) {
+<span class="fc" id="L124">        return db.eliminarPoder(IMapperPoder.INSTANCE.poderDTOTOpoder(poderDTO, personajeDTO));</span>
+    }
+
+    public boolean eliminarAlias(AliasDTO aliasDTO, PersonajeDTO personajeDTO) {
+<span class="fc" id="L128">        return db.eliminarAlias(IMapperAlias.INSTANCE.aliasDTOTOAlias(aliasDTO, personajeDTO));</span>
+    }
+
+    public boolean eliminarEquipamiento(EquipamientoDTO equipamientoDTO, PersonajeDTO personajeDTO) {
+<span class="fc" id="L132">        return db.eliminarEquipamiento(</span>
+<span class="fc" id="L133">                IMapperEquipamiento.INSTANCE.equipamientoDTOTOEquipamiento(equipamientoDTO, personajeDTO));</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

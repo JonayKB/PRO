@@ -15,11 +15,12 @@ import es.ies.puerto.modelo.db.entidades.Equipamiento;
 @Mapper
 public interface IMapperEquipamiento {
 <span class="fc" id="L17">    IMapperEquipamiento INSTANCE = Mappers.getMapper(IMapperEquipamiento.class);</span>
-    @Mapping(source = &quot;equipamientoDTO.id&quot;,target = &quot;id&quot;)
-    @Mapping(source = &quot;equipamientoDTO.nombre&quot;,target = &quot;nombre&quot;)
-    @Mapping(source = &quot;personajeDTO&quot;,target = &quot;personaje&quot;)
-    Equipamiento equipamientoDTOTOEquipamiento(EquipamientoDTO equipamientoDTO,@Context PersonajeDTO personajeDTO);
-    
+
+    @Mapping(source = &quot;equipamientoDTO.id&quot;, target = &quot;id&quot;)
+    @Mapping(source = &quot;equipamientoDTO.nombre&quot;, target = &quot;nombre&quot;)
+    @Mapping(source = &quot;personajeDTO&quot;, target = &quot;personaje&quot;)
+    Equipamiento equipamientoDTOTOEquipamiento(EquipamientoDTO equipamientoDTO, @Context PersonajeDTO personajeDTO);
+
     EquipamientoDTO equipamientoTOEquipamientoDTO(Equipamiento equipamiento);
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

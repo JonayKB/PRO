@@ -15,10 +15,11 @@ import es.ies.puerto.modelo.db.entidades.Equipamiento;
 @Mapper
 public interface IMapperEquipamiento {
     IMapperEquipamiento INSTANCE = Mappers.getMapper(IMapperEquipamiento.class);
-    @Mapping(source = "equipamientoDTO.id",target = "id")
-    @Mapping(source = "equipamientoDTO.nombre",target = "nombre")
-    @Mapping(source = "personajeDTO",target = "personaje")
-    Equipamiento equipamientoDTOTOEquipamiento(EquipamientoDTO equipamientoDTO,@Context PersonajeDTO personajeDTO);
-    
+
+    @Mapping(source = "equipamientoDTO.id", target = "id")
+    @Mapping(source = "equipamientoDTO.nombre", target = "nombre")
+    @Mapping(source = "personajeDTO", target = "personaje")
+    Equipamiento equipamientoDTOTOEquipamiento(EquipamientoDTO equipamientoDTO, @Context PersonajeDTO personajeDTO);
+
     EquipamientoDTO equipamientoTOEquipamientoDTO(Equipamiento equipamiento);
 }

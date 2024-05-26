@@ -10,12 +10,14 @@ import es.ies.puerto.DTO.AliasDTO;
 import es.ies.puerto.DTO.PersonajeDTO;
 import es.ies.puerto.modelo.db.entidades.Alias;
 import es.ies.puerto.modelo.db.entidades.Personaje;
+
 @Mapper
 public interface IMapperAlias {
-<span class="fc" id="L15">    IMapperAlias INSTANCE = Mappers.getMapper(IMapperAlias.class);</span>
-    @Mapping(source = &quot;aliasDTO.id&quot;,target = &quot;id&quot;)
-    @Mapping(source = &quot;personajeDTO&quot;,target = &quot;personaje&quot;)
-    Alias aliasDTOTOAlias(AliasDTO aliasDTO,@Context PersonajeDTO personajeDTO);
+<span class="fc" id="L16">    IMapperAlias INSTANCE = Mappers.getMapper(IMapperAlias.class);</span>
+
+    @Mapping(source = &quot;aliasDTO.id&quot;, target = &quot;id&quot;)
+    @Mapping(source = &quot;personajeDTO&quot;, target = &quot;personaje&quot;)
+    Alias aliasDTOTOAlias(AliasDTO aliasDTO, @Context PersonajeDTO personajeDTO);
 
     AliasDTO aliasTOAliasDTO(Alias alias);
 

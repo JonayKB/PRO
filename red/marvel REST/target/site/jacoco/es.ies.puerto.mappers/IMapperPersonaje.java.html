@@ -8,11 +8,12 @@ import es.ies.puerto.DTO.PersonajeDTO;
 import es.ies.puerto.modelo.db.entidades.Equipamiento;
 import es.ies.puerto.modelo.db.entidades.Personaje;
 
-@Mapper(uses = {IMapperAlias.class,IMapperEquipamiento.class,IMapperPoder.class})
+@Mapper(uses = { IMapperAlias.class, IMapperEquipamiento.class, IMapperPoder.class })
 public interface IMapperPersonaje {
 <span class="fc" id="L13">    IMapperPersonaje INSTANCE = Mappers.getMapper(IMapperPersonaje.class);</span>
+
     Personaje personajeDTOTOPersonaje(PersonajeDTO personajeDTODTO);
-    
+
     PersonajeDTO personajeTOPersonajeDTO(Personaje personaje);
 
 }
