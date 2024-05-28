@@ -18,7 +18,7 @@ public interface IMapperAlias {
     @Mapping(source = "aliasDTO.id", target = "id")
     @Mapping( source = "personajeDTO", target = "personaje")
     Alias aliasDTOTOAlias(AliasDTO aliasDTO, PersonajeDTO personajeDTO);
-
+    
     AliasDTO aliasTOAliasDTO(Alias alias);
 
 }

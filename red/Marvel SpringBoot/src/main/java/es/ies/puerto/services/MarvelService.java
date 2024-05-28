@@ -1,6 +1,8 @@
 package es.ies.puerto.services;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,23 +74,43 @@ public class MarvelService {
     }
 
     @PostMapping("personaje/")
-    public boolean postPersonaje(@RequestBody PersonajeDTO personajeDTO) {
+    public boolean postPersonaje(@RequestBody final PersonajeDTO personajeDTO) {
         return marvelNegocio.agregarPersonaje(personajeDTO);
     }
 
-    @PostMapping("poder/")
-    public boolean postPoder(@RequestBody PoderDTO poderDTO) {
-        return marvelNegocio.agregarPoder(poderDTO, null);
+
+    @PostMapping("poder/{listPersonaje}")
+    public boolean addPoder(@PathVariable(name = "listPersonaje") final Set<String> listPersonaje,final @RequestBody PoderDTO poderDTO) {
+       if (listPersonaje==null) {
+            return false;
+       }
+       Set<PersonajeDTO> personajeDTOs = new HashSet<>();
+       for (String id : listPersonaje) {
+        PersonajeDTO personajeDTO = marvelNegocio.obtenerPersonajeById(id);
+        if (personajeDTO==null) {
+            return false;
+        }
+        personajeDTOs.add(personajeDTO);
+       }
+        return marvelNegocio.agregarPoder(poderDTO, personajeDTOs);
     }
 
-    @PostMapping("alias/")
-    public boolean postPpoder(@RequestBody AliasDTO aliasDTO) {
-        return marvelNegocio.agregarAlias(aliasDTO,null);
+    @PostMapping("alias/{idPersonaje}")
+    public boolean postPoder(@RequestBody final AliasDTO aliasDTO,@PathVariable(name = "idPersonaje") final String idPersonaje) {
+        PersonajeDTO personajeDTO = marvelNegocio.obtenerPersonajeById(idPersonaje);
+        if (personajeDTO==null) {
+            return false;
+        }
+        return marvelNegocio.agregarAlias(aliasDTO, personajeDTO);
     }
 
-    @PostMapping("equipamiento/")
-    public boolean postEquipamiento(@RequestBody EquipamientoDTO equipamientoDTO) {
-        return marvelNegocio.agregarEquipamiento(equipamientoDTO, null);
+    @PostMapping("equipamiento/{idPersonaje}")
+    public boolean postEquipamiento(@RequestBody EquipamientoDTO equipamientoDTO,@PathVariable(name = "idPersonaje") final String idPersonaje) {
+        PersonajeDTO personajeDTO = marvelNegocio.obtenerPersonajeById(idPersonaje);
+        if (personajeDTO==null) {
+            return false;
+        }
+        return marvelNegocio.agregarEquipamiento(equipamientoDTO, marvelNegocio.obtenerPersonajeById(idPersonaje));
     }
 
     @DeleteMapping("personaje/{id}")
@@ -98,8 +120,15 @@ public class MarvelService {
 
     @DeleteMapping("poder/{id}")
     public boolean deletePoder(@PathVariable(name = "id") final String id){
-        //return marvelNegocio.eliminarPoder(new PoderDTO(id));
-        return false;
+        return marvelNegocio.eliminarPoder(new PoderDTO(id),new HashSet<>()); // HAy que poner @Context
+    }
+    @DeleteMapping("alias/{id}")
+    public boolean deleteAlias(@PathVariable(name = "id") final String id){
+        return marvelNegocio.eliminarAlias(new AliasDTO(id),new PersonajeDTO());
+    }
+    @DeleteMapping("equipamiento/{id}")
+    public boolean deleteEquipamiento(@PathVariable(name = "id") final String id){
+        return marvelNegocio.eliminarEquipamiento(new EquipamientoDTO(id), new PersonajeDTO());
     }
 
 }

@@ -10,7 +10,9 @@ public class AliasDTO {
 
     public AliasDTO() {
     }
-
+    public AliasDTO(String id) {
+        this.id = id;
+    }
     public AliasDTO(String id, String descripcion) {
         this.id = id;
         this.descripcion = descripcion;
