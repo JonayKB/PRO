@@ -36,28 +36,28 @@ public class Db implements IGuardado {
 
     public boolean agregarPersonaje(Personaje personaje) {
         em.getTransaction().begin();
-        em.persist(personaje);
+        em.merge(personaje);
         em.getTransaction().commit();
         return true;
     }
 
     public boolean agregarPoder(Poder poder) {
         em.getTransaction().begin();
-        em.persist(poder);
+        em.merge(poder);
         em.getTransaction().commit();
         return true;
     }
 
     public boolean agregarAlias(Alias alias) {
         em.getTransaction().begin();
-        em.persist(alias);
+        em.merge(alias);
         em.getTransaction().commit();
         return true;
     }
 
     public boolean agregarEquipamiento(Equipamiento equipamiento) {
         em.getTransaction().begin();
-        em.persist(equipamiento);
+        em.merge(equipamiento);
         em.getTransaction().commit();
         return true;
     }

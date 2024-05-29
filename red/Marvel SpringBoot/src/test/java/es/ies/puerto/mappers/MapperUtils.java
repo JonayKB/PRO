@@ -59,5 +59,11 @@ public class MapperUtils {
 
         personaje.setAlias(alias);
         personajeDTO.setAlias(aliasDTO);
+
+        personaje.setEquipamientos(new HashSet<>(Arrays.asList(equipamiento)));
+        personajeDTO.setEquipamientos(new HashSet<>(Arrays.asList(equipamientoDTO)));
+
+        personaje.setPoderes(new HashSet<>(Arrays.asList(poder)));
+        personajeDTO.setPoderes(new HashSet<>(Arrays.asList(poderDTO)));
     }
 }

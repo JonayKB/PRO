@@ -11,7 +11,7 @@ import es.ies.puerto.DTO.PersonajeDTO;
 import es.ies.puerto.modelo.db.entidades.Alias;
 import es.ies.puerto.modelo.db.entidades.Personaje;
 
-@Mapper(uses =  IMapperPersonaje.class)
+@Mapper()
 public interface IMapperAlias {
     IMapperAlias INSTANCE = Mappers.getMapper(IMapperAlias.class);
 

@@ -12,7 +12,7 @@ import es.ies.puerto.modelo.db.entidades.Personaje;
 public interface IMapperPersonaje {
     IMapperPersonaje INSTANCE = Mappers.getMapper(IMapperPersonaje.class);
 
-    Personaje personajeDTOTOPersonaje(PersonajeDTO personajeDTODTO);
+    Personaje personajeDTOTOPersonaje(PersonajeDTO personajeDTO);
 
     PersonajeDTO personajeTOPersonajeDTO(Personaje personaje);
 
