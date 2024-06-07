@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
@@ -17,6 +19,7 @@ import java.util.Objects;
 public class Biome implements Serializable {
     private static final long serialVersionUID = -51875397L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     @ManyToMany(mappedBy = "biomes")
