@@ -17,8 +17,8 @@ import es.ies.puerto.model.repository.IBiomeRepository;
 import es.ies.puerto.model.repository.IItemRepository;
 
 @Mapper
-public interface ItemMapper extends ItemUtilities{
-        ItemMapper INSTANCE = Mappers.getMapper(ItemMapper.class);
+public interface ItemMapper extends ItemUtilities {
+    ItemMapper INSTANCE = Mappers.getMapper(ItemMapper.class);
 
     @Mapping(source = "item", target = "mobsIds", qualifiedByName = "getMobsIds")
     @Mapping(source = "item", target = "playersIds", qualifiedByName = "getPlayersIds")
@@ -26,5 +26,4 @@ public interface ItemMapper extends ItemUtilities{
 
     public Item toItem(ItemDto itemDto);
 
-    
 }

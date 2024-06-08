@@ -2,17 +2,20 @@ package es.ies.puerto.api.mappers;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 
 import es.ies.puerto.api.dto.BiomeDto;
 import es.ies.puerto.api.dto.DimensionDto;
 import es.ies.puerto.model.entity.Biome;
 import es.ies.puerto.model.entity.Dimension;
-@Mapper(uses = {MobMapper.class})
+
+@Mapper(uses = { MobMapper.class })
 public interface BiomeMapper {
-    @Mapping(source = "dimension.id",target = "dimensionId")
+    BiomeMapper INSTANCE = Mappers.getMapper(BiomeMapper.class);
+
+    @Mapping(source = "dimension.id", target = "dimensionId")
     public BiomeDto toBiomeDto(Biome biome);
 
-    public Biome toBiome(BiomeDto  biomeDto);
-
+    public Biome toBiome(BiomeDto biomeDto);
 
 }
