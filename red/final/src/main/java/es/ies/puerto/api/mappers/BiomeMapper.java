@@ -5,9 +5,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import es.ies.puerto.api.dto.BiomeDto;
-import es.ies.puerto.api.dto.DimensionDto;
 import es.ies.puerto.model.entity.Biome;
-import es.ies.puerto.model.entity.Dimension;
 
 @Mapper(uses = { MobMapper.class })
 public interface BiomeMapper {

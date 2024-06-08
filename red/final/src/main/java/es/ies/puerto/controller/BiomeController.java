@@ -8,46 +8,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import es.ies.puerto.api.dto.BiomeDto;
-import es.ies.puerto.api.dto.ItemDto;
-import es.ies.puerto.api.dto.PlayerDto;
 import es.ies.puerto.api.mappers.BiomeMapper;
-import es.ies.puerto.api.mappers.ItemMapper;
-import es.ies.puerto.api.mappers.PlayerMapper;
+import es.ies.puerto.controller.interfaces.IBiomeController;
 import es.ies.puerto.model.entity.Biome;
 import es.ies.puerto.model.entity.Dimension;
-import es.ies.puerto.model.entity.Item;
-import es.ies.puerto.model.entity.Mob;
-import es.ies.puerto.model.entity.Player;
 import es.ies.puerto.model.repository.IBiomeRepository;
 import es.ies.puerto.model.repository.IDimensionRepository;
-import es.ies.puerto.model.repository.IItemRepository;
-import es.ies.puerto.model.repository.IMobRepository;
-import es.ies.puerto.model.repository.IPlayerRepository;
 
 @Controller
-public class IBiomeController {
+public class BiomeController implements IBiomeController {
     private IBiomeRepository iBiomeRepository;
     private IDimensionRepository iDimensionRepository;
 
+    @Override
     public IBiomeRepository getIBiomeRepository() {
         return this.iBiomeRepository;
     }
 
+    @Override
     @Autowired
     public void setIBiomeRepository(IBiomeRepository biomeRepository) {
         this.iBiomeRepository = biomeRepository;
     }
 
+    @Override
     public IDimensionRepository getIDimensionRepository() {
         return this.iDimensionRepository;
     }
 
+    @Override
     @Autowired
     public void setIDimensionRepository(IDimensionRepository iDimensionRepository) {
         this.iDimensionRepository = iDimensionRepository;
     }
 
-    List<BiomeDto> findAll() {
+    @Override
+    public List<BiomeDto> findAll() {
         List<BiomeDto> biomeDtos = new ArrayList<>();
         List<Biome> biomes = iBiomeRepository.findAll();
         for (Biome biome : biomes) {
@@ -56,7 +52,8 @@ public class IBiomeController {
         return biomeDtos;
     }
 
-    BiomeDto findById(Integer id) {
+    @Override
+    public BiomeDto findById(Integer id) {
         Optional<Biome> biomeOptional = iBiomeRepository.findById(id);
         if (!biomeOptional.isPresent()) {
             return new BiomeDto();
@@ -64,7 +61,8 @@ public class IBiomeController {
         return BiomeMapper.INSTANCE.toBiomeDto(biomeOptional.get());
     }
 
-    BiomeDto save(BiomeDto biomeDto) {
+    @Override
+    public BiomeDto save(BiomeDto biomeDto) {
         Biome biome = BiomeMapper.INSTANCE.toBiome(biomeDto);
         Optional<Dimension> dimensionOptional = iDimensionRepository.findById(biomeDto.getDimensionId());
         if (dimensionOptional.isPresent()) {
@@ -73,7 +71,8 @@ public class IBiomeController {
         return BiomeMapper.INSTANCE.toBiomeDto(iBiomeRepository.save(biome));
     }
 
-    void deleteById(Integer id) {
+    @Override
+    public void deleteById(Integer id) {
         iBiomeRepository.deleteById(id);
     }
 
