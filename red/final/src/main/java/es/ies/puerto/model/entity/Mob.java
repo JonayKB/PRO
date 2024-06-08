@@ -25,7 +25,7 @@ public class Mob implements Serializable {
     private Integer baseAttack;
     private String specialAbility;
 
-    @ManyToMany(mappedBy = "mobs", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @ManyToMany(mappedBy = "mobs")
     private List<Item> dropList;
 
     @ManyToMany()

@@ -2,6 +2,8 @@ package es.ies.puerto.model.entity;
 
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+@Entity
 public class Block extends Item {
     private static final long serialVersionUID = 1223365051L;
     private boolean placeable;

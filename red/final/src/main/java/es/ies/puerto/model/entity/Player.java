@@ -24,7 +24,7 @@ public class Player implements Serializable {
     private String password;
     private Integer level;
 
-    @ManyToMany(mappedBy = "players", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @ManyToMany(mappedBy = "players")
     private List<Item> items;
 
     public Player() {

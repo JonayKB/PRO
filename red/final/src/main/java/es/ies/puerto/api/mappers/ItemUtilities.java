@@ -13,7 +13,7 @@ public interface ItemUtilities {
     @Named("getMobsIds")
     default List<Integer> getMobsIds(Item item) {
         List<Integer> mobsIds = new ArrayList<>();
-        if (item.getMobs().isEmpty()) {
+        if (item.getMobs() == null || item.getMobs().isEmpty()) {
             return mobsIds;
         }
         for (Mob mob : item.getMobs()) {
@@ -25,7 +25,7 @@ public interface ItemUtilities {
     @Named("getPlayersIds")
     default List<Integer> getPlayersIds(Item item) {
         List<Integer> playersIds = new ArrayList<>();
-        if (item.getPlayers().isEmpty()) {
+        if (item.getPlayers() == null || item.getPlayers().isEmpty()) {
             return playersIds;
         }
         for (Player player : item.getPlayers()) {
