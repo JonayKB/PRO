@@ -4,7 +4,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.ies.puerto.api.dto.ItemDto;
+import es.ies.puerto.api.dto.MobDto;
 import es.ies.puerto.api.dto.PlayerDto;
+import es.ies.puerto.controller.interfaces.IMobController;
 import es.ies.puerto.controller.interfaces.IPlayerController;
 
 import java.util.List;
@@ -19,32 +21,32 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@RequestMapping("player")
-public class PlayerServiceV1 {
-    IPlayerController iPlayerController;
+@RequestMapping("mob")
+public class MobServiceV1 {
+    IMobController iMobController;
 
-    public IPlayerController getIPlayerController() {
-        return this.iPlayerController;
+    public IMobController getIMobController() {
+        return this.iMobController;
     }
     @Autowired
-    public void setIPlayerController(IPlayerController iPlayerController) {
-        this.iPlayerController = iPlayerController;
+    public void setIMobController(IMobController iMobController) {
+        this.iMobController = iMobController;
     }
 
     @GetMapping("/")
-    public List<PlayerDto> getAll() {
-        return iPlayerController.findAll();
+    public List<MobDto> getAll() {
+        return iMobController.findAll();
     }
     @GetMapping("/{id}")
-    public PlayerDto getById(@PathVariable(name = "id") final int id) {
-        return iPlayerController.findById(id);
+    public MobDto getById(@PathVariable(name = "id") final int id) {
+        return iMobController.findById(id);
     }
     @PostMapping("/")
-    public PlayerDto save(@RequestBody PlayerDto entity) {
-        return iPlayerController.save(entity);
+    public MobDto save(@RequestBody MobDto entity) {
+        return iMobController.save(entity);
     }
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable(name = "id") final int id) {
-        iPlayerController.deleteById(id);
+        iMobController.deleteById(id);
     }
 }

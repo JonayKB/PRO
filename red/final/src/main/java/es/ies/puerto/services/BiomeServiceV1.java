@@ -3,8 +3,12 @@ package es.ies.puerto.services;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.ies.puerto.api.dto.BiomeDto;
 import es.ies.puerto.api.dto.ItemDto;
+import es.ies.puerto.api.dto.MobDto;
 import es.ies.puerto.api.dto.PlayerDto;
+import es.ies.puerto.controller.interfaces.IBiomeController;
+import es.ies.puerto.controller.interfaces.IMobController;
 import es.ies.puerto.controller.interfaces.IPlayerController;
 
 import java.util.List;
@@ -19,32 +23,32 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@RequestMapping("player")
-public class PlayerServiceV1 {
-    IPlayerController iPlayerController;
+@RequestMapping("biome")
+public class BiomeServiceV1 {
+    IBiomeController iBiomeController;
 
-    public IPlayerController getIPlayerController() {
-        return this.iPlayerController;
+    public IBiomeController getIBiomeController() {
+        return this.iBiomeController;
     }
     @Autowired
-    public void setIPlayerController(IPlayerController iPlayerController) {
-        this.iPlayerController = iPlayerController;
+    public void setIIBiomeController(IBiomeController iMobController) {
+        this.iBiomeController = iMobController;
     }
 
     @GetMapping("/")
-    public List<PlayerDto> getAll() {
-        return iPlayerController.findAll();
+    public List<BiomeDto> getAll() {
+        return iBiomeController.findAll();
     }
     @GetMapping("/{id}")
-    public PlayerDto getById(@PathVariable(name = "id") final int id) {
-        return iPlayerController.findById(id);
+    public BiomeDto getById(@PathVariable(name = "id") final int id) {
+        return iBiomeController.findById(id);
     }
     @PostMapping("/")
-    public PlayerDto save(@RequestBody PlayerDto entity) {
-        return iPlayerController.save(entity);
+    public BiomeDto save(@RequestBody BiomeDto entity) {
+        return iBiomeController.save(entity);
     }
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable(name = "id") final int id) {
-        iPlayerController.deleteById(id);
+        iBiomeController.deleteById(id);
     }
 }

@@ -11,7 +11,9 @@ import es.ies.puerto.api.dto.PlayerDto;
 import es.ies.puerto.controller.interfaces.IItemController;
 import es.ies.puerto.controller.interfaces.IPlayerController;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -33,10 +35,18 @@ public class ItemServiceV1 {
     public List<ItemDto> getAll() {
         return iItemController.findAll();
     }
+    @GetMapping("/{id}")
+    public ItemDto getById(@PathVariable(name = "id") final int id) {
+        return iItemController.findById(id);
+    }
 
     @PostMapping("/")
     public ItemDto save(@RequestBody ItemDto entity) {
         return iItemController.save(entity);
+    }
+    @DeleteMapping
+    public void deleteById(@PathVariable(name="id") final int id){
+        iItemController.deleteById(id);
     }
 
 }
