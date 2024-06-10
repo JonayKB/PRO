@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @RestController
 @RequestMapping("dimension")
 public class DimensionServiceV1 {
@@ -32,6 +31,7 @@ public class DimensionServiceV1 {
     public IDimensionController getIDimensionController() {
         return this.iDimensionController;
     }
+
     @Autowired
     public void setIDimensionController(IDimensionController iMobController) {
         this.iDimensionController = iMobController;
@@ -41,14 +41,17 @@ public class DimensionServiceV1 {
     public List<DimensionDto> getAll() {
         return iDimensionController.findAll();
     }
+
     @GetMapping("/{id}")
     public DimensionDto getById(@PathVariable(name = "id") final int id) {
         return iDimensionController.findById(id);
     }
+
     @PostMapping("/")
     public DimensionDto save(@RequestBody DimensionDto entity) {
         return iDimensionController.save(entity);
     }
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable(name = "id") final int id) {
         iDimensionController.deleteById(id);

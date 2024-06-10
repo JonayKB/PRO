@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @RestController
 @RequestMapping("player")
 public class PlayerServiceV1 {
@@ -26,6 +25,7 @@ public class PlayerServiceV1 {
     public IPlayerController getIPlayerController() {
         return this.iPlayerController;
     }
+
     @Autowired
     public void setIPlayerController(IPlayerController iPlayerController) {
         this.iPlayerController = iPlayerController;
@@ -35,14 +35,21 @@ public class PlayerServiceV1 {
     public List<PlayerDto> getAll() {
         return iPlayerController.findAll();
     }
+
     @GetMapping("/{id}")
     public PlayerDto getById(@PathVariable(name = "id") final int id) {
         return iPlayerController.findById(id);
     }
+
     @PostMapping("/")
     public PlayerDto save(@RequestBody PlayerDto entity) {
         return iPlayerController.save(entity);
     }
+    @PostMapping("/{idPlayer}/{idItem}")
+    public PlayerDto obtainItem(@PathVariable(name = "idPlayer") final int idPlayer, @PathVariable(name = "idItem") final int idItem) {
+        return iPlayerController.obtainItem(idPlayer,idItem);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable(name = "id") final int id) {
         iPlayerController.deleteById(id);

@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @RestController
 @RequestMapping("biome")
 public class BiomeServiceV1 {
@@ -30,6 +29,7 @@ public class BiomeServiceV1 {
     public IBiomeController getIBiomeController() {
         return this.iBiomeController;
     }
+
     @Autowired
     public void setIIBiomeController(IBiomeController iMobController) {
         this.iBiomeController = iMobController;
@@ -39,14 +39,17 @@ public class BiomeServiceV1 {
     public List<BiomeDto> getAll() {
         return iBiomeController.findAll();
     }
+
     @GetMapping("/{id}")
     public BiomeDto getById(@PathVariable(name = "id") final int id) {
         return iBiomeController.findById(id);
     }
+
     @PostMapping("/")
     public BiomeDto save(@RequestBody BiomeDto entity) {
         return iBiomeController.save(entity);
     }
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable(name = "id") final int id) {
         iBiomeController.deleteById(id);

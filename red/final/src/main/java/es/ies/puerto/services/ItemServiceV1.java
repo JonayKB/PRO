@@ -35,6 +35,7 @@ public class ItemServiceV1 {
     public List<ItemDto> getAll() {
         return iItemController.findAll();
     }
+
     @GetMapping("/{id}")
     public ItemDto getById(@PathVariable(name = "id") final int id) {
         return iItemController.findById(id);
@@ -44,8 +45,9 @@ public class ItemServiceV1 {
     public ItemDto save(@RequestBody ItemDto entity) {
         return iItemController.save(entity);
     }
+
     @DeleteMapping
-    public void deleteById(@PathVariable(name="id") final int id){
+    public void deleteById(@PathVariable(name = "id") final int id) {
         iItemController.deleteById(id);
     }
 

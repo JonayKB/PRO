@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @RestController
 @RequestMapping("mob")
 public class MobServiceV1 {
@@ -28,6 +27,7 @@ public class MobServiceV1 {
     public IMobController getIMobController() {
         return this.iMobController;
     }
+
     @Autowired
     public void setIMobController(IMobController iMobController) {
         this.iMobController = iMobController;
@@ -37,14 +37,17 @@ public class MobServiceV1 {
     public List<MobDto> getAll() {
         return iMobController.findAll();
     }
+
     @GetMapping("/{id}")
     public MobDto getById(@PathVariable(name = "id") final int id) {
         return iMobController.findById(id);
     }
+
     @PostMapping("/")
     public MobDto save(@RequestBody MobDto entity) {
         return iMobController.save(entity);
     }
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable(name = "id") final int id) {
         iMobController.deleteById(id);
