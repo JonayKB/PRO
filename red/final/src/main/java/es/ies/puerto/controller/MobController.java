@@ -104,8 +104,9 @@ public class MobController implements IMobController {
                 biomes.add(biome);
                 biome.getSpawnMobs().add(mob);
             }
-            mob.setBiomes(biomes);
         }
+        mob.setBiomes(biomes);
+
         return MobMapper.INSTANCE.toMobDto(iMobRepository.save(mob));
     }
 
