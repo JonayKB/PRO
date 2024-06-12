@@ -1,35 +1,104 @@
 const getMobsButton = document.getElementById('getMobs');
-getMobsButton.addEventListener('click', fetchInfo);
+const getMobByIdButton = document.getElementById('getMobById');
+let getMobByIdText = document.getElementById('idMob');
+getMobsButton.addEventListener('click', fetchInfoMobs);
+getMobByIdButton.addEventListener('click', fetchInfoMob);
+console.log(getMobByIdText.ariaValueNow)
 
-function fetchInfo() {
+function fetchInfoMobs() {
+    console.log("aaaaa");
     fetch('http://localhost:25565/api-rest/mob/')
         .then(response => response.json())
-        .then(jsonObj => displayUi(jsonObj))
-        .catch(() => alert('La respuesta no ha sido validad'));
+        .then(jsonObj => displayMobs(jsonObj))
+        .catch(() => alert('La respuesta no ha sido valida'));
 }
 
-function displayUi(mobs) {
-    const id = mobs[0].id;
-    const name = mobs[0].name;
-    const health = mobs[0].baseHealth;
-    const attack = mobs[0].baseAttack;
-    const specialAbility = mobs[0].specialAbility;
-    const dropList = mobs[0].dropList;
-    const biomesIds = mobs[0].biomesIds;
-    const template = `
+function fetchInfoMob() {
+    console.log("oiiiiii");
+    console.log(getMobByIdText.value)
+    fetch('http://localhost:25565/api-rest/mob/'+getMobByIdText.value )
+        .then(response => response.json())
+        .then(jsonObj => displayMob(jsonObj))
+        .catch(() => alert('La respuesta no ha sido valida'));
+}
+
+function displayMobs(mobs) {
+    let objects = ``
+    mobs.forEach(mob => {
+        let items = ``
+        mob.dropList.forEach(item => {
+            items += item.id + ",";
+        })
+        items = items.slice(0, -1);
+        objects += `<tr>
+        <td>${mob.id}</td>
+        <td>${mob.name}</td>
+        <td>${mob.baseHealth}</td>
+        <td>${mob.baseAttack}</td>
+        <td>${mob.specialAbility}</td>
+        <td>${items}</td>
+        <td>${mob.biomesIds}</td>
+        </tr>`
+    });
+    const templateMobs = `
     <div>
-    <h1 id="head">ID: ${id}</h1>
-    <h3 id="attribute">NAME: ${name}</h3>
-    <h3 id="attribute">HEALTH: ${health}</h3>
-    <h3 id="attribute">ATTACK: ${attack}</h3>
-    <h3 id="attribute">SPECIAL ABILITY: ${specialAbility}</h3>
-    <h3 id="attribute">DROP LIST: ${dropList[0].name}</h3>
-    <h3 id="attribute">BIOME LIST: ${biomesIds}</h3>
+    <table>
+    <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>HEALTH</th>
+    <th>ATTACK</th>
+    <th>ABILITY</th>
+    <th>DROP LIST</th>
+    <th>BIOMES</th>
+    `+ objects + `
+    </tr>
+    </table>
     
     </div>
     `
-    console.log(template)
-    // did this so I would avoid the process of having a refresh/update button
-    const templateZone = document.getElementById('resultado');
-    templateZone.innerHTML = template;
+    const mobsZone = document.getElementById('mobs');
+    mobsZone.innerHTML = templateMobs;
+
+}
+
+function displayMob(mob) {
+    let items = ``
+    mob.dropList.forEach(item => {
+        items += item.id + ",";
+    })
+    items = items.slice(0, -1);
+
+    let objects = `
+    <tr>
+        <td>${mob.id}</td>
+        <td>${mob.name}</td>
+        <td>${mob.baseHealth}</td>
+        <td>${mob.baseAttack}</td>
+        <td>${mob.specialAbility}</td>
+        <td>${items}</td>
+        <td>${mob.biomesIds}</td>
+        </tr>
+    `
+
+    const templateMob = `
+    <div>
+    <table>
+    <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>HEALTH</th>
+    <th>ATTACK</th>
+    <th>ABILITY</th>
+    <th>DROP LIST</th>
+    <th>BIOMES</th>
+    `+ objects + `
+    </tr>
+    </table>
+    
+    </div>
+    `
+    const mobZone = document.getElementById('mob');
+    mobZone.innerHTML = templateMob;
+
 }
