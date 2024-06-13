@@ -49,10 +49,7 @@ public class PlayerServiceV1 {
     public PlayerDto save(@RequestBody PlayerDto entity) {
         return iPlayerController.save(entity);
     }
-    @PostMapping("/{idPlayer}/{idItem}")
-    public PlayerDto obtainItem(@PathVariable(name = "idPlayer") final int idPlayer, @PathVariable(name = "idItem") final int idItem) {
-        return iPlayerController.obtainItem(idPlayer,idItem);
-    }
+
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable(name = "id") final int id) {

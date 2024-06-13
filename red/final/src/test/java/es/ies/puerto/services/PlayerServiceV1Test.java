@@ -72,11 +72,5 @@ class PlayerServiceV1Test {
 
         Assertions.assertTrue(true);
     }
-    @Test
-    void obtainItemTest() {
-        when(iPlayerController.obtainItem(anyInt(),anyInt())).thenReturn(new PlayerDto());
-        PlayerDto biomeDto = playerServiceV1.obtainItem(1,1);
 
-        Assertions.assertNotNull(biomeDto);
-    }
 }

@@ -70,6 +70,9 @@ public class PlayerController implements IPlayerController {
             if (itemOptional.isPresent()) {
                 Item item = itemOptional.get();
                 items.add(item);
+                if (item.getPlayers() == null) {
+                    item.setPlayers(new ArrayList<>());
+                }
                 item.getPlayers().add(player);
             }
 
@@ -83,20 +86,6 @@ public class PlayerController implements IPlayerController {
         iPlayerRepository.deleteById(id);
     }
 
-    @Override
-    public PlayerDto obtainItem(int idPlayer, int idItem) {
-        Optional<Player> playerOptional = iPlayerRepository.findById(idPlayer);
-        Optional<Item> itemOptional = iItemRepository.findById(idPlayer);
-        if (!playerOptional.isPresent()|| !itemOptional.isPresent()) {
-            return new PlayerDto();
-        }
-        Player player = playerOptional.get();
-        Item item = itemOptional.get();
-        player.getItems().add(item);
-        item.getPlayers().add(player);
-        iPlayerRepository.save(player);
-        iItemRepository.save(item);
-        return PlayerMapper.INSTANCE.toPlayerDto(player);
-    }
+
 
 }

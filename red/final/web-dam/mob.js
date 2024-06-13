@@ -1,8 +1,11 @@
 const getMobsButton = document.getElementById('getMobs');
 const getMobByIdButton = document.getElementById('getMobById');
+const deleteMobByIdButton = document.getElementById('deleteMobById');
 let getMobByIdText = document.getElementById('idMob');
+let deleteByIdText = document.getElementById('idMobDelete');
 getMobsButton.addEventListener('click', fetchInfoMobs);
 getMobByIdButton.addEventListener('click', fetchInfoMob);
+deleteMobByIdButton.addEventListener('click', fetchInfoMob);
 
 function fetchInfoMobs() {
     let url = 'http://localhost:25565/api-rest/mob/';

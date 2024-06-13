@@ -97,6 +97,18 @@ class MobControllerTest {
 
         Assertions.assertNotNull(biomeDto);
     }
+
+    @Test
+    void saveNotNullListsTest() {
+        when(iMobRepository.save(any())).thenReturn(new Mob());
+        Item item = new Item();
+        item.setMobs(new ArrayList<>());
+        when(iItemRepository.findById(any())).thenReturn(Optional.of(item));
+        when(iBiomeRepository.findById(any())).thenReturn(Optional.of(new Biome(1, null, new HashSet<>())));
+        MobDto biomeDto = iMobController.save(new MobDto(null, null, null, null, null, new ArrayList<>(Arrays.asList(new ItemDto(null, null, null, null))), new HashSet<>(Arrays.asList(1))));
+
+        Assertions.assertNotNull(biomeDto);
+    }
     @Test
     void saveNotPresentTest() {
         when(iMobRepository.save(any())).thenReturn(new Mob());
