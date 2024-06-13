@@ -1,15 +1,63 @@
 const getMobsButton = document.getElementById('getMobs');
 const getMobByIdButton = document.getElementById('getMobById');
 const deleteMobByIdButton = document.getElementById('deleteMobById');
+const postMob = document.getElementById('postMob');
 let getMobByIdText = document.getElementById('idMob');
 let deleteByIdText = document.getElementById('idMobDelete');
+let nameMobText = document.getElementById('name');
+let attackMobText = document.getElementById('baseAttack');
+let healthMobText = document.getElementById('baseHealth');
+let abilityMobText = document.getElementById('specialAbility');
+let dropListMobText = document.getElementById('dropList');
+let biomesMobText = document.getElementById('biomes');
 getMobsButton.addEventListener('click', fetchInfoMobs);
 getMobByIdButton.addEventListener('click', fetchInfoMob);
 deleteMobByIdButton.addEventListener('click', fetchInfoMob);
+postMob.addEventListener('click', fetchPostMob);
 
 function fetchInfoMobs() {
     let url = 'http://localhost:25565/api-rest/mob/';
     fetchGetUrl(url);
+}
+function fetchPostMob() {
+    let url = 'http://localhost:25565/api-rest/mob/'
+    fetchPostUrl(url);
+}
+
+function fetchPostUrl(url) {
+    const items = dropListMobText.value.split(',');
+    console.log(items);
+    let dropListFormat = ``;
+    items.forEach(item => {
+        dropListFormat += `
+        {id: ${item}},`
+    });
+    console.log(dropListFormat)
+    dropListFormat = dropListFormat.slice(0, -1);
+    console.log(dropListFormat)
+    fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+            name: nameMobText.value,
+            baseHealth: healthMobText.value,
+            baseAttack: attackMobText.value,
+            specialAbility: abilityMobText.value,
+            dropList: [
+                {
+                    id: 1
+                }
+            ],
+            biomesIds: [
+                {
+                    id: 1
+                }
+            ]
+        }),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    });
+
 }
 
 function fetchInfoMob() {

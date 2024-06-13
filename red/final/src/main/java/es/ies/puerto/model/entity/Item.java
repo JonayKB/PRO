@@ -29,7 +29,9 @@ public class Item implements Serializable {
 
     public Item() {
     }
-
+    public Item(Integer id) {
+        this.id = id;
+    }
     public Item(Integer id, String name) {
         this.id = id;
         this.name = name;
