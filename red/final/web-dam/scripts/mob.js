@@ -12,8 +12,11 @@ let dropListMobText = document.getElementById('dropList');
 let biomesMobText = document.getElementById('biomes');
 getMobsButton.addEventListener('click', fetchInfoMobs);
 getMobByIdButton.addEventListener('click', fetchInfoMob);
-deleteMobByIdButton.addEventListener('click', fetchInfoMob);
+deleteMobByIdButton.addEventListener('click', fetchDeleteMob);
 postMob.addEventListener('click', fetchPostMob);
+const mobZone = document.getElementById('mob');
+const mobsZone = document.getElementById('mobs');
+const mobPostZone = document.getElementById('mobPosted');
 
 function fetchInfoMobs() {
     let url = 'http://localhost:25565/api-rest/mob/';
@@ -23,41 +26,43 @@ function fetchPostMob() {
     let url = 'http://localhost:25565/api-rest/mob/'
     fetchPostUrl(url);
 }
+function fetchDeleteMob(){
+    let url = 'http://localhost:25565/api-rest/mob/'
+    fetchDeleteUrl(url,deleteByIdText.value);
+}
+function fetchDeleteUrl(url,id){
+    fetch(url+id, {
+        method: "DELETE"
+    })
+}
 
 function fetchPostUrl(url) {
     const items = dropListMobText.value.split(',');
-    console.log(items);
-    let dropListFormat = ``;
+    const biomesIds = biomesMobText.value.split(',');
+    let dropListFormat = [];
+    let biomesFormat = [];
     items.forEach(item => {
-        dropListFormat += `
-        {id: ${item}},`
+        dropListFormat.push({ id: item })
     });
-    console.log(dropListFormat)
-    dropListFormat = dropListFormat.slice(0, -1);
-    console.log(dropListFormat)
-    fetch(url, {
+    biomesIds.forEach(biome => {
+        biomesFormat.push(parseInt(biome))
+    });
+
+    let response=fetch(url, {
         method: "POST",
         body: JSON.stringify({
             name: nameMobText.value,
             baseHealth: healthMobText.value,
             baseAttack: attackMobText.value,
             specialAbility: abilityMobText.value,
-            dropList: [
-                {
-                    id: 1
-                }
-            ],
-            biomesIds: [
-                {
-                    id: 1
-                }
-            ]
+            dropList: dropListFormat,
+            biomesIds: biomesFormat
         }),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
     });
-
+    response.then(response => response.json()).then(jsonObj => displayMob(jsonObj,mobPostZone))
 }
 
 function fetchInfoMob() {
@@ -75,7 +80,7 @@ function displayForType(object) {
     if (object.length > 1) {
         displayMobs(object)
     } else {
-        displayMob(object)
+        displayMob(object,mobZone)
     }
 }
 
@@ -114,12 +119,11 @@ function displayMobs(mobs) {
     
     </div>
     `
-    const mobsZone = document.getElementById('mobs');
     mobsZone.innerHTML = templateMobs;
 
 }
 
-function displayMob(mob) {
+function displayMob(mob,zone) {
     let items = ``
     mob.dropList.forEach(item => {
         items += item.id + ",";
@@ -155,7 +159,6 @@ function displayMob(mob) {
     
     </div>
     `
-    const mobZone = document.getElementById('mob');
-    mobZone.innerHTML = templateMob;
-
+    
+    zone.innerHTML = templateMob;
 }
