@@ -3,23 +3,29 @@ const getMobByIdButton = document.getElementById('getMobById');
 let getMobByIdText = document.getElementById('idMob');
 getMobsButton.addEventListener('click', fetchInfoMobs);
 getMobByIdButton.addEventListener('click', fetchInfoMob);
-console.log(getMobByIdText.ariaValueNow)
 
 function fetchInfoMobs() {
-    console.log("aaaaa");
-    fetch('http://localhost:25565/api-rest/mob/')
-        .then(response => response.json())
-        .then(jsonObj => displayMobs(jsonObj))
-        .catch(() => alert('La respuesta no ha sido valida'));
+    let url = 'http://localhost:25565/api-rest/mob/';
+    fetchGetUrl(url);
 }
 
 function fetchInfoMob() {
-    console.log("oiiiiii");
-    console.log(getMobByIdText.value)
-    fetch('http://localhost:25565/api-rest/mob/'+getMobByIdText.value )
+    let url = 'http://localhost:25565/api-rest/mob/' + getMobByIdText.value;
+    fetchGetUrl(url);
+}
+function fetchGetUrl(url) {
+    fetch(url)
         .then(response => response.json())
-        .then(jsonObj => displayMob(jsonObj))
+        .then(jsonObj => displayForType(jsonObj))
         .catch(() => alert('La respuesta no ha sido valida'));
+}
+
+function displayForType(object) {
+    if (object.length > 1) {
+        displayMobs(object)
+    } else {
+        displayMob(object)
+    }
 }
 
 function displayMobs(mobs) {

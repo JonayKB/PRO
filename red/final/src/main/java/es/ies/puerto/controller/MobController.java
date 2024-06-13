@@ -90,6 +90,9 @@ public class MobController implements IMobController {
             if (itemOptional.isPresent()) {
                 Item item = itemOptional.get();
                 items.add(item);
+                if (item.getMobs() == null) {
+                    item.setMobs(new ArrayList<>());
+                }
                 item.getMobs().add(mob);
             }
 
@@ -102,6 +105,9 @@ public class MobController implements IMobController {
             if (biomeOptional.isPresent()) {
                 Biome biome = biomeOptional.get();
                 biomes.add(biome);
+                if (biome.getSpawnMobs() == null) {
+                    biome.setSpawnMobs(new HashSet<>());
+                }
                 biome.getSpawnMobs().add(mob);
             }
         }
