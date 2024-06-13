@@ -27,6 +27,7 @@ public class DimensionController implements IDimensionController {
     public IBiomeRepository getIBiomeRepository() {
         return this.iBiomeRepository;
     }
+    @Override
     @Autowired
     public void setIBiomeRepository(IBiomeRepository iBiomeRepository) {
         this.iBiomeRepository = iBiomeRepository;
