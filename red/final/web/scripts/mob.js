@@ -1,7 +1,7 @@
-const getMobsButton = document.getElementById('getMobs');
-const getMobByIdButton = document.getElementById('getMobById');
-const deleteMobByIdButton = document.getElementById('deleteMobById');
-const postMob = document.getElementById('postMob');
+const getItemsButton = document.getElementById('getMobs');
+const getItemByIdButton = document.getElementById('getMobById');
+const deleteItemByIdButton = document.getElementById('deleteMobById');
+const postItem = document.getElementById('postMob');
 let getMobByIdText = document.getElementById('idMob');
 let deleteByIdText = document.getElementById('idMobDelete');
 let nameMobText = document.getElementById('name');
@@ -10,23 +10,23 @@ let healthMobText = document.getElementById('baseHealth');
 let abilityMobText = document.getElementById('specialAbility');
 let dropListMobText = document.getElementById('dropList');
 let biomesMobText = document.getElementById('biomes');
-getMobsButton.addEventListener('click', fetchInfoMobs);
-getMobByIdButton.addEventListener('click', fetchInfoMob);
-deleteMobByIdButton.addEventListener('click', fetchDeleteMob);
-postMob.addEventListener('click', fetchPostMob);
+getItemsButton.addEventListener('click', fetchInfoItems);
+getItemByIdButton.addEventListener('click', fetchInfoItem);
+deleteItemByIdButton.addEventListener('click', fetchDeleteItem);
+postItem.addEventListener('click', fetchPostItem);
 const mobZone = document.getElementById('mob');
 const mobsZone = document.getElementById('mobs');
 const mobPostZone = document.getElementById('mobPosted');
 
-function fetchInfoMobs() {
+function fetchInfoItems() {
     let url = 'http://localhost:25565/api-rest/mob/';
     fetchGetUrl(url);
 }
-function fetchPostMob() {
+function fetchPostItem() {
     let url = 'http://localhost:25565/api-rest/mob/'
     fetchPostUrl(url);
 }
-function fetchDeleteMob(){
+function fetchDeleteItem(){
     let url = 'http://localhost:25565/api-rest/mob/'
     fetchDeleteUrl(url,deleteByIdText.value);
 }
@@ -62,10 +62,10 @@ function fetchPostUrl(url) {
             "Content-type": "application/json; charset=UTF-8"
         }
     });
-    response.then(response => response.json()).then(jsonObj => displayMob(jsonObj,mobPostZone))
+    response.then(response => response.json()).then(jsonObj => displayItem(jsonObj,mobPostZone))
 }
 
-function fetchInfoMob() {
+function fetchInfoItem() {
     let url = 'http://localhost:25565/api-rest/mob/' + getMobByIdText.value;
     fetchGetUrl(url);
 }
@@ -78,13 +78,13 @@ function fetchGetUrl(url) {
 
 function displayForType(object) {
     if (object.length > 1) {
-        displayMobs(object)
+        displayItems(object)
     } else {
-        displayMob(object,mobZone)
+        displayItem(object,mobZone)
     }
 }
 
-function displayMobs(mobs) {
+function displayItems(mobs) {
     let objects = ``
     mobs.forEach(mob => {
         let items = ``
@@ -123,7 +123,7 @@ function displayMobs(mobs) {
 
 }
 
-function displayMob(mob,zone) {
+function displayItem(mob,zone) {
     let items = ``
     mob.dropList.forEach(item => {
         items += item.id + ",";

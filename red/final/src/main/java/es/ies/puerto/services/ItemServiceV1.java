@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @RequestMapping("item")
 @CrossOrigin(origins = "*", methods = {RequestMethod.POST,RequestMethod.GET,RequestMethod.DELETE})
-
 public class ItemServiceV1 {
     IItemController iItemController;
 
@@ -50,7 +49,7 @@ public class ItemServiceV1 {
         return iItemController.save(entity);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deleteById(@PathVariable(name = "id") final int id) {
         iItemController.deleteById(id);
     }
